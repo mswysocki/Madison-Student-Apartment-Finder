@@ -1,0 +1,133 @@
+/* CSS Document */
+
+body
+{
+	font-family: "Book Antiqua";
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #eeeeee;
+	color: #eeeeee;
+}
+
+#Constant_View
+{
+	background-color: #cc0000;
+	border: 2px solid;
+	border-radius: 15px;
+	padding: 0px 20px 40px 20px;
+}
+
+#Constant_View h1
+{
+	font-size: 36px;
+	font-weight: bold;
+}
+
+#Constant_View_Bar
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 2px;
+}
+
+#Constant_View_Links
+{
+	font-size: 20px;
+	display: inline;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#Add_Listing
+{
+	float: left;
+}
+
+#Quick_Search
+{
+	width: 150px;
+	float: right;
+	color: #888888;
+	background-color: #eeeeee;
+	border-radius: 25px;
+	padding: 5px;
+}
+
+#Search_Sidebar_View
+{
+	background-color: #cc0000;
+	width: 175px;
+	clear: left;
+	float: left;
+	border: 2px solid;
+	border-radius: 15px;
+	padding: 0px 20px 0px 10px;
+}
+
+#Search_Sidebar_View hr
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 2px;
+}
+
+#Search_Sidebar_Criteria
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 5px;
+}
+
+#Search_Sidebar_Criteria li
+{
+	font-size: 18px;
+}
+
+#Clear_Search_Criteria
+{
+	font-weight: bold;
+}
+
+#Search_Sidebar_Criteria li:hover
+{
+	cursor: pointer;
+	color: #eeeeee;
+	font-weight: bold;
+	border-radius: 15px;	
+	background-color: #aa0000;
+}
+
+#Criteria_Clicked
+{
+	cursor: pointer;
+	color: #eeeeee;
+	font-weight: bold;
+	border-radius: 15px;	
+	background-color: #aa0000;
+	padding: 1px 5px 5px 5px;
+}
+
+#Criteria_Clicked form
+{
+	font-size: 14px;
+	font-weight: normal;
+}
+
+#Search_Home_View
+{
+	background-color: #cc0000;
+	width: 650px;
+	float: right;
+	border: 2px solid;
+	border-radius: 15px;
+	padding: 0px 20px 15px 10px;
+}
+
+#Search_Home_View_Bar
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 5px;
+}
