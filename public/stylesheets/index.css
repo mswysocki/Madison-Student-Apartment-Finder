@@ -82,7 +82,15 @@ body
 
 #Search_Sidebar_Criteria li
 {
-	font-size: 18px;
+	font-size: 19px;
+	transition-property:background-color;
+	transition-duration:2s;
+	transition-timing-function:linear;
+	transition-delay:0s;
+	-webkit-transition-property:background-color;
+	-webkit-transition-duration:2s;
+	-webkit-transition-timing-function:linear;
+	-webkit-transition-delay:0s;
 }
 
 #Clear_Search_Criteria
@@ -94,9 +102,16 @@ body
 {
 	cursor: pointer;
 	color: #eeeeee;
-	font-weight: bold;
 	border-radius: 15px;	
 	background-color: #aa0000;
+	transition-property:background-color;
+	transition-duration:0.15s;
+	transition-timing-function:linear;
+	transition-delay:0s;
+	-webkit-transition-property:background-color;
+	-webkit-transition-duration:0.15s;
+	-webkit-transition-timing-function:linear;
+	-webkit-transition-delay:0s;
 }
 
 #Criteria_Clicked
@@ -130,4 +145,11 @@ body
 	border: 0;
 	background-color: #eeeeee;
 	height: 5px;
+}
+
+input:focus
+{ 
+background-color:#FFEBCD;
+color:red;
+font-weight:bold;
 }
