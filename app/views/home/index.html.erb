@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Madison Student Housing Finder</title>
+	<link href="index.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+
+<!-- Banner -->
+<header id="Constant_View">
+	<h1>Madison Student Housing Finder</h1>
+	<hr id="Constant_View_Bar"/>
+	<ul id="Constant_View_Links">
+    	<li id="Add_Listing">Add a Listing</li>
+		<li id="Quick_Search">Quick Search</li>
+    </ul>
+</header>
+<!-- End Banner -->
+
+<!-- Search Panel -->
+<section id="Search_Sidebar_View">
+	<ul id="Search_Sidebar_Criteria">
+		<li id="Price">
+			<p onclick="setClicked('Price')">Price</p>
+		</li><hr />
+		<li id="Location">
+			<p onclick="setClicked('Location')">Location</p>
+		</li><hr />
+		<li id="Type_of_Residence">
+			<p onclick="setClicked('Type_of_Residence')">Type of Residence</p>
+		</li><hr />
+		<li id="Residence_Details">
+			<p onclick="setClicked('Residence_Details')">Residence Details</p>
+		</li><hr />
+		<li id="Lease_Details">
+			<p onclick="setClicked('Lease_Details')">Lease Details</p>
+		</li><hr />
+		<li id="Utilities">
+			<p onclick="setClicked('Utilities')">Utilities</p>
+		</li><hr />
+		<li id="Accomodations">
+			<p onclick="setClicked('Accomodations')">Accomodations</p>
+		</li><hr />
+		<li id="Restrictions">
+			<p onclick="setClicked('Restrictions')">Restrictions</p>
+		</li><hr />
+		<li id="Clear_Search_Criteria">
+			<p>Clear Search Criteria</p>
+		</li>
+    </ul>
+</section>
+<!-- End Search Panel -->
+
+<!-- Content -->
+<section id="Search_Home_View">
+	<h3>Welcome to Madison Student Housing Finder!</h3>
+	<hr id="Search_Home_View_Bar" />
+	<p>Use the search panel on the left to begin your search.</p>
+</section>
+<!-- End Content -->
+
+</body>
+</html>
