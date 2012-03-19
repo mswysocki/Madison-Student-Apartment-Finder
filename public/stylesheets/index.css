@@ -1,13 +1,21 @@
 /* CSS Document */
 
+body, p, ol, ul, td
+{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #eeeeee;
+}
+
 body
 {
-	font-family: "Book Antiqua";
 	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #eeeeee;
-	color: #eeeeee;
+	background-image: url('white-bg1.jpg');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-size: 100%;
 }
 
 #Constant_View
@@ -20,8 +28,9 @@ body
 
 #Constant_View h1
 {
-	font-size: 36px;
+	font-size: 32px;
 	font-weight: bold;
+	font-style: italic;
 }
 
 #Constant_View_Bar
@@ -82,8 +91,9 @@ body
 
 #Search_Sidebar_Criteria li
 {
-	font-size: 19px;
+	font-size: 16px;
 	border-radius: 15px;
+	padding-left: 5px;
 	transition-property:background-color;
 	transition-duration:2s;
 	transition-timing-function:linear;
@@ -94,22 +104,53 @@ body
 	-webkit-transition-delay:0s;
 }
 
-#Clear_Search_Criteria
-{
-	font-weight: bold;
-}
-
 #Search_Sidebar_Criteria li:hover
 {
 	cursor: pointer;
-	color: #eeeeee;
 	border-radius: 15px;
-	background-color: #aa0000;
+	background-color: #75070E;
 	transition-property:background-color;
 	transition-duration:0.15s;
 	transition-timing-function:linear;
 	transition-delay:0s;
 	-webkit-transition-property:background-color;
+	-webkit-transition-duration:0.15s;
+	-webkit-transition-timing-function:linear;
+	-webkit-transition-delay:0s;
+}
+
+#Clear_Search_Criteria
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 5px;
+}
+
+#Clear_Search_Criteria p
+{
+	font-style: italic;
+	color: #eeeeee;
+	transition-property:color;
+	transition-duration:2s;
+	transition-timing-function:linear;
+	transition-delay:0s;
+	-webkit-transition-property:color;
+	-webkit-transition-duration:2s;
+	-webkit-transition-timing-function:linear;
+	-webkit-transition-delay:0s;
+}
+
+#Clear_Search_Criteria p:hover
+{
+	cursor: pointer;
+	border-radius: 15px;
+	background-color: #cc0000;
+	color: #75070E;
+	transition-property:color;
+	transition-duration:0.15s;
+	transition-timing-function:linear;
+	transition-delay:0s;
+	-webkit-transition-property:color;
 	-webkit-transition-duration:0.15s;
 	-webkit-transition-timing-function:linear;
 	-webkit-transition-delay:0s;
@@ -121,7 +162,7 @@ body
 	color: #eeeeee;
 	font-weight: bold;
 	border-radius: 15px;	
-	background-color: #aa0000;
+	background-color: #75070E;
 	padding: 1px 5px 5px 5px;
 }
 
