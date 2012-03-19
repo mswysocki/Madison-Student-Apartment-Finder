@@ -83,6 +83,7 @@ body
 #Search_Sidebar_Criteria li
 {
 	font-size: 19px;
+	border-radius: 15px;
 	transition-property:background-color;
 	transition-duration:2s;
 	transition-timing-function:linear;
@@ -102,7 +103,7 @@ body
 {
 	cursor: pointer;
 	color: #eeeeee;
-	border-radius: 15px;	
+	border-radius: 15px;
 	background-color: #aa0000;
 	transition-property:background-color;
 	transition-duration:0.15s;
@@ -149,7 +150,7 @@ body
 
 input:focus
 { 
-background-color:#FFEBCD;
-color:red;
-font-weight:bold;
+	background-color:#FFEBCD;
+	color:red;
+	font-weight:bold;
 }
