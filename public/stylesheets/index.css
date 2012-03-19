@@ -21,7 +21,7 @@ body
 #Constant_View
 {
 	background-color: #cc0000;
-	border: 2px solid;
+	border: 2px solid transparent;
 	border-radius: 15px;
 	padding: 0px 20px 40px 20px;
 }
@@ -70,7 +70,7 @@ body
 	width: 175px;
 	clear: left;
 	float: left;
-	border: 2px solid;
+	border: 2px solid transparent;
 	border-radius: 15px;
 	padding: 0px 20px 0px 10px;
 }
@@ -182,7 +182,7 @@ body
 	background-color: #cc0000;
 	width: 650px;
 	float: right;
-	border: 2px solid;
+	border: 2px solid transparent;
 	border-radius: 15px;
 	padding: 0px 20px 15px 10px;
 }
@@ -199,4 +199,9 @@ input:focus
 	background-color:#FFEBCD;
 	color:red;
 	font-weight:bold;
+}
+
+.divider
+{
+	margin: 5px;
 }

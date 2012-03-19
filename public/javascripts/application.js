@@ -1,5 +1,4 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+// JavaScript Document
 
 function displayPriceCriteria()
 {
@@ -23,7 +22,22 @@ function displayResDetailsCriteria()
 
 function displayLeaseDetails()
 {
-	return "<form method=\"GET\">Start Date:<br /><input type=\"radio\" name=\"Start\" value\"Fall\">Fall</input><br /><input type=\"radio\" name=\"Start\" value\"Winter\">Winter</input></form><br /><form method=\"GET\">End Date:<br /><input type=\"radio\" name=\"End\" value\"Winter\">Winter</input><br /><input type=\"radio\" name=\"End\" value\"Spring\">Spring</input><br /><input type=\"radio\" name=\"End\" value\"Summer\">Summer</input></form><br /><form method=\"GET\">Length:<br /><input type=\"radio\" name=\"Length\" value\"6 Months\">6 Months</input><br /><input type=\"radio\" name=\"Length\" value\"9 Months\">9 Months</input><br /><input type=\"radio\" name=\"Length\" value\"12 Months\">12 Months</input>";
+	return "<form method=\"GET\">Start Date:<br /><input type=\"radio\" name=\"Start\" value\"Fall\">Fall</input><br /><input type=\"radio\" name=\"Start\" value\"Winter\">Winter</input></form><br /><form method=\"GET\">End Date:<br /><input type=\"radio\" name=\"End\" value\"Winter\">Winter</input><br /><input type=\"radio\" name=\"End\" value\"Spring\">Spring</input><br /><input type=\"radio\" name=\"End\" value\"Summer\">Summer</input></form><br /><form method=\"GET\">Length:<br /><input type=\"radio\" name=\"Length\" value\"6 Months\">6 Months</input><br /><input type=\"radio\" name=\"Length\" value\"9 Months\">9 Months</input><br /><input type=\"radio\" name=\"Length\" value\"12 Months\">12 Months</input></form>";
+}
+
+function displayUtilityDetails()
+{
+	return "<form method=\"GET\"><input type=\"checkbox\" name=\"Utility\" value=\"Heat\">Heat</input><br /><input type=\"checkbox\" name=\"Utility\" value=\"Water\">Water</input><br /><input type=\"checkbox\" name=\"Utility\" value=\"Electricity\">Electricity</input><br /><input type=\"checkbox\" name=\"Utility\" value=\"Gas\">Gas</input><br /><input type=\"checkbox\" name=\"Utility\" value=\"Garbage\">Garbage Collection</input></form>";
+}
+
+function displayAccomodationsDetails()
+{
+	return "<form method=\"GET\"><input type=\"checkbox\" name=\"Accomodation\" value=\"Parking\">Parking</input><br /><input type=\"checkbox\" name=\"Accomodation\" value=\"Laundry\">Laundry</input><br /><input type=\"checkbox\" name=\"Accomodation\" value=\"Furnishings\">Furnishings</input><br /><input type=\"checkbox\" name=\"Accomodation\" value=\"Yard\">Yard Maintainance & Snow Removal (houses only)</input></form>";
+}
+
+function displayRestrictionsDetails()
+{
+	return "<form method=\"GET\"><input type=\"checkbox\" name=\"Restriction\" value=\"Smoking\">Smoking Allowed</input><br /><input type=\"checkbox\" name=\"Restriction\" value=\"Pets\">Pets Allowed</input></form>";
 }
 
 function setUnclicked(id)
@@ -70,10 +84,13 @@ function setClicked(id)
 			html += displayLeaseDetails();
 			break;
 		case "Utilities":
+			html += displayUtilityDetails();
 			break;
 		case "Accomodations":
+			html += displayAccomodationsDetails();
 			break;
 		case "Restrictions":
+			html += displayRestrictionsDetails();
 			break;
 	}
 	
