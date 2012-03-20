@@ -1,8 +1,7 @@
 class CreateLists < ActiveRecord::Migration
   def self.up
     create_table :lists do |t|
-      t.integer :StreetNum
-      t.string :StreetName
+      t.string :Address
       t.string :City
       t.string :State
       t.integer :Zip
@@ -12,10 +11,10 @@ class CreateLists < ActiveRecord::Migration
       t.integer :Rent
       t.integer :SquareFeet
       t.integer :Parking
-      t.binary :Smoking
+      t.boolean :Smoking
       t.string :Pets
-      t.binary :Heat
-      t.binary :Electric
+      t.boolean :Heat
+      t.boolean :Electric
       t.integer :Flags
 
       t.timestamps
