@@ -1,3 +1,17 @@
+<html>
+
+<head>
+	<title>Add a Listing</title>
+	<%= stylesheet_link_tag 'index' %>
+</head>
+
+
+<body>
+
+<section id="Add_Listing_View">
+<h1>Add a Listing</h1>
+<hr id="Add_Listing_Bar"/>
+
 <%= form_for(@list) do |f| %>
   <% if @list.errors.any? %>
     <div id="error_explanation">
@@ -75,3 +89,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+</section>
+</body>
+</html>
