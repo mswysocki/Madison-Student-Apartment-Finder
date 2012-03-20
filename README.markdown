@@ -7,4 +7,5 @@ easily searchable, simple, and fast.
 
 Members: ...
 
-Feel free to put anything in here.  Or take anything out.  The old readme was useless so this can't hurt.
+I learned how to set up the heroku database with a simple command (assuming you have heroku access).
+It is 'heroku run rake db:migrate --app msaf'. This should do the same as a regular rake on the development environment, I believe.
