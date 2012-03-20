@@ -1,22 +1,22 @@
 class CreateLists < ActiveRecord::Migration
   def self.up
     create_table :lists do |t|
-      t.Int :StreetNum
-      t.String :StreetName
-      t.String :City
-      t.String :State
-      t.Int :Zip
-      t.Int :Region
-      t.Char :Bedrooms
-      t.Float :Bathrooms
-      t.Int :Rent
-      t.Int :SquareFeet
-      t.Int :Parking
+      t.integer :StreetNum
+      t.string :StreetName
+      t.string :City
+      t.string :State
+      t.integer :Zip
+      t.integer :Region
+      t.string :Bedrooms
+      t.float :Bathrooms
+      t.integer :Rent
+      t.integer :SquareFeet
+      t.integer :Parking
       t.binary :Smoking
-      t.Char :Pets
+      t.string :Pets
       t.binary :Heat
       t.binary :Electric
-      t.Int :Flags
+      t.integer :Flags
 
       t.timestamps
     end
