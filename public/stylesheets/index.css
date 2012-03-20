@@ -303,3 +303,25 @@ input:focus
 {
 	margin: 5px;
 }
+
+#Add_Listing_View
+{
+	background-color: #cc0000;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	padding: 0px 20px 40px 20px;
+}
+
+#Add_Listing_View h1
+{
+	font-size: 32px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#Add_Listing_Bar
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 2px;
+}
