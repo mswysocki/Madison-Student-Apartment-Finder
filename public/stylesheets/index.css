@@ -49,9 +49,60 @@ body
 	padding: 0px;
 }
 
+#Constant_View_Links a
+{
+	cursor: pointer;
+	text-decoration: none;
+	color: #eeeeee;
+	transition-property:color;
+	transition-duration:2s;
+	transition-timing-function:linear;
+	transition-delay:0s;
+	-webkit-transition-property:color;
+	-webkit-transition-duration:2s;
+	-webkit-transition-timing-function:linear;
+	-webkit-transition-delay:0s;
+	-o-transition-property:color;
+	-o-transition-duration:2s;
+	-o-transition-timing-function:linear;
+	-o-transition-delay:0s;
+	-moz-transition:color;
+	-moz-transition-duration:2s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:0s;
+}
+
+#Constant_View_Links a:hover
+{
+	cursor:pointer;
+	text-decoration: none;
+	color: #75070E;
+	transition-property:color;
+	transition-duration:0.15s;
+	transition-timing-function:linear;
+	transition-delay:0s;
+	-webkit-transition-property:color;
+	-webkit-transition-duration:0.15s;
+	-webkit-transition-timing-function:linear;
+	-webkit-transition-delay:0s;
+	-o-transition-property:color;
+	-o-transition-duration:0.15s;
+	-o-transition-timing-function:linear;
+	-o-transition-delay:0s;
+	-moz-transition:color;
+	-moz-transition-duration:0.15s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:0s;
+}
+
 #Add_Listing
 {
 	float: left;
+}
+
+#About
+{
+	float: right;
 }
 
 #Search_Sidebar_View
@@ -96,12 +147,26 @@ body
 	-webkit-transition-duration:2s;
 	-webkit-transition-timing-function:linear;
 	-webkit-transition-delay:0s;
+	-o-transition-property:background-color;
+	-o-transition-duration:2s;
+	-o-transition-timing-function:linear;
+	-o-transition-delay:0s;
+	-moz-transition:background-color;
+	-moz-transition-duration:2s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:0s;
 }
 
 #Search_Sidebar_Criteria form
 {
 	font-size: 14px;
 	font-weight: normal;
+}
+
+#Price_Ops_Vis input, #Location_Ops_Vis input,
+#Details_Ops_Vis input
+{
+	width: 125px;
 }
 
 #Price_Ops_Invis, #Location_Ops_Invis, #Type_Ops_Invis,
@@ -143,6 +208,14 @@ body
 	-webkit-transition-duration:0.15s;
 	-webkit-transition-timing-function:linear;
 	-webkit-transition-delay:0s;
+	-o-transition-property:background-color;
+	-o-transition-duration:0.15s;
+	-o-transition-timing-function:linear;
+	-o-transition-delay:0s;
+	-moz-transition:background-color;
+	-moz-transition-duration:0.15s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:0s;
 }
 
 #Clear_Search_Criteria
@@ -164,6 +237,14 @@ body
 	-webkit-transition-duration:2s;
 	-webkit-transition-timing-function:linear;
 	-webkit-transition-delay:0s;
+	-o-transition-property:color;
+	-o-transition-duration:2s;
+	-o-transition-timing-function:linear;
+	-o-transition-delay:0s;
+	-moz-transition:color;
+	-moz-transition-duration:2s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:0s;
 }
 
 #Clear_Search_Criteria p:hover
@@ -180,6 +261,14 @@ body
 	-webkit-transition-duration:0.15s;
 	-webkit-transition-timing-function:linear;
 	-webkit-transition-delay:0s;
+	-o-transition-property:color;
+	-o-transition-duration:0.15s;
+	-o-transition-timing-function:linear;
+	-o-transition-delay:0s;
+	-moz-transition:color;
+	-moz-transition-duration:0.15s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:0s;
 }
 
 #Search_Home_View
