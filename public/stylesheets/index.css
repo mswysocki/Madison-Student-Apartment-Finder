@@ -54,16 +54,6 @@ body
 	float: left;
 }
 
-#Quick_Search
-{
-	width: 150px;
-	float: right;
-	color: #888888;
-	background-color: #eeeeee;
-	border-radius: 25px;
-	padding: 5px;
-}
-
 #Search_Sidebar_View
 {
 	background-color: #cc0000;
@@ -75,16 +65,16 @@ body
 	padding: 0px 20px 0px 10px;
 }
 
-#Search_Sidebar_View p
-{
-	font-size: 16px;
-}
-
 #Search_Sidebar_View hr
 {
 	border: 0;
 	background-color: #eeeeee;
 	height: 2px;
+}
+
+#Search_Sidebar_View p
+{
+	font-size: 16px;
 }
 
 #Search_Sidebar_Criteria
@@ -106,6 +96,38 @@ body
 	-webkit-transition-duration:2s;
 	-webkit-transition-timing-function:linear;
 	-webkit-transition-delay:0s;
+}
+
+#Search_Sidebar_Criteria form
+{
+	font-size: 14px;
+	font-weight: normal;
+}
+
+#Price_Ops_Invis, #Location_Ops_Invis, #Type_Ops_Invis,
+#Details_Ops_Invis, #Lease_Ops_Invis, #Utils_Ops_Invis,
+#Accoms_Ops_Invis, #Restricts_Ops_Invis
+{
+	display: none;
+}
+
+
+#Price_Ops_Vis, #Location_Ops_Vis, #Type_Ops_Vis,
+#Details_Ops_Invis, #Lease_Ops_Vis, #Utils_Ops_Vis,
+#Accoms_Ops_Vis, #Restricts_Ops_Vis
+{
+	display: all;
+}
+
+#Price_All, #Location_All, #Type_of_Res_All, #Res_Details_All,
+#Lease_Details_All, #Utils_All, #Accoms_All, #Restricts_All
+{
+	cursor: pointer;
+	color: #eeeeee;
+	font-weight: bold;
+	border-radius: 15px;	
+	background-color: #75070E;
+	padding: 1px 5px 5px 5px;
 }
 
 #Search_Sidebar_Criteria li:hover
@@ -158,22 +180,6 @@ body
 	-webkit-transition-duration:0.15s;
 	-webkit-transition-timing-function:linear;
 	-webkit-transition-delay:0s;
-}
-
-#Criteria_Clicked
-{
-	cursor: pointer;
-	color: #eeeeee;
-	font-weight: bold;
-	border-radius: 15px;	
-	background-color: #75070E;
-	padding: 1px 5px 5px 5px;
-}
-
-#Criteria_Clicked form
-{
-	font-size: 14px;
-	font-weight: normal;
 }
 
 #Search_Home_View
