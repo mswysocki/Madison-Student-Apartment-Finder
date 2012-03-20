@@ -17,5 +17,7 @@ test:
 production:
   adapter: postgresql
   database: db/production.postgresql
+  username: postgres
+  password: password
   pool: 5
   timeout: 5000
