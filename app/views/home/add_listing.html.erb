@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Add a Listing</title>
+		<%= stylesheet_link_tag 'index' %>
+	</head>
+
+	<body>
+		<section id="Add_Listing_View">
+			<h1>Add a Listing</h1>
+			<hr id="Add_Listing_Bar"/>
+
+		<div id="form">
+			<form action="resume.php" method="post" >
+
+				<fieldset>
+					<legend>Type of Residence</legend>
+					<input type="radio" name="residenceType" value="apartment" id="apartment" />
+					<label for="apartment">Apartment</label>
+					<input type="radio" name="residenceType" value="house" id="house" />
+					<label for="house">House</label>
+					<input type="radio" name="residenceType" value="townhouse" id="townhouse" />
+					<label for="townhouse">Townhouse</label>
+				</fieldset>
+
+				<label for="residenceType2">Type of Residence</label>
+				<select name="residenceType2" id="residenceType2">
+					<option value="apartment">Apartment</option>
+					<option value="house">House</option>
+					<option value="townhouse">Townhouse</option>
+				</select>
+
+				<label for="name">Name</label>
+				<input type="text" name="name" id="name" />
+
+				<label for="address">Address</label>
+				<textarea cols="45" rows="4" id="address" name="address"></textarea>
+
+				<label for="price">Price</label>
+				<input type="text" name="price" id="price" />
+
+				<input type="submit" name="submit" value="Add" />
+				<input type="reset" name="reset" value="Reset" />
+			</form>
+		</div>
+		</section>
+
+	</body
+
+</html>
