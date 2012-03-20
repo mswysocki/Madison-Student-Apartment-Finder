@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+  
+    List.create!(:Address => "18 Lathrop St.", :City => "Madison", :State => "Wisconsin", :Zip => 53726, :Region => 3, :Bedrooms => 3, :Bathrooms => 1, :Rent => 1600, :Parking => 0, :Smoking => 0, :Pets => "None", :Heat => 0, :Flags => 10)
+    List.create!(:Address => "412 Paunack Pl", :City => "Madison", :State => "Wisconsin", :Zip => 53726, :Region => 3, :Bedrooms => 3, :Bathrooms => 1, :Rent => 1400, :Parking => 2, :Smoking => 0, :Pets => "None", :Heat => 1, :Flags => 5)
