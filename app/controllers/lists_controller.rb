@@ -19,6 +19,7 @@ class ListsController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @list }
     end
+    @title = @list.Address
   end
 
   # GET /lists/new
