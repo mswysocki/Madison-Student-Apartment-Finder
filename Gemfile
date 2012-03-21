@@ -13,6 +13,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+#gem 'attribute-defaults'
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -1,6 +1,21 @@
 #<<<<<<< HEAD
 MadisonStudentApartmentFinder::Application.routes.draw do
   resources :lists
+  
+  #Tried to get our own routes set up with what was done.  If you uncomment, then you can see the issues at /listings
+  #match '/listings' =>           'lists#index',      :action => 'GET',     :as => :lists
+  #match '/listings/:id' =>       'lists#show',       :action => 'GET',     :as => :listing_show
+  #match '/listings/:id/edit' =>  'lists#edit',       :action => 'GET',     :as => :listing_edit
+  #match '/listings/:id' =>       'lists#destroy',    :action => 'DESTROY', :as => :listing_delete
+  #match '/listings/new' =>       'lists#new',        :action => 'GET',     :as => :listing_create
+  
+  #If you are going to test the above, some URLs in the files will have to change (shown below): 
+  # <%= link_to 'Edit', listing_edit_path(@list) %> |
+  # <%= link_to 'Back', lists_path %>    (at bottom of show.html.erb)
+  # <td><%= link_to 'Show', listing_show_path(list) %></td>
+  #  <td><%= link_to 'Edit', listing_edit_path(list) %></td>
+  #  <td><%= link_to 'Destroy', listing_delete_path(list), :confirm => 'Are you sure?', :method => :delete %></td>
+  # (Towards the bottom of index.html.erb)
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
