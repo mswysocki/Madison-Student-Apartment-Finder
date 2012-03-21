@@ -24,10 +24,8 @@ class ListsController < ApplicationController
 
   # GET /lists/new
   # GET /lists/new.xml
-  # This works as the create() method in from the spec.  Creates a new listing
-  # while automatically making certain that the zip code, address, rent, and rooms
-  # are all valid.  
-  # Default values for City => "Madison" and State => "Wisconsin"
+  # This works along with the create() method below.  This method launches a 
+  # page (new.html) that works as a form for the creation of a Listing.
   def new
     @list = List.new
 
@@ -40,10 +38,16 @@ class ListsController < ApplicationController
   # GET /lists/1/edit
   def edit
     @list = List.find(params[:id])
+    List.pre_edit(@list)
   end
 
   # POST /lists
   # POST /lists.xml
+  # Works as the create() method from the spec.  Creates a new Listing object 
+  # given the input from the form (on listing/new.html) 
+  # Auto-checks a variety of things, including making sure zip code, address,
+  # rent, and number of rooms are all valid.
+  # Default values for City => "Madison" and State => "Wisconsin"
   def create
     @list = List.new(params[:list])
 
@@ -61,6 +65,10 @@ class ListsController < ApplicationController
   # PUT /lists/1
   # PUT /lists/1.xml
   def update
+    
+    
+    
+    #below is what we want for adminUpdate - free access
     @list = List.find(params[:id])
 
     respond_to do |format|

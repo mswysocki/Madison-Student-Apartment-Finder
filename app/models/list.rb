@@ -22,5 +22,17 @@ class List < ActiveRecord::Base
     self.State ||= "Wisconsin"
     self.Flags ||= 0
   end
+  
+  def self.pre_edit(list)
+    @pre_edit = list
+    puts list.to_s
+  end
+  
+  def self.post_edit(list)
+    @post_edit = list
+  end
+  
+  
+  
 
 end
