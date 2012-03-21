@@ -24,6 +24,10 @@ class ListsController < ApplicationController
 
   # GET /lists/new
   # GET /lists/new.xml
+  # This works as the create() method in from the spec.  Creates a new listing
+  # while automatically making certain that the zip code, address, rent, and rooms
+  # are all valid.  
+  # Default values for City => "Madison" and State => "Wisconsin"
   def new
     @list = List.new
 
