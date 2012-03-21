@@ -304,7 +304,7 @@ input:focus
 	margin: 5px;
 }
 
-#Add_Listing_View
+#Listing_View
 {
 	background-color: #cc0000;
 	border: 2px solid transparent;
@@ -312,14 +312,14 @@ input:focus
 	padding: 0px 20px 40px 20px;
 }
 
-#Add_Listing_View h1
+#Listing_View h1
 {
 	font-size: 32px;
 	font-weight: bold;
 	font-style: italic;
 }
 
-#Add_Listing_Bar
+#Listing_View_Bar
 {
 	border: 0;
 	background-color: #eeeeee;
