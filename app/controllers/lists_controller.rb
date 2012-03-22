@@ -22,6 +22,7 @@ class ListsController < ApplicationController
     @search = List.search(params[:search])
     @test = params[:search]   #used for hiding
     @lists = @search.all
+    
     @list = List.find(params[:id])
 
     respond_to do |format|
