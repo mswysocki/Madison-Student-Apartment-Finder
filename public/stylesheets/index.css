@@ -1,5 +1,6 @@
 /* CSS Document */
 
+/* Generic text and page styling */
 body, p, ol, ul, td
 {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -18,7 +19,9 @@ body
 	background-attachment:fixed;
 	background-size: 100%;
 }
+/* End Generic text and page styling */
 
+/* Banner styling */
 #Constant_View
 {
 	background-color: #cc0000;
@@ -106,7 +109,9 @@ body
 {
 	float: right;
 }
+/* End Banner styling */
 
+/* Search panel styling */
 #Search_Sidebar_View
 {
 	background-color: #cc0000;
@@ -273,6 +278,15 @@ body
 	-moz-transition-delay:0s;
 }
 
+input:focus
+{ 
+	background-color:#FFEBCD;
+	color:red;
+	font-weight:bold;
+}
+/* End Search panel styling */
+
+/* Home page content area styling */
 #Search_Home_View
 {
 	font-size: 14px;
@@ -291,18 +305,14 @@ body
 	background-color: #eeeeee;
 	height: 5px;
 }
+/* End Home page content area styling */
 
-input:focus
-{ 
-	background-color:#FFEBCD;
-	color:red;
-	font-weight:bold;
-}
-
+/* Generic divider styling */
 .divider
 {
 	margin: 5px;
 }
+/* End Generic divider styling */
 
 #Listing_View
 {
@@ -325,3 +335,27 @@ input:focus
 	background-color: #eeeeee;
 	height: 2px;
 }
+
+/* Add Listing page styling */
+#Add_Listing_Title
+{
+	font-size: 32px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#Add_Listing_Bar
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 2px;
+}
+
+#Add_Listing_Form
+{
+	background-color: #cc0000;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	padding: 0px 20px 40px 20px;
+}
+/* End Add Listing page styling */
