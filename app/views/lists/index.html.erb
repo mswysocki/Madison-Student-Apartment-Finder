@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Lists in Database</title>
+	<title>Search Results</title>
 	<% stylesheet_link_tag 'index' %>
 </head>
 
@@ -10,12 +10,12 @@
 
 	<%= render 'home/banner' %>
 	<div class="divider"></div>
-
+	
 
 	
 <section id="Listing_View" >
 <% unless @test.nil? %>
-<h1>Lists in Database</h1>
+<h1>Search Results</h1>
 <hr id="Listing_View_Bar"/>
 
 <table>
@@ -100,77 +100,6 @@
 </table>
 <% end %>
 
-
-<br />
-	<h1>Search the Database</h1>
-	<h3>There are many different ways to search (WORK IN PROGRESS)</h3>
-	<%= form_for @search do |f| %>
-		<p>
-			<%= f.label :Address_contains, "Address" %>
-			<%= f.text_field :Address_contains %>
-		</p>
-		<p>
-			<%= f.label :Zip_eq, "Zip Code" %>
-			<%= f.text_field :Zip_eq %>
-		</p>
-		<p>
-			<%= f.label :Bedrooms_eq, "Number of Bedrooms" %>
-			<%= f.text_field :Bedrooms_eq %>
-		</p>
-		<p>
-			<%= f.label :Bedrooms_gte, "Bathrooms range from" %>
-			<%= f.text_field :Bathrooms_gte %>
-			<%= f.label :Bedrooms_lte, "to" %>
-			<%= f.text_field :Bathrooms_lte %>
-		</p>
-		<p>
-			<%= f.label :Rent_gte, "Rent from" %>
-			<%= f.text_field :Rent_gte %>
-			<%= f.label :Rent_lte, "to" %>
-			<%= f.text_field :Rent_lte %>
-		</p>
-		<p>
-			<%= f.label :SquareFeet_gte, "Square Footage: From" %>
-			<%= f.text_field :SquareFeet_gte %>
-			<%= f.label :SquareFeet_lte, "to" %>
-			<%= f.text_field :SquareFeet_lte %>
-		</p>
-		<p>
-		 <b><%= f.label :Utilities, "Utilities" %></b><br />
-			<%= f.label :Heat_is_true, "Heat" %>
-			<%= f.check_box :Heat_is_true %>
-			<%= f.label :Electric_is_true, "Electric" %>
-			<%= f.check_box :Electric_is_true %>
-			<%= f.label :Gas_is_true, "Gas" %>
-			<%= f.check_box :Gas_is_true %>
-			<%= f.label :GarbageCollection_is_true, "Garbage Collection" %>
-			<%= f.check_box :GarbageCollection_is_true %>
-		</p>
-		<p>
-			<b><%= f.label :Accommodations, "Accomodations "%></b><br />
-			<%= f.label :Parking_is_true, "Parking" %>
-			<%= f.check_box :Parking_is_true %>
-			<%= f.label :Laundry_is_true, "Laundry" %>
-			<%= f.check_box :Laundry_is_true %>
-			<%= f.label :Furnished_is_true, "Furnished" %>
-			<%= f.check_box :Furnished_is_true %>
-		</p>
-		<p>
-			<b><%= f.label :Restrictions, "Restrictions"%></b><br />
-			<%= f.label :Smoking_is_true, "Smoking" %>
-			<%= f.check_box :Smoking_is_true %>
-			<%= f.label :Pets_contains, "Pet(s) allowed" %>
-			<%= f.text_field :Pets_contains %>
-		</p>
-		<p>
-			<b><%= f.label :Length_eq, "Length:" %></b><br />
-			<%= f.radio_button :Length_eq, 6 %> 6 Months <br />
-			<%= f.radio_button :Length_eq, 9 %> 9 Months <br />
-			<%= f.radio_button :Length_eq, 12, :checked => true %> 12 Months <br />
-		</p>
-		
-		<p class="button"><%= f.submit "Search" %></p>
-	<% end %>
 
 <%= link_to 'New List', new_list_path %>
 

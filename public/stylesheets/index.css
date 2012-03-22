@@ -427,3 +427,17 @@ input:focus
   font-weight:bold;
   display: table;
 }
+
+
+#Results_View
+{
+/*	z-index:-1;
+	bottom:130px;*/
+	background-color: #cc0000;
+	width: 650px;
+	clear: right;
+	float: right;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	padding: 0px 20px 0px 10px;
+}
