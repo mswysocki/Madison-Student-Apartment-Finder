@@ -1,14 +1,16 @@
-<html>
+<html>rr
 <section id="Search_Sidebar_View">
+	<%= form_for @search do |f| %>
 	<ul id="Search_Sidebar_Criteria">
 		<li id="Price">
 			<div id="PriceHandler" class="menuOption" >
 				<p onclick="showPrice('Price_Ops_Invis')">Price</p>
 			</div>
 			<div id="Price_Ops_Invis">
-				<form method="GET">
-					<input type="text" name="Price" value="Maximum Price"/>
-				</form>
+				<%= f.label :Rent_gte, "from" %>
+				<%= f.text_field :Rent_gte %> <br />
+				<%= f.label :Rent_lte, "to" %>
+				<%= f.text_field :Rent_lte %>
 			</div>
 		</li><hr />
 		<li id="Location">
@@ -16,9 +18,8 @@
 				<p onclick="showLocation('Location_Ops_Invis')">Location</p>
 			</div>
 			<div id="Location_Ops_Invis">
-				<form method="GET">
-					<input class="selectable" type="text" name="Location" value="Address"/>
-				</form>
+				<%= f.label :Address_contains, "Address" %>
+				<%= f.text_field :Address_contains %>
 			</div>
 		</li><hr />
 		<li id="Type_of_Res">
@@ -44,13 +45,14 @@
 				<p onclick="showDetails('Details_Ops_Invis')">Residence Details</p>
 			</div>
 			<div id="Details_Ops_Invis">
-				<form method="GET">
-					Number of Bedrooms<br />
-					<input class="selectable" type="text" name="Bedrooms" value="Maximum 8" />
-					<br /><br />
-					Number of Bathrooms<br />
-					<input class="selectable" type="text" name="Bathrooms" value="Maximum 4" />
-				</form>
+				<%= f.label :Bedrooms_eq, "Bedrooms" %>
+				<%= f.text_field :Bedrooms_eq %> <br />
+				<%= f.label :Bedrooms_eq, "Bathrooms" %>
+				<%= f.text_field :Bathrooms_eq %> <br />
+				<%= f.label :SquareFeet_gte, "Square Footage: From" %>
+				<%= f.text_field :SquareFeet_gte %>
+				<%= f.label :SquareFeet_lte, "to" %>
+				<%= f.text_field :SquareFeet_lte %>
 			</div>
 		</li><hr />
 		<li id="Lease_Details">
@@ -58,40 +60,10 @@
 				<p onclick="showLease('Lease_Ops_Invis')">Lease Details</p>
 			</div>
 			<div id="Lease_Ops_Invis">
-				<form method="GET">
-					Start Date:<br />
-					<input type="radio" name="Start" value"Fall">
-						Fall
-					</input><br />
-					<input type="radio" name="Start" value"Winter">
-						Winter
-					</input>
-				</form>
-				<br />
-				<form method="GET">
-					End Date:<br />
-					<input type="radio" name="End" value"Winter">
-						Winter
-					</input><br />
-					<input type="radio" name="End" value"Spring">
-						Spring
-					</input><br />
-					<input type="radio" name="End" value"Summer">
-						Summer
-					</input>
-				</form><br />
-				<form method="GET">
-					Length:<br />
-					<input type="radio" name="Length" value"6 Months">
-						6 Months
-					</input><br />
-					<input type="radio" name="Length" value"9 Months">
-						9 Months
-					</input><br />
-					<input type="radio" name="Length" value"12 Months">
-						12 Months
-					</input>
-				</form>
+				<b><%= f.label :Length_eq, "Length:" %></b><br />
+				<%= f.radio_button :Length_eq, 6 %> 6 Months <br />
+				<%= f.radio_button :Length_eq, 9 %> 9 Months <br />
+				<%= f.radio_button :Length_eq, 12 %> 12 Months <br />
 			</div>
 		</li><hr />
 		<li id="Utilities">
@@ -99,23 +71,15 @@
 				<p onclick="showUtils('Utils_Ops_Invis')">Utilities</p>
 			</div>
 			<div id="Utils_Ops_Invis">
-				<form method="GET">
-					<input type="checkbox" name="Utility" value="Heat">
-						Heat
-					</input><br />
-					<input type="checkbox" name="Utility" value="Water">
-						Water
-					</input><br />
-					<input type="checkbox" name="Utility" value="Electricity">
-						Electricity
-					</input><br />
-					<input type="checkbox" name="Utility" value="Gas">
-						Gas
-					</input><br />
-					<input type="checkbox" name="Utility" value="Garbage">
-						Garbage Collection
-					</input>
-				</form>
+				<%= f.check_box :Heat_is_true %>
+				<%= f.label :Heat_is_true, "Heat" %> <br />
+				<%= f.check_box :Electric_is_true %> 
+				<%= f.label :Electric_is_true, "Electric" %> <br />
+				<%= f.check_box :Gas_is_true %> 
+				<%= f.label :Gas_is_true, "Gas" %> <br />
+				<%= f.check_box :GarbageCollection_is_true %>
+				<%= f.label :GarbageCollection_is_true, "Garbage Collection" %>
+				
 			</div>
 		</li><hr />
 		<li id="Accomodations">
@@ -123,20 +87,12 @@
 				<p onclick="showAccoms('Accoms_Ops_Invis')">Accomodations</p>
 			</div>
 			<div id="Accoms_Ops_Invis">
-				<form method="GET">
-					<input type="checkbox" name="Accomodation" value="Parking">
-						Parking
-					</input><br />
-					<input type="checkbox" name="Accomodation" value="Laundry">
-						Laundry
-					</input><br />
-					<input type="checkbox" name="Accomodation" value="Furnishings">
-						Furnishings
-					</input><br />
-					<input type="checkbox" name="Accomodation" value="Yard">
-						Yard Maintainance / Snow Removal (houses only)
-					</input>
-				</form>
+				<%= f.check_box :Parking_is_true %>
+				<%= f.label :Parking_is_true, "Parking" %> <br />
+				<%= f.check_box :Laundry_is_true %>
+				<%= f.label :Laundry_is_true, "Laundry" %> <br />
+				<%= f.check_box :Furnished_is_true %>
+				<%= f.label :Furnished_is_true, "Furnished" %>
 			</div>
 		</li><hr />
 		<li id="Restrictions">
@@ -144,17 +100,17 @@
 				<p onclick="showRestricts('Restricts_Ops_Invis')">Restrictions</p>
 			</div>
 			<div id="Restricts_Ops_Invis">
-				<form method="GET">
-					<input type="checkbox" name="Restriction" value="Smoking">
-						Smoking Allowed
-					</input><br />
-					<input type="checkbox" name="Restriction" value="Pets">
-						Pets Allowed
-					</input>
-				</form>
+				<%= f.check_box :Smoking_is_true %>
+				<%= f.label :Smoking_is_true, "Smoking" %> <br />
+				<%= f.text_field :Pets_contains %>
+				<%= f.label :Pets_contains, "Pet(s) allowed" %> <br />
 			</div>
 		</li><hr />
+		<li id="Search">
+			<p class="button"><%= f.submit "Search" %></p>
+		</li>
 	</ul>
+	<% end %>
 	<ul id="Clear_Search_Criteria">
 		<li>
 			<p class="menuOption" >Clear Search Criteria</p>
