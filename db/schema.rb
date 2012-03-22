@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20120319070330) do
     t.boolean  "Heat"
     t.boolean  "Electric"
     t.integer  "Flags"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
