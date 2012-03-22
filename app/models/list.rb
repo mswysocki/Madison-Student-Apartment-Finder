@@ -1,7 +1,13 @@
 class List < ActiveRecord::Base
   attr_accessible :Address, :City, :State, :Zip, :Region, :Bedrooms, 
     :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
-    :Electric, :Flags
+    :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,
+    :Laundry
+  
+  attr_searchable :Address, :City, :State, :Zip, :Region, :Bedrooms,
+    :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
+    :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,
+    :Laundry
   
   #requires that these three are filled in + add some validations
   validates :Address,   :presence => true,
@@ -20,6 +26,8 @@ class List < ActiveRecord::Base
   def default_values
     self.City ||= "Madison"
     self.State ||= "Wisconsin"
+    self.Length ||= 12
+    self.Furnished ||= false
     self.Flags ||= 0
   end
   
@@ -32,7 +40,15 @@ class List < ActiveRecord::Base
     @post_edit = list
   end
   
-  
+  #def self.search(search)
+  #  if search
+  #    find(:all, :conditions => ['Address LIKE ?', "%#{search}%"])
+  #  else
+  #    find(:all)
+  #  end
+  #end
+
+
   
 
 end
