@@ -5,6 +5,7 @@ class ListsController < ApplicationController
   def index
     #@lists = List.all
     @search = List.search(params[:search])
+    @test = params[:search]   #used for hiding
     @lists = @search.all
     
     #@lists = List.all

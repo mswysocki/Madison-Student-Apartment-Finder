@@ -11,21 +11,10 @@
 	<%= render 'banner' %>
 	<div class="divider"></div>
 
-	<!-- Search Panel -->
-	<%= render 'search_panel' %>
-	<!-- End Search Panel -->
 
-	<div class="divider"></div>
-	
-	<p>
-		<%= sort_link @search, :Rent %> |
-		<%= sort_link @search, :Bathrooms %> |
-		<%= sort_link @search, :Pets %> |
-		<%= sort_link @search, :Heat %> |
-		<%= sort_link @search, :Electric%>
-	</p>
 	
 <section id="Listing_View" >
+<% unless @test.nil? %>
 <h1>Lists in Database</h1>
 <hr id="Listing_View_Bar"/>
 
@@ -56,7 +45,6 @@
   </tr>
 
 <% @lists.each do |list| %>
-
   <tr>
     <td><%= list.Address%></td>
     <td><%= list.City %></td>
@@ -82,7 +70,36 @@
     <td><%= link_to 'Destroy', list, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+<!-- 
+  <tr>
+    <td><%= sort_link @search, :Address%></td>
+    <td><%= sort_link @search, :City %></td>
+    <td><%= sort_link @search, :State %></td>
+    <td><%= sort_link @search, :Zip %></td>
+    <td><%= sort_link @search, :Region %></td>
+    <td><%= sort_link @search, :Bedrooms %></td>
+    <td><%= sort_link @search, :Bathrooms %></td>
+    <td><%= sort_link @search, :Rent %></td>
+    <td><%= sort_link @search, :SquareFeet %></td>
+    <td><%= sort_link @search, :Parking %></td>
+    <td><%= sort_link @search, :Smoking %></td>
+    <td><%= sort_link @search, :Pets %></td>
+    <td><%= sort_link @search, :Heat %></td>
+    <td><%= sort_link @search, :Electric %></td>
+    <td><%= sort_link @search, :Gas %></td>
+    <td><%= sort_link @search, :GarbageCollection %></td>
+    <td><%= sort_link @search, :Furnished %></td>
+    <td><%= sort_link @search, :Laundry %></td>
+    <td><%= sort_link @search, :Flags %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+-->
+ 
 </table>
+<% end %>
+
 
 <br />
 	<h1>Search the Database</h1>
