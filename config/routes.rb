@@ -9,6 +9,9 @@ MadisonStudentApartmentFinder::Application.routes.draw do
   #match '/listings/:id' =>       'lists#destroy',    :action => 'DESTROY', :as => :listing_delete
   #match '/listings/new' =>       'lists#new',        :action => 'GET',     :as => :listing_create
   
+  match '/standard_view' => 'home#standard_view', :action => 'GET'
+  match '/new_listing' => 'lists#new', :action => 'GET'
+  
   #If you are going to test the above, some URLs in the files will have to change (shown below): 
   # <%= link_to 'Edit', listing_edit_path(@list) %> |
   # <%= link_to 'Back', lists_path %>    (at bottom of show.html.erb)
