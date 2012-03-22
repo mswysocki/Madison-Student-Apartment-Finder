@@ -4,8 +4,8 @@ MadisonStudentApartmentFinder::Application.routes.draw do
   
   #<%= link_to '[About Us]', about_path %>
   match '/about' =>       'home#about',        :as => :about
-  match '/banner' =>		'home#banner',		:action => 'GET'
-  match '/search_panel' =>		'home#search_panel', :action => 'GET'
+  match '/banner' =>		'home#_banner',		:action => 'GET'
+  match '/search_panel' =>		'home#_search_panel', :action => 'GET'
   match '/new_listing' =>	'lists#new', :action => 'GET'
 
 
