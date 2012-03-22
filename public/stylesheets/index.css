@@ -37,6 +37,13 @@ body
 	font-style: italic;
 }
 
+#Banner_Home_Link, #Banner_Home_Link:visited,
+#Banner_Home_Link:hover
+{
+	cursor: pointer;
+	text-decoration: none;
+}
+
 #Constant_View_Bar
 {
 	border: 0;
@@ -339,26 +346,16 @@ input:focus
 /* Add Listing page styling */
 #Add_Listing_Body
 {
-	width: 900px;
-	margin-left: auto;
-	margin-right: auto;
 	color: #eeeeee;
 	background-color: #cc0000;
 	border: 2px solid transparent;
 	border-radius: 15px;
+	padding: 0px 20px 0px 20px;
 }
 
 #Add_Listing_Title
 {
-	font-size: 32px;
+	font-size: 24px;
 	font-weight: bold;
-	font-style: italic;
-}
-
-#Add_Listing_Bar
-{
-	border: 0;
-	background-color: #eeeeee;
-	height: 2px;
 }
 /* End Add Listing page styling */
