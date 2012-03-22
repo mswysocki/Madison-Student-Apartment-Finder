@@ -24,6 +24,9 @@ body
 /* Banner styling */
 #Constant_View
 {
+/*	position:fixed;
+	height:70px;
+	width:900px;*/
 	background-color: #cc0000;
 	border: 2px solid transparent;
 	border-radius: 15px;
@@ -123,8 +126,10 @@ body
 /* Search panel styling */
 #Search_Sidebar_View
 {
+/*	z-index:-1;
+	bottom:130px;
+	width: 175px;*/
 	background-color: #cc0000;
-	width: 175px;
 	clear: left;
 	float: left;
 	border: 2px solid transparent;
@@ -299,6 +304,9 @@ input:focus
 /* Home page content area styling */
 #Search_Home_View
 {
+/*	z-index:-2;
+	top:130px;
+	right: 510px;*/
 	font-size: 14px;
 	color: #eeeeee;
 	background-color: #cc0000;
