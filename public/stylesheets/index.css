@@ -337,11 +337,12 @@ input:focus
 }
 
 /* Add Listing page styling */
-#Add_Listing
+#Add_Listing_Body
 {
 	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
+	color: #eeeeee;
 	background-color: #cc0000;
 	border: 2px solid transparent;
 	border-radius: 15px;
