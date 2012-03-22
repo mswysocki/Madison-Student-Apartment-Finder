@@ -1,6 +1,6 @@
 <html>
 <header id="Constant_View">
-	<h1><a id="Banner_Home_Link" href="home_page">Madison Student Housing Finder</a></h1>
+	<h1><%= link_to 'Madison Student Housing Finder', home_page_path, :id => "Banner_Home_Link" %></h1> 
 	<hr id="Constant_View_Bar"/>
 	<ul id="Constant_View_Links">
     	<li id="Add_Listing"><%= link_to '[Add a Listing]', new_listing_path %></li>
