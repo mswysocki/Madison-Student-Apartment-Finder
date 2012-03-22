@@ -1,8 +1,8 @@
 <html>
 <section id="Search_Sidebar_View">
-	<ul id="Search_Sidebar_Criteria">	
+	<ul id="Search_Sidebar_Criteria">
 		<li id="Price">
-			<div id="PriceHandler">
+			<div id="PriceHandler" class="menuOption" >
 				<p onclick="showPrice('Price_Ops_Invis')">Price</p>
 			</div>
 			<div id="Price_Ops_Invis">
@@ -12,17 +12,17 @@
 			</div>
 		</li><hr />
 		<li id="Location">
-			<div id="LocationHandler">
+			<div id="LocationHandler" class="menuOption">
 				<p onclick="showLocation('Location_Ops_Invis')">Location</p>
 			</div>
 			<div id="Location_Ops_Invis">
 				<form method="GET">
-					<input type="text" name="Location" value="Address"/>
+					<input class="selectable" type="text" name="Location" value="Address"/>
 				</form>
 			</div>
 		</li><hr />
 		<li id="Type_of_Res">
-			<div id="TypeHandler">
+			<div id="TypeHandler" class="menuOption">
 				<p onclick="showType('Type_Ops_Invis')">Type of Residence</p>
 			</div>
 			<div id="Type_Ops_Invis">
@@ -40,21 +40,21 @@
 			</div>
 		</li><hr />
 		<li id="Res_Details">
-			<div id="DetailsHandler">
+			<div id="DetailsHandler" class="menuOption">
 				<p onclick="showDetails('Details_Ops_Invis')">Residence Details</p>
 			</div>
 			<div id="Details_Ops_Invis">
 				<form method="GET">
 					Number of Bedrooms<br />
-					<input type="text" name="Bedrooms" value="Maximum 8" />
+					<input class="selectable" type="text" name="Bedrooms" value="Maximum 8" />
 					<br /><br />
 					Number of Bathrooms<br />
-					<input type="text" name="Bathrooms" value="Maximum 4" />
+					<input class="selectable" type="text" name="Bathrooms" value="Maximum 4" />
 				</form>
 			</div>
 		</li><hr />
 		<li id="Lease_Details">
-			<div id="LeaseHandler">
+			<div id="LeaseHandler" class="menuOption">
 				<p onclick="showLease('Lease_Ops_Invis')">Lease Details</p>
 			</div>
 			<div id="Lease_Ops_Invis">
@@ -95,7 +95,7 @@
 			</div>
 		</li><hr />
 		<li id="Utilities">
-			<div id="UtilsHandler">
+			<div id="UtilsHandler" class="menuOption">
 				<p onclick="showUtils('Utils_Ops_Invis')">Utilities</p>
 			</div>
 			<div id="Utils_Ops_Invis">
@@ -119,7 +119,7 @@
 			</div>
 		</li><hr />
 		<li id="Accomodations">
-			<div id="AccomsHandler">
+			<div id="AccomsHandler" class="menuOption">
 				<p onclick="showAccoms('Accoms_Ops_Invis')">Accomodations</p>
 			</div>
 			<div id="Accoms_Ops_Invis">
@@ -140,7 +140,7 @@
 			</div>
 		</li><hr />
 		<li id="Restrictions">
-			<div id="RestrictsHandler">
+			<div id="RestrictsHandler" class="menuOption">
 				<p onclick="showRestricts('Restricts_Ops_Invis')">Restrictions</p>
 			</div>
 			<div id="Restricts_Ops_Invis">
@@ -157,7 +157,7 @@
 	</ul>
 	<ul id="Clear_Search_Criteria">
 		<li>
-			<p>Clear Search Criteria</p>
+			<p class="menuOption" >Clear Search Criteria</p>
 		</li>
     </ul>
 </section>

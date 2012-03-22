@@ -1,6 +1,15 @@
-<h1>Editing list</h1>
+<%= stylesheet_link_tag 'index' %>
+
+<%= render 'banner' %>
+<div class="divider"></div>
+
+<!-- Search Panel -->
+<%= render 'search_panel' %>
+<!-- End Search Panel -->
+
+<div class="divider"></div>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @list %> |
-<%= link_to 'Back', lists_path %>
+<%= link_to 'Cancel', lists_path %>

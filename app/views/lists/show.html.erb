@@ -7,14 +7,21 @@
 
 <body>
 
-	
+<%= stylesheet_link_tag 'index' %>
 
+<%= render 'banner' %>
+
+<div class="divider"></div>
+
+<!-- Search Panel -->
+<%= render 'search_panel' %>
+<!-- End Search Panel -->
+
+<div class="divider"></div>
 
 <p id="notice"><%= notice %></p>
 
 <section id="Listing_View">
-<h1> Listing View</h1>
-<hr id="Listing_View_Bar"/>
 
 <p>
   <h1>
@@ -22,6 +29,7 @@
   </h1>
 </p>
 
+<hr id="Listing_View_Bar"/>
 
 <p>
   <b>City:</b>
@@ -181,10 +189,7 @@
 </p>
 <% end %>
 
-
-
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<%= link_to 'Update', edit_list_path(@list) %>
 
 </section>
 </body>

@@ -15,9 +15,9 @@ body
 	color: #eeeeee;
 	background-color: #eeeeee;
 	background-image: url('../images/white-bg1.jpg');
-	background-repeat:no-repeat;
-	background-attachment:fixed;
-	background-size: 100%;
+	background-repeat:repeat;
+/*	background-attachment:fixed;
+	background-size: 100%;*/
 }
 /* End Generic text and page styling */
 
@@ -153,6 +153,7 @@ body
 
 #Search_Sidebar_Criteria li
 {
+	cursor: pointer;
 	border-radius: 15px;
 	padding-left: 5px;
 	transition-property:background-color;
@@ -361,3 +362,25 @@ input:focus
 	font-weight: bold;
 }
 /* End Add Listing page styling */
+
+.unselectable{
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.menuOption{
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;	
+}
