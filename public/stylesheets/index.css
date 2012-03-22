@@ -37,6 +37,13 @@ body
 	font-style: italic;
 }
 
+#Banner_Home_Link, #Banner_Home_Link:visited,
+#Banner_Home_Link:hover
+{
+	cursor: pointer;
+	text-decoration: none;
+}
+
 #Constant_View_Bar
 {
 	border: 0;
@@ -339,9 +346,6 @@ input:focus
 /* Add Listing page styling */
 #Add_Listing_Body
 {
-	width: 900px;
-	margin-left: auto;
-	margin-right: auto;
 	color: #eeeeee;
 	background-color: #cc0000;
 	border: 2px solid transparent;
