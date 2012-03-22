@@ -346,19 +346,12 @@ input:focus
 	background-color: #cc0000;
 	border: 2px solid transparent;
 	border-radius: 15px;
+	padding: 0px 20px 0px 20px;
 }
 
 #Add_Listing_Title
 {
-	font-size: 32px;
+	font-size: 24px;
 	font-weight: bold;
-	font-style: italic;
-}
-
-#Add_Listing_Bar
-{
-	border: 0;
-	background-color: #eeeeee;
-	height: 2px;
 }
 /* End Add Listing page styling */
