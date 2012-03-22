@@ -1,9 +1,14 @@
 class ListsController < ApplicationController
+  helper_method :sort_column, :sort_direction
   # GET /lists
   # GET /lists.xml
   def index
-    @lists = List.all
-
+    #@lists = List.all
+    @search = List.search(params[:search])
+    @lists = @search.all
+    
+    #@lists = List.all
+    #@lists = List.order(sort_column + " " + sort_direction).paginate(:per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @lists }
@@ -92,5 +97,17 @@ class ListsController < ApplicationController
       format.html { redirect_to(lists_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def sort_column
+    List.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    #params[:sort] || "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    #params[:direction] || "asc"
   end
 end
