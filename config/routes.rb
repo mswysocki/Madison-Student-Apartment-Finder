@@ -6,6 +6,7 @@ MadisonStudentApartmentFinder::Application.routes.draw do
   match '/about' =>       'home#about',        :as => :about
   match '/banner' =>		'home#banner',		:action => 'GET'
   match '/search_panel' =>		'home#search_panel', :action => 'GET'
+  match '/new_listing' =>	'lists#new', :action => 'GET'
 
 
   #Tried to get our own routes set up with what was done.  If you uncomment, then you can see the issues at /listings
