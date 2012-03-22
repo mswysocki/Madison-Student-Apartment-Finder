@@ -1,4 +1,16 @@
-<h1>Listing lists</h1>
+<html>
+
+<head>
+	<title>Lists in Database</title>
+	<% stylesheet_link_tag 'index' %>
+</head>
+
+
+<body>
+
+<section id="Listing_View" >
+<h1>Lists in Database</h1>
+<hr id="Listing_View_Bar"/>
 
 <table>
   <tr>
@@ -23,6 +35,7 @@
   </tr>
 
 <% @lists.each do |list| %>
+
   <tr>
     <td><%= list.Address%></td>
     <td><%= list.City %></td>
@@ -49,3 +62,7 @@
 <br />
 
 <%= link_to 'New List', new_list_path %>
+
+</section>
+</body>
+</html>

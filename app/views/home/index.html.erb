@@ -22,7 +22,181 @@
 
 <div class="divider"></div>
 
-<iframe id="ContentFrame" src="../lists/standard_view.html" frameborder=0 scrolling=auto ></iframe>
+<!-- <iframe id="ContentFrame" src="../lists/new.html" frameborder=0 scrolling=auto width=100% height=100% ></iframe> -->
+
+<!-- Search Panel -->
+<section id="Search_Sidebar_View">
+	<ul id="Search_Sidebar_Criteria">	
+		<li id="Price">
+			<div id="PriceHandler">
+				<p onclick="showPrice('Price_Ops_Invis')">Price</p>
+			</div>
+			<div id="Price_Ops_Invis">
+				<form method="GET">
+					<input type="text" name="Price" value="Maximum Price"/>
+				</form>
+			</div>
+		</li><hr />
+		<li id="Location">
+			<div id="LocationHandler">
+				<p onclick="showLocation('Location_Ops_Invis')">Location</p>
+			</div>
+			<div id="Location_Ops_Invis">
+				<form method="GET">
+					<input type="text" name="Location" value="Address"/>
+				</form>
+			</div>
+		</li><hr />
+		<li id="Type_of_Res">
+			<div id="TypeHandler">
+				<p onclick="showType('Type_Ops_Invis')">Type of Residence</p>
+			</div>
+			<div id="Type_Ops_Invis">
+				<form method="GET">
+					<input type="checkbox" name="Type" value="Apartment">
+						Apartment
+					</input><br />
+					<input type="checkbox" name="Type" value="House">
+						House
+					</input><br />
+					<input type="checkbox" name="Type" value="Townhouse">
+						Townhouse
+					</input>
+				</form>
+			</div>
+		</li><hr />
+		<li id="Res_Details">
+			<div id="DetailsHandler">
+				<p onclick="showDetails('Details_Ops_Invis')">Residence Details</p>
+			</div>
+			<div id="Details_Ops_Invis">
+				<form method="GET">
+					Number of Bedrooms<br />
+					<input type="text" name="Bedrooms" value="Maximum 8" />
+					<br /><br />
+					Number of Bathrooms<br />
+					<input type="text" name="Bathrooms" value="Maximum 4" />
+				</form>
+			</div>
+		</li><hr />
+		<li id="Lease_Details">
+			<div id="LeaseHandler">
+				<p onclick="showLease('Lease_Ops_Invis')">Lease Details</p>
+			</div>
+			<div id="Lease_Ops_Invis">
+				<form method="GET">
+					Start Date:<br />
+					<input type="radio" name="Start" value"Fall">
+						Fall
+					</input><br />
+					<input type="radio" name="Start" value"Winter">
+						Winter
+					</input>
+				</form>
+				<br />
+				<form method="GET">
+					End Date:<br />
+					<input type="radio" name="End" value"Winter">
+						Winter
+					</input><br />
+					<input type="radio" name="End" value"Spring">
+						Spring
+					</input><br />
+					<input type="radio" name="End" value"Summer">
+						Summer
+					</input>
+				</form><br />
+				<form method="GET">
+					Length:<br />
+					<input type="radio" name="Length" value"6 Months">
+						6 Months
+					</input><br />
+					<input type="radio" name="Length" value"9 Months">
+						9 Months
+					</input><br />
+					<input type="radio" name="Length" value"12 Months">
+						12 Months
+					</input>
+				</form>
+			</div>
+		</li><hr />
+		<li id="Utilities">
+			<div id="UtilsHandler">
+				<p onclick="showUtils('Utils_Ops_Invis')">Utilities</p>
+			</div>
+			<div id="Utils_Ops_Invis">
+				<form method="GET">
+					<input type="checkbox" name="Utility" value="Heat">
+						Heat
+					</input><br />
+					<input type="checkbox" name="Utility" value="Water">
+						Water
+					</input><br />
+					<input type="checkbox" name="Utility" value="Electricity">
+						Electricity
+					</input><br />
+					<input type="checkbox" name="Utility" value="Gas">
+						Gas
+					</input><br />
+					<input type="checkbox" name="Utility" value="Garbage">
+						Garbage Collection
+					</input>
+				</form>
+			</div>
+		</li><hr />
+		<li id="Accomodations">
+			<div id="AccomsHandler">
+				<p onclick="showAccoms('Accoms_Ops_Invis')">Accomodations</p>
+			</div>
+			<div id="Accoms_Ops_Invis">
+				<form method="GET">
+					<input type="checkbox" name="Accomodation" value="Parking">
+						Parking
+					</input><br />
+					<input type="checkbox" name="Accomodation" value="Laundry">
+						Laundry
+					</input><br />
+					<input type="checkbox" name="Accomodation" value="Furnishings">
+						Furnishings
+					</input><br />
+					<input type="checkbox" name="Accomodation" value="Yard">
+						Yard Maintainance / Snow Removal (houses only)
+					</input>
+				</form>
+			</div>
+		</li><hr />
+		<li id="Restrictions">
+			<div id="RestrictsHandler">
+				<p onclick="showRestricts('Restricts_Ops_Invis')">Restrictions</p>
+			</div>
+			<div id="Restricts_Ops_Invis">
+				<form method="GET">
+					<input type="checkbox" name="Restriction" value="Smoking">
+						Smoking Allowed
+					</input><br />
+					<input type="checkbox" name="Restriction" value="Pets">
+						Pets Allowed
+					</input>
+				</form>
+			</div>
+		</li><hr />
+	</ul>
+	<ul id="Clear_Search_Criteria">
+		<li>
+			<p>Clear Search Criteria</p>
+		</li>
+    </ul>
+</section>
+<!-- End Search Panel -->
+
+<div class="divider"></div>
+<!-- Content -->
+<section id="Search_Home_View">
+	<h3>Welcome to Madison Student Housing Finder!</h3>
+	<hr id="Search_Home_View_Bar" />
+	<p>Use the search panel on the left to begin your search.</p>
+</section>
+<!-- End Content -->
 
 </body>
 </html>
