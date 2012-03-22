@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120319070330) do
+ActiveRecord::Schema.define(:version => 20120322040021) do
 
   create_table "lists", :force => true do |t|
     t.string   "Address"
@@ -22,14 +22,20 @@ ActiveRecord::Schema.define(:version => 20120319070330) do
     t.float    "Bathrooms"
     t.integer  "Rent"
     t.integer  "SquareFeet"
-    t.integer  "Parking"
     t.boolean  "Smoking"
     t.string   "Pets"
     t.boolean  "Heat"
     t.boolean  "Electric"
     t.integer  "Flags"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "Gas"
+    t.boolean  "GarbageCollection"
+    t.integer  "Type"
+    t.integer  "Length"
+    t.boolean  "Furnished"
+    t.boolean  "Laundry"
+    t.boolean  "Parking"
   end
 
 end
