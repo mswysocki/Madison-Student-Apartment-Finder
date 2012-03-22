@@ -19,6 +19,9 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.xml
   def show
+    @search = List.search(params[:search])
+    @test = params[:search]   #used for hiding
+    @lists = @search.all
     @list = List.find(params[:id])
 
     respond_to do |format|
