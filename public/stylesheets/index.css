@@ -355,7 +355,7 @@ input:focus
 }
 
 /* Add Listing page styling */
-#Add_Listing_Body
+.Residence_Listing_Form
 {
 	color: #eeeeee;
 	background-color: #cc0000;
