@@ -337,6 +337,14 @@ input:focus
 }
 
 /* Add Listing page styling */
+#Add_Listing
+{
+	background-color: #cc0000;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	padding: 0px 20px 40px 20px;
+}
+
 #Add_Listing_Title
 {
 	font-size: 32px;
@@ -349,13 +357,5 @@ input:focus
 	border: 0;
 	background-color: #eeeeee;
 	height: 2px;
-}
-
-#Add_Listing_Form
-{
-	background-color: #cc0000;
-	border: 2px solid transparent;
-	border-radius: 15px;
-	padding: 0px 20px 40px 20px;
 }
 /* End Add Listing page styling */
