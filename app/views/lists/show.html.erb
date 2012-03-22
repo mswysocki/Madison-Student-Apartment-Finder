@@ -22,103 +22,165 @@
   </h1>
 </p>
 
+
 <p>
   <b>City:</b>
   <%= @list.City %>
 </p>
+
 
 <p>
   <b>State:</b>
   <%= @list.State %>
 </p>
 
+
+
 <p>
   <b>Zip:</b>
   <%= @list.Zip %>
 </p>
+
+
 
 <p>
   <b>Region:</b>
   <%= @list.Region %>
 </p>
 
+
+
 <p>
   <b>Bedrooms:</b>
   <%= @list.Bedrooms %>
 </p>
 
+
+<% unless @list.GarbageCollection.nil? %>
 <p>
   <b>Bathrooms:</b>
   <%= @list.Bathrooms %>
 </p>
+<% end %>
+
+
 
 <p>
   <b>Rent:</b>
   <%= @list.Rent %>
 </p>
 
+
+<% unless @list.SquareFeet.nil? %>
 <p>
   <b>Squarefeet:</b>
   <%= @list.SquareFeet %>
 </p>
+<% end %>
 
+
+<% unless @list.Parking.nil? %>
 <p>
   <b>Parking:</b>
   <%= @list.Parking %>
 </p>
+<% end %>
 
+
+
+<% unless @list.Smoking.nil? %>
 <p>
   <b>Smoking:</b>
   <%= @list.Smoking %>
 </p>
+<% end %>
 
+
+<% unless @list.Pets.nil? %>
 <p>
   <b>Pets:</b>
   <%= @list.Pets %>
 </p>
+<% end %>
 
+
+<% unless @list.Heat.nil? %>
 <p>
   <b>Heat:</b>
   <%= @list.Heat %>
 </p>
+<% end %>
 
+
+<% unless @list.Electric.nil? %>
 <p>
   <b>Electric:</b>
   <%= @list.Electric %>
 </p>
+<% end %>
+
+
+<% unless @list.Gas.nil? %>
 <p>
 	<b>Gas</b>
 	<%= @list.Gas %>
 </p>
+<% end %>
 
+
+
+<% unless is_nil(@list.GarbageCollection) %>
 <p>
 	<b>Garbage Collection</b>
-	<%= @list.Gas %>
+	<%= @list.GarbageCollection %>
 </p>
+<% end %>
 
+
+
+<% unless @list.Type.nil? %>
 <p>
 	<b>Type (House (0) or Apt (1))</b>
 	<%= @list.Type %>
 </p>
+<% end %>
 
+
+
+<% unless @list.Length.nil? %>
 <p>
 	<b>Length (Months)</b>
 	<%= @list.Length %>
 </p>
+<% end %>
 
+
+
+<% unless @list.Furnished.nil? %>
 <p>
 	<b>Furnished</b>
 	<%= @list.Furnished %>
 </p>
+<% end %>
 
+
+
+<% unless @list.Laundry.nil? %>
 <p>
 	<b>Laundry</b>
 	<%= @list.Laundry %>
 </p>
+<% end %>
+
+
+
+<% unless @list.Flags.nil? %>
 <p>
   <b>Flags:</b>
   <%= @list.Flags %>
 </p>
+<% end %>
+
 
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
