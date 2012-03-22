@@ -2,15 +2,13 @@
 
 <head>
 	<title>Add a Listing</title>
-	<%= stylesheet_link_tag 'index' %>
 </head>
 
 
 <body>
+<div id="Add_Listing_Body">
 
-<section id="Listing_View">
-<h1>Add a Listing</h1>
-<hr id="Listing_View_Bar"/>
+<h2 id="Add_Listing_Title">Add a Listing</h2>
 
 <%= form_for(@list) do |f| %>
   <% if @list.errors.any? %>
@@ -112,6 +110,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>
 
 </section>
