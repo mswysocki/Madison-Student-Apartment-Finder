@@ -159,3 +159,19 @@ function showRestricts(id)
 	
 	document.getElementById(tmpID).id = id;
 }
+
+function setSelectedTableElement(id){
+	
+	document.getElementById("Table_Actions").innerHTML = "<a class=\"Table_Action\" href=\"/lists/"+id+"\">Show</a>"+
+		"<a class=\"Table_Action\" href=\"/lists/"+id+"/edit\">Edit</a>"+
+		"<a class=\"Table_Action\" href=\"/lists/"+id+"\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Remove</a>";
+	
+	var tableElement = document.getElementById("Search_Results_Table").getElementsByTagName("*");
+	
+	for ( var i = 0; i < tableElement.length; i++ ) {
+		tableElement.item(i).style.opacity = "1";
+	}
+	
+	document.getElementById("Table_Element_"+id).style.opacity = "0.5";
+
+}
