@@ -5,9 +5,11 @@ class HomeController < ApplicationController
     @lists = @search.all
   end
 
-  private 
-  
-  def get_variable
-    @list = List.all
+  def about
+    @search = List.search(params[:search])
+    @test = params[:search]
+    @lists = @search.all
   end
+  
+  
 end
