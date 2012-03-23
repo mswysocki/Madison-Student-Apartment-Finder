@@ -19,8 +19,8 @@ class List < ActiveRecord::Base
   validates :Rent,      :presence => true,
                         :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }, 
                         :numericality => {:greater_than => 1, :less_than => 25000}
-  validates :Zip,       :presence => true
-						:numericality => {:greater_than => 1, :less_than => 99999}
+  validates :Zip,       :presence => true,
+						            :numericality => {:greater_than => 1, :less_than => 99999}
   
   #sets default values for the db entry when the listing is saved
   after_initialize :default_values
