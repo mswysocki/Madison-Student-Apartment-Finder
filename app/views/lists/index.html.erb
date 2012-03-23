@@ -8,103 +8,22 @@
 
 <body>
 
-	<%= render 'home/banner' %>
-	<div class="divider"></div>
-	
+<!-- Banner -->
+<%= render 'home/banner' %>
+<!-- End Banner -->
 
-	
-<section id="Listing_View" >
-<% unless @test.nil? %>
-<h1>Search Results</h1>
-<hr id="Listing_View_Bar"/>
+<div class="divider"></div>
 
-<table>
-  <tr>
-    <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-    <th>Region</th>
-    <th>Bedrooms</th>
-    <th>Bathrooms</th>
-    <th>Rent</th>
-    <th>Squarefeet</th>
-    <th>Parking</th>
-    <th>Smoking</th>
-    <th>Pets</th>
-    <th>Heat</th>
-    <th>Electric</th>
-    <th>Gas</th>
-    <th>Garbage Collection</th>
-    <th>Furnished</th>
-    <th>Laundry</th>
-    <th>Flags</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<!-- Search Panel -->
+<%= render 'home/search_panel' %>
+<!-- End Search Panel -->
 
-<% @lists.each do |list| %>
-  <tr>
-    <td><%= list.Address%></td>
-    <td><%= list.City %></td>
-    <td><%= list.State %></td>
-    <td><%= list.Zip %></td>
-    <td><%= list.Region %></td>
-    <td><%= list.Bedrooms %></td>
-    <td><%= list.Bathrooms %></td>
-    <td><%= list.Rent %></td>
-    <td><%= list.SquareFeet %></td>
-    <td><%= list.Parking %></td>
-    <td><%= list.Smoking %></td>
-    <td><%= list.Pets %></td>
-    <td><%= list.Heat %></td>
-    <td><%= list.Electric %></td>
-    <td><%= list.Gas %></td>
-    <td><%= list.GarbageCollection %></td>
-    <td><%= list.Furnished %></td>
-    <td><%= list.Laundry %></td>
-    <td><%= list.Flags %></td>
-    <td><%= link_to 'Show', list %></td>
-    <td><%= link_to 'Edit', edit_list_path(list) %></td>
-    <td><%= link_to 'Destroy', list, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-<!-- 
-  <tr>
-    <td><%= sort_link @search, :Address%></td>
-    <td><%= sort_link @search, :City %></td>
-    <td><%= sort_link @search, :State %></td>
-    <td><%= sort_link @search, :Zip %></td>
-    <td><%= sort_link @search, :Region %></td>
-    <td><%= sort_link @search, :Bedrooms %></td>
-    <td><%= sort_link @search, :Bathrooms %></td>
-    <td><%= sort_link @search, :Rent %></td>
-    <td><%= sort_link @search, :SquareFeet %></td>
-    <td><%= sort_link @search, :Parking %></td>
-    <td><%= sort_link @search, :Smoking %></td>
-    <td><%= sort_link @search, :Pets %></td>
-    <td><%= sort_link @search, :Heat %></td>
-    <td><%= sort_link @search, :Electric %></td>
-    <td><%= sort_link @search, :Gas %></td>
-    <td><%= sort_link @search, :GarbageCollection %></td>
-    <td><%= sort_link @search, :Furnished %></td>
-    <td><%= sort_link @search, :Laundry %></td>
-    <td><%= sort_link @search, :Flags %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-   </tr>
--->
- 
-</table>
-<% end %>
+<div class="divider"></div>
 
+<!-- Content -->
 
-<%= link_to 'New List', new_list_path %>
+<%= render 'results' %>
+<!-- End Content -->
 
-
-
-</section>
 </body>
 </html>
