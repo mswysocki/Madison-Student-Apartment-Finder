@@ -3,8 +3,15 @@
 <section id="Results_View" >
 <% unless @test.nil? %>
 <h1>Search Results</h1>
+<p>Select a listing and here's what you can do: 
+	<div id="Table_Actions">
+		<a class="Table_Action" href="/lists/1">Show</a>
+		<a class="Table_Action" href="/lists/1/edit">Edit</a>
+		<a class="Table_Action" href="/lists/1" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Remove</a>
+	</div>
+</p>
 
-<table>
+<table id="Search_Results_Table">
   <tr>
     <th><%= sort_link @search, :Address%>	</th>
     <th><%= sort_link @search, :Zip %>		</th>
@@ -22,39 +29,49 @@
     <th><%= sort_link @search, :GarbageCollection, "Garbage Collected" %></th>
     <th><%= sort_link @search, :Furnished %>		</th>
     <th><%= sort_link @search, :Laundry %>			</th>
-    <th></th>
-    <th></th>
-    <th></th>
    </tr>
 
+	<% i = 0 %>
+	<% elementClass = "Table_Element" %>
 
 <% @lists.each do |list| %>
-  <tr>
-    <td><%= list.Address%></td>
-    <td><%= list.Zip %></td>
-    <td><%= list.Region %></td>
-    <td><%= list.Bedrooms %></td>
-    <td><%= list.Bathrooms %></td>
-    <td><%= list.Rent %></td>
-    <td><%= list.SquareFeet %></td>
-    <td><%= list.Parking %></td>
-    <td><%= list.Smoking %></td>
-    <td><%= list.Pets %></td>
-    <td><%= list.Heat %></td>
-    <td><%= list.Electric %></td>
-    <td><%= list.Gas %></td>
-    <td><%= list.GarbageCollection %></td>
-    <td><%= list.Furnished %></td>
-    <td><%= list.Laundry %></td>
-    <td><%= link_to 'Show', list %></td>
-    <td><%= link_to 'Edit', edit_list_path(list) %></td>
-    <td><%= link_to 'Destroy', list, :confirm => 'Are you sure?', :method => :delete %></td>
+
+	<% i = i + 1 %>
+
+	<% if i % 2 == 0
+		elementClass = "Table_Element_Alt"
+	else
+		elementClass = "Table_Element"
+	end %>
+	
+	<% identifier = "Table_Element_" + i.to_s() %>
+
+  <tr onclick="setSelectedTableElement(<%= i%>)" id=<%= identifier%>>
+    <td class=<%= elementClass%> ><%= list.Address%></td>
+    <td class=<%= elementClass%> ><%= list.Zip %></td>
+    <td class=<%= elementClass%> ><%= list.Region %></td>
+    <td class=<%= elementClass%> ><%= list.Bedrooms %></td>
+    <td class=<%= elementClass%> ><%= list.Bathrooms %></td>
+    <td class=<%= elementClass%> ><%= list.Rent %></td>
+    <td class=<%= elementClass%> ><%= list.SquareFeet %></td>
+    <td class=<%= elementClass%> ><%= list.Parking %></td>
+    <td class=<%= elementClass%> ><%= list.Smoking %></td>
+    <td class=<%= elementClass%> ><%= list.Pets %></td>
+    <td class=<%= elementClass%> ><%= list.Heat %></td>
+    <td class=<%= elementClass%> ><%= list.Electric %></td>
+    <td class=<%= elementClass%> ><%= list.Gas %></td>
+    <td class=<%= elementClass%> ><%= list.GarbageCollection %></td>
+    <td class=<%= elementClass%> ><%= list.Furnished %></td>
+    <td class=<%= elementClass%> ><%= list.Laundry %></td>
   </tr>
 <% end %>
 
- 
+	<td></td>
+	<td></td>
+
 </table>
 <% end %>
+
 </section>
 
 
@@ -63,6 +80,10 @@
 <% end %>
 
 
+<script type="text/javascript">
 
+document.getElementById("Table_Element_1").style.opacity = "0.5";
+
+</script>
 
 </html>
