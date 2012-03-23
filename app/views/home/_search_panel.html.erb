@@ -1,10 +1,10 @@
 <html>
 <section id="Search_Sidebar_View">
 	<%= form_for @search do |f| %>
+	<div id="Search">
+		<p class="button"><%= f.submit "Submit Criteria", :class => "Search_Button" %></p>
+	</div>
 	<ul id="Search_Sidebar_Criteria">
-		<li id="Search">
-			<p class="button"><%= f.submit "Submit Criteria", :class => "Search_Button" %></p>
-		</li>
 		<li id="Price">
 			<div id="PriceHandler" class="menuOption" >
 				<p onclick="showPrice('Price_Ops_Invis')">Price</p>
