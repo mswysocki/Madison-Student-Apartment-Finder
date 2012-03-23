@@ -444,7 +444,7 @@ input:focus
 	padding: 0px 20px 0px 10px;
 }
 
-#Search
+#button
 {
 	margin-left: auto;
 	margin-right: auto;
@@ -453,7 +453,7 @@ input:focus
 
 .Search_Button{
 	cursor:pointer;
-	background-color: #888888;
+	background-color: #424242;
 	border-radius: 15px;
 	color: #eeeeee;
 	font-family: verdana, arial, helvetica, sans-serif;
@@ -480,7 +480,7 @@ input:focus
 .Search_Button:hover
 {
 	cursor: pointer;
-	background-color: #BDBDBD;
+	background-color: #888888;
 	transition-property:background-color;
 	transition-duration:0.15s;
 	transition-timing-function:linear;
