@@ -175,3 +175,37 @@ function setSelectedTableElement(id){
 	document.getElementById("Table_Element_"+id).style.opacity = "0.5";
 
 }
+
+function clearAllFields(){
+	
+	var nodes = document.getElementById("Search_Sidebar_Criteria").getElementsByTagName("*");
+	
+	for (i = 0; i < nodes.length; i++)
+	{
+		if ( nodes.item(i).type == undefined ){
+			continue;
+		}
+	    fieldType = nodes.item(i).type.toLowerCase();
+	    switch (fieldType){
+	    case "text":
+	    case "password":
+	    case "textarea":
+	    case "hidden":
+	        nodes.item(i).value = "";
+	        break;
+	    case "radio":
+	    case "checkbox":
+	        if (nodes.item(i).checked){
+	            nodes.item(i).checked = false;
+	        }
+	        break;
+	    case "select-one":
+	    case "select-multi":
+	        nodes.item(i).selectedIndex = -1;
+	        break;
+	    default:
+	        break;
+	    }
+	}
+	
+}
