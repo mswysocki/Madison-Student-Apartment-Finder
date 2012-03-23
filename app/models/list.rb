@@ -29,6 +29,14 @@ class List < ActiveRecord::Base
     self.State ||= "Wisconsin"
     self.Length ||= 12
     self.Furnished ||= false
+    self.Electric ||= false
+    self.Gas ||= false
+    self.GarbageCollection ||= false
+    self.Smoking ||= false
+    self.Pets ||= false
+    self.Laundry ||= false
+    self.Parking ||= false
+    self.Heat ||= false
     self.Flags ||= 0
   end
   
