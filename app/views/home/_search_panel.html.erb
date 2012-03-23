@@ -2,6 +2,9 @@
 <section id="Search_Sidebar_View">
 	<%= form_for @search do |f| %>
 	<ul id="Search_Sidebar_Criteria">
+		<li id="Search">
+			<p class="button"><%= f.submit "Submit Search Criteria", :class => "Search_Button" %></p>
+		</li>
 		<li id="Price">
 			<div id="PriceHandler" class="menuOption" >
 				<p onclick="showPrice('Price_Ops_Invis')">Price</p>
@@ -96,9 +99,6 @@
 				<%= f.label :Pets_is_true, "Pets" %> <br />
 			</div>
 		</li><hr />
-		<li id="Search">
-			<p class="button"><%= f.submit "Search", :class => "Search_Button" %></p>
-		</li>
 	</ul>
 	<% end %>
 	<ul id="Clear_Search_Criteria">

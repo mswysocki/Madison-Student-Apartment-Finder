@@ -445,11 +445,12 @@ input:focus
 
 .Search_Button{
 	cursor:pointer;
-	background-color: rgba(255,255,255,0);
+	/*background-color: rgba(255,255,255,0);*/
+	background-color: #424242;
 	border-radius: 15px;
 	color: #eeeeee;
-	padding-left: 80px;
-	padding-right: 10px;
+	padding-left: auto;
+	padding-right: auto;
 	font-family: verdana, arial, helvetica, sans-serif;
 	font-size:   16px;
   	line-height: 18px;
