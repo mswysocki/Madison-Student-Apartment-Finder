@@ -441,6 +441,15 @@ input:focus
 	border: 2px solid transparent;
 	border-radius: 15px;
 	padding: 0px 20px 0px 10px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:   16px;
+	line-height: 18px;
+}
+
+#Results_View_Bar{	
+	border: 0;
+	background-color: #eeeeee;
+	height: 5px;
 }
 
 .Search_Button{
