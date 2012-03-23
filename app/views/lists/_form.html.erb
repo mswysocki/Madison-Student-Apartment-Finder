@@ -97,7 +97,9 @@
   </div>
   <div class="field">
     <%= f.label :Length, "Length (Months)" %><br />
-    <%= f.text_field :Length %>
+   	<%= f.radio_button :Length, 6 %>6 Months
+    <%= f.radio_button :Length, 9 %>9 Months 
+    <%= f.radio_button :Length, 12 %>12 Months <br />
   </div>
   <div class="field">
     <%= f.label :Furnished %><br />
