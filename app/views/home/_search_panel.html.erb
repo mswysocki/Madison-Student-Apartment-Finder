@@ -27,17 +27,8 @@
 				<p onclick="showType('Type_Ops_Invis')">Type of Residence</p>
 			</div>
 			<div id="Type_Ops_Invis">
-				<form method="GET">
-					<input type="checkbox" name="Type" value="Apartment">
-						Apartment
-					</input><br />
-					<input type="checkbox" name="Type" value="House">
-						House
-					</input><br />
-					<input type="checkbox" name="Type" value="Townhouse">
-						Townhouse
-					</input>
-				</form>
+				<%= f.radio_button :Type_is_true, "House" %>House<br />
+				<%= f.radio_button :Type_is_false, "Apartment" %>Apartment<br />
 			</div>
 		</li><hr />
 		<li id="Res_Details">

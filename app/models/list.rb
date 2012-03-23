@@ -9,20 +9,23 @@ class List < ActiveRecord::Base
     :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,
     :Laundry
   
+  
   #requires that these three are filled in + add some validations
   validates :Address,   :presence => true,
                         :length   => { :maximum => 50 }, 
                         :uniqueness => { :case_sensitive => false}
   validates :Bedrooms,  :presence => true,
                         :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }, 
-                        :numericality => {:greater_than => 0, :less_than => 25}
+                        :numericality => {:gt => 0, :lte => 25}
   validates :Rent,      :presence => true,
                         :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }, 
-                        :numericality => {:greater_than => 1, :less_than => 25000}
+                        :numericality => {:gt => 1, :lt => 25000}
   validates :Zip,       :presence => true,
-						            :numericality => {:greater_than => 1, :less_than => 99999}
+						            :numericality => {:gt => 53700, :lt => 53800} #judging by: http://www.zip-codes.com/city/WI-MADISON.asp
+  validates :Bathrooms, :numericality => {:gt => 0, :lte => 10}
   
-  #sets default values for the db entry when the listing is saved
+  
+  #sets default values for the db entry when the listing is initialized
   after_initialize :default_values
   def default_values
     self.City ||= "Madison"
@@ -40,22 +43,11 @@ class List < ActiveRecord::Base
     self.Flags ||= 0
   end
   
-  def self.pre_edit(list)
-    @pre_edit = list
-    puts list.to_s
-  end
+ 
+ ROOMS = (1..25).to_a
+ BATHS = (1..10).to_a
   
-  def self.post_edit(list)
-    @post_edit = listgit
-  end
-  
-  #def self.search(search)
-  #  if search
-  #    find(:all, :conditions => ['Address LIKE ?', "%#{search}%"])
-  #  else
-  #    find(:all)
-  #  end
-  #end
+ 
 
 
   

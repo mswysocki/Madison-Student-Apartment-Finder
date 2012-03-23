@@ -25,11 +25,11 @@
   </div>
   <div class="field">
     <%= f.label :City %><br />
-    <%= f.text_field :City %>
+    <%= f.text_field :City, :disabled => true %>
   </div>
   <div class="field">
     <%= f.label :State %><br />
-    <%= f.text_field :State %>
+    <%= f.text_field :State, :disabled => true %>
   </div>
   <div class="field">
     <%= f.label :Zip %><br />
@@ -41,51 +41,59 @@
   </div>
   <div class="field">
     <%= f.label :Bedrooms %><br />
-    <%= f.text_field :Bedrooms %>
+	<%= f.select :Bedrooms, List::ROOMS %>
   </div>
   <div class="field">
     <%= f.label :Bathrooms %><br />
-    <%= f.text_field :Bathrooms %>
+    <%= f.select :Bathrooms, List::BATHS %>
   </div>
   <div class="field">
     <%= f.label :Rent %><br />
     <%= f.text_field :Rent %>
   </div>
   <div class="field">
-    <%= f.label :SquareFeet %><br />
+    <%= f.label :SquareFeet, "Square Feet" %><br />
     <%= f.text_field :SquareFeet %>
   </div>
   <div class="field">
-    <%= f.label :Parking %><br />
-    <%= f.text_field :Parking %>
+    <%= f.label :Parking, "Parking Available" %><br />
+    <%= f.radio_button :Parking, true %>True <br />
+    <%= f.radio_button :Parking, false %>False <br />
   </div>
   <div class="field">
     <%= f.label :Smoking %><br />
-    <%= f.text_field :Smoking %>
+    <%= f.radio_button :Smoking, true %>True <br />
+    <%= f.radio_button :Smoking, false %>False <br />
   </div>
   <div class="field">
     <%= f.label :Pets %><br />
-    <%= f.text_field :Pets %>
+    <%= f.radio_button :Pets, true %>True <br />
+    <%= f.radio_button :Pets, false %>False <br />
   </div>
   <div class="field">
     <%= f.label :Heat %><br />
-    <%= f.text_field :Heat %>
+    <%= f.radio_button :Heat, true %>True <br />
+    <%= f.radio_button :Heat, false %>False <br />
   </div>
   <div class="field">
     <%= f.label :Electric %><br />
-    <%= f.text_field :Electric %>
+   	<%= f.radio_button :Electric, true %>True <br />
+    <%= f.radio_button :Electric, false %>False <br />
   </div>
   <div class="field">
     <%= f.label :Gas %><br />
-    <%= f.text_field :Gas %>
+    <%= f.radio_button :Gas, true %>True <br />
+    <%= f.radio_button :Gas, false %>False <br />
   </div>
   <div class="field">
     <%= f.label :GarbageCollection, "Garbage Collected" %><br />
-    <%= f.text_field :GarbageCollection %>
+   	<%= f.radio_button :GarbageCollection, true %>True <br />
+    <%= f.radio_button :GarbageCollection, false %>False <br />
   </div>
   <div class="field">
-    <%= f.label :Type, "House (0) or Apartment (1)"%><br />
-    <%= f.text_field :Type %>
+    <%= f.label :Type, "House (true) or Apartment (false) ?"%><br />
+   	<%= f.radio_button :Type, true %>House <br />	
+    <%= f.radio_button :Type, false %>Apartment <br />
   </div>
   <div class="field">
     <%= f.label :Length, "Length (Months)" %><br />
@@ -93,11 +101,13 @@
   </div>
   <div class="field">
     <%= f.label :Furnished %><br />
-    <%= f.text_field :Furnished %>
+    <%= f.radio_button :Furnished, true %>True <br />
+    <%= f.radio_button :Furnished, false %>False <br />
   </div>
   <div class="field">
     <%= f.label :Laundry %><br />
-    <%= f.text_field :Laundry %>
+    <%= f.radio_button :Laundry, true %>True <br />
+    <%= f.radio_button :Laundry, false %>False <br />
   </div>
   <div class="field">
     <%= f.label :Flags %><br />
