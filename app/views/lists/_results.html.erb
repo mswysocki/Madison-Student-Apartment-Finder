@@ -55,7 +55,14 @@
  
 </table>
 <% end %>
-
 </section>
+
+
+<% if @test.nil? %>
+	<%= render 'home/content' %>
+<% end %>
+
+
+
 
 </html>
