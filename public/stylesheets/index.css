@@ -1,10 +1,11 @@
 /* CSS Document */
 
 /* Generic text and page styling */
-body, p, ol, ul, td
-{
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	color: #eeeeee;
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+  color: #eee;
 }
 
 body
