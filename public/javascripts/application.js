@@ -162,9 +162,10 @@ function showRestricts(id)
 
 function setSelectedTableElement(id){
 	
-	document.getElementById("Table_Actions").innerHTML = "<a class=\"Table_Action\" href=\"/lists/"+id+"\">Show</a>"+
-		"<a class=\"Table_Action\" href=\"/lists/"+id+"/edit\">Edit</a>"+
-		"<a class=\"Table_Action\" href=\"/lists/"+id+"\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Remove</a>";
+	var actions = document.getElementById("Table_Actions").getElementsByTagName("a");
+	actions.item(0).href = "/lists/"+id;
+	actions.item(1).href = "/lists/"+id+"/edit";
+	actions.item(2).href = "/lists/"+id;
 	
 	var tableElement = document.getElementById("Search_Results_Table").getElementsByTagName("*");
 	
