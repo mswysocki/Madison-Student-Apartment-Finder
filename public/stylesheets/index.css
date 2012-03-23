@@ -453,15 +453,18 @@ input:focus
 	height: 5px;
 }
 
-.Search_Button{
-	cursor:pointer;
-	background-color: #424242;
-	border-radius: 15px;
-	color: #eeeeee;
+#Search
+{
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 0px;
-	width: 70%;
+	margin-bottom: 0;
+}
+
+.Search_Button{
+	cursor:pointer;
+	background-color: #888888;
+	border-radius: 15px;
+	color: #eeeeee;
 	font-family: verdana, arial, helvetica, sans-serif;
 	font-size:   16px;
   	line-height: 18px;
