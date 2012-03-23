@@ -48,7 +48,6 @@ class ListsController < ApplicationController
   # GET /lists/1/edit
   def edit
     @list = List.find(params[:id])
-    List.pre_edit(@list)
   end
 
   # POST /lists

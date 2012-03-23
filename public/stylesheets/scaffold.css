@@ -1,7 +1,15 @@
-body { background-color: #fff; color: #5E0706; }
-
-
-
+body {
+	background-color: #eeeeee;
+	color: #eeeeee;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	cursor: default;
+}
 
 a { color: #E8B068; }
 a:visited { color: #FF6A58; }
@@ -40,12 +48,9 @@ div.field, div.actions {
 }
 
 .Table_Action, .Table_Action:visited, .Table_Action:hover{
-	
-	font-style:italic;
-	font-weight:bold;
-	text-align:right;
-	padding-right: 10px;
-	color: #5E0706;
+
+	text-decoration:none;
+	color: #eeeeee;
 	background-color: rgba(255,255,255,0);
 	
 }

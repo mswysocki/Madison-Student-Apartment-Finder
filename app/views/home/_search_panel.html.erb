@@ -1,6 +1,9 @@
 <html>
 <section id="Search_Sidebar_View">
 	<%= form_for @search do |f| %>
+	<div id="Search">
+		<p class="button"><%= f.submit "Submit Criteria", :class => "Search_Button" %></p>
+	</div>
 	<ul id="Search_Sidebar_Criteria">
 		<li id="Price">
 			<div id="PriceHandler" class="menuOption" >
@@ -27,17 +30,8 @@
 				<p onclick="showType('Type_Ops_Invis')">Type of Residence</p>
 			</div>
 			<div id="Type_Ops_Invis">
-				<form method="GET">
-					<input type="checkbox" name="Type" value="Apartment">
-						Apartment
-					</input><br />
-					<input type="checkbox" name="Type" value="House">
-						House
-					</input><br />
-					<input type="checkbox" name="Type" value="Townhouse">
-						Townhouse
-					</input>
-				</form>
+				<%= f.radio_button :Type_is_true, "House" %>House<br />
+				<%= f.radio_button :Type_is_false, "Apartment" %>Apartment<br />
 			</div>
 		</li><hr />
 		<li id="Res_Details">
@@ -46,13 +40,12 @@
 			</div>
 			<div id="Details_Ops_Invis">
 				<%= f.label :Bedrooms_eq, "Bedrooms" %>
-				<%= f.text_field :Bedrooms_eq %> <br />
+				<%= f.text_field :Bedrooms_eq %> <p></p>
 				<%= f.label :Bedrooms_eq, "Bathrooms" %>
-				<%= f.text_field :Bathrooms_eq %> <br />
-				<%= f.label :SquareFeet_gte, "Square Footage: From" %>
+				<%= f.text_field :Bathrooms_eq %> <p></p>
+				<%= f.label :SquareFeet_gte, "At least" %>
 				<%= f.text_field :SquareFeet_gte %>
-				<%= f.label :SquareFeet_lte, "to" %>
-				<%= f.text_field :SquareFeet_lte %>
+				<%= f.label :SquareFeet_gte, "square feet."%>
 			</div>
 		</li><hr />
 		<li id="Lease_Details">
@@ -102,13 +95,10 @@
 			<div id="Restricts_Ops_Invis">
 				<%= f.check_box :Smoking_is_true %>
 				<%= f.label :Smoking_is_true, "Smoking" %> <br />
-				<%= f.text_field :Pets_contains %>
-				<%= f.label :Pets_contains, "Pet(s) allowed" %> <br />
+				<%= f.check_box :Pets_is_true %>
+				<%= f.label :Pets_is_true, "Pets" %> <br />
 			</div>
 		</li><hr />
-		<li id="Search">
-			<p class="button"><%= f.submit "Search", :class => "Search_Button" %></p>
-		</li>
 	</ul>
 	<% end %>
 	<ul id="Clear_Search_Criteria">

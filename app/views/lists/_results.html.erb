@@ -1,8 +1,11 @@
 <html>
 
+<body>
+
 <section id="Results_View" >
 <% unless @test.nil? %>
 <h1>Search Results</h1>
+<hr id="Results_View_Bar">
 <p>Select a listing and here's what you can do: 
 	<div id="Table_Actions">
 		<a class="Table_Action" href="/lists/1">Show</a>
@@ -85,5 +88,7 @@
 document.getElementById("Table_Element_1").style.opacity = "0.5";
 
 </script>
+
+</body>
 
 </html>
