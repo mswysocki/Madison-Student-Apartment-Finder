@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120322040021) do
+ActiveRecord::Schema.define(:version => 20120323044147) do
 
   create_table "lists", :force => true do |t|
     t.string   "Address"
@@ -18,12 +18,10 @@ ActiveRecord::Schema.define(:version => 20120322040021) do
     t.string   "State"
     t.integer  "Zip"
     t.integer  "Region"
-    t.string   "Bedrooms"
     t.float    "Bathrooms"
     t.integer  "Rent"
     t.integer  "SquareFeet"
     t.boolean  "Smoking"
-    t.string   "Pets"
     t.boolean  "Heat"
     t.boolean  "Electric"
     t.integer  "Flags"
@@ -31,11 +29,17 @@ ActiveRecord::Schema.define(:version => 20120322040021) do
     t.datetime "updated_at"
     t.boolean  "Gas"
     t.boolean  "GarbageCollection"
-    t.integer  "Type"
     t.integer  "Length"
     t.boolean  "Furnished"
     t.boolean  "Laundry"
     t.boolean  "Parking"
+    t.integer  "Bedrooms"
+    t.boolean  "Pets"
+    t.boolean  "Type"
   end
+
+  add_index "lists", ["Address"], :name => "index_lists_on_Address"
+  add_index "lists", ["Bedrooms"], :name => "index_lists_on_Bedrooms"
+  add_index "lists", ["Rent"], :name => "index_lists_on_Rent"
 
 end
