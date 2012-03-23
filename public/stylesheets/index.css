@@ -449,9 +449,27 @@ input:focus
 	background-color: #424242;
 	border-radius: 15px;
 	color: #eeeeee;
+	margin-left: auto;
+	margin-right: auto;
 	padding-left: auto;
 	padding-right: auto;
 	font-family: verdana, arial, helvetica, sans-serif;
 	font-size:   16px;
   	line-height: 18px;
+  	transition-property:background-color;
+	transition-duration:2s;
+	transition-timing-function:linear;
+	transition-delay:0s;
+	-webkit-transition-property:background-color;
+	-webkit-transition-duration:2s;
+	-webkit-transition-timing-function:linear;
+	-webkit-transition-delay:0s;
+	-o-transition-property:background-color;
+	-o-transition-duration:2s;
+	-o-transition-timing-function:linear;
+	-o-transition-delay:0s;
+	-moz-transition:background-color;
+	-moz-transition-duration:2s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:0s;
 }
