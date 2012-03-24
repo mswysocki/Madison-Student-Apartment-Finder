@@ -8,6 +8,7 @@ class ListsController < ApplicationController
     @test = params[:search]   #used for hiding
     @lists = @search.all
     
+    @no_results = List.no_results(@lists)    
     #@lists = List.all
     #@lists = List.order(sort_column + " " + sort_direction).paginate(:per_page => 5)
     respond_to do |format|
@@ -105,13 +106,5 @@ class ListsController < ApplicationController
   
   private
   
-  def sort_column
-    List.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    #params[:sort] || "name"
-  end
-  
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    #params[:direction] || "asc"
-  end
+ 
 end
