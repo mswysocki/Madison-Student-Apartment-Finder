@@ -205,7 +205,7 @@ body
 #Details_Ops_Invis, #Lease_Ops_Vis, #Utils_Ops_Vis,
 #Accoms_Ops_Vis, #Restricts_Ops_Vis
 {
-	display: all;
+	/*display: all;*/   /* This line was giving me an error and said it wasn't valid, or something.. */
 }
 
 #Price_All, #Location_All, #Type_of_Res_All, #Res_Details_All,
