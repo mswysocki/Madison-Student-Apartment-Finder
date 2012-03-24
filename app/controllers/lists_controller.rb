@@ -4,8 +4,14 @@ class ListsController < ApplicationController
   # GET /lists.xml
   def index
     #@lists = List.all
-    @search = List.search(params[:search])
     @test = params[:search]   #used for hiding
+    puts @test
+    unless (@test.nil?)
+      addr = @test["Address_contains"]
+      @test["Address_contains"] = List.street_endings(addr)
+    end
+    @search = List.search(params[:search])
+
     @lists = @search.all
     
     @no_results = List.no_results(@lists)    

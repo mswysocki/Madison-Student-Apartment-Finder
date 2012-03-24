@@ -46,6 +46,27 @@ class List < ActiveRecord::Base
  
   ROOMS = (1..25).to_a
   BATHS = (1..10).to_a
+  STREETS = {
+      "street" => ["st",            "street"],   
+      "place" => ["pl",             "place" ],   
+      "road" => ["rd",              "road"  ],   
+      "avenue" => ["ave",           "avenue"],   
+      "boulevard" => ["blvd",       "boulevard"],
+      "court" => ["ct",             "court" ],   
+      "fork" => ["fk",              "fork"  ],   
+      "square" => ["sq",            "square"],   
+      "lane" => ["ln",              "lane"  ],   
+      "loop" => ["lp",              "loop"  ],   
+      "terrace" => ["ter", "terr",  "terrace"],
+      "drive" => ["dr",             "drive" ],   
+      "circle" => ["ci", "cr",      "circle"],   
+      "junction" => ["jct",         "junction"],
+      "highway" => ["hwy",          "highway"],
+      "alley" =>   ["aly",          "alley"],
+      "parkway" => ["pkwy",         "parkway"],
+      "mall" => [                   "mall"],
+      "route" => ["rte",            "route"] 
+  }
   
  
   #returns true if there are no search results on a given search, false otherwise
@@ -57,6 +78,32 @@ class List < ActiveRecord::Base
       #puts "I should be in here when there are search results..."
       return false
     end
+  end
+  
+  
+  #Cuts out the street abbreviation in the search string
+  #Option is there to instead make it lower case if there is a match
+  def self.street_endings address_contains
+    searched_addr = address_contains
+    
+    address_contains = address_contains.split
+    numElements = address_contains.size
+    abbr = address_contains.last.downcase
+    
+    STREETS.each { |key, value| 
+      #puts "#{key} is #{value}" 
+      value.each do |str|
+        if abbr.include?(str)
+          address_contains.delete_at(numElements-1)
+          #address_contains[numElements -1] = str
+          #puts address_contains.join(" ")
+          return address_contains.join(" ")
+        end
+      end
+    }
+    
+    #if they did not include a suffix, return original
+    return searched_addr
   end
  
 
