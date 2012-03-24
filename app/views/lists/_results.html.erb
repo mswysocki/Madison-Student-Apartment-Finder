@@ -51,7 +51,7 @@
 	
 	<% identifier = "Table_Element_" + i.to_s() %>
 
-  <tr onclick="setSelectedTableElement(<%= i%>)" id=<%= identifier%>>
+  <tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%>>
     <td class=<%= elementClass%> ><%= list.Address%></td>
     <td class=<%= elementClass%> ><%= list.Zip %></td>
     <td class=<%= elementClass%> ><%= list.Region %></td>
