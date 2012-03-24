@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   def index
     #@lists = List.all
     @test = params[:search]   #used for hiding
-    puts @test
+    #puts @test
     unless (@test.nil?)
       addr = @test["Address_contains"]
       @test["Address_contains"] = List.street_endings(addr)
