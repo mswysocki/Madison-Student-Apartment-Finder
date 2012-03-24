@@ -44,9 +44,20 @@ class List < ActiveRecord::Base
   end
   
  
- ROOMS = (1..25).to_a
- BATHS = (1..10).to_a
+  ROOMS = (1..25).to_a
+  BATHS = (1..10).to_a
   
+ 
+  #returns true if there are no search results on a given search, false otherwise
+  def self.no_results search_all
+    if (search_all.nil? || search_all.length == 0) 
+      #puts "I should be in here when there are no results..."
+      return true
+    else
+      #puts "I should be in here when there are search results..."
+      return false
+    end
+  end
  
 
 
