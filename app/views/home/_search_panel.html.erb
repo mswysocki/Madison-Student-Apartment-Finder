@@ -30,8 +30,8 @@
 				<p onclick="showType('Type_Ops_Invis')">Type of Residence</p>
 			</div>
 			<div id="Type_Ops_Invis">
-				<%= f.radio_button :Type_is_true, "House" %>House<br />
-				<%= f.radio_button :Type_is_false, "Apartment" %>Apartment<br />
+				<%= f.radio_button :Type_eq, true %>House<br />
+				<%= f.radio_button :Type_eq, false %>Apartment<br />
 			</div>
 		</li><hr />
 		<li id="Res_Details">
