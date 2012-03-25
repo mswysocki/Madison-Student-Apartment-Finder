@@ -84,6 +84,9 @@ class List < ActiveRecord::Base
   #Cuts out the street abbreviation in the search string
   #Option is there to instead make it lower case if there is a match
   def self.street_endings address_contains
+    if (address_contains.blank?) 
+      return nil
+    end
     searched_addr = address_contains
     
     address_contains = address_contains.split
