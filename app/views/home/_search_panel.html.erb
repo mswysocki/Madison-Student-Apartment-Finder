@@ -39,10 +39,26 @@
 				<p onclick="showDetails('Details_Ops_Invis')">Residence Details</p>
 			</div>
 			<div id="Details_Ops_Invis">
-				<%= f.label :Bedrooms_eq, "Bedrooms" %>
-				<%= f.text_field :Bedrooms_eq %> <p></p>
-				<%= f.label :Bedrooms_eq, "Bathrooms" %>
-				<%= f.text_field :Bathrooms_eq %> <p></p>
+
+				<h3><%= f.label "Bedrooms" %></h3>
+				<%= f.label :Bedrooms_gte, "From" %>
+				<%= f.select :Bedrooms_gte, List::ROOMS %>
+				<%= f.label :Bedrooms_lte, "to" %>
+				<%= f.select :Bedrooms_lte, List::ROOMS %> 
+				<p></p>
+				<hr />
+				
+				
+				<h3><%= f.label "Bathrooms" %></h3>
+				<%= f.label :Bathrooms_gte, "From" %>
+				<%= f.select :Bathrooms_gte, List::BATHS %>
+				<%= f.label :Bathrooms_lte, "to" %>
+				<%= f.select :Bathrooms_lte, List::BATHS %>
+				<p></p>
+				<hr />
+				
+				
+				
 				<%= f.label :SquareFeet_gte, "At least" %>
 				<%= f.text_field :SquareFeet_gte %>
 				<%= f.label :SquareFeet_gte, "square feet."%>
