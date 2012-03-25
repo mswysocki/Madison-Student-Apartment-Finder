@@ -38,5 +38,8 @@ module MadisonStudentApartmentFinder
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    config.gem 'rack-recaptcha', :lib => 'rack/recaptcha'
+    config.middleware.use Rack::Recaptcha, :public_key => '6Ld2Ys8SAAAAAODPB0epiF-5vsmRipJl4xvaCIbu', :private_key => '6Ld2Ys8SAAAAAOxRk-aYVuuN35lottSEU2MkRq7s'
   end
 end

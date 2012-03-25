@@ -68,10 +68,20 @@ class ListsController < ApplicationController
     @list = List.new(params[:list])
 
     respond_to do |format|
-      if @list.save
+      if (recaptcha_valid? && @list.save)
         format.html { redirect_to(@list, :notice => 'List was successfully created.') }
         format.xml  { render :xml => @list, :status => :created, :location => @list }
       else
+        captcha_error = { :Incorrect=>["captcha input"] }
+        List.transaction do
+          if @list.save
+            @list.errors.merge!(captcha_error)
+            format.html { render :action => "new" }
+            format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }    
+          end
+        end
+
+        @list.errors.merge!(captcha_error)
         format.html { render :action => "new" }
         format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
       end

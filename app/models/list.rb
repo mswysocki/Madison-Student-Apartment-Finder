@@ -95,6 +95,11 @@ class List < ActiveRecord::Base
     numElements = address_contains.size
     abbr = address_contains.last.downcase
     
+    #if they only search one thing, ignore below and return
+    if (numElements == 1)
+      return address_contains
+    end
+    
     STREETS.each { |key, value| 
       #puts "#{key} is #{value}" 
       value.each do |str|
