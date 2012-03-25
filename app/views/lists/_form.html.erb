@@ -116,6 +116,7 @@
     <%= f.text_field :Flags %>
   </div>
   <div class="actions">
+  	<%= raw recaptcha_tag(:challenge) %>
     <%= f.submit %>
   </div>
 <% end %>
