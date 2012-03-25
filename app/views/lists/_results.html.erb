@@ -1,5 +1,5 @@
 <html>
-
+<%= stylesheet_link_tag  "pagination" %>
 <body>
 
 <section id="Results_View" >
@@ -51,6 +51,7 @@
 	end %>
 	
 	<% identifier = "Table_Element_" + i.to_s() %>
+  
 
   <tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%>>
     <td class=<%= elementClass%> ><%= list.Address%></td>
@@ -70,12 +71,15 @@
     <td class=<%= elementClass%> ><%= list.Furnished %></td>
     <td class=<%= elementClass%> ><%= list.Laundry %></td>
   </tr>
+  
 <% end %>
+
 
 	<td></td>
 	<td></td>
 
 </table>
+<%= will_paginate @lists, :class => "digg_pagination" %>
 <% end %>
 <% end %>
 

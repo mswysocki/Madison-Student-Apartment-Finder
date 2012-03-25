@@ -13,7 +13,7 @@ class ListsController < ApplicationController
     @search = List.search(params[:search])
 
     @lists = @search.all
-    
+    @lists = List.paginate(:page => params[:page], :per_page => 5)
     @no_results = List.no_results(@lists)    
     #@lists = List.all
     #@lists = List.order(sort_column + " " + sort_direction).paginate(:per_page => 5)
