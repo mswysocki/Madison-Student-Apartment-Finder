@@ -47,7 +47,7 @@ div.field, div.actions {
 	cursor:pointer;
 }
 
-.Table_Action, .Table_Action:visited, .Table_Action:hover{
+.Table_Action, .Table_Action:visited{
 
 	padding-left: 5px;
 	padding-right: 5px;
