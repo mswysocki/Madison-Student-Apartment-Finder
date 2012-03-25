@@ -45,7 +45,9 @@ class List < ActiveRecord::Base
   
  
   ROOMS = (1..25).to_a
-  BATHS = (1..10).to_a
+  ROOMS.insert(0, nil);
+  #BATHS = (1..10).to_a
+  BATHS = [nil, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0]
   STREETS = {
       "street" => ["st",            "street"],   
       "place" => ["pl",             "place" ],   
