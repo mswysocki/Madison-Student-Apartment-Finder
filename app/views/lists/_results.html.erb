@@ -2,6 +2,8 @@
 
 <body>
 
+<% first = 1 %>
+
 <section id="Results_View" >
 <% unless @test.nil? %>  <!-- This checks if the url is empty.  Will then show the content (ie. home) page in that case-->
 <% unless @no_results %>  <!-- This checks if there are no search results. Will render a new partial -->
@@ -50,7 +52,11 @@
 		elementClass = "Table_Element"
 	end %>
 	
-	<% identifier = "Table_Element_" + i.to_s() %>
+	<% if i == 1 
+		first = list.id
+	end %>
+	
+	<% identifier = "Table_Element_" + list.id.to_s() %>
 
   <tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%>>
     <td class=<%= elementClass%> ><%= list.Address%></td>
@@ -93,7 +99,12 @@
 
 <script type="text/javascript">
 
-document.getElementById("Table_Element_1").style.opacity = "0.5";
+document.getElementById("Table_Element_<%= first%>").style.opacity = "0.5";
+
+var links = document.getElementById("Table_Actions").getElementsByTagName("a");
+links.item(0).href = "/lists/"+<%= first%>;
+links.item(1).href = "/lists/"+<%= first%>+"/edit";
+links.item(2).href = "/lists/"+<%= first%>;
 
 </script>
 
