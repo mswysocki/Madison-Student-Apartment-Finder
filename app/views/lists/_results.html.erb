@@ -1,46 +1,64 @@
 <html>
-<%= stylesheet_link_tag  "pagination" %>
+	<%= stylesheet_link_tag 'pagination' %>
 <body>
 
 <% first = 1 %>
 
 <section id="Results_View" >
-<% unless @test.nil? %>  <!-- This checks if the url is empty.  Will then show the content (ie. home) page in that case-->
-<% unless @no_results %>  <!-- This checks if there are no search results. Will render a new partial -->
+<% unless @test.nil? %> <!-- This checks if the url is empty. Will then show the content (ie. home) page in that case-->
+<% unless @no_results %> <!-- This checks if there are no search results. Will render a new partial -->
 <h1>Search Results</h1>
 <hr id="Results_View_Bar">
-<p>Select a listing and here's what you can do: 
-	<div id="Table_Actions">
-		<ul>
-			<li class="button"><a class="Table_Action" href="/lists/1">Show</a></li>
-			<li class="button"><a class="Table_Action" href="/lists/1/edit">Edit</a></li>
-			<li class="button"><a class="Table_Action" href="/lists/1" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Remove</a></li>
-		</ul>
-	</div>
+<p>Select a listing and here's what you can do:
+<div id="Table_Actions">
+<ul>
+<li class="button"><a class="Table_Action" href="/lists/1">Show</a></li>
+<li class="button"><a class="Table_Action" href="/lists/1/edit">Edit</a></li>
+<li class="button"><a class="Table_Action" href="/lists/1" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Remove</a></li>
+</ul>
+</div>
 </p>
 
 <table id="Search_Results_Table">
   <tr>
-    <th><%= sort_link @search, :Address%>	</th>
-    <th><%= sort_link @search, :Zip %>		</th>
-    <th><%= sort_link @search, :Region %>	</th>
-    <th><%= sort_link @search, :Bedrooms, "Bed" %>	</th>
+  	<th>Address</th>
+  	<th>Zip</th>
+  	<th>Bed</th>
+  	<th>Bath</th>
+  	<th>Rent</th>
+  	<th>Square Feet</th>
+  	<th>Parking</th>
+  	<th>Smoking</th>
+  	<th>Pets</th>
+  	<th>Heat</th>
+  	<th>Electric</th>
+  	<th>Gas</th>
+  	<th>Garbage Collection</th>
+  	<th>Furnished</th>
+  	<th>Laundry</th>
+  	
+  
+    
+    <!--<th><%= sort_link @search, :Address%> </th>
+    <th><%= sort_link @search, :Zip %> </th>
+    <th><%= sort_link @search, :Region %> </th>
+    <th><%= sort_link @search, :Bedrooms, "Bed" %> </th>
     <th><%= sort_link @search, :Bathrooms, "Bath" %></th>
-    <th><%= sort_link @search, :Rent %>		</th>
+    <th><%= sort_link @search, :Rent %> </th>
     <th><%= sort_link @search, :SquareFeet, "Square Feet"%></th>
-    <th><%= sort_link @search, :Parking %>	</th>
-    <th><%= sort_link @search, :Smoking %>	</th>
-    <th><%= sort_link @search, :Pets %>		</th>
-    <th><%= sort_link @search, :Heat %>		</th>
-    <th><%= sort_link @search, :Electric %>	</th>
-    <th><%= sort_link @search, :Gas %>		</th>
+    <th><%= sort_link @search, :Parking %> </th>
+    <th><%= sort_link @search, :Smoking %> </th>
+    <th><%= sort_link @search, :Pets %> </th>
+    <th><%= sort_link @search, :Heat %> </th>
+    <th><%= sort_link @search, :Electric %> </th>
+    <th><%= sort_link @search, :Gas %> </th>
     <th><%= sort_link @search, :GarbageCollection, "Garbage Collected" %></th>
-    <th><%= sort_link @search, :Furnished %>		</th>
-    <th><%= sort_link @search, :Laundry %>			</th>
+    <th><%= sort_link @search, :Furnished %> </th>
+    <th><%= sort_link @search, :Laundry %> </th>-->
    </tr>
 
-	<% i = 0 %>
-	<% elementClass = "Table_Element" %>
+<% i = 0 %>
+<% elementClass = "Table_Element" %>
 
 <% @lists.each do |list| %>
 
@@ -61,7 +79,6 @@ end %>
   <tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%>>
     <td class=<%= elementClass%> ><%= list.Address%></td>
     <td class=<%= elementClass%> ><%= list.Zip %></td>
-    <td class=<%= elementClass%> ><%= list.Region %></td>
     <td class=<%= elementClass%> ><%= list.Bedrooms %></td>
     <td class=<%= elementClass%> ><%= list.Bathrooms %></td>
     <td class=<%= elementClass%> ><%= list.Rent %></td>
@@ -78,12 +95,11 @@ end %>
   </tr>
 <% end %>
 
-
-	<td></td>
-	<td></td>
+<td></td>
+<td></td>
 
 </table>
-<%= will_paginate @lists, :class => "digg_pagination" %>
+<%= will_paginate @lists, :class => 'digg_pagination' %>
 <% end %>
 <% end %>
 
@@ -91,11 +107,11 @@ end %>
 
 
 <% if @test.nil? %>
-	<%= render 'home/content' %>
+<%= render 'home/content' %>
 <% end %>
 
 <% if @no_results %>
-	<%= render 'home/no_results' %>
+<%= render 'home/no_results' %>
 <% end %>
 
 
