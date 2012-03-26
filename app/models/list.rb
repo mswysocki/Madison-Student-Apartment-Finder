@@ -146,6 +146,17 @@ class List < ActiveRecord::Base
     return searched_addr
   end
  
+  def self.format_address! list_parameters
+      temp = ""
+      list_parameters["Address"].split.map!  {|word|
+      if STREETS.key?(word.downcase)
+        word = STREETS[word.downcase][0] + "."  
+      end
+      word.capitalize!
+      temp += word + " "
+    }.join(" ")
+    return temp
+    end
 
 
   
