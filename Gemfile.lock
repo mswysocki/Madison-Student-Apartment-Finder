@@ -33,6 +33,7 @@ GEM
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    faker (0.3.1)
     i18n (0.5.0)
     json (1.6.5)
     mail (2.2.19)
@@ -88,6 +89,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (= 2.4.0)
+  faker (= 0.3.1)
   meta_search
   pg
   rack-recaptcha

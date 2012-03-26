@@ -12,6 +12,7 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'annotate', '2.4.0'
+  gem 'faker',    '0.3.1'
 end
 
 
