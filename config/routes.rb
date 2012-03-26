@@ -1,6 +1,9 @@
 #<<<<<<< HEAD
 MadisonStudentApartmentFinder::Application.routes.draw do
+  resources :users
   resources :lists
+
+  match '/signup',  :to => 'users#new'
   
   #<%= link_to '[About Us]', about_path %>
   match '/about' 		=>	'home#about',	:as => :about

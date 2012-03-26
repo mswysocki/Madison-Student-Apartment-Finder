@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id         :integer         not null, primary key
+#  Name       :string(255)
+#  Email      :string(255)
+#  Admin      :boolean
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  Name: MyString
+  Email: MyString
+  Admin: false
+
+two:
+  Name: MyString
+  Email: MyString
+  Admin: false

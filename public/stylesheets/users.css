@@ -1,0 +1,22 @@
+#User_Show_View
+{
+	z-index:-2;
+	/*top:130px;
+	right: 510px;
+	font-size: 14px;*/
+	color: #eeeeee;
+	background-color: #cc0000;
+	width: 866px;  /*I don't know how to deal with these correctly..but it is aligned!! */
+	float: right;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	margin-top: 10px;
+	padding: 0px 20px 15px 10px;
+}
+
+#Nothing_Right_Now
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 5px;
+}
