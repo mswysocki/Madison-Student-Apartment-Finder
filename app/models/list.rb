@@ -1,3 +1,33 @@
+# == Schema Information
+#
+# Table name: lists
+#
+#  id                :integer         not null, primary key
+#  Address           :string(255)
+#  City              :string(255)
+#  State             :string(255)
+#  Zip               :integer
+#  Region            :integer
+#  Bathrooms         :float
+#  Rent              :integer
+#  SquareFeet        :integer
+#  Smoking           :boolean
+#  Heat              :boolean
+#  Electric          :boolean
+#  Flags             :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#  Gas               :boolean
+#  GarbageCollection :boolean
+#  Length            :integer
+#  Furnished         :boolean
+#  Laundry           :boolean
+#  Parking           :boolean
+#  Bedrooms          :integer
+#  Pets              :boolean
+#  Type              :boolean
+#
+
 class List < ActiveRecord::Base
   attr_accessible :Address, :City, :State, :Zip, :Region, :Bedrooms, 
     :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
