@@ -16,9 +16,9 @@ Here are some of the gems added to the project:
 >
 >  + https://github.com/ernie/meta_search - For searching the database for listings
 >
->  https://github.com/mislav/will_paginate - For paging..which was taken out of the search results but does show up for users when signed in.
+>  + https://github.com/mislav/will_paginate - For paging..which was taken out of the search results but does show up for users when signed in.
 >
->  https://github.com/ctran/annotate_models - For development only, annotating the models to make it easier to know what the model is when dealing with the model itself.
+>  + https://github.com/ctran/annotate_models - For development only, annotating the models to make it easier to know what the model is when dealing with the model itself.
 > 
->  https://github.com/stympy/faker - For making 100 users with one command (local only).  I think this might be able to be used for Listings as well.
+>  + https://github.com/stympy/faker - For making 100 users with one command (local only).  I think this might be able to be used for Listings as well.
 
