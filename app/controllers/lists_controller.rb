@@ -73,19 +73,21 @@ class ListsController < ApplicationController
         format.xml  { render :xml => @list, :status => :created, :location => @list }
       else
         captcha_error = { :Incorrect=>["captcha input"] }
+        
         List.transaction do
-          if @list.save
-            @list.errors.merge!(captcha_error)
+          if (!@list.save && recaptcha_valid?)
             format.html { render :action => "new" }
-            format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }    
+            format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }   
+          elsif (!@list.save && !recaptcha_valid?)
+            @list.errors.merge!(captcha_error) 
+            format.html { render :action => "new" }
+            format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
           end
         end
-
-        @list.errors.merge!(captcha_error)
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
+        
       end
     end
+    
   end
 
   # PUT /lists/1
