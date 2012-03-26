@@ -1,8 +1,4 @@
-<!-- Banner -->
-<%= render 'home/banner' %>
-<!-- End Banner -->
-<section id="User_Show_View" class="unselectable" >
-<h1>Sign up</h1>
+<h1>Edit user</h1>
 
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
@@ -23,7 +19,6 @@
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Update" %>
   </div>
 <% end %>
-</section>

@@ -2,12 +2,14 @@
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  Name       :string(255)
-#  Email      :string(255)
-#  Admin      :boolean
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer         not null, primary key
+#  Name               :string(255)
+#  Email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean         default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -36,7 +38,8 @@ class User < ActiveRecord::Base
   end
   
   def self.authenticate(email, submitted_password)
-    user = find_by_email(email)
+    puts email; puts submitted_password;
+    user = find_by_Email(email)
     return nil  if user.nil?
     return user if user.has_password?(submitted_password)
   end
