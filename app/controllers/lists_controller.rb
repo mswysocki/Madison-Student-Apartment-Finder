@@ -65,8 +65,8 @@ class ListsController < ApplicationController
   # rent, and number of rooms are all valid.
   # Default values for City => "Madison" and State => "Wisconsin"
   def create
+    params[:list]["Address"] = List.format_address! params[:list]
     @list = List.new(params[:list])
-
     respond_to do |format|
       if (recaptcha_valid? && @list.save)
         format.html { redirect_to(@list, :notice => 'List was successfully created.') }
@@ -91,10 +91,11 @@ class ListsController < ApplicationController
   # PUT /lists/1
   # PUT /lists/1.xml
   def update
-    
+    params[:list]["Address"] = List.format_address! params[:list]
     
     
     #below is what we want for adminUpdate - free access
+    
     @list = List.find(params[:id])
 
     respond_to do |format|
