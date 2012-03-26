@@ -97,7 +97,7 @@ class List < ActiveRecord::Base
     
     #if they only search one thing, ignore below and return
     if (numElements == 1)
-      return address_contains
+      return searched_addr
     end
     
     STREETS.each { |key, value| 
