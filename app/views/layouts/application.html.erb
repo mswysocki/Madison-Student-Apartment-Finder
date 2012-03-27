@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Madison Student Housing Finder</title>
+  <title>Madison Student Housing Finder | <%= @title %></title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
@@ -9,11 +9,12 @@
 <body>
 
 <!-- Banner -->
-<!--<%= render 'home/banner' %> -->
+<%= render 'home/banner' %>
 <!-- End Banner -->
 <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
+	<div class="flash <%= key %>"><%= value %></div>
 <% end %>
+
 <%= yield %>
 
   

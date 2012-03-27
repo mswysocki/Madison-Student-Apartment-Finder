@@ -3,6 +3,7 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.xml
   def index
+    @title = "Search Results"
     #@lists = List.all
     @test = params[:search]   #used for hiding
     #puts @test
@@ -31,12 +32,13 @@ class ListsController < ApplicationController
     @lists = @search.all
     
     @list = List.find(params[:id])
+    @title = @list.Address
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @list }
     end
-    @title = @list.Address
+
   end
 
   # GET /lists/new
@@ -44,6 +46,7 @@ class ListsController < ApplicationController
   # This works along with the create() method below.  This method launches a 
   # page (new.html) that works as a form for the creation of a Listing.
   def new
+    @title = "New Listing"
     @list = List.new
 
     respond_to do |format|
@@ -54,6 +57,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1/edit
   def edit
+    @title = "Update Listing"
     @list = List.find(params[:id])
   end
 
@@ -77,9 +81,11 @@ class ListsController < ApplicationController
         
         List.transaction do
           if (!@list.valid? && recaptcha_valid?)
+            @title = "New Listing"
             format.html { render :action => "new" }
             format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }   
           else 
+            @title = "New Listing"
             @list.errors.merge!(captcha_error) 
             format.html { render :action => "new" }
             format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
@@ -105,6 +111,7 @@ class ListsController < ApplicationController
         format.html { redirect_to(@list, :notice => 'List was successfully updated.') }
         format.xml  { head :ok }
       else
+        @title = "Update Listing"
         format.html { render :action => "edit" }
         format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
       end
