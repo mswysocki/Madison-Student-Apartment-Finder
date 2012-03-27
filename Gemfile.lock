@@ -51,6 +51,8 @@ GEM
     pg (0.13.1-x86-mingw32)
     polyglot (0.3.3)
     rack (1.2.5)
+    rack-google_analytics (1.0.2)
+      rack
     rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-recaptcha (0.6.4)
@@ -92,6 +94,7 @@ DEPENDENCIES
   faker (= 0.3.1)
   meta_search
   pg
+  rack-google_analytics
   rack-recaptcha
   rails (= 3.0.9)
   sqlite3

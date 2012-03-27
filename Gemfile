@@ -7,6 +7,7 @@ gem 'rails', '3.0.9'
 
 group :prodution do
   gem 'pg'
+  gem 'rack-google_analytics', :require => "rack/google_analytics"
 end
 
 group :development, :test do

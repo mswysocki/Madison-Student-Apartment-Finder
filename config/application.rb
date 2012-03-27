@@ -41,5 +41,6 @@ module MadisonStudentApartmentFinder
     
     config.gem 'rack-recaptcha', :lib => 'rack/recaptcha'
     config.middleware.use Rack::Recaptcha, :public_key => '6Ld2Ys8SAAAAAODPB0epiF-5vsmRipJl4xvaCIbu', :private_key => '6Ld2Ys8SAAAAAOxRk-aYVuuN35lottSEU2MkRq7s'
+    config.middleware.use("Rack::GoogleAnalytics", :web_property_id => "UA-30344596-1")
   end
 end
