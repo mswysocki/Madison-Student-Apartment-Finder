@@ -1,29 +1,10 @@
-<html>
-
-<head>
-	<title>Visualizing a Listing</title>
-	<% stylesheet_link_tag 'index' %> 
-</head>
-
-<body>
-
-<%= stylesheet_link_tag 'index' %>
-
-<div class="divider"></div>
-
-<!-- Search Panel -->
-<!--<%= render 'home/search_panel' %>-->
-<!-- End Search Panel -->
-
-<div class="divider"></div>
-
 <p id="notice"><%= notice %></p>
 
 <section id="Listing_View">
 
 <p>
   <h1>
-  <%= @list.Address %>
+  	<%= @list.Address %>
   </h1>
 </p>
 
@@ -31,41 +12,38 @@
 
 <p>
   <b>City:</b>
-  <%= @list.City %>
+  	<%= @list.City %>
 </p>
 
 
 <p>
   <b>State:</b>
-  <%= @list.State %>
+  	<%= @list.State %>
 </p>
-
 
 
 <p>
   <b>Zip:</b>
-  <%= @list.Zip %>
+  	<%= @list.Zip %>
 </p>
-
 
 
 <p>
   <b>Region:</b>
-  <%= @list.Region %>
+  	<%= @list.Region %>
 </p>
-
 
 
 <p>
   <b>Bedrooms:</b>
-  <%= @list.Bedrooms %>
+  	<%= @list.Bedrooms %>
 </p>
 
 
-<% unless @list.GarbageCollection.nil? %>
+<% unless @list.Bathrooms.nil? %>
 <p>
   <b>Bathrooms:</b>
-  <%= @list.Bathrooms %>
+  	<%= @list.Bathrooms %>
 </p>
 <% end %>
 
@@ -73,14 +51,14 @@
 
 <p>
   <b>Rent:</b>
-  <%= @list.Rent %>
+  	<%= @list.Rent %>
 </p>
 
 
 <% unless @list.SquareFeet.nil? %>
 <p>
   <b>Squarefeet:</b>
-  <%= @list.SquareFeet %>
+  	<%= @list.SquareFeet %>
 </p>
 <% end %>
 
@@ -190,5 +168,3 @@
 <%= link_to 'Update', edit_list_path(@list) %>
 
 </section>
-</body>
-</html>
