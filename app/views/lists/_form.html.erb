@@ -7,17 +7,7 @@
 
 <body>
 <%= form_for(@list) do |f| %>
-  <% if @list.errors.any? %>
-    <div id="error_explanation">
-      <h2>The following <%= pluralize(@list.errors.count, "error") %> prevented the listing from being saved:</h2>
-
-      <ul>
-      <% @list.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', :object => f.object %>
 
   <div class="field">
     <%= f.label :Address %><br />
