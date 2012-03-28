@@ -9,15 +9,21 @@ group :prodution do
   gem 'pg'
 end
 
-group :development, :test do
+group :development do
   gem 'sqlite3'
   gem 'annotate', '2.4.0'
   gem 'faker',    '0.3.1'
+  gem 'rspec-rails', '2.6.1'
+end
+
+group :test do
+  gem 'rspec-rails', '2.6.1'
+  gem 'webrat', '0.7.1'
 end
 
 
-gem "meta_search" #, :git => "git://github.com/ernie/meta_search.git" # Track git repo
-gem 'will_paginate' #may need to be used for easy pagination 
+gem "meta_search"     #, :git => "git://github.com/ernie/meta_search.git" # Track git repo
+gem 'will_paginate'   #may need to be used for easy pagination 
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
 
 #gem 'rd_searchlogic', :require => 'searchlogic', :git => 'git://github.com/railsdog/searchlogic.git'
