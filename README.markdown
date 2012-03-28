@@ -21,4 +21,11 @@ Here are some of the gems added to the project:
 >  + https://github.com/ctran/annotate_models - For development only, annotating the models to make it easier to know what the model is when dealing with the model itself.
 > 
 >  + https://github.com/stympy/faker - For making 100 users with one command (local only).  I think this might be able to be used for Listings as well.
+> 
+>  + https://github.com/rspec/rspec-rails - Testing for both unit and some integration tests.  We can obviously still choose to use Cucumber or anything else that we want but this is what I got started with.
+> 
+>  + https://github.com/thoughtbot/factory_girl_rails - This allows easy creation of anything used with a database for testing.
+
+Testing of the project has gotten started, and to run the test suite that we have use the command 'rspec spec/' or 'rspec spec/any_folder_you_want_to_test/' ... and so on
+Some of the tests related to the admin stuff may not be passing right now and I'm not sure if that's because the tests are written incorrectly or if I need to add some stuff to the security.
 
