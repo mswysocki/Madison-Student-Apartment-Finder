@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     
     def correct_user
       @user = User.find(params[:id])
-      puts; puts; puts; puts @user; puts; puts; puts;
+      #puts; puts; puts; puts @user; puts; puts; puts;
       redirect_to(home_page_path) unless current_user?(@user)
     end
     
