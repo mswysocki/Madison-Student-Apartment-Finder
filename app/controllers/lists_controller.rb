@@ -103,6 +103,7 @@ class ListsController < ApplicationController
     
     
     #below is what we want for adminUpdate - free access
+    #restrictions will be mostly on the view side with erb
     
     @list = List.find(params[:id])
 
