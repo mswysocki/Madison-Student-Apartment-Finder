@@ -133,7 +133,6 @@ describe User do
     end
 
     it "should respond to admin" do
-      puts @user.admin
       @user.should respond_to(:admin)
     end
 
