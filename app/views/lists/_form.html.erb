@@ -1,17 +1,21 @@
 <%= form_for(@list) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-
+ 	<%= render 'shared/error_messages', :object => f.object %>
 	<% action = params[:action] %>
+	
 	<% if ((action.eql? "edit") || (action.eql? "update")) %>
   <div class="field">
-    <%= f.label :Address %><br />
-    <% if (signed_in? && current_user.admin?) %> <%= f.text_field :Address %>  
-    <% else %> <%= f.text_field :Address, :disabled => true %> <% end %>
+    	<%= f.label :Address %><br />
+    	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :Address %>  
+    	<% else %> <%= f.text_field :Address, :disabled => true %> 
+    	<% end %>
   </div>
   	<% elsif ((action.eql? "create") || (action.eql? "new")) %>
-  	<%= f.label :Address %><br />
-  	<%= f.text_field :Address %>
+  <div class="field">
+  		<%= f.label :Address %><br />
+  		<%= f.text_field :Address %>
+  </div>
   	<% end %>
+  	
   <div class="field">
     <%= f.label :City %><br />
     <%= f.text_field :City, :disabled => true %>
@@ -20,10 +24,21 @@
     <%= f.label :State %><br />
     <%= f.text_field :State, :disabled => true %>
   </div>
+  
+  	<% if ((action.eql? "edit") || (action.eql? "update" )) %>
   <div class="field">
-    <%= f.label :Zip %><br />
-    <%= f.text_field :Zip %>
+   	 	<%= f.label :Zip %><br />
+   	 	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :Zip %>
+    	<% else %> <%= f.text_field :Zip, :disabled => true %>
+    	<% end %>
   </div>
+  	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
+  <div class="field">
+  		<%= f.label :Zip %> <br />
+  		<%= f.text_field :Zip %>
+  </div>
+	<% end %>  
+  
   <div class="field">
     <%= f.label :Region %><br />
     <%= f.text_field :Region %>
