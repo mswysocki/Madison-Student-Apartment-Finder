@@ -14,7 +14,7 @@
 <ul>
 <li class="button"><a class="Table_Action" href="/lists/1">Show</a></li>
 <li class="button"><a class="Table_Action" href="/lists/1/edit">Edit</a></li>
-<li class="button"><a class="Table_Action" href="/lists/1" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Remove</a></li>
+<% if signed_in? && current_user.admin? %><li class="button"><a class="Table_Action" href="/lists/1" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Remove</a></li> <% end %>
 </ul>
 </div>
 </p>
