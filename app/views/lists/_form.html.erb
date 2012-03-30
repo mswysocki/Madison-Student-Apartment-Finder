@@ -43,14 +43,38 @@
     <%= f.label :Region %><br />
     <%= f.text_field :Region %>
   </div>
+  
+  
+  	<% if ((action.eql? "edit") || (action.eql? "update" )) %>
   <div class="field">
-    <%= f.label :Bedrooms %><br />
-	<%= f.select :Bedrooms, List::ROOMS %>
+   	 	<%= f.label :Bedrooms %><br />
+   	 	<% if (signed_in? && current_user.admin?) %> <%= f.select :Bedrooms, List::ROOMS %>
+    	<% else %> <%= f.text_field :Bedrooms, :disabled => true %>
+    	<% end %>
   </div>
+  	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
   <div class="field">
-    <%= f.label :Bathrooms %><br />
-    <%= f.select :Bathrooms, List::BATHS %>
+  		<%= f.label :Bedrooms %> <br />
+  		<%= f.select :Bedrooms, List::ROOMS %>
   </div>
+	<% end %>  
+  
+  
+  <% if ((action.eql? "edit") || (action.eql? "update" )) %>
+  <div class="field">
+   	 	<%= f.label :Bathrooms %><br />
+   	 	<% if (signed_in? && current_user.admin?) %> <%= f.select :Bathrooms, List::BATHS %>
+    	<% else %> <%= f.text_field :Bathrooms, :disabled => true %>
+    	<% end %>
+  </div>
+  	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
+  <div class="field">
+  		<%= f.label :Bathrooms %> <br />
+  		<%= f.select :Bathrooms, List::BATHS %>
+  </div>
+	<% end %>  
+  
+  
   <div class="field">
     <%= f.label :Rent %><br />
     <%= f.text_field :Rent %>
