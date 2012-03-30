@@ -27,5 +27,6 @@ Here are some of the gems added to the project:
 >  + https://github.com/thoughtbot/factory_girl_rails - This allows easy creation of anything used with a database for testing.
 
 Testing of the project has gotten started, and to run the test suite that we have use the command 'rspec spec/' or 'rspec spec/any_folder_you_want_to_test/' ... and so on
-Some of the tests related to the admin stuff may not be passing right now and I'm not sure if that's because the tests are written incorrectly or if I need to add some stuff to the security.
+
+All of the tests passed as of the last time I pushed any changes to github.  82/82.
 
