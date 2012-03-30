@@ -1,10 +1,17 @@
 <%= form_for(@list) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
 
+	<% action = params[:action] %>
+	<% if ((action.eql? "edit") || (action.eql? "update")) %>
   <div class="field">
     <%= f.label :Address %><br />
-    <%= f.text_field :Address %>
+    <% if (signed_in? && current_user.admin?) %> <%= f.text_field :Address %>  
+    <% else %> <%= f.text_field :Address, :disabled => true %> <% end %>
   </div>
+  	<% elsif ((action.eql? "create") || (action.eql? "new")) %>
+  	<%= f.label :Address %><br />
+  	<%= f.text_field :Address %>
+  	<% end %>
   <div class="field">
     <%= f.label :City %><br />
     <%= f.text_field :City, :disabled => true %>
