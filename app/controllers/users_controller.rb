@@ -18,6 +18,12 @@ class UsersController < ApplicationController
     @title = @user.Name
   end
   
+  def admin
+    @title = "Admin"
+    @users = User.paginate(:page => params[:page])
+    @lists = List.all
+  end
+  
   def create
     @user = User.new(params[:user])
     if @user.save
