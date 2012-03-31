@@ -1,0 +1,32 @@
+<% if current_user.admin? %>
+
+<section id="User_View" class="unselectable">
+	<h1>Admin page</h1>
+	
+	<p>This is the basic administrator page. It is really in progress, has a lot of work to be done.</p>
+	<p>We could go a lot of ways with what we are looking to do with this page..</p>
+	
+	<hr /> <hr />
+	<h1>All users</h1>
+
+	<%= will_paginate %>
+
+	<ul class="users">
+    	<%= render @users %>
+	</ul>
+
+	<%= will_paginate %>
+	
+	<hr /> <hr />
+	<h1>All listings</h1>
+	
+	<%= render @lists %>
+</section>
+
+
+
+
+
+<% else 
+  @controller.send("admin_user") %>
+<% end %>
