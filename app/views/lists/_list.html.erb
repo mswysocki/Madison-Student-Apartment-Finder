@@ -1,8 +1,5 @@
-<li>
-      <%= list.Address %>
-      <%= link_to list.Address, list %>
-      <% if current_user.admin? %>
-  			| <%= link_to "delete", list, :method => :delete, :confirm => "You sure?",
-                                :title => "Delete #{list.Address}" %>
-      <% end %>
-</li>
+<tr>
+	<td class="id"><%= list.id %></td>
+	<td><%= link_to list.Address, list %></td>
+	<td class="flags"><%= list.Flags %></td>
+</tr>
