@@ -10,7 +10,11 @@ MadisonStudentApartmentFinder::Application.routes.draw do
   
   
   
-  resources :lists
+  resources :lists do
+    post 'show', :on => :member
+    post 'edit', :on => :member
+  end
+  
   #<%= link_to '[About Us]', about_path %>
   match '/about' 		=>	'home#about',	:as => :about
   match '/home_page'	=>	'home#index',	:action => 'GET'
