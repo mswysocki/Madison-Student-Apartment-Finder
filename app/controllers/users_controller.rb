@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user,   :only => :destroy
   
+  helper_method :sort_column, :sort_direction
+  
   def new
     @user = User.new
     @title = "Sign up"
@@ -20,8 +22,8 @@ class UsersController < ApplicationController
   
   def admin
     @title = "Admin"
-    @users = User.paginate(:page => params[:page])
-    @lists = List.all
+    @users = User.paginate(:page => params[:users_page], :per_page => 20)
+    @lists = List.paginate(:page => params[:lists_page], :per_page => 5).order(sort_column + " " + sort_direction)
   end
   
   def create
@@ -72,5 +74,14 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(home_page_path) unless current_user.admin?
     end
+    
+    def sort_column
+      %w[id Address Flags].include?(params[:sort]) ? params[:sort] : "Flags"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc" 
+    end
+      
 
 end
