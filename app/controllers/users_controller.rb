@@ -72,7 +72,7 @@ class UsersController < ApplicationController
     end
     
     def admin_user
-      redirect_to(home_page_path) unless current_user.admin?
+      redirect_to(home_page_path) unless (signed_in? && current_user.admin?)
     end
     
     def sort_column
