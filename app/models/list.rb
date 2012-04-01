@@ -162,7 +162,15 @@ class List < ActiveRecord::Base
     return temp
     end
 
-  
+  def self.admin_list_search(search)
+    if search
+      where('Address LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+
+
   
 
 end

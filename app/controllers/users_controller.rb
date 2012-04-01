@@ -22,8 +22,8 @@ class UsersController < ApplicationController
   
   def admin
     @title = "Admin"
-    @users = User.paginate(:page => params[:users_page], :per_page => 20)
-    @lists = List.paginate(:page => params[:lists_page], :per_page => 5).order(sort_column + " " + sort_direction)
+    @users = User.admin_user_search(params[:admin_us]).paginate(:page => params[:users_page], :per_page => 20)
+    @lists = List.admin_list_search(params[:admin_ls]).order(sort_column + " " + sort_direction).paginate(:page => params[:lists_page], :per_page => 5)
   end
   
   def create
