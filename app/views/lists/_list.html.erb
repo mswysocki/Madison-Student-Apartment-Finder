@@ -1,5 +1,5 @@
-<tr>
-	<td class="id"><%= link_to list.id, list %></td>
+<tr onclick="location.href='lists/<%= list.id %>'">
+	<td class="id"><%= list.id %></td>
 	<td><%= list.Address %></td>
 	<td class="flags"><%= list.Flags %></td>
 	<td><%= link_to "Edit", edit_list_path(list) %></td>
