@@ -6,25 +6,30 @@
 	<p>This is the basic administrator page. It is really in progress, has a lot of work to be done.</p>
 	<p>We could go a lot of ways with what we are looking to do with this page..</p>
 	
+	
 	<hr /> <hr />
-	<h1>All users</h1>
-
-	<%= will_paginate %>
-
-	<ul class="users">
+	<ul class="admin_users">
+		<h1>All users</h1>
+		<%= will_paginate @users, :param_name => :users_page %>
     	<%= render @users %>
 	</ul>
-
-	<%= will_paginate %>
 	
-	<hr /> <hr />
-	<h1>All listings</h1>
-	
-	<%= render @lists %>
+	<!-- <hr /> <hr /> -->
+	<ul class="admin_lists">
+		<h1>All listings</h1>
+		<%= will_paginate @lists, :param_name => :lists_page %>
+		<table>
+  			<tr>
+  				<th><%= sortable "ID" %></th>
+  				<th><%= sortable "Address" %></th>
+  				<th><%= sortable "Flags" %></th>
+ 			 </tr>	
+ 			 <tr>
+				<%= render @lists %>
+			</tr>
+		</table>
+	</ul>
 </section>
-
-
-
 
 
 <% else 
