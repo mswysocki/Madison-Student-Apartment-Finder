@@ -1,4 +1,4 @@
-<% if current_user.admin? %>
+<% if signed_in? && current_user.admin? %>
 
 <section id="User_View" class="unselectable">
 	<h1>Admin page</h1>
