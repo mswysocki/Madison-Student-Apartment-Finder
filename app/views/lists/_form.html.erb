@@ -1,6 +1,17 @@
+<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
+		<section class="flag_listing">
+			<h3>Does something look wrong with the information on this page? If so, flag the listing, below. If enough people think something is wrong, we will take a look! Thank you.</h3>
+				<%= form_tag increment_flag(@list), :action => "edit", :method => "post" do %>
+					<%= submit_tag("Flag") %>
+				<% end %>
+				
+		</section>
+	<% end %>
+
 <%= form_for(@list) do |f| %>
  	<%= render 'shared/error_messages', :object => f.object %>
 	<% action = params[:action] %>
+	
 	
 	<% if ((action.eql? "edit") || (action.eql? "update")) %>
   <div class="field">
@@ -121,10 +132,13 @@
   <div class="field">
     <%= f.check_box :Laundry%>Laundry on site <br />
   </div>
-  <div class="field">
-    <%= f.label :Flags %><br />
-    <%= f.text_field :Flags %>
-  </div>
+  
+  <% if signed_in? && current_user.admin? %>
+  	<div class="field">
+   		<%= f.label :Flags %><br />
+    	<%= f.text_field :Flags %>
+  	</div>
+  <% end %>
   <div class="actions">
   	<%= raw recaptcha_tag(:challenge) %> <br />
     <%= f.submit %>

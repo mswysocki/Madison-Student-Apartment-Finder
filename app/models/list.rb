@@ -162,7 +162,7 @@ class List < ActiveRecord::Base
     return temp
     end
 
-
+  
   
 
 end
