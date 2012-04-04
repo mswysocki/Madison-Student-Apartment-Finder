@@ -1,0 +1,3 @@
+# Logfile created on 2012-03-28 22:16:20 -0500 by logger.rb/25413
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /signin with {} and HTTP headers {}
