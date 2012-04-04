@@ -1,14 +1,16 @@
 <header id="Constant_View">
 	<h1><%= link_to 'Madison Student Housing Finder', home_page_path, :id => "Banner_Home_Link" %></h1> 
-	<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+	<% if signed_in? && current_user.admin? %>
+	  <li><%= link_to "Admin Page", admin_path %></li>
+	<% end %>
 	<% if signed_in? %>
-	  <li><%= link_to "Users", users_path %></li>
       <li><%= link_to "Profile", current_user %></li>
       <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
       <li><%= link_to "Settings", edit_user_path(current_user) %></li>
     <% else %>
       <li><%= link_to "Sign in", signin_path %></li>
     <% end %>
+ 
 	<hr id="Constant_View_Bar"/>
 	<ul id="Constant_View_Links">
     	<li id="Add_Listing"><%= link_to '[Add a Listing]', new_listing_path %></li>

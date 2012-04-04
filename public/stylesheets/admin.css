@@ -1,0 +1,46 @@
+.admin_lists {
+	float:right;
+	width: 500px;
+	border: 1px solid black;
+	background: #cc5533;
+}
+
+.admin_users {
+	float:left;
+	width: 250px;
+	border: 1px solid black;
+	background: #cc5533;
+	/*background: #113388;*/
+}
+
+.admin_lists table {
+	border-collapse:collapse;
+	margin: 10px;
+}
+
+.admin_lists th, td {
+	border: 1px solid black;
+	padding: 0 10px 0 10px;
+	margin: 0px;
+}
+
+.admin_lists td.flags, td.id {
+	text-align:center;
+}
+
+.admin_lists th .current {
+	padding-right: 12px;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.admin_lists th .asc {
+	background-image: url(/images/up_arrow.gif);
+}
+
+.admin_lists th .desc {
+	background-image: url(/images/down_arrow.gif);
+}
+
+
+

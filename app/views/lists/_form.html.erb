@@ -1,10 +1,32 @@
-<%= form_for(@list) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
+<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
+		<section class="flag_listing">
+			<h3>Does something look wrong with the information on this page? If so, flag the listing, below. If enough people think something is wrong, we will take a look! Thank you.</h3>
+				<%= form_tag increment_flag(@list), :action => "edit", :method => "post" do %>
+					<%= submit_tag("Flag") %>
+				<% end %>
+				
+		</section>
+	<% end %>
 
+<%= form_for(@list) do |f| %>
+ 	<%= render 'shared/error_messages', :object => f.object %>
+	<% action = params[:action] %>
+	
+	
+	<% if ((action.eql? "edit") || (action.eql? "update")) %>
   <div class="field">
-    <%= f.label :Address %><br />
-    <%= f.text_field :Address %>
+    	<%= f.label :Address %><br />
+    	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :Address %>  
+    	<% else %> <%= f.text_field :Address, :disabled => true %> 
+    	<% end %>
   </div>
+  	<% elsif ((action.eql? "create") || (action.eql? "new")) %>
+  <div class="field">
+  		<%= f.label :Address %><br />
+  		<%= f.text_field :Address %>
+  </div>
+  	<% end %>
+  	
   <div class="field">
     <%= f.label :City %><br />
     <%= f.text_field :City, :disabled => true %>
@@ -13,22 +35,57 @@
     <%= f.label :State %><br />
     <%= f.text_field :State, :disabled => true %>
   </div>
+  
+  	<% if ((action.eql? "edit") || (action.eql? "update" )) %>
   <div class="field">
-    <%= f.label :Zip %><br />
-    <%= f.text_field :Zip %>
+   	 	<%= f.label :Zip %><br />
+   	 	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :Zip %>
+    	<% else %> <%= f.text_field :Zip, :disabled => true %>
+    	<% end %>
   </div>
+  	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
+  <div class="field">
+  		<%= f.label :Zip %> <br />
+  		<%= f.text_field :Zip %>
+  </div>
+	<% end %>  
+  
   <div class="field">
     <%= f.label :Region %><br />
     <%= f.text_field :Region %>
   </div>
+  
+  
+  	<% if ((action.eql? "edit") || (action.eql? "update" )) %>
   <div class="field">
-    <%= f.label :Bedrooms %><br />
-	<%= f.select :Bedrooms, List::ROOMS %>
+   	 	<%= f.label :Bedrooms %><br />
+   	 	<% if (signed_in? && current_user.admin?) %> <%= f.select :Bedrooms, List::ROOMS %>
+    	<% else %> <%= f.text_field :Bedrooms, :disabled => true %>
+    	<% end %>
   </div>
+  	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
   <div class="field">
-    <%= f.label :Bathrooms %><br />
-    <%= f.select :Bathrooms, List::BATHS %>
+  		<%= f.label :Bedrooms %> <br />
+  		<%= f.select :Bedrooms, List::ROOMS %>
   </div>
+	<% end %>  
+  
+  
+  <% if ((action.eql? "edit") || (action.eql? "update" )) %>
+  <div class="field">
+   	 	<%= f.label :Bathrooms %><br />
+   	 	<% if (signed_in? && current_user.admin?) %> <%= f.select :Bathrooms, List::BATHS %>
+    	<% else %> <%= f.text_field :Bathrooms, :disabled => true %>
+    	<% end %>
+  </div>
+  	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
+  <div class="field">
+  		<%= f.label :Bathrooms %> <br />
+  		<%= f.select :Bathrooms, List::BATHS %>
+  </div>
+	<% end %>  
+  
+  
   <div class="field">
     <%= f.label :Rent %><br />
     <%= f.text_field :Rent %>
@@ -75,10 +132,13 @@
   <div class="field">
     <%= f.check_box :Laundry%>Laundry on site <br />
   </div>
-  <div class="field">
-    <%= f.label :Flags %><br />
-    <%= f.text_field :Flags %>
-  </div>
+  
+  <% if signed_in? && current_user.admin? %>
+  	<div class="field">
+   		<%= f.label :Flags %><br />
+    	<%= f.text_field :Flags %>
+  	</div>
+  <% end %>
   <div class="actions">
   	<%= raw recaptcha_tag(:challenge) %> <br />
     <%= f.submit %>

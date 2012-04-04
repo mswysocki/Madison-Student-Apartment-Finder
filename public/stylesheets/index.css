@@ -1,5 +1,6 @@
 /* CSS Document */
 
+
 /* Generic text and page styling */
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -507,3 +508,15 @@ input:focus
 	-moz-transition-timing-function:linear;
 	-moz-transition-delay:0s;
 }
+
+
+footer {
+  background: #333;
+  margin-top: 1000px;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+

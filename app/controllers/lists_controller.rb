@@ -80,12 +80,11 @@ class ListsController < ApplicationController
         captcha_error = { :Incorrect=>["captcha input"] }
         
         List.transaction do
+          @title = "New Listing"
           if (!@list.valid? && recaptcha_valid?)
-            @title = "New Listing"
             format.html { render :action => "new" }
             format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }   
           else 
-            @title = "New Listing"
             @list.errors.merge!(captcha_error) 
             format.html { render :action => "new" }
             format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
@@ -99,8 +98,9 @@ class ListsController < ApplicationController
   # PUT /lists/1
   # PUT /lists/1.xml
   def update
-    params[:list]["Address"] = List.format_address! params[:list]
-    
+    unless params[:list]["Address"].nil? 
+      params[:list]["Address"] = List.format_address! params[:list]      
+    end
     
     #below is what we want for adminUpdate - free access
     #restrictions will be mostly on the view side with erb
@@ -108,13 +108,24 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
 
     respond_to do |format|
-      if @list.update_attributes(params[:list])
+      if (recaptcha_valid? && @list.valid?)
+        @list.update_attributes(params[:list])
         format.html { redirect_to(@list, :notice => 'List was successfully updated.') }
         format.xml  { head :ok }
       else
-        @title = "Update Listing"
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
+        captcha_error = { :Incorrect => ["captcha input"] }
+        List.transaction do
+          @title = "Update Listing"
+          if (!@list.valid? && recaptcha_valid?)
+            format.html { render :action => "edit" }
+            format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }   
+          else 
+            @list.errors.merge!(captcha_error) 
+            format.html { render :action => "edit" }
+            format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
+          end
+        end
+        
       end
     end
   end
@@ -130,7 +141,10 @@ class ListsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+ 
+ 
+ 
+ 
   private
   
  

@@ -11,8 +11,13 @@ class SessionsController < ApplicationController
       @title = "Sign in"
       render 'new'
     else
-      sign_in user
-      redirect_back_or user
+      if user.admin? 
+        sign_in user
+        redirect_back_or admin_path
+      else 
+        sign_in user
+        redirect_back_or user
+      end
     end
   end
   

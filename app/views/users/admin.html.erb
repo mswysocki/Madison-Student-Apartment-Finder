@@ -1,0 +1,62 @@
+<% if signed_in? && current_user.admin? %>
+
+<section id="User_View" class="unselectable">
+	<h1>Admin page</h1>
+	
+	<p>This is the basic administrator page. It is really in progress, has a lot of work to be done.</p>
+	<p>We could go a lot of ways with what we are looking to do with this page..</p>
+	
+	
+	<hr /> <hr />
+	<ul class="admin_users">
+		<h1>All users</h1>
+		
+		<%= form_tag admin_path, :method => 'get' do %>
+		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
+		<%= hidden_field_tag :direction, params[:direction] %>
+		<%= hidden_field_tag :sort, params[:sort] %>
+		<p>
+    		<%= text_field_tag :admin_us, params[:admin_us] %>
+    		<%= submit_tag "Search", :Name => nil %>
+  		</p>
+		<% end %>
+		
+		<%= will_paginate @users, :param_name => :users_page %>
+    	<%= render @users %>
+	</ul>
+	
+	<!-- <hr /> <hr /> -->
+	<ul class="admin_lists">
+		<h1>All listings</h1>
+		
+		<%= form_tag admin_path, :method => 'get' do %>
+		<%= hidden_field_tag :admin_us, params[:admin_us] %>
+		<%= hidden_field_tag :direction, params[:direction] %>
+		<%= hidden_field_tag :sort, params[:sort] %>
+ 		<p>
+    		<%= text_field_tag :admin_ls, params[:admin_ls] %>
+    		<%= submit_tag "Search", :Address => nil %>
+  		</p>
+		<% end %>
+
+
+		<%= will_paginate @lists, :param_name => :lists_page %>
+		<table>
+  			<tr>
+  				<th><%= sortable "id" %></th>
+  				<th><%= sortable "Address" %></th>
+  				<th><%= sortable "Flags" %></th>
+  				<th></th>
+  				<th></th>
+ 			 </tr>	
+ 			 <tr>
+				<%= render @lists %>
+			</tr>
+		</table>
+	</ul>
+</section>
+
+
+<% else 
+  @controller.send("admin_user") %>
+<% end %>

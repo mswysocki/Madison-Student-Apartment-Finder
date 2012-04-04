@@ -165,7 +165,8 @@ function setSelectedTableElement(id){
 	var actions = document.getElementById("Table_Actions").getElementsByTagName("a");
 	actions.item(0).href = "/lists/"+id;
 	actions.item(1).href = "/lists/"+id+"/edit";
-	actions.item(2).href = "/lists/"+id;
+	if (actions.item(2) != null)
+		actions.item(2).href = "/lists/"+id;
 	
 	var tableElement = document.getElementById("Search_Results_Table").getElementsByTagName("*");
 	

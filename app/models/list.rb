@@ -147,8 +147,12 @@ class List < ActiveRecord::Base
   end
  
   def self.format_address! list_parameters
-      temp = ""
-      list_parameters["Address"].split.map!  {|word|
+    if list_parameters["Address"].nil? 
+      return
+    end
+    
+    temp = ""
+    list_parameters["Address"].split.map!  {|word|
       if STREETS.key?(word.downcase)
         word = STREETS[word.downcase][0] + "."  
       end
@@ -157,6 +161,14 @@ class List < ActiveRecord::Base
     }.join(" ")
     return temp
     end
+
+  def self.admin_list_search(search)
+    if search
+      where('Address LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
 
 
   
