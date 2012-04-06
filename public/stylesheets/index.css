@@ -11,35 +11,60 @@ body, p, ol, ul, td {
 
 body
 {
-	width: 900px;
+	width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
 	color: #eeeeee;
 	background-color: #eeeeee;
 	background-image: url('../images/white-bg1.jpg');
 	background-repeat:repeat;
-/*	background-attachment:fixed;
-	background-size: 100%;*/
 }
 /* End Generic text and page styling */
 
 /* Banner styling */
 #Constant_View
 {
-/*	position:fixed;
-	height:70px;
-	width:900px;*/
 	background-color: #cc0000;
 	border: 2px solid transparent;
 	border-radius: 15px;
-	padding: 0px 20px 40px 20px;
+	padding: 20px 20px 30px 20px;
 }
 
 #Constant_View h1
 {
+	display: inline;
 	font-size: 32px;
 	font-weight: bold;
 	font-style: italic;
+}
+
+#SignIn
+{
+	float: right;
+	display: inline;
+	list-style: none;
+}
+
+#SignIn a:link
+{
+	color: #ffbb00;
+}
+
+#SignIn a:visited
+{
+	color: #ffbb00;
+}
+
+#SignIn a:hover
+{
+	cursor: pointer;
+	color: #75070e;
+	background-color: #cc0000;
+}
+
+#SignIn a:active
+{
+	color: #03899C;
 }
 
 #Banner_Home_Link, #Banner_Home_Link:visited,
@@ -131,7 +156,7 @@ body
 /*	z-index:-1;
 	bottom:130px;*/
 	background-color: #cc0000;
-	width: 175px;
+	width: 200px;
 	clear: left;
 	float: left;
 	border: 2px solid transparent;
@@ -155,7 +180,7 @@ body
 {
 	list-style-type: none;
 	margin: 0px;
-	padding: 5px;
+	padding-left: 5px;
 }
 
 #Search_Sidebar_Criteria li
@@ -248,6 +273,9 @@ body
 	list-style-type: none;
 	margin: 0px;
 	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 85%;
 }
 
 #Clear_Search_Criteria p
@@ -313,7 +341,7 @@ input:focus
 	font-size: 14px;
 	color: #eeeeee;
 	background-color: #cc0000;
-	width: 650px;
+	width: 725px;
 	float: right;
 	border: 2px solid transparent;
 	border-radius: 15px;
@@ -437,7 +465,7 @@ input:focus
 /*	z-index:-1;
 	bottom:130px;*/
 	background-color: #cc0000;
-	width: 650px;
+	width: 725px;
 	clear: right;
 	float: right;
 	border: 2px solid transparent;
@@ -454,16 +482,16 @@ input:focus
 	height: 5px;
 }
 
-#button
+#Search
 {
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 0;
+	width: 70%;
 }
 
 .Search_Button{
 	cursor:pointer;
-	background-color: #424242;
+	/*background-color: #424242;
 	border-radius: 15px;
 	color: #eeeeee;
 	font-family: verdana, arial, helvetica, sans-serif;
@@ -484,10 +512,10 @@ input:focus
 	-moz-transition:background-color;
 	-moz-transition-duration:2s;
 	-moz-transition-timing-function:linear;
-	-moz-transition-delay:0s;
+	-moz-transition-delay:0s;*/
 }
 
-.Search_Button:hover
+/*.Search_Button:hover
 {
 	cursor: pointer;
 	background-color: #888888;
@@ -507,8 +535,7 @@ input:focus
 	-moz-transition-duration:0.15s;
 	-moz-transition-timing-function:linear;
 	-moz-transition-delay:0s;
-}
-
+}*/
 
 footer {
   background: #333;
@@ -517,6 +544,4 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
-
-
 

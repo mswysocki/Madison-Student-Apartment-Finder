@@ -1,5 +1,5 @@
 <header id="Constant_View">
-	<h1><%= link_to 'Madison Student Housing Finder', home_page_path, :id => "Banner_Home_Link" %></h1> 
+	<h1><%= link_to 'Madison Student Housing Finder', home_page_path, :id => "Banner_Home_Link" %></h1>
 	<% if signed_in? && current_user.admin? %>
 	  <li><%= link_to "Admin Page", admin_path %></li>
 	<% end %>
@@ -8,7 +8,7 @@
       <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
       <li><%= link_to "Settings", edit_user_path(current_user) %></li>
     <% else %>
-      <li><%= link_to "Sign in", signin_path %></li>
+      <li id="SignIn"><a><%= link_to "Sign In", signin_path %></a></li>
     <% end %>
  
 	<hr id="Constant_View_Bar"/>
