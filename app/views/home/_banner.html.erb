@@ -1,3 +1,5 @@
+<link href='http://fonts.googleapis.com/css?family=Averia+Sans+Libre|Antic+Slab|Architects+Daughter' rel='stylesheet' type='text/css'>
+
 <header id="Constant_View">
 	<h1><%= link_to 'Madison Student Housing Finder', home_page_path, :id => "Banner_Home_Link" %></h1>
 	<% if signed_in? && current_user.admin? %>
@@ -10,8 +12,9 @@
     <% else %>
       <li id="SignIn"><a><%= link_to "Sign In", signin_path %></a></li>
     <% end %>
- 
+    <br /><br />
 	<hr id="Constant_View_Bar"/>
+	<br />
 	<ul id="Constant_View_Links">
     	<li id="Add_Listing"><%= link_to '[Add a Listing]', new_listing_path %></li>
     	<li id="About"><%= link_to '[About Us]', about_path %></li> 

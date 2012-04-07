@@ -2,11 +2,13 @@
 
 
 /* Generic text and page styling */
-body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
-  line-height: 18px;
-  color: #eee;
+body, p, ol, ul, td
+{
+	font-family: 'Antic Slab', serif;
+	/*font-family: verdana, arial, helvetica, sans-serif;*/
+	font-size:   13px;
+	line-height: 18px;
+	color: #eee;
 }
 
 body
@@ -27,11 +29,12 @@ body
 	background-color: #cc0000;
 	border: 2px solid transparent;
 	border-radius: 15px;
-	padding: 20px 20px 30px 20px;
+	padding: 15px 20px 30px 20px;
 }
 
 #Constant_View h1
 {
+	font-family: 'Architects Daughter', cursive;
 	display: inline;
 	font-size: 32px;
 	font-weight: bold;
@@ -119,7 +122,7 @@ body
 {
 	cursor:pointer;
 	text-decoration: none;
-	color: #75070E;
+	color: #ffbb00;
 	background-color: #cc0000;
 	transition-property:color;
 	transition-duration:0.15s;
@@ -275,7 +278,7 @@ body
 	padding: 5px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 85%;
+	width: 78%;
 }
 
 #Clear_Search_Criteria p
@@ -305,7 +308,7 @@ body
 	cursor: pointer;
 	border-radius: 15px;
 	background-color: #cc0000;
-	color: #75070E;
+	color: #ffbb00;
 	transition-property:color;
 	transition-duration:0.15s;
 	transition-timing-function:linear;
@@ -384,23 +387,6 @@ input:focus
 	background-color: #eeeeee;
 	height: 2px;
 }
-
-/* Add Listing page styling */
-.Residence_Listing_Form
-{
-	color: #eeeeee;
-	background-color: #cc0000;
-	border: 2px solid transparent;
-	border-radius: 15px;
-	padding: 0px 20px 0px 20px;
-}
-
-#Add_Listing_Title
-{
-	font-size: 24px;
-	font-weight: bold;
-}
-/* End Add Listing page styling */
 
 .unselectable{
 	cursor: default;
