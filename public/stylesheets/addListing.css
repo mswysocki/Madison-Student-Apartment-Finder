@@ -1,0 +1,60 @@
+#Add_Listing_View_Bar
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 5px;
+}
+
+.Residence_Listing_Form
+{
+	color: #eeeeee;
+	background-color: #cc0000;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	padding: 0px 20px 0px 20px;
+}
+
+#Add_Listing_Title
+{
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#NewListingForm h2
+{
+	margin-top: 0px;
+	font-style: italic;
+}
+
+#NewListingForm
+{
+	-webkit-column-count: 2;
+	-webkit-column-gap: 20px;
+	height: 600px;
+}
+
+#NewLocation, #NewPrice, #NewType, #NewResDetails, #NewLeaseDetails,
+#NewUtils, #NewAccommodations, #NewRestrictions
+{
+	display: block;
+	border: 1px solid;
+	padding: 5px;
+	margin: 15px;
+}
+
+#NewLocation, #NewResDetails, #NewLeaseDetails
+{
+	-webkit-column-count: 3;
+}
+
+#NewType, #NewUtils, #NewAccommodations, #NewRestrictions
+{
+	-webkit-column-count: 2;
+}
+
+#Recaptcha
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+}
