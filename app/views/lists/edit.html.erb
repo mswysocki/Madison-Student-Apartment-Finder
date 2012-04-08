@@ -1,8 +1,10 @@
 <div class="divider"></div>
 <div class="Residence_Listing_Form">
-	<h2 id="Add_Listing_Title">Update Listing</h2>
+	<h1 id="Add_Listing_Title">Update Listing</h1>
+	<li id="UpdateLinks"><a>
+		<%= link_to 'Apartment Page', @list %> |
+		<%= link_to 'Cancel', lists_path %>
+	</a></li>
+	<hr id="ListingForm_View_Bar"/>
 	<%= render 'form' %>
 </div>
-
-<%= link_to 'Apartment Page', @list %> |
-<%= link_to 'Cancel', lists_path %>

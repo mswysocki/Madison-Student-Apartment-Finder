@@ -1,13 +1,4 @@
 <div id="NewListingForm">
-<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
-		<section class="flag_listing">
-			<h3>Does something look wrong with the information on this page? If so, flag the listing, below. If enough people think something is wrong, we will take a look! Thank you.</h3>
-				<%= form_tag increment_flag(@list), :action => "edit", :method => "post" do %>
-					<%= submit_tag("Flag") %>
-				<% end %>
-				
-		</section>
-	<% end %>
 
 <%= form_for(@list) do |f| %>
  	<%= render 'shared/error_messages', :object => f.object %>
@@ -184,8 +175,22 @@
   	</div>
   <% end %>
   <div id="Recaptcha" class="actions">
-  	<%= raw recaptcha_tag(:challenge) %> <br />
-    <%= f.submit %>
+  	<%= raw recaptcha_tag(:challenge) %>
+    <div id="RecaptchaButton">
+    	<%= f.submit %>
+    </div>
   </div>
+<% end %>
+
+
+<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
+	<section class="flag_listing">
+		<h3>Is the information for this listing inaccurate? If so, use the button below to flag the listing. If several people flag it we'll take a look. Thank you!</h3>
+		<div id="FlagButton">
+			<%= form_tag increment_flag(@list), :action => "edit", :method => "post" do %>
+				<%= submit_tag("Flag") %>
+			<% end %>
+		</div>
+	</section>
 <% end %>
 </div>

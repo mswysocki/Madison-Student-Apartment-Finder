@@ -1,0 +1,129 @@
+/* CSS for banner */
+
+#Constant_View
+{
+	background-color: #cc0000;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	padding: 15px 20px 30px 20px;
+}
+
+#Constant_View h1
+{
+	font-family: 'Architects Daughter', cursive;
+	display: inline;
+	font-size: 32px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#SignIn
+{
+	float: right;
+	display: inline;
+	list-style: none;
+}
+
+#SignIn a:link
+{
+	color: #ffbb00;
+}
+
+#SignIn a:visited
+{
+	color: #ffbb00;
+}
+
+#SignIn a:hover
+{
+	cursor: pointer;
+	color: #75070e;
+	background-color: #cc0000;
+}
+
+#SignIn a:active
+{
+	color: #03899C;
+}
+
+#Banner_Home_Link, #Banner_Home_Link:visited,
+#Banner_Home_Link:hover
+{
+	cursor: pointer;
+	text-decoration: none;
+	color: #eeeeee;
+	background-color: #cc0000;
+}
+
+#Constant_View_Bar
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 2px;
+}
+
+#Constant_View_Links
+{
+	font-size: 20px;
+	display: inline;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#Constant_View_Links a
+{
+	cursor: pointer;
+	text-decoration: none;
+	color: #eeeeee;
+	transition-property:color;
+	transition-duration:2s;
+	transition-timing-function:linear;
+	transition-delay:0s;
+	-webkit-transition-property:color;
+	-webkit-transition-duration:2s;
+	-webkit-transition-timing-function:linear;
+	-webkit-transition-delay:0s;
+	-o-transition-property:color;
+	-o-transition-duration:2s;
+	-o-transition-timing-function:linear;
+	-o-transition-delay:0s;
+	-moz-transition:color;
+	-moz-transition-duration:2s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:0s;
+}
+
+#Constant_View_Links a:hover
+{
+	cursor:pointer;
+	text-decoration: none;
+	color: #ffbb00;
+	background-color: #cc0000;
+	transition-property:color;
+	transition-duration:0.15s;
+	transition-timing-function:linear;
+	transition-delay:0s;
+	-webkit-transition-property:color;
+	-webkit-transition-duration:0.15s;
+	-webkit-transition-timing-function:linear;
+	-webkit-transition-delay:0s;
+	-o-transition-property:color;
+	-o-transition-duration:0.15s;
+	-o-transition-timing-function:linear;
+	-o-transition-delay:0s;
+	-moz-transition:color;
+	-moz-transition-duration:0.15s;
+	-moz-transition-timing-function:linear;
+	-moz-transition-delay:0s;
+}
+
+#Add_Listing
+{
+	float: left;
+}
+
+#About
+{
+	float: right;
+}

@@ -1,0 +1,23 @@
+/* CSS for view listing page */
+
+#Listing_View
+{
+	background-color: #cc0000;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	padding: 0px 20px 40px 20px;
+}
+
+#Listing_View h1
+{
+	font-size: 32px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#Listing_View_Bar
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 2px;
+}

@@ -1,0 +1,145 @@
+/* CSS for home page content and miscellaneous items */
+
+/* Generic text and page styling */
+body, p, ol, ul, td
+{
+	font-family: 'Antic Slab', serif;
+	font-size:   13px;
+	line-height: 18px;
+	color: #eee;
+}
+
+body
+{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	color: #eeeeee;
+	background-color: #eeeeee;
+	background-image: url('../images/white-bg1.jpg');
+	background-repeat:repeat;
+}
+/* End Generic text and page styling */
+
+/* Home page content area styling */
+#Search_Home_View
+{
+	z-index:-2;
+	top:130px;
+	right: 510px;
+	font-size: 14px;
+	color: #eeeeee;
+	background-color: #cc0000;
+	width: 725px;
+	float: right;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	padding: 0px 20px 15px 10px;
+}
+
+#Search_Home_View_Bar
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 5px;
+}
+/* End Home page content area styling */
+
+/* Generic divider styling */
+.divider
+{
+	margin: 5px;
+}
+/* End Generic divider styling */
+
+/* Miscellaneous */
+.unselectable{
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.menuOption{
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;	
+}
+
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid #bbb;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #333;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color:#fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+  color: #cbcbcb;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: yellow;
+  color: black;
+  font-weight:bold;
+  display: table;
+}
+
+/* End Miscellaneous */
+
+/* Home page content area with results */
+#Results_View
+{
+	background-color: #cc0000;
+	width: 725px;
+	clear: right;
+	float: right;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	padding: 0px 20px 0px 10px;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:   16px;
+	line-height: 18px;
+}
+
+#Results_View_Bar{	
+	border: 0;
+	background-color: #eeeeee;
+	height: 5px;
+}
+/* End home page content area with results */
+
+/* Debugging footer */
+footer {
+  background: #333;
+  margin-top: 1000px;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
