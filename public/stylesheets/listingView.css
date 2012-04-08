@@ -19,5 +19,27 @@
 {
 	border: 0;
 	background-color: #eeeeee;
-	height: 2px;
+	height: 5px;
+}
+
+#UpdateListingButton:link
+{
+	color: #ffbb00;
+}
+
+#UpdateListingButton:visited
+{
+	color: #ffbb00;
+}
+
+#UpdateListingButton:hover
+{
+	cursor: pointer;
+	color: #75070e;
+	background-color: #cc0000;
+}
+
+#UpdateListingButton:active
+{
+	color: #03899C;
 }
