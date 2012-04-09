@@ -4,7 +4,7 @@
 	<h1><%= link_to 'Madison Student Housing Finder', home_page_path, :id => "Banner_Home_Link" %></h1>
 	<% if signed_in? && current_user.admin? %>
 	  <div id="SignedInAdmin">
-	  	<li><%= link_to "Admin Page", admin_path %></li>
+	  	<a><%= link_to "Admin Page", admin_path %></a>
 	  </div>
 	<% end %>
 	<% if signed_in? %>

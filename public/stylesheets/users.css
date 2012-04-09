@@ -14,6 +14,12 @@
 	padding: 0px 20px 15px 10px;
 }
 
+#User_Title, #NewUser_Title, #UserName_Title
+{
+	font-size: 24px;
+	font-weight: bold;
+}
+
 #User_View_Bar
 {
 	border: 0;

@@ -12,8 +12,7 @@
 {
 	font-family: 'Architects Daughter', cursive;
 	display: inline;
-	font-size: 32px;
-	font-weight: bold;
+	font-size: 30px;
 	font-style: italic;
 }
 
@@ -51,6 +50,7 @@
 #SignInWrapper
 {
 	float: right;
+	display: inline;
 }
 
 #SignInSubmit
@@ -63,9 +63,6 @@
 #SignInFields
 {
 	float: right;
-	-moz-column-count: 2;
-	-webkit-column-count: 2;
-	column-count: 2;
 }
 
 #SignInFields .field
@@ -89,6 +86,7 @@
 }
 /* End generic user CSS */
 
+/* CSS for a user who is signed in */
 #SignedIn
 {
 	float: right;
@@ -121,7 +119,42 @@
 {
 	color: #03899C;
 }
+/* End CSS for signed in user */
 
+/* CSS for signed in admin */
+#SignedInAdmin
+{
+	float: right;
+}
+
+#SignedInAdmin a
+{
+	margin: 5px;
+	display: inline;
+}
+
+#SignedInAdmin a:link
+{
+	color: #ffbb00;
+}
+
+#SignedInAdmin a:visited
+{
+	color: #ffbb00;
+}
+
+#SignedInAdmin a:hover
+{
+	cursor: pointer;
+	color: #75070e;
+	background-color: #cc0000;
+}
+
+#SignedIn a:active
+{
+	color: #03899C;
+}
+/* End CSS for signed in admin */
 
 #Banner_Home_Link, #Banner_Home_Link:visited,
 #Banner_Home_Link:hover

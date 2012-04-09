@@ -1,4 +1,9 @@
 /* CSS for About page */
+#About_Title
+{
+	font-size: 24px;
+	font-weight: bold;
+}
 
 #MailLink:link
 {

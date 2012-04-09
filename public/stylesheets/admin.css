@@ -1,7 +1,21 @@
+#Admin_Title
+{
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#Admin_View_Bar
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 5px;
+}
+
 .admin_lists {
 	float:right;
 	width: 500px;
 	border: 1px solid black;
+	border-radius: 15px;
 	background: #cc5533;
 }
 
@@ -9,6 +23,7 @@
 	float:left;
 	width: 250px;
 	border: 1px solid black;
+	border-radius: 15px;
 	background: #cc5533;
 	/*background: #113388;*/
 }
