@@ -14,9 +14,31 @@
 	padding: 0px 20px 15px 10px;
 }
 
-#Nothing_Right_Now
+#User_View_Bar
 {
 	border: 0;
 	background-color: #eeeeee;
 	height: 5px;
+}
+
+#User_View a:link
+{
+	color: #ffbb00;
+}
+
+#User_View a:visited
+{
+	color: #ffbb00;
+}
+
+#User_View a:hover
+{
+	cursor: pointer;
+	color: #75070e;
+	background-color: #cc0000;
+}
+
+#User_View a:active
+{
+	color: #03899C;
 }

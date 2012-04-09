@@ -60,8 +60,12 @@
 
 #NewListingForm
 {
+	-moz-column-count: 2;
 	-webkit-column-count: 2;
+	column-count: 2;
+	-moz-column-gap: 20px;
 	-webkit-column-gap: 20px;
+	column-gap: 20px;
 	height: 610px;
 }
 
@@ -76,12 +80,16 @@
 
 #NewLocation, #NewResDetails, #NewLeaseDetails
 {
+	-moz-column-count: 3;
 	-webkit-column-count: 3;
+	column-count: 3;
 }
 
 #NewType, #NewUtils, #NewAccommodations, #NewRestrictions
 {
+	-moz-column-count: 2;
 	-webkit-column-count: 2;
+	column-count: 2;
 }
 
 #Recaptcha

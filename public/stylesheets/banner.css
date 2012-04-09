@@ -17,34 +17,111 @@
 	font-style: italic;
 }
 
-#SignIn
+/* CSS for a generic user who is not signed in */
+#NewUserLink
 {
 	float: right;
 	display: inline;
-	list-style: none;
+	margin-top: 5px;
+	margin-right: 10px;
 }
 
-#SignIn a:link
+#NewUserLink a:link
 {
 	color: #ffbb00;
 }
 
-#SignIn a:visited
+#NewUserLink a:visited
 {
 	color: #ffbb00;
 }
 
-#SignIn a:hover
+#NewUserLink a:hover
 {
 	cursor: pointer;
 	color: #75070e;
 	background-color: #cc0000;
 }
 
-#SignIn a:active
+#NewUserLink a:active
 {
 	color: #03899C;
 }
+
+#SignInWrapper
+{
+	float: right;
+}
+
+#SignInSubmit
+{
+	float: right;
+	padding-top: 2px;
+	padding-left: 5px;
+}
+
+#SignInFields
+{
+	float: right;
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 2;
+}
+
+#SignInFields .field
+{
+	display: inline;
+}
+
+#SignInFields .field input
+{
+	width: 125px;
+	padding: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	border: none;
+	border-radius: 25px;
+}
+
+#SignInFields .field input:focus
+{
+	outline: 0;
+}
+/* End generic user CSS */
+
+#SignedIn
+{
+	float: right;
+}
+
+#SignedIn a
+{
+	margin: 5px;
+	display: inline;
+}
+
+#SignedIn a:link
+{
+	color: #ffbb00;
+}
+
+#SignedIn a:visited
+{
+	color: #ffbb00;
+}
+
+#SignedIn a:hover
+{
+	cursor: pointer;
+	color: #75070e;
+	background-color: #cc0000;
+}
+
+#SignedIn a:active
+{
+	color: #03899C;
+}
+
 
 #Banner_Home_Link, #Banner_Home_Link:visited,
 #Banner_Home_Link:hover

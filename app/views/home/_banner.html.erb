@@ -3,14 +3,42 @@
 <header id="Constant_View">
 	<h1><%= link_to 'Madison Student Housing Finder', home_page_path, :id => "Banner_Home_Link" %></h1>
 	<% if signed_in? && current_user.admin? %>
-	  <li><%= link_to "Admin Page", admin_path %></li>
+	  <div id="SignedInAdmin">
+	  	<li><%= link_to "Admin Page", admin_path %></li>
+	  </div>
 	<% end %>
 	<% if signed_in? %>
-      <li><%= link_to "Profile", current_user %></li>
-      <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
-      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+	  <div id="SignedIn">
+      	<a><%= link_to "Profile", current_user %></a>
+      	<a><%= link_to "Sign out", signout_path, :method => :delete %></a>
+      	<a><%= link_to "Settings", edit_user_path(current_user) %></a>
+      </div>
     <% else %>
-      <li id="SignIn"><a><%= link_to "Sign In", signin_path %></a></li>
+      <div id="SignInWrapper">
+      	<%= form_for(:session, :url => sessions_path) do |f| %>
+	  		<div id="SignInSubmit" class="actions">
+	    		<%= f.submit "Sign In" %>
+	  		</div>
+	  		<div id="SignInFields">
+	  			<div class="field">
+	    			<%= f.text_field :Email, 
+	    				:value => 'Email Address',
+	    				:style => 'color: #666; font-style: italic;',
+	    				:onfocus => "if(this.getValue()=='Email Address'){this.clear();this.style.color = '#000';}",
+	    				:onblur => "if(this.getValue()==''){this.setValue('Email Address');this.style.color = '#666';}" %>
+	    						 
+	  			</div>
+	  			<div class="field">
+	    			<%= f.password_field :password, 
+	    				:value => 'Password',
+	    				:style => 'color: #666; font-style: italic;',
+	    				:onfocus => "if(this.getValue()=='Password'){this.clear();this.style.color = '#000';}",
+	    				:onblur => "if(this.getValue()==''){this.setValue('Password');this.style.color = '#666';}" %>
+	  			</div>
+	  		</div>
+		<% end %>
+	  </div>
+	  <div id="NewUserLink"><a><%= link_to "New User?", signup_path %></a></div>
     <% end %>
     <br /><br />
 	<hr id="Constant_View_Bar"/>
