@@ -10,37 +10,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327032113) do
+ActiveRecord::Schema.define(:version => 20120401161635) do
 
   create_table "lists", :force => true do |t|
-    t.string   "Address"
-    t.string   "City"
-    t.string   "State"
-    t.integer  "Zip"
-    t.integer  "Region"
-    t.float    "Bathrooms"
-    t.integer  "Rent"
-    t.integer  "SquareFeet"
-    t.boolean  "Smoking"
-    t.boolean  "Heat"
-    t.boolean  "Electric"
-    t.integer  "Flags"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.integer  "region"
+    t.float    "bathrooms"
+    t.integer  "rent"
+    t.integer  "squarefeet"
+    t.boolean  "smoking"
+    t.boolean  "heat"
+    t.boolean  "electric"
+    t.integer  "flags"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "Gas"
-    t.boolean  "GarbageCollection"
-    t.integer  "Length"
-    t.boolean  "Furnished"
-    t.boolean  "Laundry"
-    t.boolean  "Parking"
-    t.integer  "Bedrooms"
-    t.boolean  "Pets"
-    t.boolean  "Type"
+    t.boolean  "gas"
+    t.boolean  "garbagecollection"
+    t.integer  "length"
+    t.boolean  "furnished"
+    t.boolean  "laundry"
+    t.boolean  "parking"
+    t.integer  "bedrooms"
+    t.boolean  "pets"
+    t.boolean  "ltype"
   end
 
-  add_index "lists", ["Address"], :name => "index_lists_on_Address"
-  add_index "lists", ["Bedrooms"], :name => "index_lists_on_Bedrooms"
-  add_index "lists", ["Rent"], :name => "index_lists_on_Rent"
+  add_index "lists", ["address"], :name => "index_lists_on_Address"
+  add_index "lists", ["bedrooms"], :name => "index_lists_on_Bedrooms"
+  add_index "lists", ["rent"], :name => "index_lists_on_Rent"
 
   create_table "reviews", :force => true do |t|
     t.string   "review_body"
@@ -61,6 +61,6 @@ ActiveRecord::Schema.define(:version => 20120327032113) do
     t.boolean  "admin",              :default => false
   end
 
-  add_index "users", ["Email"], :name => "index_users_on_Email", :unique => true
+  add_index "users", ["Email"], :name => "index_users_on_email", :unique => true
 
 end
