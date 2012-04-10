@@ -6,7 +6,7 @@
 	border: 2px solid transparent;
 	border-radius: 15px;
 	padding: 0px 20px 40px 20px;
-	height: 575px;
+	height: 700px;
 }
 
 #Listing_View h1
@@ -21,6 +21,13 @@
 	border: 0;
 	background-color: #eeeeee;
 	height: 5px;
+}
+
+#ListingInfo
+{
+	margin-top: auto;
+	margin-top: auto;
+	height: 70%;
 }
 
 #ColumnOne h2, #ColumnTwo h2

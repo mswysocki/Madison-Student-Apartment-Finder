@@ -11,42 +11,42 @@
 <div id="ColumnOne">
 <h2>Location:</h2>
 <div id="ShowLocation">
-	<p>Address:  <%= @list.Address %></p>
+	<em>Address:</em>  <%= @list.Address %><br />
 
-	<p>City:  <%= @list.City %></p>
+	<em>City:</em>  <%= @list.City %><br />
 
-	<p>State:  <%= @list.State %></p>
+	<em>State:</em>  <%= @list.State %><br />
 
-	<p>Zip:  <%= @list.Zip %></p>
+	<em>Zip:</em>  <%= @list.Zip %><br />
 
-	<p>Region:  <%= @list.Region %></p>
+	<em>Region:</em>  <%= @list.Region %>
 </div>
 
 
 <h2>Price:</h2>
 <div id="ShowPrice">
-	<p>Rent:  $<%= @list.Rent %></p>
+	<em>Rent:  $</em><%= @list.Rent %>
 </div>
 
 
 <% unless @list.Type.nil? %>
 	<h2>Type of Residence:</h2>
   	<div id="ShowType">
-		<p>Type (House (0) or Apt (1)):  <%= @list.Type %></p>
+		<em>Type (House (true) or Apt (false)):</em>  <%= @list.Type %>
 	</div>
 <% end %>
 
 
 <h2>Residence Details:</h2>
 <div id="ShowResDetails">
-	<p>Bedrooms:  <%= @list.Bedrooms %></p>
+	<em>Bedrooms:</em>  <%= @list.Bedrooms %><br />
 	
 	<% unless @list.Bathrooms.nil? %>
-		<p>Bathrooms:  <%= @list.Bathrooms %></p>
+		<em>Bathrooms:</em>  <%= @list.Bathrooms %><br />
 	<% end %>
 
 	<% unless @list.SquareFeet.nil? %>
-		<p>Squarefeet:  <%= @list.SquareFeet %></p>
+		<em>Squarefeet:</em>  <%= @list.SquareFeet %>
 	<% end %>
 </div>
 
@@ -54,7 +54,7 @@
 <% unless @list.Length.nil? %>
 	<h2>Lease Length:</h2>
 	<div id="ShowLeaseDetails">
-		<p>Length (Months):  <%= @list.Length %></p>
+		<em>Length (Months):</em>  <%= @list.Length %>
 	</div>
 <% end %>
 </div>
@@ -64,19 +64,19 @@
 <h2>Utilities:</h2>
 <div id="ShowUtils">
 	<% unless @list.Heat.nil? %>
-		<p>Heat:  <%= @list.Heat %></p>
+		<em>Heat:</em>  <%= @list.Heat %><br />
 	<% end %>
 
 	<% unless @list.Electric.nil? %>
-		<p>Electric:  <%= @list.Electric %></p>
+		<em>Electric:</em>  <%= @list.Electric %><br />
 	<% end %>
 
 	<% unless @list.Gas.nil? %>
-		<p>Gas:  <%= @list.Gas %></p>
+		<em>Gas:</em>  <%= @list.Gas %><br />
 	<% end %>
 
 	<% unless is_nil(@list.GarbageCollection) %>
-		<p>Garbage Collection:  <%= @list.GarbageCollection %></p>
+		<em>Garbage Collection:</em>  <%= @list.GarbageCollection %>
 	<% end %>
 </div>
 
@@ -84,15 +84,15 @@
 <h2>Accommodations:</h2>
 <div id="ShowAccommodations">
 	<% unless @list.Parking.nil? %>
-		<p>Parking:  <%= @list.Parking %></p>
+		<em>Parking:</em>  <%= @list.Parking %><br />
 	<% end %>
 	
 	<% unless @list.Laundry.nil? %>
-		<p>Laundry:  <%= @list.Laundry %></p>
+		<em>Laundry:</em>  <%= @list.Laundry %><br />
 	<% end %>
 
 	<% unless @list.Furnished.nil? %>
-		<p>Furnished:  <%= @list.Furnished %></p>
+		<em>Furnished:</em>  <%= @list.Furnished %>
 	<% end %>
 </div>
 
@@ -100,11 +100,11 @@
 <h2>Restrictions:</h2>
 <div id="ShowRestrictions">
 	<% unless @list.Smoking.nil? %>
-		<p>Smoking:  <%= @list.Smoking %></p>
+		<em>Smoking:</em>  <%= @list.Smoking %><br />
 	<% end %>
 
 	<% unless @list.Pets.nil? %>
-		<p>Pets:  <%= @list.Pets %></p>
+		<em>Pets:</em>  <%= @list.Pets %>
 	<% end %>
 </div>
 
