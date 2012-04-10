@@ -3,29 +3,29 @@
 # Table name: lists
 #
 #  id                :integer         not null, primary key
-#  Address           :string(255)
-#  City              :string(255)
-#  State             :string(255)
-#  Zip               :integer
-#  Region            :integer
-#  Bathrooms         :float
-#  Rent              :integer
-#  SquareFeet        :integer
-#  Smoking           :boolean
-#  Heat              :boolean
-#  Electric          :boolean
-#  Flags             :integer
+#  address           :string(255)
+#  city              :string(255)
+#  state             :string(255)
+#  zip               :integer
+#  region            :integer
+#  bathrooms         :float
+#  rent              :integer
+#  squarefeet        :integer
+#  smoking           :boolean
+#  heat              :boolean
+#  electric          :boolean
+#  flags             :integer
 #  created_at        :datetime
 #  updated_at        :datetime
-#  Gas               :boolean
-#  GarbageCollection :boolean
-#  Length            :integer
-#  Furnished         :boolean
-#  Laundry           :boolean
-#  Parking           :boolean
-#  Bedrooms          :integer
-#  Pets              :boolean
-#  Type              :boolean
+#  gas               :boolean
+#  garbagecollection :boolean
+#  length            :integer
+#  furnished         :boolean
+#  laundry           :boolean
+#  parking           :boolean
+#  bedrooms          :integer
+#  pets              :boolean
+#  ltype             :boolean
 #
 
 require 'test_helper'
