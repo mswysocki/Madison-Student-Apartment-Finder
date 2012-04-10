@@ -1,7 +1,9 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
-    <h2>There were <%= pluralize(object.errors.count, "error") %> 
-        prohibiting this <%= object.class.to_s.underscore.humanize.downcase %> 
+    <h2><%= pluralize(object.errors.count, "error") %> 
+        prohibited this 
+        <% unless object.class.to_s.underscore.eql?("list") %> <%= object.class.to_s.underscore.humanize.downcase %> <% end %>
+        <% if object.class.to_s.underscore.eql?("list") %> listing <% end %> 
         from being saved</h2>
     <p>There were problems with the following fields:</p>
     <ul>
