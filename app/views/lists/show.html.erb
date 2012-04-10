@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
+<div class="divider"></div>
 <section id="Listing_View">
 
 <h1><%= @list.Address %></h1>
@@ -7,8 +8,9 @@
 
 <section id="ListingInfo">
 
+<div id="ColumnOne">
 <h2>Location:</h2>
-<div id="NewLocation">
+<div id="ShowLocation">
 	<p>Address:  <%= @list.Address %></p>
 
 	<p>City:  <%= @list.City %></p>
@@ -22,21 +24,21 @@
 
 
 <h2>Price:</h2>
-<div id="NewPrice">
+<div id="ShowPrice">
 	<p>Rent:  $<%= @list.Rent %></p>
 </div>
 
 
 <% unless @list.Type.nil? %>
 	<h2>Type of Residence:</h2>
-  	<div id="NewType">
+  	<div id="ShowType">
 		<p>Type (House (0) or Apt (1)):  <%= @list.Type %></p>
 	</div>
 <% end %>
 
 
 <h2>Residence Details:</h2>
-<div id="NewResDetails">
+<div id="ShowResDetails">
 	<p>Bedrooms:  <%= @list.Bedrooms %></p>
 	
 	<% unless @list.Bathrooms.nil? %>
@@ -51,14 +53,16 @@
 
 <% unless @list.Length.nil? %>
 	<h2>Lease Length:</h2>
-	<div id="NewLeaseDetails">
+	<div id="ShowLeaseDetails">
 		<p>Length (Months):  <%= @list.Length %></p>
 	</div>
 <% end %>
+</div>
 
 
+<div id="ColumnTwo">
 <h2>Utilities:</h2>
-<div id="NewUtils">
+<div id="ShowUtils">
 	<% unless @list.Heat.nil? %>
 		<p>Heat:  <%= @list.Heat %></p>
 	<% end %>
@@ -78,7 +82,7 @@
 
 
 <h2>Accommodations:</h2>
-<div id="NewAccommodations">
+<div id="ShowAccommodations">
 	<% unless @list.Parking.nil? %>
 		<p>Parking:  <%= @list.Parking %></p>
 	<% end %>
@@ -94,7 +98,7 @@
 
 
 <h2>Restrictions:</h2>
-<div id="NewRestrictions">
+<div id="ShowRestrictions">
 	<% unless @list.Smoking.nil? %>
 		<p>Smoking:  <%= @list.Smoking %></p>
 	<% end %>
@@ -111,13 +115,14 @@
 	<% end %>
 <% end %>
 
-<a id="UpdateListingButton"><%= link_to 'Update', edit_list_path(@list) %></a>
-<br /><br />
+<div id="UpdateListingButton"><a><%= link_to 'Update', edit_list_path(@list) %></a></div>
+<br />
 <section class="flag_listing">
 	<h3>Is the information for this listing inaccurate? If so, use the button below to flag the listing. If several people flag it we'll take a look. Thank you!</h3>
 	<%= form_tag increment_flag(@list), :method => "post", :class => "flag_button" do %>
 		<%= submit_tag("Flag")%>
 	<% end %>
 </section>
+</div>
 </section>
 </section>

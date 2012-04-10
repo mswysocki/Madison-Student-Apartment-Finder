@@ -4,7 +4,7 @@
  	<%= render 'shared/error_messages', :object => f.object %>
 	<% action = params[:action] %>
 	
-
+  <div id="ColumnOne">
   <h2>Location:</h2>
   <div id="NewLocation">
 	
@@ -121,8 +121,9 @@
     <%= f.radio_button :Length, 12 %>12 Months
   </div>
   </div>
+  </div>
   
-  
+  <div id="ColumnTwo">
   <h2>Utilities:</h2>
   <div id="NewUtils">
   
@@ -193,4 +194,5 @@
 		</div>
 	</section>
 <% end %>
+</div>
 </div>

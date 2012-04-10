@@ -6,7 +6,6 @@
 	background-color: #cc0000;
 	border: 2px solid transparent;
 	border-radius: 15px;
-	/*padding: 0px 20px 0px 20px;*/
 	padding: 15px 20px 30px 20px;
 }
 
@@ -60,13 +59,23 @@
 
 #NewListingForm
 {
-	-moz-column-count: 2;
-	-webkit-column-count: 2;
-	column-count: 2;
-	-moz-column-gap: 20px;
-	-webkit-column-gap: 20px;
-	column-gap: 20px;
-	height: 610px;
+	height: 600px;
+}
+
+#ColumnOne
+{
+	display: inline;
+	float: left;
+	width: 465px;
+	margin-top: 15px;
+}
+
+#ColumnTwo
+{
+	display: inline;
+	float: right;
+	width: 465px;
+	margin-top: 15px;
 }
 
 #NewLocation, #NewPrice, #NewType, #NewResDetails, #NewLeaseDetails,
@@ -74,6 +83,7 @@
 {
 	display: block;
 	border: 1px solid;
+	border-radius: 15px;
 	padding: 5px;
 	margin: 15px;
 }
@@ -90,6 +100,21 @@
 	-moz-column-count: 2;
 	-webkit-column-count: 2;
 	column-count: 2;
+}
+
+#NewLocation input, #NewSquareFeet input
+{
+	width: 100px;
+}
+
+#NewPrice input
+{
+	width: 150px;
+}
+
+#NoEdit_NewBedrooms input, #NoEdit_NewBathrooms input
+{
+	width: 30px;
 }
 
 #Recaptcha
