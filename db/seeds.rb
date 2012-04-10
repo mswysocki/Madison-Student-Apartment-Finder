@@ -25,3 +25,4 @@
     
     User.create!(:Name => "Adam", :Email => "aeggum12@gmail.com", :password => "password", :password_confirmation => "password", :admin => true)
     User.create!(:Name => "Admin", :Email => "a@a.com", :password => "password", :password_confirmation => "password", :admin => true)
+    
