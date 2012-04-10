@@ -2,7 +2,7 @@
 <section id="Search_Sidebar_View">
 	<%= form_for @search do |f| %>
 	<div id="Search">
-		<p class="button"><%= f.submit "Submit Criteria", :class => "Search_Button" %></p>
+		<p><%= f.submit "Submit Search Criteria", :class => "Search_Button" %></p>
 	</div>
 	<ul id="Search_Sidebar_Criteria">
 		<li id="Price">
@@ -93,7 +93,7 @@
 		</li><hr />
 		<li id="Accomodations">
 			<div id="AccomsHandler" class="menuOption">
-				<p onclick="showAccoms('Accoms_Ops_Invis')">Accomodations</p>
+				<p onclick="showAccoms('Accoms_Ops_Invis')">Accommodations</p>
 			</div>
 			<div id="Accoms_Ops_Invis">
 				<%= f.check_box :Parking_is_true %>

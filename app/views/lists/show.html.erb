@@ -1,180 +1,128 @@
-<p id="notice"><%= notice %></p>
-
+<div id="notice"><%= notice %></div>
+<div class="divider"></div>
 <section id="Listing_View">
 
-<p>
-  <h1>
-  	<%= @list.Address %>
-  </h1>
-</p>
+<h1><%= @list.Address %></h1>
 
 <hr id="Listing_View_Bar"/>
 
-<section class="flag_listing">
-	<h3>Does something look wrong with the information on this page? If so, flag the listing, below. If enough people think something is wrong, we will take a look! Thank you.</h3>
-	<%= form_tag increment_flag(@list), :method => "post", :class => "flag_button" do %>
-		<%= submit_tag("Flag")%>
-	<% end %>
-</section>
+<section id="ListingInfo">
 
-<p>
-  <b>City:</b>
-  	<%= @list.City %>
-</p>
+<div id="ColumnOne">
+<h2>Location:</h2>
+<div id="ShowLocation">
+	<em>Address:</em>  <%= @list.Address %><br />
 
+	<em>City:</em>  <%= @list.City %><br />
 
-<p>
-  <b>State:</b>
-  	<%= @list.State %>
-</p>
+	<em>State:</em>  <%= @list.State %><br />
+
+	<em>Zip:</em>  <%= @list.Zip %><br />
+
+	<em>Region:</em>  <%= @list.Region %>
+</div>
 
 
-<p>
-  <b>Zip:</b>
-  	<%= @list.Zip %>
-</p>
-
-
-<p>
-  <b>Region:</b>
-  	<%= @list.Region %>
-</p>
-
-
-<p>
-  <b>Bedrooms:</b>
-  	<%= @list.Bedrooms %>
-</p>
-
-
-<% unless @list.Bathrooms.nil? %>
-<p>
-  <b>Bathrooms:</b>
-  	<%= @list.Bathrooms %>
-</p>
-<% end %>
-
-
-
-<p>
-  <b>Rent:</b>
-  	<%= @list.Rent %>
-</p>
-
-
-<% unless @list.SquareFeet.nil? %>
-<p>
-  <b>Squarefeet:</b>
-  	<%= @list.SquareFeet %>
-</p>
-<% end %>
-
-
-<% unless @list.Parking.nil? %>
-<p>
-  <b>Parking:</b>
-  <%= @list.Parking %>
-</p>
-<% end %>
-
-
-
-<% unless @list.Smoking.nil? %>
-<p>
-  <b>Smoking:</b>
-  <%= @list.Smoking %>
-</p>
-<% end %>
-
-
-<% unless @list.Pets.nil? %>
-<p>
-  <b>Pets:</b>
-  <%= @list.Pets %>
-</p>
-<% end %>
-
-
-<% unless @list.Heat.nil? %>
-<p>
-  <b>Heat:</b>
-  <%= @list.Heat %>
-</p>
-<% end %>
-
-
-<% unless @list.Electric.nil? %>
-<p>
-  <b>Electric:</b>
-  <%= @list.Electric %>
-</p>
-<% end %>
-
-
-<% unless @list.Gas.nil? %>
-<p>
-	<b>Gas</b>
-	<%= @list.Gas %>
-</p>
-<% end %>
-
-
-
-<% unless is_nil(@list.GarbageCollection) %>
-<p>
-	<b>Garbage Collection</b>
-	<%= @list.GarbageCollection %>
-</p>
-<% end %>
-
+<h2>Price:</h2>
+<div id="ShowPrice">
+	<em>Rent:  $</em><%= @list.Rent %>
+</div>
 
 
 <% unless @list.Type.nil? %>
-<p>
-	<b>Type (House (0) or Apt (1))</b>
-	<%= @list.Type %>
-</p>
+	<h2>Type of Residence:</h2>
+  	<div id="ShowType">
+		<em>Type (House (true) or Apt (false)):</em>  <%= @list.Type %>
+	</div>
 <% end %>
 
+
+<h2>Residence Details:</h2>
+<div id="ShowResDetails">
+	<em>Bedrooms:</em>  <%= @list.Bedrooms %><br />
+	
+	<% unless @list.Bathrooms.nil? %>
+		<em>Bathrooms:</em>  <%= @list.Bathrooms %><br />
+	<% end %>
+
+	<% unless @list.SquareFeet.nil? %>
+		<em>Squarefeet:</em>  <%= @list.SquareFeet %>
+	<% end %>
+</div>
 
 
 <% unless @list.Length.nil? %>
-<p>
-	<b>Length (Months)</b>
-	<%= @list.Length %>
-</p>
+	<h2>Lease Length:</h2>
+	<div id="ShowLeaseDetails">
+		<em>Length (Months):</em>  <%= @list.Length %>
+	</div>
 <% end %>
+</div>
 
 
+<div id="ColumnTwo">
+<h2>Utilities:</h2>
+<div id="ShowUtils">
+	<% unless @list.Heat.nil? %>
+		<em>Heat:</em>  <%= @list.Heat %><br />
+	<% end %>
 
-<% unless @list.Furnished.nil? %>
-<p>
-	<b>Furnished</b>
-	<%= @list.Furnished %>
-</p>
-<% end %>
+	<% unless @list.Electric.nil? %>
+		<em>Electric:</em>  <%= @list.Electric %><br />
+	<% end %>
+
+	<% unless @list.Gas.nil? %>
+		<em>Gas:</em>  <%= @list.Gas %><br />
+	<% end %>
+
+	<% unless is_nil(@list.GarbageCollection) %>
+		<em>Garbage Collection:</em>  <%= @list.GarbageCollection %>
+	<% end %>
+</div>
 
 
+<h2>Accommodations:</h2>
+<div id="ShowAccommodations">
+	<% unless @list.Parking.nil? %>
+		<em>Parking:</em>  <%= @list.Parking %><br />
+	<% end %>
+	
+	<% unless @list.Laundry.nil? %>
+		<em>Laundry:</em>  <%= @list.Laundry %><br />
+	<% end %>
 
-<% unless @list.Laundry.nil? %>
-<p>
-	<b>Laundry</b>
-	<%= @list.Laundry %>
-</p>
-<% end %>
+	<% unless @list.Furnished.nil? %>
+		<em>Furnished:</em>  <%= @list.Furnished %>
+	<% end %>
+</div>
+
+
+<h2>Restrictions:</h2>
+<div id="ShowRestrictions">
+	<% unless @list.Smoking.nil? %>
+		<em>Smoking:</em>  <%= @list.Smoking %><br />
+	<% end %>
+
+	<% unless @list.Pets.nil? %>
+		<em>Pets:</em>  <%= @list.Pets %>
+	<% end %>
+</div>
 
 
 <% if signed_in? && current_user.admin? %>
 	<% unless @list.Flags.nil? %>
-	<p>
-	  <b>Flags:</b>
-	  <%= @list.Flags %>
-	</p>
+	<p>Flags:  <%= @list.Flags %></p>
 	<% end %>
 <% end %>
 
-
-
-<%= link_to 'Update', edit_list_path(@list) %>
-
+<div id="UpdateListingButton"><a><%= link_to 'Update', edit_list_path(@list) %></a></div>
+<br />
+<section class="flag_listing">
+	<h3>Is the information for this listing inaccurate? If so, use the button below to flag the listing. If several people flag it we'll take a look. Thank you!</h3>
+	<%= form_tag increment_flag(@list), :method => "post", :class => "flag_button" do %>
+		<%= submit_tag("Flag")%>
+	<% end %>
+</section>
+</div>
+</section>
 </section>

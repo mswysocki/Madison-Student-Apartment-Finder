@@ -1,5 +1,11 @@
 #<<<<<<< HEAD
 MadisonStudentApartmentFinder::Application.routes.draw do
+  get "reviews_controller/create"
+
+  get "reviews_controller/update"
+
+  get "reviews_controller/destroy"
+
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
 

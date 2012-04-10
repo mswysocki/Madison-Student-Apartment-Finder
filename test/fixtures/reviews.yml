@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: reviews
+#
+#  id           :integer         not null, primary key
+#  review_body  :string(255)
+#  rating       :float
+#  helpfullness :integer
+#  flag         :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  review_body: MyString
+  rating: 1.5
+  helpfullness: 
+  flag: 
+
+two:
+  review_body: MyString
+  rating: 1.5
+  helpfullness: 
+  flag: 

@@ -1,0 +1,28 @@
+/* CSS for About page */
+#About_Title
+{
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#MailLink:link
+{
+	color: #ffbb00;
+}
+
+#MailLink:visited
+{
+	color: #ffbb00;
+}
+
+#MailLink:hover
+{
+	cursor: pointer;
+	color: #75070e;
+	background-color: #cc0000;
+}
+
+#MailLink:active
+{
+	color: #03899C;
+}
