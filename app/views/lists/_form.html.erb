@@ -178,7 +178,11 @@
   <div id="Recaptcha" class="actions">
   	<%= raw recaptcha_tag(:challenge) %>
     <div id="RecaptchaButton">
-    	<%= f.submit %>
+    	<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
+    		<%= f.submit("Update Listing") %>
+    	<% elsif ((params[:action].eql? "new") || (params[:action].eql? "create" )) %>
+    		<%= f.submit("Create Listing") %>
+    	<% end %>
     </div>
   </div>
 <% end %>
