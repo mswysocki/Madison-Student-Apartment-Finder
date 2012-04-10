@@ -10,44 +10,44 @@
 	
 	<% if ((action.eql? "edit") || (action.eql? "update")) %>
   <div id="NoEdit_NewAddress" class="field">
-    	<%= f.label :Address %><br />
-    	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :Address %>  
-    	<% else %> <%= f.text_field :Address, :disabled => true %> 
+    	<%= f.label :address %><br />
+    	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :address %>  
+    	<% else %> <%= f.text_field :address, :disabled => true %> 
     	<% end %>
   </div>
   	<% elsif ((action.eql? "create") || (action.eql? "new")) %>
   <div id="NewAddress" class="field">
-  		<%= f.label :Address %><br />
-  		<%= f.text_field :Address %>
+  		<%= f.label :address %><br />
+  		<%= f.text_field :address %>
   </div>
   	<% end %>
   	
   <div id="NewCity" class="field">
-    <%= f.label :City %><br />
-    <%= f.text_field :City, :disabled => true %>
+    <%= f.label :city %><br />
+    <%= f.text_field :city, :disabled => true %>
   </div>
   <div id="NewState" class="field">
-    <%= f.label :State %><br />
-    <%= f.text_field :State, :disabled => true %>
+    <%= f.label :state %><br />
+    <%= f.text_field :state, :disabled => true %>
   </div>
   
   	<% if ((action.eql? "edit") || (action.eql? "update" )) %>
   <div id="NoEdit_NewZip" class="field">
-   	 	<%= f.label :Zip %><br />
-   	 	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :Zip %>
-    	<% else %> <%= f.text_field :Zip, :disabled => true %>
+   	 	<%= f.label :zip %><br />
+   	 	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :zip %>
+    	<% else %> <%= f.text_field :zip, :disabled => true %>
     	<% end %>
   </div>
   	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
   <div id="NewZip" class="field">
-  		<%= f.label :Zip %> <br />
-  		<%= f.text_field :Zip %>
+  		<%= f.label :zip %> <br />
+  		<%= f.text_field :zip %>
   </div>
 	<% end %>  
   
   <div id="NewRegion" class="field">
-    <%= f.label :Region %><br />
-    <%= f.text_field :Region %>
+    <%= f.label :region %><br />
+    <%= f.text_field :region %>
   </div>
   </div>
   
@@ -56,8 +56,8 @@
   <div id="NewPrice">
   
   <div id="NewRent" class="field">
-    <%= f.label :Rent %><br />
-    <%= f.text_field :Rent %>
+    <%= f.label :rent %><br />
+    <%= f.text_field :rent %>
   </div>
   </div>
   
@@ -66,9 +66,9 @@
   <div id="NewType">
   
   <div id="NewResidenceType" class="field">
-    <%= f.label :Type, "Residence Type"%><br />
-   	<%= f.radio_button :Type, true %>House <br /><br />
-    <%= f.radio_button :Type, false %>Apartment <br />
+    <%= f.label :ltype, "Residence Type"%><br />
+   	<%= f.radio_button :ltype, true %>House <br /><br />
+    <%= f.radio_button :ltype, false %>Apartment <br />
   </div>
   </div>
   
@@ -78,35 +78,35 @@
   
   	<% if ((action.eql? "edit") || (action.eql? "update" )) %>
   <div id="NoEdit_NewBedrooms" class="field">
-   	 	<%= f.label :Bedrooms %><br />
-   	 	<% if (signed_in? && current_user.admin?) %> <%= f.select :Bedrooms, List::ROOMS %>
-    	<% else %> <%= f.text_field :Bedrooms, :disabled => true %>
+   	 	<%= f.label :bedrooms %><br />
+   	 	<% if (signed_in? && current_user.admin?) %> <%= f.select :bedrooms, List::ROOMS %>
+    	<% else %> <%= f.text_field :bedrooms, :disabled => true %>
     	<% end %>
   </div>
   	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
   <div id="NewBedrooms" class="field">
-  		<%= f.label :Bedrooms %> <br />
-  		<%= f.select :Bedrooms, List::ROOMS %>
+  		<%= f.label :bedrooms %> <br />
+  		<%= f.select :bedrooms, List::ROOMS %>
   </div>
 	<% end %>  
   
   <% if ((action.eql? "edit") || (action.eql? "update" )) %>
   <div id="NoEdit_NewBathrooms" class="field">
-   	 	<%= f.label :Bathrooms %><br />
-   	 	<% if (signed_in? && current_user.admin?) %> <%= f.select :Bathrooms, List::BATHS %>
-    	<% else %> <%= f.text_field :Bathrooms, :disabled => true %>
+   	 	<%= f.label :bathrooms %><br />
+   	 	<% if (signed_in? && current_user.admin?) %> <%= f.select :bathrooms, List::BATHS %>
+    	<% else %> <%= f.text_field :bathrooms, :disabled => true %>
     	<% end %>
   </div>
   	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
   <div id="NewBathrooms" class="field">
-  		<%= f.label :Bathrooms %> <br />
-  		<%= f.select :Bathrooms, List::BATHS %>
+  		<%= f.label :bathrooms %> <br />
+  		<%= f.select :bathrooms, List::BATHS %>
   </div>
 	<% end %>  
   
   <div id="NewSquareFeet" class="field">
-    <%= f.label :SquareFeet, "Square Feet" %><br />
-    <%= f.text_field :SquareFeet %>
+    <%= f.label :squarefeet, "Square Feet" %><br />
+    <%= f.text_field :squarefeet %>
   </div>
   </div>
   
@@ -115,10 +115,10 @@
   <div id="NewLeaseDetails">
   
    <div id="NewLength" class="field">
-    <%= f.label :Length, "Length (Months)" %><br />
-   	<%= f.radio_button :Length, 6 %>6 Months<br /><br />
-    <%= f.radio_button :Length, 9 %>9 Months<br /><br />
-    <%= f.radio_button :Length, 12 %>12 Months
+    <%= f.label :length, "Length (Months)" %><br />
+   	<%= f.radio_button :length, 6 %>6 Months<br /><br />
+    <%= f.radio_button :length, 9 %>9 Months<br /><br />
+    <%= f.radio_button :length, 12 %>12 Months
   </div>
   </div>
   </div>
@@ -128,16 +128,16 @@
   <div id="NewUtils">
   
   <div id="NewHeat" class="field">
-    <%= f.check_box :Heat%>Heat Included <br />
+    <%= f.check_box :heat %>Heat Included <br />
   </div>
   <div id="NewElectric" class="field">
-    <%= f.check_box :Electric %>Electric Included<br />
+    <%= f.check_box :electric %>Electric Included<br />
   </div>
   <div id="NewGas" class="field">
-    <%= f.check_box :Gas%>Gas Included<br />
+    <%= f.check_box :gas %>Gas Included<br />
   </div>
   <div id="NewGarbage" class="field">
-    <%= f.check_box :GarbageCollection%>Garbage collection<br />
+    <%= f.check_box :garbagecollection %>Garbage collection<br />
   </div>
   </div>
   
@@ -146,13 +146,13 @@
   <div id="NewAccommodations">
   
   <div id="NewParking" class="field">
-    <%= f.check_box :Parking%>Parking Available <br />
+    <%= f.check_box :parking %>Parking Available <br />
   </div>
   <div id="NewLaundry" class="field">
-    <%= f.check_box :Laundry%>Laundry on site <br />
+    <%= f.check_box :laundry %>Laundry on site <br />
   </div>
   <div id="NewFurnished" class="field">
-    <%= f.check_box :Furnished%>Furnished <br />
+    <%= f.check_box :furnished %>Furnished <br />
   </div>
   </div>
   
@@ -161,18 +161,18 @@
   <div id="NewRestrictions">
   
   <div id="NewSmoking" class="field">
-    <%= f.check_box :Smoking%>Smoking Allowed<br />
+    <%= f.check_box :smoking %>Smoking Allowed<br />
   </div>
   <div id="NewPets" class="field">
-    <%= f.check_box :Pets%>Pets Allowed <br />
+    <%= f.check_box :pets %>Pets Allowed <br />
   </div>
   </div>
   
   
   <% if signed_in? && current_user.admin? %>
   	<div id="Admin_Flags" class="field">
-   		<%= f.label :Flags %><br />
-    	<%= f.text_field :Flags %>
+   		<%= f.label :flags %><br />
+    	<%= f.text_field :flags %>
   	</div>
   <% end %>
   <div id="Recaptcha" class="actions">

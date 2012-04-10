@@ -2,7 +2,7 @@
 <div class="divider"></div>
 <section id="Listing_View">
 
-<h1><%= @list.Address %></h1>
+<h1><%= @list.address %></h1>
 
 <hr id="Listing_View_Bar"/>
 
@@ -11,50 +11,50 @@
 <div id="ColumnOne">
 <h2>Location:</h2>
 <div id="ShowLocation">
-	<em>Address:</em>  <%= @list.Address %><br />
+	<em>Address:</em>  <%= @list.address %><br />
 
-	<em>City:</em>  <%= @list.City %><br />
+	<em>City:</em>  <%= @list.city %><br />
 
-	<em>State:</em>  <%= @list.State %><br />
+	<em>State:</em>  <%= @list.state %><br />
 
-	<em>Zip:</em>  <%= @list.Zip %><br />
+	<em>Zip:</em>  <%= @list.zip %><br />
 
-	<em>Region:</em>  <%= @list.Region %>
+	<em>Region:</em>  <%= @list.region %>
 </div>
 
 
 <h2>Price:</h2>
 <div id="ShowPrice">
-	<em>Rent:  $</em><%= @list.Rent %>
+	<em>Rent:  $</em><%= @list.rent %>
 </div>
 
 
-<% unless @list.Type.nil? %>
+<% unless @list.ltype.nil? %>
 	<h2>Type of Residence:</h2>
   	<div id="ShowType">
-		<em>Type (House (true) or Apt (false)):</em>  <%= @list.Type %>
+		<em>Type (House (true) or Apt (false)):</em>  <%= @list.ltype %>
 	</div>
 <% end %>
 
 
 <h2>Residence Details:</h2>
 <div id="ShowResDetails">
-	<em>Bedrooms:</em>  <%= @list.Bedrooms %><br />
+	<em>Bedrooms:</em>  <%= @list.bedrooms %><br />
 	
-	<% unless @list.Bathrooms.nil? %>
-		<em>Bathrooms:</em>  <%= @list.Bathrooms %><br />
+	<% unless @list.bathrooms.nil? %>
+		<em>Bathrooms:</em>  <%= @list.bathrooms %><br />
 	<% end %>
 
-	<% unless @list.SquareFeet.nil? %>
-		<em>Squarefeet:</em>  <%= @list.SquareFeet %>
+	<% unless @list.squarefeet.nil? %>
+		<em>Squarefeet:</em>  <%= @list.squarefeet %>
 	<% end %>
 </div>
 
 
-<% unless @list.Length.nil? %>
+<% unless @list.length.nil? %>
 	<h2>Lease Length:</h2>
 	<div id="ShowLeaseDetails">
-		<em>Length (Months):</em>  <%= @list.Length %>
+		<em>Length (Months):</em>  <%= @list.length %>
 	</div>
 <% end %>
 </div>
@@ -63,55 +63,55 @@
 <div id="ColumnTwo">
 <h2>Utilities:</h2>
 <div id="ShowUtils">
-	<% unless @list.Heat.nil? %>
-		<em>Heat:</em>  <%= @list.Heat %><br />
+	<% unless @list.heat.nil? %>
+		<em>Heat:</em>  <%= @list.heat %><br />
 	<% end %>
 
-	<% unless @list.Electric.nil? %>
-		<em>Electric:</em>  <%= @list.Electric %><br />
+	<% unless @list.electric.nil? %>
+		<em>Electric:</em>  <%= @list.electric %><br />
 	<% end %>
 
-	<% unless @list.Gas.nil? %>
-		<em>Gas:</em>  <%= @list.Gas %><br />
+	<% unless @list.gas.nil? %>
+		<em>Gas:</em>  <%= @list.gas %><br />
 	<% end %>
 
-	<% unless is_nil(@list.GarbageCollection) %>
-		<em>Garbage Collection:</em>  <%= @list.GarbageCollection %>
+	<% unless is_nil(@list.garbagecollection) %>
+		<em>Garbage Collection:</em>  <%= @list.garbagecollection %>
 	<% end %>
 </div>
 
 
 <h2>Accommodations:</h2>
 <div id="ShowAccommodations">
-	<% unless @list.Parking.nil? %>
-		<em>Parking:</em>  <%= @list.Parking %><br />
+	<% unless @list.parking.nil? %>
+		<em>Parking:</em>  <%= @list.parking %><br />
 	<% end %>
 	
-	<% unless @list.Laundry.nil? %>
-		<em>Laundry:</em>  <%= @list.Laundry %><br />
+	<% unless @list.laundry.nil? %>
+		<em>Laundry:</em>  <%= @list.laundry %><br />
 	<% end %>
 
-	<% unless @list.Furnished.nil? %>
-		<em>Furnished:</em>  <%= @list.Furnished %>
+	<% unless @list.furnished.nil? %>
+		<em>Furnished:</em>  <%= @list.furnished %>
 	<% end %>
 </div>
 
 
 <h2>Restrictions:</h2>
 <div id="ShowRestrictions">
-	<% unless @list.Smoking.nil? %>
-		<em>Smoking:</em>  <%= @list.Smoking %><br />
+	<% unless @list.smoking.nil? %>
+		<em>Smoking:</em>  <%= @list.smoking %><br />
 	<% end %>
 
-	<% unless @list.Pets.nil? %>
-		<em>Pets:</em>  <%= @list.Pets %>
+	<% unless @list.pets.nil? %>
+		<em>Pets:</em>  <%= @list.pets %>
 	<% end %>
 </div>
 
 
 <% if signed_in? && current_user.admin? %>
-	<% unless @list.Flags.nil? %>
-	<p>Flags:  <%= @list.Flags %></p>
+	<% unless @list.flags.nil? %>
+	<p>Flags:  <%= @list.flags %></p>
 	<% end %>
 <% end %>
 

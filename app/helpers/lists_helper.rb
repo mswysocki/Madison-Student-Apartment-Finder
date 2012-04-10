@@ -22,7 +22,7 @@ module ListsHelper
       return
     end
     
-    list.Flags += 1
+    list.flags += 1
     list.save!
     return
   end

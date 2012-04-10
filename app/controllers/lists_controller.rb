@@ -5,11 +5,11 @@ class ListsController < ApplicationController
   def index
     @title = "Search Results"
     #@lists = List.all
-    @test = params[:search]   #used for hiding
+    @test = params[:search]   #used for hiding of results, if there are none.
     #puts @test
     unless (@test.nil?)
-      addr = @test["Address_contains"]
-      @test["Address_contains"] = List.street_endings(addr)
+      addr = @test["address_contains"]
+      @test["address_contains"] = List.street_endings(addr)
     end
     @search = List.search(params[:search])
 
@@ -32,7 +32,7 @@ class ListsController < ApplicationController
     @lists = @search.all
     
     @list = List.find(params[:id])
-    @title = @list.Address
+    @title = @list.address
 
     respond_to do |format|
       format.html # show.html.erb
@@ -69,7 +69,7 @@ class ListsController < ApplicationController
   # rent, and number of rooms are all valid.
   # Default values for City => "Madison" and State => "Wisconsin"
   def create
-    params[:list]["Address"] = List.format_address! params[:list]
+    params[:list]["address"] = List.format_address! params[:list]
     @list = List.new(params[:list])
     respond_to do |format|
       if (recaptcha_valid? && @list.valid?)
@@ -98,8 +98,8 @@ class ListsController < ApplicationController
   # PUT /lists/1
   # PUT /lists/1.xml
   def update
-    unless params[:list]["Address"].nil? 
-      params[:list]["Address"] = List.format_address! params[:list]      
+    unless params[:list]["address"].nil? 
+      params[:list]["address"] = List.format_address! params[:list]      
     end
     
     #below is what we want for adminUpdate - free access

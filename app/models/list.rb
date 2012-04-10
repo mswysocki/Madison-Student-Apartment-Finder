@@ -3,74 +3,94 @@
 # Table name: lists
 #
 #  id                :integer         not null, primary key
-#  Address           :string(255)
-#  City              :string(255)
-#  State             :string(255)
-#  Zip               :integer
-#  Region            :integer
-#  Bathrooms         :float
-#  Rent              :integer
-#  SquareFeet        :integer
-#  Smoking           :boolean
-#  Heat              :boolean
-#  Electric          :boolean
-#  Flags             :integer
+#  address           :string(255)
+#  city              :string(255)
+#  state             :string(255)
+#  zip               :integer
+#  region            :integer
+#  bathrooms         :float
+#  rent              :integer
+#  squarefeet        :integer
+#  smoking           :boolean
+#  heat              :boolean
+#  electric          :boolean
+#  flags             :integer
 #  created_at        :datetime
 #  updated_at        :datetime
-#  Gas               :boolean
-#  GarbageCollection :boolean
-#  Length            :integer
-#  Furnished         :boolean
-#  Laundry           :boolean
-#  Parking           :boolean
-#  Bedrooms          :integer
-#  Pets              :boolean
-#  Type              :boolean
+#  gas               :boolean
+#  garbagecollection :boolean
+#  length            :integer
+#  furnished         :boolean
+#  laundry           :boolean
+#  parking           :boolean
+#  bedrooms          :integer
+#  pets              :boolean
+#  ltype             :boolean
 #
 
 class List < ActiveRecord::Base
-  attr_accessible :Address, :City, :State, :Zip, :Region, :Bedrooms, 
-    :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
-    :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,
-    :Laundry
+  #attr_accessible :Address, :City, :State, :Zip, :Region, :Bedrooms, 
+ #   :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
+ #   :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,
+ #   :Laundry
+ 
+  attr_accessible :address, :city, :state, :zip, :region, :bedrooms, :bathrooms, 
+    :rent, :squarefeet, :parking, :smoking, :pets, :heat, :electric, :flags, :gas, 
+    :garbagecollection, :ltype, :length, :furnished, :laundry
   
-  attr_searchable :Address, :City, :State, :Zip, :Region, :Bedrooms,
-    :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
-    :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,
-    :Laundry
-  
+ # attr_searchable :Address, :City, :State, :Zip, :Region, :Bedrooms,
+ #   :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
+ #   :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,
+ #   :Laundry
+ 
+  attr_searchable :address, :city, :state, :zip, :region, :bedrooms, :bathrooms, 
+    :rent, :squarefeet, :parking, :smoking, :pets, :heat, :electric, :flags, :gas, 
+    :garbagecollection, :ltype, :length, :furnished, :laundry
   
   #requires that these three are filled in + add some validations
-  validates :Address,   :presence => true,
+  validates :address,   :presence => true,
                         :length   => { :maximum => 50 }, 
                         :uniqueness => { :case_sensitive => false}
-  validates :Bedrooms,  :presence => true,
+  validates :bedrooms,  :presence => true,
                         :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }, 
                         :numericality => {:gt => 0, :lte => 25}
-  validates :Rent,      :presence => true,
+  validates :rent,      :presence => true,
                         :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }, 
                         :numericality => {:gt => 1, :lt => 25000}
-  validates :Zip,       :presence => true,
+  validates :zip,       :presence => true,
 						            :numericality => {:gt => 53700, :lt => 53800} #judging by: http://www.zip-codes.com/city/WI-MADISON.asp
-  validates :Bathrooms, :numericality => {:gt => 0, :lte => 10}
+  validates :bathrooms, :numericality => {:gt => 0, :lte => 10}
   
   
   #sets default values for the db entry when the listing is initialized
   after_initialize :default_values
   def default_values
-    self.City ||= "Madison"
-    self.State ||= "Wisconsin"
-    self.Length ||= 12
-    self.Furnished ||= false
-    self.Electric ||= false
-    self.Gas ||= false
-    self.GarbageCollection ||= false
-    self.Smoking ||= false
-    self.Pets ||= false
-    self.Laundry ||= false
-    self.Parking ||= false
-    self.Heat ||= false
-    self.Flags ||= 0
+    self.city ||= "Madison"
+    self.state ||= "Wisconsin"
+    self.length ||= 12
+    self.furnished ||= false
+    self.electric ||= false
+    self.gas ||= false
+    self.garbagecollection ||= false
+    self.smoking ||= false
+    self.pets ||= false
+    self.laundry ||= false
+    self.parking ||= false
+    self.heat ||= false
+    self.flags ||= 0
+    #self.City ||= "Madison"
+    #self.State ||= "Wisconsin"
+    #self.Length ||= 12
+    #self.Furnished ||= false
+    #self.Electric ||= false
+    #self.Gas ||= false
+    #self.GarbageCollection ||= false
+    #self.Smoking ||= false
+    #self.Pets ||= false
+    #self.Laundry ||= false
+    #self.Parking ||= false
+    #self.Heat ||= false
+    #self.Flags ||= 0
   end
   
  
@@ -147,12 +167,12 @@ class List < ActiveRecord::Base
   end
  
   def self.format_address! list_parameters
-    if list_parameters["Address"].nil? 
+    if list_parameters["address"].nil? 
       return
     end
     
     temp = ""
-    list_parameters["Address"].split.map!  {|word|
+    list_parameters["address"].split.map!  {|word|
       if STREETS.key?(word.downcase)
         word = STREETS[word.downcase][0] + "."  
       end
@@ -164,7 +184,7 @@ class List < ActiveRecord::Base
 
   def self.admin_list_search(search)
     if search
-      where('Address LIKE ?', "%#{search}%")
+      where('address LIKE ?', "%#{search}%")
     else
       scoped
     end
