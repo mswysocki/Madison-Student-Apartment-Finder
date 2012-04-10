@@ -9,7 +9,7 @@
 		
 	<ul class="admin_users">
 		<h1>All users</h1>
-		
+	<!-- 
 		<%= form_tag admin_path, :method => 'get' do %>
 		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
 		<%= hidden_field_tag :direction, params[:direction] %>
@@ -19,6 +19,7 @@
     		<%= submit_tag "Search", :Name => nil %>
   		</p>
 		<% end %>
+	-->
 		
 		<%= will_paginate @users, :param_name => :users_page %>
     	<%= render @users %>
@@ -29,7 +30,7 @@
 		<h1>All listings</h1>
 		
 		<%= form_tag admin_path, :method => 'get' do %>
-		<%= hidden_field_tag :admin_us, params[:admin_us] %>
+		<!--<%= hidden_field_tag :admin_us, params[:admin_us] %> -->
 		<%= hidden_field_tag :direction, params[:direction] %>
 		<%= hidden_field_tag :sort, params[:sort] %>
  		<p>
