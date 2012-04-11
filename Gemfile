@@ -26,6 +26,7 @@ end
 gem "meta_search"     #, :git => "git://github.com/ernie/meta_search.git" # Track git repo
 gem 'will_paginate'   #may need to be used for easy pagination 
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
+gem 'simplecov', :require => false, :group => :test
 
 #gem 'rd_searchlogic', :require => 'searchlogic', :git => 'git://github.com/railsdog/searchlogic.git'
 
