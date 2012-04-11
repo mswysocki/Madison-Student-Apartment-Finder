@@ -25,8 +25,10 @@ Here are some of the gems added to the project:
 >  + https://github.com/rspec/rspec-rails - Testing for both unit and some integration tests.  We can obviously still choose to use Cucumber or anything else that we want but this is what I got started with.
 > 
 >  + https://github.com/thoughtbot/factory_girl_rails - This allows easy creation of anything used with a database for testing.
+> 
+>  + https://github.com/colszowka/simplecov - This gem gives us the code coverage tools that we need for iteration 2. It is compatible with Rails 3 and Ruby 1.9.3.
 
 Testing of the project has gotten started, and to run the test suite that we have use the command 'rspec spec/' or 'rspec spec/any_folder_you_want_to_test/' ... and so on
 
-All of the tests passed as of the last time I pushed any changes to github.  82/82.
+Nearly all of the tests passed as of the last time I pushed any changes to github.  130/132.
 

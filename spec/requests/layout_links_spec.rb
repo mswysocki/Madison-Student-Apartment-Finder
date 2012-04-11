@@ -30,8 +30,7 @@ describe "LayoutLinks" do
   describe "when not signed in" do
     it "should have a signin link" do
       visit home_page_path
-      response.should have_selector("a", :href => signin_path,
-                                         :content => "Sign in")
+      response.should have_selector("div", :id => "SignInFields")
     end
   end
   
