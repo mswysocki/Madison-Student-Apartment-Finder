@@ -77,7 +77,7 @@ describe UsersController do
     
     it "should contain the user's name" do
       get :show, :id => @user
-      response.should have_selector("h3", :content => @user.Name)
+      response.should have_selector("body", :content => @user.Name)
     end
   end
   

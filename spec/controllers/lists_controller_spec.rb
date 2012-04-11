@@ -19,15 +19,15 @@ describe ListsController do
   #basic tests for show
   describe "GET 'show'" do
     it "should be successful" do
-      listing = List.create!(:Address => "1022 W Johnson St. #507", :City => "Madison", :State => "Wisconsin", :Zip => 53715, :Region => 2, :Bedrooms => 3, :Bathrooms => 2, :Rent => 2660, :Parking => true, :Smoking => false, :Pets => false, :Heat => false, :Flags => 10, :Gas => true, :GarbageCollection => true, :House => true, :Length => 12, :Furnished => false, :Laundry => true, :Type => true)
+      listing = List.create!(:address => "1022 W Johnson St. #507", :city => "Madison", :state => "Wisconsin", :zip => 53715, :region => 2, :bedrooms => 3, :bathrooms => 2, :rent => 2660, :parking => true, :smoking => false, :pets => false, :heat => false, :flags => 10, :gas => true, :garbagecollection => true, :length => 12, :furnished => false, :laundry => true, :ltype => true)
       get 'show', :id => listing.id
       response.should be_success
     end
     
     it "should have the right title" do
-      listing = List.create!(:Address => "1022 W Johnson St. #507", :City => "Madison", :State => "Wisconsin", :Zip => 53715, :Region => 2, :Bedrooms => 3, :Bathrooms => 2, :Rent => 2660, :Parking => true, :Smoking => false, :Pets => false, :Heat => false, :Flags => 10, :Gas => true, :GarbageCollection => true, :House => true, :Length => 12, :Furnished => false, :Laundry => true, :Type => true)
+      listing = List.create!(:address => "1022 W Johnson St. #507", :city => "Madison", :state => "Wisconsin", :zip => 53715, :region => 2, :bedrooms => 3, :bathrooms => 2, :rent => 2660, :parking => true, :smoking => false, :pets => false, :heat => false, :flags => 10, :gas => true, :garbagecollection => true, :length => 12, :furnished => false, :laundry => true, :ltype => true)
       get 'show', :id => listing.id
-      response.should have_selector("title", :content => "Madison Student Housing Finder | " << listing.Address)
+      response.should have_selector("title", :content => "Madison Student Housing Finder | " << listing.address)
     end
   end
   
@@ -42,7 +42,7 @@ describe ListsController do
   
   describe "GET 'edit'" do
     it "should have the right title" do
-      listing = List.create!(:Address => "1022 W Johnson St. #507", :City => "Madison", :State => "Wisconsin", :Zip => 53715, :Region => 2, :Bedrooms => 3, :Bathrooms => 2, :Rent => 2660, :Parking => true, :Smoking => false, :Pets => false, :Heat => false, :Flags => 10, :Gas => true, :GarbageCollection => true, :House => true, :Length => 12, :Furnished => false, :Laundry => true, :Type => true)
+      listing = List.create!(:address => "1022 W Johnson St. #507", :city => "Madison", :state => "Wisconsin", :zip => 53715, :region => 2, :bedrooms => 3, :bathrooms => 2, :rent => 2660, :parking => true, :smoking => false, :pets => false, :heat => false, :flags => 10, :gas => true, :garbagecollection => true, :length => 12, :furnished => false, :laundry => true, :ltype => true)
       get 'edit', :id => listing.id
       response.should have_selector("title", :content => "Madison Student Housing Finder | Update Listing")
     end
