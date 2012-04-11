@@ -16,6 +16,18 @@
 	font-style: italic;
 }
 
+#SignedIn a{
+	
+	cursor:pointer;
+	font-weight: bold;
+	border-radius: 15px;
+	color: #C20505;
+	font-family: 'Antic Slab', serif;
+	font-size:   16px;
+	text-align:center;
+	
+}
+
 /* CSS for a generic user who is not signed in */
 #NewUserLink
 {
@@ -58,6 +70,16 @@
 	float: right;
 	padding-top: 2px;
 	padding-left: 5px;
+}
+
+#SignInSubmit input{
+	cursor:pointer;
+	font-weight: bold;
+	border-radius: 15px;
+	color: #C20505;
+	font-family: 'Antic Slab', serif;
+	font-size:   16px;
+	text-align:center;
 }
 
 #SignInFields

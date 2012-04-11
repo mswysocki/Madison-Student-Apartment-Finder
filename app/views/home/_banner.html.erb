@@ -10,8 +10,8 @@
 	<% if signed_in? %>
 	  <div id="SignedIn">
       	<a><%= link_to "Profile", current_user %></a>
-      	<a><%= link_to "Sign out", signout_path, :method => :delete %></a>
       	<a><%= link_to "Settings", edit_user_path(current_user) %></a>
+      	<a><%= link_to "Sign out", signout_path, :method => :delete %></a>
       </div>
     <% else %>
       <div id="SignInWrapper">

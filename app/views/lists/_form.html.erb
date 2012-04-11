@@ -1,3 +1,9 @@
+<html>
+
+<%= stylesheet_link_tag 'listingForm' %>
+	
+<body>
+
 <div id="NewListingForm">
 
 <%= form_for(@list) do |f| %>
@@ -179,7 +185,7 @@
   	<%= raw recaptcha_tag(:challenge) %>
     <div id="RecaptchaButton">
     	<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
-    		<%= f.submit("Update Listing") %>
+    		<%= f.submit("Update Listing")%>
     	<% elsif ((params[:action].eql? "new") || (params[:action].eql? "create" )) %>
     		<%= f.submit("Create Listing") %>
     	<% end %>
@@ -188,7 +194,7 @@
 <% end %>
 
 
-<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
+<!--<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
 	<section class="flag_listing">
 		<h3>Is the information for this listing inaccurate? If so, use the button below to flag the listing. If several people flag it we'll take a look. Thank you!</h3>
 		<div id="FlagButton">
@@ -197,6 +203,9 @@
 			<% end %>
 		</div>
 	</section>
-<% end %>
+<% end %>-->
 </div>
 </div>
+
+</body>
+</html>
