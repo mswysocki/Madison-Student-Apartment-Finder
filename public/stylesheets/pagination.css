@@ -2,7 +2,6 @@
  * So it is ok to use but we will want to modify it anyways.
  */
 
-
 .digg_pagination {
   background: white;
   cursor: default;
@@ -138,4 +137,31 @@
   .flickr_pagination .next_page {
     margin-left: 1em; }
 
+.EntryAddress {
+	padding-left:10px;
+	padding-bottom:0px;
+	margin-bottom:0px;
+	font-size:26px;
+	/*font-weight:bold;*/
+	font-style:italic;
+	text-align:left;	
+}
 
+
+.EntryDetails {
+	margin-top:0px;
+	margin-bottom:5px;
+	text-align:right;
+	border: 1px solid #9B2727;
+	background-color:  #9B2727;
+	border-radius:15px;	
+}
+
+.EntryDetails p{
+		padding-right:10px;
+		font-size:16px;
+}
+
+.ResultsTitle{
+	font-family: 'Antic Slab', serif;
+}

@@ -7,7 +7,7 @@
 <section id="Results_View" >
 <% unless @test.nil? %> <!-- This checks if the url is empty. Will then show the content (ie. home) page in that case-->
 <% unless @no_results %> <!-- This checks if there are no search results. Will render a new partial -->
-<h1>Search Results</h1>
+<h1 class="ResultsTitle">Search Results</h1>
 <hr id="Results_View_Bar">
 <p>Select a listing and here's what you can do:
 <div id="Table_Actions">
@@ -20,6 +20,7 @@
 </p>
 
 <table id="Search_Results_Table">
+	<!--
   <tr>
   	<th>Address</th>
   	<th>Zip</th>
@@ -35,10 +36,8 @@
   	<th>Gas</th>
   	<th>Garbage Collection</th>
   	<th>Furnished</th>
-  	<th>Laundry</th>
-  </tr>
-  
-    
+  	<th>Laundry</th> 
+  </tr>-->
     <!--<th><%= sort_link @search, :Address%> </th>
     <th><%= sort_link @search, :Zip %> </th>
     <th><%= sort_link @search, :Region %> </th>
@@ -77,8 +76,14 @@ end %>
 <% identifier = "Table_Element_" + list.id.to_s() %>
 
   <tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%>>
-    <td class=<%= elementClass%> ><%= list.address %></td>
-    <td class=<%= elementClass%> ><%= list.zip %></td>
+    <td class=<%= elementClass%> >
+    		<p class="EntryAddress"><%= list.address %></p>
+    		<div class="EntryDetails">
+	    		<p>Zip Code: <%= list.zip %></p>
+    			<p>#Bedrooms: <%= list.bedrooms %> # Bathrooms: <%= list.bathrooms %> </p>    			
+    		</div>
+    </td>
+<!--    <td class=<%= elementClass%> ><%= list.zip %></td>
     <td class=<%= elementClass%> ><%= list.bedrooms %></td>
     <td class=<%= elementClass%> ><%= list.bathrooms %></td>
     <td class=<%= elementClass%> ><%= list.rent %></td>
@@ -91,12 +96,9 @@ end %>
     <td class=<%= elementClass%> ><%= list.gas %></td>
     <td class=<%= elementClass%> ><%= list.garbagecollection %></td>
     <td class=<%= elementClass%> ><%= list.furnished %></td>
-    <td class=<%= elementClass%> ><%= list.laundry %></td>
+    <td class=<%= elementClass%> ><%= list.laundry %></td>-->
   </tr>
 <% end %>
-
-<td></td>
-<td></td>
 
 </table>
 <% end %>

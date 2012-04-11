@@ -22,28 +22,21 @@ div.field, div.actions {
 
 #Search_Results_Table{
 	border-radius:15px;
-	background-color:#75070E;
-	color:#ffffff;
-	font-size: 9px;
-	width:620px;
+	background-color:#901700;
+	width:735px;
 	text-align:right;
 }
 
 .Table_Element{
+	border-radius:15px;
 	border:1px solid rgba(255,255,255,0);
-	padding-right: 8px;
-	font-size: 9px;
 	background-color:#BB2C32;
-	text-align:center;
 	cursor:pointer;
 }
 
 .Table_Element_Alt{
-	border:1px solid #BB2C32;
-	padding-right: 8px;
-	font-size: 9px;
+	border:1px solid rgba(255,255,255,0);
 	background-color: rgba(255,255,255,0);
-	text-align:center;
 	cursor:pointer;
 }
 
