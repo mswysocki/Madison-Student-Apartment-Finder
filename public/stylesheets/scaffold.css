@@ -22,7 +22,7 @@ div.field, div.actions {
 
 #Search_Results_Table{
 	border-radius:15px;
-	background-color:#901700;
+	background-color: rgba(255,255,255,0);
 	width:735px;
 	text-align:right;
 }
@@ -35,6 +35,7 @@ div.field, div.actions {
 }
 
 .Table_Element_Alt{
+	border-radius:15px;
 	border:1px solid rgba(255,255,255,0);
 	background-color: rgba(255,255,255,0);
 	cursor:pointer;
@@ -105,4 +106,9 @@ div.field, div.actions {
 
 #Table_Actions {
 	padding: 0px 0px 0px 0px;
+}
+
+.TableElementGeneral:hover, .Table_Element:hover, .Table_Element_Alt:hover{
+	background-color:#FF948D;
+/*	opacity:0.6;*/
 }

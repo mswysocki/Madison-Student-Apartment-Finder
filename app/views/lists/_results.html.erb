@@ -19,42 +19,7 @@
 </div>
 </p>
 
-<table id="Search_Results_Table">
-	<!--
-  <tr>
-  	<th>Address</th>
-  	<th>Zip</th>
-  	<th>Bed</th>
-  	<th>Bath</th>
-  	<th>Rent</th>
-  	<th>Square Feet</th>
-  	<th>Parking</th>
-  	<th>Smoking</th>
-  	<th>Pets</th>
-  	<th>Heat</th>
-  	<th>Electric</th>
-  	<th>Gas</th>
-  	<th>Garbage Collection</th>
-  	<th>Furnished</th>
-  	<th>Laundry</th> 
-  </tr>-->
-    <!--<th><%= sort_link @search, :Address%> </th>
-    <th><%= sort_link @search, :Zip %> </th>
-    <th><%= sort_link @search, :Region %> </th>
-    <th><%= sort_link @search, :Bedrooms, "Bed" %> </th>
-    <th><%= sort_link @search, :Bathrooms, "Bath" %></th>
-    <th><%= sort_link @search, :Rent %> </th>
-    <th><%= sort_link @search, :SquareFeet, "Square Feet"%></th>
-    <th><%= sort_link @search, :Parking %> </th>
-    <th><%= sort_link @search, :Smoking %> </th>
-    <th><%= sort_link @search, :Pets %> </th>
-    <th><%= sort_link @search, :Heat %> </th>
-    <th><%= sort_link @search, :Electric %> </th>
-    <th><%= sort_link @search, :Gas %> </th>
-    <th><%= sort_link @search, :GarbageCollection, "Garbage Collected" %></th>
-    <th><%= sort_link @search, :Furnished %> </th>
-    <th><%= sort_link @search, :Laundry %> </th>-->
-   
+<table id="Search_Results_Table">   
 
 <% i = 0 %>
 <% elementClass = "Table_Element" %>
@@ -69,13 +34,9 @@ else
 elementClass = "Table_Element"
 end %>
 
-<% if i == 1
-first = list.id
-end %>
-
 <% identifier = "Table_Element_" + list.id.to_s() %>
 
-  <tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%>>
+  <tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
     <td class=<%= elementClass%> >
     		<p class="EntryAddress"><%= list.address %></p>
     		<div class="EntryDetails">
@@ -83,20 +44,6 @@ end %>
     			<p>#Bedrooms: <%= list.bedrooms %> # Bathrooms: <%= list.bathrooms %> </p>    			
     		</div>
     </td>
-<!--    <td class=<%= elementClass%> ><%= list.zip %></td>
-    <td class=<%= elementClass%> ><%= list.bedrooms %></td>
-    <td class=<%= elementClass%> ><%= list.bathrooms %></td>
-    <td class=<%= elementClass%> ><%= list.rent %></td>
-    <td class=<%= elementClass%> ><%= list.squarefeet %></td>
-    <td class=<%= elementClass%> ><%= list.parking %></td>
-    <td class=<%= elementClass%> ><%= list.smoking %></td>
-    <td class=<%= elementClass%> ><%= list.pets %></td>
-    <td class=<%= elementClass%> ><%= list.heat %></td>
-    <td class=<%= elementClass%> ><%= list.electric %></td>
-    <td class=<%= elementClass%> ><%= list.gas %></td>
-    <td class=<%= elementClass%> ><%= list.garbagecollection %></td>
-    <td class=<%= elementClass%> ><%= list.furnished %></td>
-    <td class=<%= elementClass%> ><%= list.laundry %></td>-->
   </tr>
 <% end %>
 
@@ -114,18 +61,6 @@ end %>
 <% if @no_results %>
 <%= render 'home/no_results' %>
 <% end %>
-
-
-<script type="text/javascript">
-
-document.getElementById("Table_Element_<%= first%>").style.opacity = "0.5";
-
-var links = document.getElementById("Table_Actions").getElementsByTagName("a");
-links.item(0).href = "/lists/"+<%= first%>;
-links.item(1).href = "/lists/"+<%= first%>+"/edit";
-links.item(2).href = "/lists/"+<%= first%>;
-
-</script>
 
 </body>
 
