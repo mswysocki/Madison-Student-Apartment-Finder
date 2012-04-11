@@ -9,15 +9,7 @@
 <% unless @no_results %> <!-- This checks if there are no search results. Will render a new partial -->
 <h1 class="ResultsTitle">Search Results</h1>
 <hr id="Results_View_Bar">
-<p>Select a listing and here's what you can do:
-<div id="Table_Actions">
-<ul>
-<li class="button"><a class="Table_Action" href="/lists/1">Show</a></li>
-<li class="button"><a class="Table_Action" href="/lists/1/edit">Edit</a></li>
-<% if signed_in? && current_user.admin? %><li class="button"><a class="Table_Action" href="/lists/1" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Remove</a></li> <% end %>
-</ul>
-</div>
-</p>
+<p>The following results matching you search criteria were found:</p>
 
 <table id="Search_Results_Table">   
 
@@ -41,7 +33,7 @@ end %>
     		<p class="EntryAddress"><%= list.address %></p>
     		<div class="EntryDetails">
 	    		<p>Zip Code: <%= list.zip %></p>
-    			<p>#Bedrooms: <%= list.bedrooms %> # Bathrooms: <%= list.bathrooms %> </p>    			
+    			<p>#Bedrooms: <%= list.bedrooms %>  |  #Bathrooms: <%= list.bathrooms %> </p>    			
     		</div>
     </td>
   </tr>
