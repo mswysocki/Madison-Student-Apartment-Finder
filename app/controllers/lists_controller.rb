@@ -71,6 +71,7 @@ class ListsController < ApplicationController
   def create
     params[:list]["address"] = List.format_address! params[:list]
     @list = List.new(params[:list])
+    
     respond_to do |format|
       if (recaptcha_valid? && @list.valid?)
         @list.save

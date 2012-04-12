@@ -40,7 +40,7 @@ describe "Users" do
   
   describe "sign in/out" do
     describe "failure" do
-      it "should note sign a user in" do
+      it "should not sign a user in" do
         visit signin_path
         fill_in :Email,       :with => ""
         fill_in :password,    :with => ""
