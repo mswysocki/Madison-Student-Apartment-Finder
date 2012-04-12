@@ -232,7 +232,7 @@ function isUsed(nodes){
 	        break;
 	    case "select-one":
 	    case "select-multi":
-	    	if ( nodes.item(i).selectedIndex == -1 ){
+	    	if ( nodes.item(i).selectedIndex != -1 ){
 	    		return true;
 	    	}
 	    	break;
