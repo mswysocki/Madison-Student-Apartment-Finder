@@ -189,7 +189,6 @@ function clearAllFields(){
 	    case "text":
 	    case "password":
 	    case "textarea":
-	    case "hidden":
 	        nodes.item(i).value = "";
 	        break;
 	    case "radio":
@@ -221,7 +220,6 @@ function isUsed(nodes){
 	    case "text":
 	    case "password":
 	    case "textarea":
-	    case "hidden":
 	    	if ( nodes.item(i).value != "" ){
 	    		return true;
 	    	}
@@ -234,10 +232,10 @@ function isUsed(nodes){
 	        break;
 	    case "select-one":
 	    case "select-multi":
-	    	if ( nodes.item(i).selectedIndex != -1 ){
+	    	if ( nodes.item(i).selectedIndex == -1 ){
 	    		return true;
 	    	}
-	        break;
+	    	break;
 	    default:
 	        break;
 	    }
