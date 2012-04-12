@@ -30,13 +30,13 @@ div.field, div.actions {
 .Table_Element{
 	border-radius:15px;
 	border:1px solid rgba(255,255,255,0);
-	background-color:#BB2C32;
+	background-color:#CC5700;
 	cursor:pointer;
 }
 
 .Table_Element_Alt{
 	border-radius:15px;
-	border:1px solid rgba(255,255,255,0);
+	border:2px solid #CC5700;
 	background-color: rgba(255,255,255,0);
 	cursor:pointer;
 }
@@ -62,5 +62,6 @@ div.field, div.actions {
 
 .TableElementGeneral:hover, .Table_Element:hover, .Table_Element_Alt:hover{
 	background-color:#FF948D;
+	border-color:#FF948D;
 /*	opacity:0.6;*/
 }
