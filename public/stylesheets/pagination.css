@@ -148,16 +148,25 @@
 }
 
 
-.EntryDetails {
+.Table_Element div {
 	margin-top:0px;
 	margin-bottom:5px;
 	text-align:right;
-	border: 1px solid #DE0505;
-	background-color:  #DE0505;
+	border: 1px solid #CC0000;
+	background-color:  #CC0000;
 	border-radius:15px;	
 }
 
-.EntryDetails p{
+.Table_Element_Alt div {
+	margin-top:0px;
+	margin-bottom:5px;
+	text-align:right;
+	border: 1px solid #CC5700;
+	background-color:  #CC5700;
+	border-radius:15px;	
+}
+
+.Table_Element div p, .Table_Element_Alt div p{
 		padding-right:10px;
 		font-size:16px;
 }
