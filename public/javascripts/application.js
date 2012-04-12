@@ -208,3 +208,39 @@ function clearAllFields(){
 	}
 	
 }
+
+function isUsed(nodes){
+	
+	for (i = 0; i < nodes.length; i++)
+	{
+		if ( nodes.item(i).type == undefined ){
+			continue;
+		}
+	    fieldType = nodes.item(i).type.toLowerCase();
+	    switch (fieldType){
+	    case "text":
+	    case "password":
+	    case "textarea":
+	    case "hidden":
+	    	if ( nodes.item(i).value != "" ){
+	    		return true;
+	    	}
+	        break;
+	    case "radio":
+	    case "checkbox":
+	        if (nodes.item(i).checked){
+	        	return true;
+	        }
+	        break;
+	    case "select-one":
+	    case "select-multi":
+	    	if ( nodes.item(i).selectedIndex != -1 ){
+	    		return true;
+	    	}
+	        break;
+	    default:
+	        break;
+	    }
+	}
+	return false;
+}

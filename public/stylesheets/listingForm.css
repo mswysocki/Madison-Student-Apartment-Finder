@@ -141,7 +141,7 @@
 	text-align:right;
 }
 
-#FlagButton input, #RecaptchaButton input, #UpdateListingButton a, #UpdateLinks a{
+#FlagButton input, #RecaptchaButton input, #UpdateLinks a{
 	cursor: pointer;
 	font-weight: bold;
 	border-radius: 15px;

@@ -120,10 +120,10 @@
 	<% end %>
 <% end %>
 
-<div id="UpdateListingButton"><a><%= link_to 'Update', edit_list_path(@list) %></a></div>
+<div id="UpdateListingButton">Any information missing? Go ahead and <a><%= link_to 'Update', edit_list_path(@list) %></a> this Listing!</div>
 <br />
 <section class="flag_listing">
-	<h3>Is the information for this listing inaccurate? If so, use the button below to flag the listing. If several people flag it we'll take a look. Thank you!</h3>
+	<h3>Is the information for this listing inaccurate or abusive? If so, use the button below to flag the listing. If several people flag it we'll take a look. Thank you!</h3>
 	<%= form_tag increment_flag(@list), :method => "post", :id => "FlagButton" do %>
 		<%= submit_tag("Flag")%>
 	<% end %>

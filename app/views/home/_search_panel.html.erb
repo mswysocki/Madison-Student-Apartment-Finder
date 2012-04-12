@@ -123,3 +123,29 @@
 		</li>
     </ul>
 </section>
+
+<script type="text/javascript">
+	
+	criterias = ["Price", "Location", "Type", "Details", "Lease", "Utils", "Accoms", "Restricts"];
+	if ( isUsed(document.getElementById("Price_Ops_Invis").getElementsByTagName("*")) ){
+		window.setInterval("showPrice('Price_Ops_Invis');", 1);
+	}
+	if ( isUsed(document.getElementById("Location_Ops_Invis").getElementsByTagName("*")) ){
+		window.setInterval("showLocation('Location_Ops_Invis');", 1);
+	}
+	if ( isUsed(document.getElementById("Type_Ops_Invis").getElementsByTagName("*")) ){
+		window.setInterval("showType('Type_Ops_Invis');", 1);
+	}
+		if ( isUsed(document.getElementById("Details_Ops_Invis").getElementsByTagName("*")) ){
+		window.setInterval("showDetails('Details_Ops_Invis');", 1);
+	}
+		if ( isUsed(document.getElementById("Utils_Ops_Invis").getElementsByTagName("*")) ){
+		window.setInterval("showUtils('Utils_Ops_Invis');", 1);
+	}
+		if ( isUsed(document.getElementById("Accoms_Ops_Invis").getElementsByTagName("*")) ){
+		window.setInterval("showAccoms('Accoms_Ops_Invis');", 1);
+	}
+		if ( isUsed(document.getElementById("Restricts_Ops_Invis").getElementsByTagName("*")) ){
+		window.setInterval("showRestricts('Restricts_Ops_Invis');", 1);
+	}
+</script>
