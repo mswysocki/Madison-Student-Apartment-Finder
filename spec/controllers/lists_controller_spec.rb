@@ -309,12 +309,13 @@ describe ListsController do
       it "should create a new listing" do
         lambda do
           post :create, :list => @attr
+          newSize = List.count
         end.should change(List, :count).by(1)
       end
       
       it "should redirect to the listing show page" do
         post :create, :list => @attr
-        response.should redirect_to(list_path(assigns(:list)))
+        response.should redirect_to(list_path(:list))
       end
     end
     

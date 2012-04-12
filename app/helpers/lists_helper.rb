@@ -18,7 +18,7 @@ module ListsHelper
       return
     end
         
-    if list.nil?
+    if list.nil? || list.flags.nil?
       return
     end
     
