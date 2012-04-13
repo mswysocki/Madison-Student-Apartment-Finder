@@ -170,9 +170,7 @@ function setSelectedTableElement(id){
 	
 	document.getElementById("Table_Element_"+id).style.opacity = "0.5";
 	
-	window.setTimeout(500);
 	location.assign("/lists/"+id);
-
 }
 
 function clearAllFields(){
