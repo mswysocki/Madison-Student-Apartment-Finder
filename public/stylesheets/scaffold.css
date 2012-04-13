@@ -60,7 +60,7 @@ div.field, div.actions {
 	-moz-transition-delay:0s;
 }
 
-.TableElementGeneral:hover, .Table_Element:hover, .Table_Element_Alt:hover{
+.Table_Element:hover, .Table_Element_Alt:hover{
 	background-color:#FF948D;
 	border-color:#FF948D;
 /*	opacity:0.6;*/
