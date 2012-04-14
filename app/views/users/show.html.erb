@@ -3,10 +3,9 @@
 	<hr id="User_View_Bar"/>
 
 	<h3>User ID:  <%= @user.id %></h3>
-	<p><%= @user.Email %></p>
 	
-	
-      <strong>Name</strong> <%= @user.Name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+    <em>Name:</em>  <%= @user.Name %><br />
+    <em>Email:</em>  <%= @user.Email %><br />
+    <em>URL:</em>   <%= link_to user_path(@user), @user %>
     
 </section>

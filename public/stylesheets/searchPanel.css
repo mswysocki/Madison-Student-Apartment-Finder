@@ -2,8 +2,6 @@
 
 #Search_Sidebar_View
 {
-/*	z-index:-1;
-	bottom:130px;*/
 	background-color: #cc0000;
 	width: 200px;
 	clear: left;
@@ -27,12 +25,11 @@
 
 #Search_Sidebar_Criteria
 {
-	list-style-type: none;
 	margin: 0px;
 	padding-left: 5px;
 }
 
-/************************* EXPERIMENTS *******************************/
+/************************* Criterion Slider CSS ***********************/
 .CriterionWrapper
 {
 	border-radius: 5px;
@@ -107,96 +104,10 @@
 {
 	margin-right: 10px;
 }
-/********************* END EXPERIMENTS *******************************/
-
-#Search_Sidebar_Criteria li
-{
-	cursor: pointer;
-	border-radius: 15px;
-	padding-left: 5px;
-	margin-top: 0px;
-	transition-property:background-color;
-	transition-duration:2s;
-	transition-timing-function:linear;
-	transition-delay:0s;
-	-webkit-transition-property:background-color;
-	-webkit-transition-duration:2s;
-	-webkit-transition-timing-function:linear;
-	-webkit-transition-delay:0s;
-	-o-transition-property:background-color;
-	-o-transition-duration:2s;
-	-o-transition-timing-function:linear;
-	-o-transition-delay:0s;
-	-moz-transition:background-color;
-	-moz-transition-duration:2s;
-	-moz-transition-timing-function:linear;
-	-moz-transition-delay:0s;
-}
-
-#Search_Sidebar_Criteria form
-{
-	font-size: 14px;
-	font-weight: normal;
-}
-
-#Price_Ops_Vis input, #Location_Ops_Vis input,
-#Details_Ops_Vis input
-{
-	width: 125px;
-}
-
-#Price_Ops_Invis, #Location_Ops_Invis, #Type_Ops_Invis,
-#Details_Ops_Invis, #Lease_Ops_Invis, #Utils_Ops_Invis,
-#Accoms_Ops_Invis, #Restricts_Ops_Invis
-{
-	display: none;
-}
-
-
-#Price_Ops_Vis, #Location_Ops_Vis, #Type_Ops_Vis,
-#Details_Ops_Invis, #Lease_Ops_Vis, #Utils_Ops_Vis,
-#Accoms_Ops_Vis, #Restricts_Ops_Vis
-{
-	/*display: all;*/   /* This line was giving me an error and said it wasn't valid, or something.. */
-}
-
-#Price_All, #Location_All, #Type_of_Res_All, #Res_Details_All,
-#Lease_Details_All, #Utils_All, #Accoms_All, #Restricts_All
-{
-	cursor: pointer;
-	color: #eeeeee;
-	font-weight: bold;
-	border-radius: 15px;	
-	background-color: #75070E;
-	padding: 1px 5px 5px 5px;
-}
-
-#Search_Sidebar_Criteria li:hover
-{
-	cursor: pointer;
-	border-radius: 15px;
-	background-color: #75070E;
-	transition-property:background-color;
-	transition-duration:0.15s;
-	transition-timing-function:linear;
-	transition-delay:0s;
-	-webkit-transition-property:background-color;
-	-webkit-transition-duration:0.15s;
-	-webkit-transition-timing-function:linear;
-	-webkit-transition-delay:0s;
-	-o-transition-property:background-color;
-	-o-transition-duration:0.15s;
-	-o-transition-timing-function:linear;
-	-o-transition-delay:0s;
-	-moz-transition:background-color;
-	-moz-transition-duration:0.15s;
-	-moz-transition-timing-function:linear;
-	-moz-transition-delay:0s;
-}
+/********************* END Criterion Slider CSS ***********************/
 
 #Clear_Search_Criteria
 {
-	list-style-type: none;
 	margin: 0px;
 	padding: 5px;
 	margin-left: auto;
