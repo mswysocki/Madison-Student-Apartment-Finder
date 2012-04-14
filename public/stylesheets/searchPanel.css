@@ -331,7 +331,7 @@ input:focus
 	
 	border: 1px solid rgba(255,255,255,0);
 	border-radius: 15px;
-	padding-right: 17px;
+	padding-right: 15px;
 	opacity: 0.5;
 	font-weight:bold;
 }
@@ -340,7 +340,7 @@ input:focus
 	
 	border: 1px solid rgba(255,255,255,0);
 	border-radius: 15px;
-	padding-right: 36px;
+	padding-right: 33px;
 	opacity: 0.5;
 	font-weight:bold;
 }
@@ -349,7 +349,7 @@ input:focus
 	
 	border: 1px solid rgba(255,255,255,0);
 	border-radius: 15px;
-	padding-right: 55px;
+	padding-right: 49px;
 	opacity: 0.5;
 	font-weight:bold;
 }
@@ -360,6 +360,7 @@ input:focus
 	border-radius:15px;
 	opacity: 0.5;
 	font-weight:bold;
+	width: 32%;
 }
 
 .SearchBarCheckOrRadioButtons{
