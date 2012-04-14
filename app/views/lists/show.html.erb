@@ -14,7 +14,7 @@
 <section id="ListingInfo">
 
 <div id="ColumnOne">
-<h2>Location:</h2>
+<h2 id="LocationLabel">Location:</h2>
 <div id="ShowLocation">
 	<em>Address:</em>  <%= @list.address %><br />
 
@@ -28,21 +28,21 @@
 </div>
 
 
-<h2>Price:</h2>
+<h2 id="PriceLabel">Price:</h2>
 <div id="ShowPrice">
 	<em>Rent:  $</em><%= @list.rent %>
 </div>
 
 
 <% unless @list.ltype.nil? %>
-	<h2>Type of Residence:</h2>
+	<h2 id="TypeLabel">Type of Residence:</h2>
   	<div id="ShowType">
 		<em>Type (House (true) or Apt (false)):</em>  <%= @list.ltype %>
 	</div>
 <% end %>
 
 
-<h2>Residence Details:</h2>
+<h2 id="DetailsLabel">Residence Details:</h2>
 <div id="ShowResDetails">
 	<em>Bedrooms:</em>  <%= @list.bedrooms %><br />
 	
@@ -57,17 +57,16 @@
 
 
 <% unless @list.length.nil? %>
-	<h2>Lease Length:</h2>
+	<h2 id="LeaseLabel">Lease Length:</h2>
 	<div id="ShowLeaseDetails">
 		<em>Length (Months):</em>  <%= @list.length %>
 	</div>
 <% end %>
-
 </div>
 
 
 <div id="ColumnTwo">
-<h2>Utilities:</h2>
+<h2 id="UtilsLabel">Utilities:</h2>
 <div id="ShowUtils">
 	<% unless @list.heat.nil? %>
 		<em>Heat:</em>  <%= @list.heat %><br />
@@ -87,7 +86,7 @@
 </div>
 
 
-<h2>Accommodations:</h2>
+<h2 id="AccomsLabel">Accommodations:</h2>
 <div id="ShowAccommodations">
 	<% unless @list.parking.nil? %>
 		<em>Parking:</em>  <%= @list.parking %><br />
@@ -103,7 +102,7 @@
 </div>
 
 
-<h2>Restrictions:</h2>
+<h2 id="RestrictsLabel">Restrictions:</h2>
 <div id="ShowRestrictions">
 	<% unless @list.smoking.nil? %>
 		<em>Smoking:</em>  <%= @list.smoking %><br />

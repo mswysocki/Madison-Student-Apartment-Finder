@@ -187,29 +187,28 @@
 
 <script type="text/javascript">
 	
-	criterias = ["Price", "Location", "Type", "Details", "Lease", "Utils", "Accoms", "Restricts"];
-	if ( isUsed(document.getElementById("Price_Ops_Invis").getElementsByTagName("*")) ){
-		window.setTimeout("showPrice('Price_Ops_Invis');", 1);
+	if ( isUsed(document.getElementById('PriceSlider').getElementsByTagName("*")) ){
+		HandleSlide('Price', 'PriceSlider');
 	}
-	if ( isUsed(document.getElementById("Location_Ops_Invis").getElementsByTagName("*")) ){
-		window.setTimeout("showLocation('Location_Ops_Invis');", 1);
+	if ( isUsed(document.getElementById("LocationSlider").getElementsByTagName("*")) ){
+		HandleSlide('Location', 'LocationSlider');
 	}
-	if ( isUsed(document.getElementById("Type_Ops_Invis").getElementsByTagName("*")) ){
-		window.setTimeout("showType('Type_Ops_Invis');", 1);
+	if ( isUsed(document.getElementById("TypeOfResSlider").getElementsByTagName("*")) ){
+		HandleSlide('TypeOfRes', 'TypeOfResSlider');
 	}
-	if ( isUsed(document.getElementById("Details_Ops_Invis").getElementsByTagName("*")) ){
-		window.setTimeout("showDetails('Details_Ops_Invis');", 1);
+	if ( isUsed(document.getElementById("ResDetailsSlider").getElementsByTagName("*")) ){
+		HandleSlide('ResDetails', 'ResDetailsSlider');
 	}
-	if ( isUsed(document.getElementById("Lease_Ops_Invis").getElementsByTagName("*")) ){
-		window.setTimeout("showLease('Lease_Ops_Invis');", 1);
+	if ( isUsed(document.getElementById("LeaseDetailsSlider").getElementsByTagName("*")) ){
+		HandleSlide('LeaseDetails', 'LeaseDetailsSlider');
 	}
-	if ( isUsed(document.getElementById("Utils_Ops_Invis").getElementsByTagName("*")) ){
-		window.setTimeout("showUtils('Utils_Ops_Invis');", 1);
+	if ( isUsed(document.getElementById("UtilitiesSlider").getElementsByTagName("*")) ){
+		HandleSlide('Utilities', 'UtilitiesSlider');
 	}
-	if ( isUsed(document.getElementById("Accoms_Ops_Invis").getElementsByTagName("*")) ){
-		window.setTimeout("showAccoms('Accoms_Ops_Invis');", 1);
+	if ( isUsed(document.getElementById("AccommodationsSlider").getElementsByTagName("*")) ){
+		HandleSlide('Accommodations', 'AccommodationsSlider');
 	}
-	if ( isUsed(document.getElementById("Restricts_Ops_Invis").getElementsByTagName("*")) ){
-		window.setTimeout("showRestricts('Restricts_Ops_Invis');", 1);
+	if ( isUsed(document.getElementById("RestrictionsSlider").getElementsByTagName("*")) ){
+		HandleSlide('Restrictions', 'RestrictionsSlider');
 	}
 </script>
