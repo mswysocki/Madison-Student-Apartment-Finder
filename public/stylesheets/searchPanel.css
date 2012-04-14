@@ -245,7 +245,7 @@ input:focus
 	border-radius: 15px;
 	padding-right: 17px;
 	opacity: 0.5;
-	
+	font-weight:bold;
 }
 
 .TOSearchBarInputField{
@@ -254,21 +254,22 @@ input:focus
 	border-radius: 15px;
 	padding-right: 36px;
 	opacity: 0.5;
-		
+	font-weight:bold;
 }
 
-.ADDRESSSearchBarInputField{
+.ADDRESSSearchBarInputField, .ATLEASTSearchBarInputField{
 	
 	border: 1px solid rgba(255,255,255,0);
 	border-radius: 15px;
 	padding-right: 55px;
 	opacity: 0.5;
+	font-weight:bold;
 }
 
-.ATLEASTSearchBarInputField{
-	
+#Search_Sidebar_View select{
+
 	border: 1px solid rgba(255,255,255,0);
-	border-radius: 15px;
-	padding-right: 55px;
+	border-radius:15px;
 	opacity: 0.5;
+	font-weight:bold;
 }

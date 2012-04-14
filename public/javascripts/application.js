@@ -204,6 +204,16 @@ function clearAllFields(){
 	    }
 	}
 	
+	window.setTimeout("showPrice('Price_Ops_Vis');", 1);
+	window.setTimeout("showLocation('Location_Ops_Vis');", 1);
+	window.setTimeout("showType('Type_Ops_Vis');", 1);
+	window.setTimeout("showDetails('Details_Ops_Vis');", 1);
+	window.setTimeout("showLease('Lease_Ops_Vis');", 1);
+	window.setTimeout("showUtils('Utils_Ops_Vis');", 1);
+	window.setTimeout("showAccoms('Accoms_Ops_Vis');", 1);
+	window.setTimeout("showRestricts('Restricts_Ops_Vis');", 1);
+	
+	window.scrollTo(0,0);
 }
 
 function isUsed(nodes){
