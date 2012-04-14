@@ -28,8 +28,10 @@
 	margin-top: auto;
 	margin-top: auto;
 	height: 90%;
-	background-color: #CC5700;
+	background-color: #CC0000;
 	border-radius: 15px;
+	border: 6px none #CC5700;
+	border-style: none solid none solid;
 }
 
 #ColumnOne h2, #ColumnTwo h2
@@ -41,15 +43,39 @@
 #ShowLeaseDetails, #ShowUtils, #ShowAccommodations,
 #ShowRestrictions
 {
-	border: 1px solid rgba(255,255,255,0);
-	border-radius: 15px;
-	padding: 5px;
-	margin-left: 15px;
-	margin-right: 15px;
+	padding-top: 0px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 5px;
+	margin-left: 0px;
+	margin-right: 0px;
 	margin-bottom: 15px;
-	margin-top: 0px;
-	background-color: #CC0000;
+	border: 5px none #CC5700;
+	border-style: none none solid none;
+	border-top-right-radius: solid;
+	border-top-left-radius: solid;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
 }
+
+#LocationLabel{
+	background-color: #FF948D;
+	border-color: #FF948D;
+}
+
+#ShowLocation:hover{
+	background-color: #FF948D;
+	border-color: #FF948D;
+}
+
+/*#ShowLocation:hover, #ShowLocation:hover #LocationLabel, #ShowPrice:hover, #ShowPrice:hover #PriceLabel,
+#ShowType:hover, #ShowType:hover #TypeLabel, #ShowResDetails:hover, #ShowResDetails:hover #DetailsLabel,
+#ShowLeaseDetails:hover, #ShowLeaseDetails:hover #LeaseLabel, #ShowUtils:hover, #ShowUtils:hover #UtilsLabel,
+#ShowAccommodations:hover, #ShowAccommodations:hover #AccomsLabel, #ShowRestrictions:hover, #ShowRestrictions:hover #RestrictsLabel
+{
+	background-color: #FF948D;
+	border-color: #FF948D;
+}*/
 
 #ShowLocation, #ShowUtils, #ShowAccommodations, #ShowRestrictions
 {
@@ -87,14 +113,7 @@
 	color: #03899C;
 }
 
-#ListingInfo h2 {
-	padding-left: 10px;
-	padding-top: 2px;
-	padding-bottom:15px;
-	z-index: 2;
-	background-color: #CC0000;
-	border-radius: 5px;
-	margin-left: 50px;
-	width: 50%;
-	margin-bottom: 0px;
-}
+/*#ListingInfo h2{
+	background-color: transparent;
+	border-color: transparent;
+}*/

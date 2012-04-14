@@ -2,16 +2,24 @@
 
 function HandleSlide(Clicked, Sliding)
 {
-	if (document.getElementById(Sliding).style.display == 'none')
+	if (document.getElementById(Sliding).style.display == 'none' )
 	{
-		ResetBackgroundColor(Clicked, "#75070E");
-		Effect.SlideDown(Sliding, { duration: 1.0 });
+		slideDown(Clicked, Sliding);
 	}
 	else
 	{
-		Effect.SlideUp(Sliding, { duration: 1.0 });
-		var t=setTimeout("ResetBackgroundColor('"+Clicked+"', '#cc0000')", 1000);
+		slideUp(Clicked, Sliding);
 	}
+}
+
+function slideDown(Clicked, Sliding){
+	ResetBackgroundColor(Clicked, "#75070E");
+	Effect.SlideDown(Sliding, { duration: 1.0 });	
+}
+
+function slideUp(Clicked, Sliding){
+	Effect.SlideUp(Sliding, { duration: 1.0 });
+	var t=setTimeout("ResetBackgroundColor('"+Clicked+"', '#cc0000')", 1000);	
 }
 
 function ResetBackgroundColor(Element, Color)
@@ -63,14 +71,14 @@ function clearAllFields(){
 	    }
 	}
 	
-	window.setTimeout("showPrice('Price_Ops_Vis');", 1);
-	window.setTimeout("showLocation('Location_Ops_Vis');", 1);
-	window.setTimeout("showType('Type_Ops_Vis');", 1);
-	window.setTimeout("showDetails('Details_Ops_Vis');", 1);
-	window.setTimeout("showLease('Lease_Ops_Vis');", 1);
-	window.setTimeout("showUtils('Utils_Ops_Vis');", 1);
-	window.setTimeout("showAccoms('Accoms_Ops_Vis');", 1);
-	window.setTimeout("showRestricts('Restricts_Ops_Vis');", 1);
+	slideUp('Price', 'PriceSlider');
+	slideUp('Location', 'LocationSlider');
+	slideUp('TypeOfRes', 'TypeOfResSlider');
+	slideUp('ResDetails', 'ResDetailsSlider');
+	slideUp('LeaseDetails', 'LeaseDetailsSlider');
+	slideUp('Utilities', 'UtilitiesSlider');
+	slideUp('Accommodations', 'AccommodationsSlider');
+	slideUp('Restrictions', 'RestrictionsSlider');
 	
 	window.scrollTo(0,0);
 }
