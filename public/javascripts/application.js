@@ -1,5 +1,24 @@
 // JavaScript Document
 
+function HandleSlide(Clicked, Sliding)
+{
+	if (document.getElementById(Sliding).style.display == 'none')
+	{
+		ResetBackgroundColor(Clicked, "#75070E");
+		Effect.SlideDown(Sliding, { duration: 1.0 });
+	}
+	else
+	{
+		Effect.SlideUp(Sliding, { duration: 1.0 });
+		var t=setTimeout("ResetBackgroundColor('"+Clicked+"', '#cc0000')", 1000);
+	}
+}
+
+function ResetBackgroundColor(Element, Color)
+{
+	document.getElementById(Element).style.backgroundColor = Color;
+}
+
 function showPrice(id)
 {
 	var tmpID = id;
