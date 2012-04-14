@@ -4,9 +4,10 @@
 
 <% first = 1 %>
 
-<section id="Results_View" >
 <% unless @test.nil? %> <!-- This checks if the url is empty. Will then show the content (ie. home) page in that case-->
 <% unless @no_results %> <!-- This checks if there are no search results. Will render a new partial -->
+
+<section id="Results_View" >
 <h1 class="ResultsTitle">Search Results</h1>
 <hr id="Results_View_Bar">
 <p>The following results matching you search criteria were found:</p>
@@ -48,6 +49,7 @@ end %>
 
 <% if @test.nil? %>
 <%= render 'home/content' %>
+
 <% end %>
 
 <% if @no_results %>
