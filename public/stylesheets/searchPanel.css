@@ -244,6 +244,7 @@ input:focus
 	border: 1px solid rgba(255,255,255,0);
 	border-radius: 15px;
 	padding-right: 17px;
+	opacity: 0.5;
 	font-weight:bold;
 }
 
@@ -252,6 +253,7 @@ input:focus
 	border: 1px solid rgba(255,255,255,0);
 	border-radius: 15px;
 	padding-right: 36px;
+	opacity: 0.5;
 	font-weight:bold;
 }
 
@@ -260,6 +262,7 @@ input:focus
 	border: 1px solid rgba(255,255,255,0);
 	border-radius: 15px;
 	padding-right: 55px;
+	opacity: 0.5;
 	font-weight:bold;
 }
 
@@ -271,6 +274,6 @@ input:focus
 	font-weight:bold;
 }
 
-#Search_Sidebar_View input{
+.SearchBarCheckOrRadioButtons{
 	opacity: 0.5;
 }

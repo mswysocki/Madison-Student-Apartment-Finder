@@ -30,8 +30,8 @@
 				<p onclick="showType('Type_Ops_Invis')">Type of Residence</p>
 			</div>
 			<div id="Type_Ops_Invis">
-				<%= f.radio_button :ltype_eq, true %>House<br />
-				<%= f.radio_button :ltype_eq, false %>Apartment<br />
+				<%= f.radio_button :ltype_eq, true, :class => "SearchBarCheckOrRadioButtons" %>House<br />
+				<%= f.radio_button :ltype_eq, false, :class => "SearchBarCheckOrRadioButtons" %>Apartment<br />
 			</div>
 		</li><hr />
 		<li id="Res_Details">
@@ -70,9 +70,9 @@
 			</div>
 			<div id="Lease_Ops_Invis">
 				<b><%= f.label 	   :length_eq, "Length:" %></b><br />
-				<%= f.radio_button :length_eq, 6 %> 6 Months <br />
-				<%= f.radio_button :length_eq, 9 %> 9 Months <br />
-				<%= f.radio_button :length_eq, 12 %> 12 Months <br />
+				<%= f.radio_button :length_eq, 6, :class => "SearchBarCheckOrRadioButtons" %> 6 Months <br />
+				<%= f.radio_button :length_eq, 9, :class => "SearchBarCheckOrRadioButtons" %> 9 Months <br />
+				<%= f.radio_button :length_eq, 12, :class => "SearchBarCheckOrRadioButtons" %> 12 Months <br />
 			</div>
 		</li><hr />
 		<li id="Utilities">
@@ -80,13 +80,13 @@
 				<p onclick="showUtils('Utils_Ops_Invis')">Utilities</p>
 			</div>
 			<div id="Utils_Ops_Invis">
-				<%= f.check_box :heat_is_true %>
+				<%= f.check_box :heat_is_true, :class => "SearchBarCheckOrRadioButtons" %>
 				<%= f.label 	:heat_is_true, "Heat" %> <br />
-				<%= f.check_box :electric_is_true %> 
+				<%= f.check_box :electric_is_true, :class => "SearchBarCheckOrRadioButtons" %> 
 				<%= f.label 	:electric_is_true, "Electric" %> <br />
-				<%= f.check_box :gas_is_true %> 
+				<%= f.check_box :gas_is_true, :class => "SearchBarCheckOrRadioButtons" %> 
 				<%= f.label 	:gas_is_true, "Gas" %> <br />
-				<%= f.check_box :garbagecollection_is_true %>
+				<%= f.check_box :garbagecollection_is_true, :class => "SearchBarCheckOrRadioButtons" %>
 				<%= f.label 	:garbagecollection_is_true, "Garbage Collection" %>
 				
 			</div>
@@ -96,11 +96,11 @@
 				<p onclick="showAccoms('Accoms_Ops_Invis')">Accommodations</p>
 			</div>
 			<div id="Accoms_Ops_Invis">
-				<%= f.check_box :parking_is_true %>
+				<%= f.check_box :parking_is_true, :class => "SearchBarCheckOrRadioButtons" %>
 				<%= f.label 	:parking_is_true, "Parking" %> <br />
-				<%= f.check_box :laundry_is_true %>
+				<%= f.check_box :laundry_is_true, :class => "SearchBarCheckOrRadioButtons" %>
 				<%= f.label 	:laundry_is_true, "Laundry" %> <br />
-				<%= f.check_box :furnished_is_true %>
+				<%= f.check_box :furnished_is_true, :class => "SearchBarCheckOrRadioButtons" %>
 				<%= f.label 	:furnished_is_true, "Furnished" %>
 			</div>
 		</li><hr />
@@ -109,9 +109,9 @@
 				<p onclick="showRestricts('Restricts_Ops_Invis')">Restrictions</p>
 			</div>
 			<div id="Restricts_Ops_Invis">
-				<%= f.check_box :smoking_is_true %>
+				<%= f.check_box :smoking_is_true, :class => "SearchBarCheckOrRadioButtons" %>
 				<%= f.label 	:smoking_is_true, "Smoking" %> <br />
-				<%= f.check_box :pets_is_true %>
+				<%= f.check_box :pets_is_true, :class => "SearchBarCheckOrRadioButtons" %>
 				<%= f.label 	:pets_is_true, "Pets" %> <br />
 			</div>
 		</li><hr />
