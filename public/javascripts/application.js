@@ -41,6 +41,45 @@ function setSelectedTableElement(id){
 }
 
 function clearAllFields(){
+
+	var cleanedSomething = false;
+	
+	if ( isUsed(document.getElementById('PriceSlider').getElementsByTagName("*")) ){
+		slideUp('Price', 'PriceSlider');
+		cleanedSomething = true;
+	}
+	if ( isUsed(document.getElementById("LocationSlider").getElementsByTagName("*")) ){
+		slideUp('Location', 'LocationSlider');
+		cleanedSomething = true;
+	}
+	if ( isUsed(document.getElementById("TypeOfResSlider").getElementsByTagName("*")) ){
+		slideUp('TypeOfRes', 'TypeOfResSlider');
+		cleanedSomething = true;
+	}
+	if ( isUsed(document.getElementById("ResDetailsSlider").getElementsByTagName("*")) ){
+		slideUp('ResDetails', 'ResDetailsSlider');
+		cleanedSomething = true;
+	}
+	if ( isUsed(document.getElementById("LeaseDetailsSlider").getElementsByTagName("*")) ){
+		slideUp('LeaseDetails', 'LeaseDetailsSlider');
+		cleanedSomething = true;
+	}
+	if ( isUsed(document.getElementById("UtilitiesSlider").getElementsByTagName("*")) ){
+		slideUp('Utilities', 'UtilitiesSlider');
+		cleanedSomething = true;
+	}
+	if ( isUsed(document.getElementById("AccommodationsSlider").getElementsByTagName("*")) ){
+		slideUp('Accommodations', 'AccommodationsSlider');
+		cleanedSomething = true;
+	}
+	if ( isUsed(document.getElementById("RestrictionsSlider").getElementsByTagName("*")) ){
+		slideUp('Restrictions', 'RestrictionsSlider');
+		cleanedSomething = true;
+	}
+
+	if ( cleanedSomething ){
+		window.scrollTo(0,0);
+	}
 	
 	var nodes = document.getElementById("Search_Sidebar_Criteria").getElementsByTagName("*");
 	
@@ -64,23 +103,13 @@ function clearAllFields(){
 	        break;
 	    case "select-one":
 	    case "select-multi":
-	        nodes.item(i).selectedIndex = -1;
+	        nodes.item(i).selectedIndex = 0;
 	        break;
 	    default:
 	        break;
 	    }
 	}
-	
-	slideUp('Price', 'PriceSlider');
-	slideUp('Location', 'LocationSlider');
-	slideUp('TypeOfRes', 'TypeOfResSlider');
-	slideUp('ResDetails', 'ResDetailsSlider');
-	slideUp('LeaseDetails', 'LeaseDetailsSlider');
-	slideUp('Utilities', 'UtilitiesSlider');
-	slideUp('Accommodations', 'AccommodationsSlider');
-	slideUp('Restrictions', 'RestrictionsSlider');
-	
-	window.scrollTo(0,0);
+
 }
 
 function isUsed(nodes){
