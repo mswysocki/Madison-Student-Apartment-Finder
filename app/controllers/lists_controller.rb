@@ -5,19 +5,21 @@ class ListsController < ApplicationController
   def index
     @title = "Search Results"
     #@lists = List.all
+    
     @test = params[:search]   #used for hiding of results, if there are none.
-    #puts @test
     unless (@test.nil?)
       addr = @test["address_contains"]
       @test["address_contains"] = List.street_endings(addr)
     end
-    @search = List.search(params[:search])
+    
+    @search = List.search(params[:search]).paginate(:page => params[:results_page], :per_page => 5)
 
     @lists = @search.all
-    #@lists = List.paginate(:page => params[:page], :per_page => 5)
+    puts @lists
     @no_results = List.no_results(@lists)    
-    #@lists = List.all
-    #@lists = List.order(sort_column + " " + sort_direction).paginate(:per_page => 5)
+   
+    #reset the search parameter
+    @search = List.search(params[:search]);
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @lists }
