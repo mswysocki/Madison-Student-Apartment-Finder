@@ -11,9 +11,9 @@
 			</div>
 			<div id="Price_Ops_Invis">
 				<%= f.label :rent_gte, "from" %>
-				<%= f.text_field :rent_gte %> <br />
+				<%= f.text_field :rent_gte, :class => "FROMSearchBarInputField" %> <br />
 				<%= f.label :rent_lte, "to" %>
-				<%= f.text_field :rent_lte %>
+				<%= f.text_field :rent_lte , :class => "TOSearchBarInputField" %>
 			</div>
 		</li><hr />
 		<li id="Location">
@@ -22,7 +22,7 @@
 			</div>
 			<div id="Location_Ops_Invis">
 				<%= f.label :address_contains, "Address" %>
-				<%= f.text_field :address_contains %>
+				<%= f.text_field :address_contains, :class => "ADDRESSSearchBarInputField" %>
 			</div>
 		</li><hr />
 		<li id="Type_of_Res">
@@ -60,7 +60,7 @@
 				
 				
 				<%= f.label 	 :squarefeet_gte, "At least" %>
-				<%= f.text_field :squarefeet_gte %>
+				<%= f.text_field :squarefeet_gte, :class => "ATLEASTSearchBarInputField" %>
 				<%= f.label      :squarefeet_gte, "square feet."%>
 			</div>
 		</li><hr />

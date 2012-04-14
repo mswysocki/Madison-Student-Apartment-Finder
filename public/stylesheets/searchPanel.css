@@ -238,3 +238,37 @@ input:focus
 	-moz-transition-timing-function:linear;
 	-moz-transition-delay:0s;
 }*/
+
+.FROMSearchBarInputField{
+	
+	border: 1px solid rgba(255,255,255,0);
+	border-radius: 15px;
+	padding-right: 17px;
+	opacity: 0.5;
+	
+}
+
+.TOSearchBarInputField{
+	
+	border: 1px solid rgba(255,255,255,0);
+	border-radius: 15px;
+	padding-right: 36px;
+	opacity: 0.5;
+		
+}
+
+.ADDRESSSearchBarInputField{
+	
+	border: 1px solid rgba(255,255,255,0);
+	border-radius: 15px;
+	padding-right: 55px;
+	opacity: 0.5;
+}
+
+.ATLEASTSearchBarInputField{
+	
+	border: 1px solid rgba(255,255,255,0);
+	border-radius: 15px;
+	padding-right: 55px;
+	opacity: 0.5;
+}
