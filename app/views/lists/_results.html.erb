@@ -17,6 +17,8 @@
 <% i = 0 %>
 <% elementClass = "Table_Element" %>
 
+  		<%= will_paginate @lists, :param_name => :results_page %>
+
 <% @lists.each do |list| %>
 
 <% i = i + 1 %>
@@ -28,7 +30,6 @@ elementClass = "Table_Element"
 end %>
 
 <% identifier = "Table_Element_" + list.id.to_s() %>
-
   <tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
     <td class=<%= elementClass%> >
     		<p class="EntryAddress"><%= list.address %></p>
