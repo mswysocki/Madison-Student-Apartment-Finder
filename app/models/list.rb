@@ -30,7 +30,7 @@
 
 class List < ActiveRecord::Base
   has_many :reviews
-  belongs_to :users
+  belongs_to :user
   #attr_accessible :Address, :City, :State, :Zip, :Region, :Bedrooms, 
  #   :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
  #   :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,
@@ -61,7 +61,7 @@ class List < ActiveRecord::Base
                         :numericality => {:gt => 1, :lt => 25000}
   validates :zip,       :presence => true,
 						            :numericality => {:gt => 53700, :lt => 53800} #judging by: http://www.zip-codes.com/city/WI-MADISON.asp
-  validates :bathrooms, :numericality => {:gt => 0, :lte => 10}
+  validates :bathrooms, :numericality => {:gt => 0, :lte => 6}
   
   
   #sets default values for the db entry when the listing is initialized
