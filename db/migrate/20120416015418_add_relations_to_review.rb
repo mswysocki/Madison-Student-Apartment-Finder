@@ -6,6 +6,6 @@ class AddRelationsToReview < ActiveRecord::Migration
 
   def self.down
 	remove_column :reviews, :list_id
-	rename_column :reviews, helpfulness, :helpfullness
+	rename_column :reviews, :helpfulness, :helpfullness
   end
 end
