@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(:version => 20120416023702) do
   add_index "reviews", ["list_id"], :name => "index_reviews_on_list_id"
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "Name"
+    t.string   "Email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "encrypted_password"
@@ -66,6 +66,6 @@ ActiveRecord::Schema.define(:version => 20120416023702) do
     t.boolean  "admin",              :default => false
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["Email"], :name => "index_users_on_email", :unique => true
 
 end
