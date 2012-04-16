@@ -27,6 +27,9 @@ Here are some of the gems added to the project:
 >  + https://github.com/thoughtbot/factory_girl_rails - This allows easy creation of anything used with a database for testing.
 > 
 >  + https://github.com/colszowka/simplecov - This gem gives us the code coverage tools that we need for iteration 2. It is compatible with Rails 3 and Ruby 1.9.3.
+>
+> +  https://github.com/intridea/profanity_filter - This gem filters out profanity from user reviews
+
 
 Testing of the project has gotten started, and to run the test suite that we have use the command 'rspec spec/' or 'rspec spec/any_folder_you_want_to_test/' ... and so on
 

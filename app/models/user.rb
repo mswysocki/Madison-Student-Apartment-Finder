@@ -13,6 +13,8 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :reviews
+  has_many :lists
   attr_accessor :password, :password_confirmation
   attr_accessible :Name, :Email, :password, :password_confirmation
     
