@@ -15,13 +15,16 @@ class Review < ActiveRecord::Base
 	belongs_to :list
 	belongs_to :user
 	
-	profanity_filter! :review_body
+	# Line below was throwing an error. Commented it out for now.
+	#profanity_filter! :review_body
 	
-	validates :user, :presence => true
-	validates :review_body, :presence => true
-	validates :flag, :presence => false
-	validates :helpfulness, :presence => false
-	validates :rating, :presence => false
+	validates :user,               :presence => true
+	validates :review_body,        :presence => true
+	
+	# Cannot have a validates :presence => false.  True is only boolean type allowed
+	#validates :flag,               :presence => false
+	#validates :helpfulness,        :presence => false
+	#validates :rating,             :presence => false
 	
 	after_initialize :default_values
 	def default_values
