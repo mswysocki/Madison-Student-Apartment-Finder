@@ -29,6 +29,7 @@
 #
 
 class List < ActiveRecord::Base
+  has_many :reviews
   #attr_accessible :Address, :City, :State, :Zip, :Region, :Bedrooms, 
  #   :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
  #   :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,

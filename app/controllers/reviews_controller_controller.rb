@@ -6,6 +6,8 @@ class ReviewsControllerController < ApplicationController
   end
 
   def destroy
+	@review = Review.find(params[:id])
+	@review.destroy
   end
 
 end
