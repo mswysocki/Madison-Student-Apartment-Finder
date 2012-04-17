@@ -11,8 +11,8 @@ Factory.sequence :email do |n|
 end
 
 Factory.define :review do |review|
-  review.review_body = "body of the review (comment)"
-  review.helpfulness = 0
+  review.review_body "body of the review (comment)"
+  review.helpfulness  0
   review.association :list
   review.association :user
 end

@@ -34,38 +34,20 @@ describe Review do
     end
   end
   
+  
   describe "review associations" do
 
     before(:each) do
-      @review = @user.reviews.create(@attr)
-      @review.list_id = @listing.id
+      @mp1 = Factory(:review, :user => @user, :list => @listing, :created_at => 1.day.ago)
+      @mp2 = Factory(:review, :user => @user, :list => @listing, :created_at => 1.hour.ago)
     end
 
-    it "user should have a review attribute" do
+    it "should have a reviews attribute" do
       @user.should respond_to(:reviews)
     end
     
-    it "listing should have a review attribute" do
+    it "should have a reviews attribute" do
       @listing.should respond_to(:reviews)
-    end
-  end
-  
-  
-  describe "review associations" do
-
-    before(:each) do
-      @user = User.create(@attr)
-      @list = List.create(@listing)
-      @mp1 = Factory(:review, :user => @user, :list => @list, :created_at => 1.day.ago)
-      @mp2 = Factory(:review, :user => @user, :list => @list, :created_at => 1.hour.ago)
-    end
-
-    it "should have a reviews attribute" do
-      @user.should respond_to(:reviews)
-    end
-    
-    it "should have a reviews attribute" do
-      @list.should respond_to(:reviews)
     end
 
     it "should have the right microposts in the right order" do
