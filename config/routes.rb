@@ -1,5 +1,4 @@
 MadisonStudentApartmentFinder::Application.routes.draw do
-  match '/new_review',   :to => 'reviews#new'
 
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
@@ -13,6 +12,7 @@ MadisonStudentApartmentFinder::Application.routes.draw do
   resources :lists do
     post 'show', :on => :member
     post 'edit', :on => :member
+    resources :reviews, :only => [:create, :destroy]
   end
   
   #<%= link_to '[About Us]', about_path %>

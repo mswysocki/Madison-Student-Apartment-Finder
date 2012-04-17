@@ -12,14 +12,17 @@
 #
 
 class Review < ActiveRecord::Base
+  attr_accessible :review_body, :flag, :helpfulness, :rating
+  
 	belongs_to :list
 	belongs_to :user
 	
 	# Line below was throwing an error. Commented it out for now.
 	#profanity_filter! :review_body
 	
-	validates :user,               :presence => true
+	#validates :user,               :presence => true
 	validates :review_body,        :presence => true
+	validates :list_id,            :presence => true
 	
 	# Cannot have a validates :presence => false.  True is only boolean type allowed
 	#validates :flag,               :presence => false
@@ -33,5 +36,5 @@ class Review < ActiveRecord::Base
 		self.rating ||= 0
 	end
 	
-	
+	default_scope :order => 'reviews.created_at DESC'
 end

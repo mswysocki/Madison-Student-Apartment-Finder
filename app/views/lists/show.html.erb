@@ -130,6 +130,21 @@
 </section>
 </div>
 </section>
+<section id="Comments_Area">
+	<!-- reviews area -->
+	<% unless @list.reviews.empty? %>
+        <table class="reviews" summary="User reviews">
+          <%= render @reviews %>
+        </table>
+        <%= will_paginate @reviews %>
+    <% end %>
+      
+      <% if signed_in? %>
+        <h1 class="review">Review?</h1>
+        <%= render 'shared/review_form', :object => @list  %>
+      </td>
+      <% end %>
+</section>
 </section>
 
 </body>
