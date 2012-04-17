@@ -29,17 +29,21 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.xml
   def show
+    @review = Review.new if signed_in?
     @search = List.search(params[:search])
     @test = params[:search]   #used for hiding
     @lists = @search.all
     
-    @list = List.find(params[:id])
+    @list = List.find(params[:id]) 
+    #current_listing = set_listing(@list)
+    @reviews = @list.reviews.paginate(:page => params[:page])
     @title = @list.address
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @list }
     end
+    
 
   end
 
