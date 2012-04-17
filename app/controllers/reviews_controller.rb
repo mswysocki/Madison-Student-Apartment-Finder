@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
-  
+  before_filter :authorized_user, :only => :destroy
   
   def index
     
@@ -57,8 +57,16 @@ class ReviewsController < ApplicationController
 		
 
   def destroy
-	@review = Review.find(params[:id])
-	@review.destroy
+    @review.destroy
+    redirect_back or home_page_path
   end
+  
+  
+  private
+
+    def authorized_user
+      @review = current_user.reviews.find_by_id(params[:id])
+      redirect_to home_page_path if @review.nil?
+    end
 
 end
