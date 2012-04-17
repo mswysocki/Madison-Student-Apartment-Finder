@@ -4,6 +4,10 @@
     <span class="timestamp">
       Posted <%= time_ago_in_words(review.created_at) %> ago.
     </span>
+    <br />
+    <span class="name">
+      By <%= review.user_id %>.
+    </span>
   </td>
 </tr>
 

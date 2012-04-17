@@ -27,21 +27,7 @@ module ListsHelper
     return
   end
   
-  def current_listing=(listing)
-    @current_listing = listing
-  end
-  
-  def current_listing
-    @current_listing
-  end
-  
-  def current_listing(listing)
-    @current_listing ||= listing
-  end
-  
-  def current_listing?(listing)
-    @current_listing == listing
-  end
+ 
   
   private
 end

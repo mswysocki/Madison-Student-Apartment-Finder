@@ -11,12 +11,20 @@ class ReviewsController < ApplicationController
   def create
     #listing = get_listing()
     @listing = List.find(params[:list_id])
-    @review = @listing.reviews.build(params[:review])
+    #@user = current_user
+    @review = current_user.reviews.build(params[:review])
+    @review.list_id = @listing.id
+    #@review = @listing.reviews.build(params[:review])
+    #@review.update_attributes(:user_id => @user)
+    
     if (@review.save)
       flash[:success] = "Review created!"
-      redirect_to @listing #for now..will change
+      #format.html { redirect_to(@listing, :notice => 'Review was successfully created.') }
+      #format.xml  { render :xml => @listing, :status => :created, :location => @listing }
+      redirect_to @listing
     else 
-      flash[:error] = "You suck"
+      flash[:error] = "The review could not be created because there were some errors.........."
+      puts @review.errors
       redirect_to @listing
       #render 'lists/1/show'
     end

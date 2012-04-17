@@ -2,13 +2,15 @@
 #
 # Table name: reviews
 #
-#  id           :integer         not null, primary key
-#  review_body  :string(255)
-#  rating       :float
+#  id          :integer         not null, primary key
+#  review_body :string(255)
+#  rating      :float
 #  helpfulness :integer
-#  flag         :integer
-#  created_at   :datetime
-#  updated_at   :datetime
+#  flag        :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  list_id     :integer
+#  user_id     :integer
 #
 
 class Review < ActiveRecord::Base
@@ -23,6 +25,7 @@ class Review < ActiveRecord::Base
 	#validates :user,               :presence => true
 	validates :review_body,        :presence => true
 	validates :list_id,            :presence => true
+	validates :user_id,            :presence => true
 	
 	# Cannot have a validates :presence => false.  True is only boolean type allowed
 	#validates :flag,               :presence => false

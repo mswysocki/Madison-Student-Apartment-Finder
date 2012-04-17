@@ -1,6 +1,8 @@
 MadisonStudentApartmentFinder::Application.routes.draw do
 
-  resources :users
+  resources :users do
+    resources :reviews, :only => [:create, :destroy]
+  end
   resources :sessions, :only => [:new, :create, :destroy]
 
   match '/signup',  :to => 'users#new'

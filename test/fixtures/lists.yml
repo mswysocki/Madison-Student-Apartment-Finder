@@ -26,6 +26,7 @@
 #  bedrooms          :integer
 #  pets              :boolean
 #  ltype             :boolean
+#  user_id           :integer
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

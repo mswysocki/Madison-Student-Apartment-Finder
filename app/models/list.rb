@@ -26,6 +26,7 @@
 #  bedrooms          :integer
 #  pets              :boolean
 #  ltype             :boolean
+#  user_id           :integer
 #
 
 class List < ActiveRecord::Base
