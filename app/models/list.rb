@@ -29,7 +29,7 @@
 #
 
 class List < ActiveRecord::Base
-  has_many :reviews
+  has_many :reviews,          :dependent => :destroy
   belongs_to :user
   #attr_accessible :Address, :City, :State, :Zip, :Region, :Bedrooms, 
  #   :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
