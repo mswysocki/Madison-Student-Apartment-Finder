@@ -18,8 +18,8 @@ Factory.define :list do |list|
   list.smoking                    nil
   list.heat                       nil
   list.length                     nil
-  list.electric                   nil
-  list.flags                      nil
+  list.electric                   true
+  list.flags                      true
   list.gas                        nil
   list.garbagecollection          nil
   list.furnished                  nil
