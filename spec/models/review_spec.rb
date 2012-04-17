@@ -6,6 +6,7 @@ describe Review do
     @listing = Factory(:list)
     @user = Factory(:user)
     @attr = { :review_body => "value for content", :helpfulness => 1 }
+    @attr2 = { :review_body => "value", :helpfulness => 0, :user_id => 1}
   end
 
   it "should create a new instance given valid attributes" do
@@ -50,6 +51,21 @@ describe Review do
     end
   end
   
+  
+  describe "validations" do
+
+    it "should require a user id" do
+      Review.new(@attr).should_not be_valid
+    end
+
+    it "should require nonblank content" do
+      @user.reviews.build(:review_body => "  ").should_not be_valid
+    end
+
+    it "should require a listing id" do
+      Review.new(@attr2).should_not be_valid
+    end
+  end
   
   
   

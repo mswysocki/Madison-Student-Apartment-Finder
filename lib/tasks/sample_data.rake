@@ -13,5 +13,13 @@ namespace :db do
                    :password => password,
                    :password_confirmation => password)
     end
+   
+   # Was planning on adding a way to populate the db with sample comments, but
+            #am giving up the idea for now 
+   #5.times do |n| 
+   #  Listing.all(:limit => 25).each do |listing|
+   #    @review = 
+   #  end
+   #end
   end
 end

@@ -20,6 +20,7 @@ describe ListsController do
   describe "GET 'show'" do
     before(:each) do
       @listing = Factory(:list)
+      @user = Factory(:user)
       @empty_listing = Factory(:list, :address => "Empty Listing Address")
       @listing.update_attributes!(:parking => true, :smoking => false, :electric => false, :pets => false, :heat => true, :flags => 5, :gas => true, :garbagecollection => false, :ltype => true, :length => 12, :furnished => false, :laundry => false)
     end
@@ -156,6 +157,15 @@ describe ListsController do
         get :show, :id => @listing
         response.should have_selector("section", :class => "flag_listing")
       end
+    end
+    
+    
+     it "should show the list's reviews" do
+      mp1 = Factory(:review, :user => @user, :list => @listing, :review_body => "Foo bar")
+      mp2 = Factory(:review, :user => @user, :list => @listing, :review_body => "Baz quux")
+      get :show, :id => @user
+      response.should have_selector("section", :content => mp1.review_body)
+      response.should have_selector("section", :content => mp2.review_body)
     end
   end
   

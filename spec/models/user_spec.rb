@@ -180,6 +180,16 @@ describe User do
     it "should have the right microposts in the right order" do
       @user.reviews.should == [@mp2, @mp1]
     end
+    
+    it "should destroy associated review" do
+      @user.destroy
+      [@mp1, @mp2].each do |review|
+        Review.find_by_id(review.id).should be_nil
+      end
+    end
+    
+    
+    
   end
   
   

@@ -58,6 +58,7 @@ describe UsersController do
     
     before(:each) do
       @user = Factory(:user) 
+      @listing = Factory(:list)
     end
     
     it "should be successful" do
@@ -78,6 +79,16 @@ describe UsersController do
     it "should contain the user's name" do
       get :show, :id => @user
       response.should have_selector("body", :content => @user.Name)
+    end
+    
+    
+    #TODO: This feature has not been implemented yet, so it is failing
+    it "should show the user's reviews" do
+      mp1 = Factory(:review, :user => @user, :list => @listing, :review_body => "Foo bar")
+      mp2 = Factory(:review, :user => @user, :list => @listing, :review_body => "Baz quux")
+      get :show, :id => @user
+      response.should have_selector("section", :content => mp1.review_body)
+      response.should have_selector("section", :content => mp2.review_body)
     end
   end
   
