@@ -5,7 +5,7 @@ describe Review do
   before(:each) do
     @listing = Factory(:list)
     @user = Factory(:user)
-    @attr = { :content => "value for content", :helpfulness => 1 }
+    @attr = { :review_body => "value for content", :helpfulness => 1 }
   end
 
   it "should create a new instance given valid attributes" do
@@ -48,6 +48,30 @@ describe Review do
     it "listing should have a review attribute" do
       @listing.should respond_to(:reviews)
     end
-    
   end
+  
+  
+  describe "review associations" do
+
+    before(:each) do
+      @user = User.create(@attr)
+      @list = List.create(@listing)
+      @mp1 = Factory(:review, :user => @user, :list => @list, :created_at => 1.day.ago)
+      @mp2 = Factory(:review, :user => @user, :list => @list, :created_at => 1.hour.ago)
+    end
+
+    it "should have a reviews attribute" do
+      @user.should respond_to(:reviews)
+    end
+    
+    it "should have a reviews attribute" do
+      @list.should respond_to(:reviews)
+    end
+
+    it "should have the right microposts in the right order" do
+      @user.reviews.should == [@mp2, @mp1]
+    end
+  end
+  
+  
 end
