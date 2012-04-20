@@ -162,15 +162,21 @@ class List < ActiveRecord::Base
     end
     
     temp = ""
+    size = list_parameters["address"].split.size;
+    i = 0
+    
     list_parameters["address"].split.map!  {|word|
       if STREETS.key?(word.downcase)
-        word = STREETS[word.downcase][0] + "."  
+        if (i == size -1)   #ensures it only happens for the last part of address
+          word = STREETS[word.downcase][0] + "."
+        end  
       end
       word.capitalize!
       temp += word + " "
+      i += 1
     }.join(" ")
     return temp
-    end
+  end
 
   def self.admin_list_search(search)
     if search
