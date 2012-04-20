@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
     
   end
   
+  
  
   #TODO: Fix what the redirects are in these cases
   def create

@@ -10,6 +10,9 @@
     </span>
  
  	<!-- Tried to add a delete link and it wasn't working...will add later-->
+ 	<%= link_to "delete", review, 		:method => :delete,
+                                       	:confirm => "You sure?",
+                                       	:title => review.review_body %>
   </td>
 </tr>
 
