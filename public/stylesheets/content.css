@@ -16,8 +16,6 @@ body
 	margin-right: auto;
 	color: #eeeeee;
 	background-color: #eeeeee;
-	background-image: url('../images/white-bg1.jpg');
-	background-repeat:repeat;
 }
 /* End Generic text and page styling */
 
@@ -35,6 +33,7 @@ body
 	border: 2px solid transparent;
 	border-radius: 15px;
 	padding: 0px 20px 15px 10px;
+	box-shadow: 0px 0px 50px 0px #333;
 }
 
 #Search_Home_View_Bar
@@ -77,6 +76,7 @@ body
 	font-family: verdana, arial, helvetica, sans-serif;
 	font-size:   16px;
 	line-height: 18px;
+	box-shadow: 0px 0px 50px 0px #333;
 }
 
 #Results_View_Bar{	

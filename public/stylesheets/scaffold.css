@@ -11,10 +11,9 @@ body {
 	cursor: default;
 }
 
-a { color: #E8B068; }
-a:visited { color: #FF6A58; }
-a:hover { color: #fff; background-color:#000; }
-
+a { color: #FFBB00; }
+a:visited { color: #FFBB00; }
+a:hover { color: #eee; }
 
 div.field, div.actions {
   margin-bottom: 10px;
