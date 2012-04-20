@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :reviews,              :dependent => :destroy
   has_many :lists
   attr_accessor :password, :password_confirmation
-  attr_accessible :Name, :Email, :password, :password_confirmation
+  attr_accessible :Name, :Email, :password, :password_confirmation, :auth_token
     
   #ensures that emails follow the pattern of an email.. ie. 'aeggum@wisc.edu'
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
