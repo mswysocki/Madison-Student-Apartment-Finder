@@ -32,6 +32,10 @@
 	    				:onblur => "if(this.getValue()==''){this.setValue('Password');this.style.color = '#666';}" %>
 	  			</div>
 	  		</div>
+	  		<div class="field">
+  				<%= check_box_tag :remember_me, 1, params[:remember_me] %>
+ 				<%= label_tag :remember_me %>
+			</div>
 		<% end %>
 	  </div>
 	  <div id="NewUserLink"><a><%= link_to "New User?", signup_path %></a></div>

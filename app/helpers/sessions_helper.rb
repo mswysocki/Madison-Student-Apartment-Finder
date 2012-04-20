@@ -1,12 +1,18 @@
 module SessionsHelper
 
   def sign_in(user)
-    cookies.permanent.signed[:remember_token] = [user.id, user.salt]
-    self.current_user = user
+    if params[:remember_me]
+       cookies.permanent[:auth_token] = user.auth_token
+       self.current_user = user
+    else
+       cookies[:auth_token] = user.auth_token
+       self.current_user = user 
+    end
+   
   end
   
   def sign_out
-    cookies.delete(:remember_token)
+    cookies.delete(:auth_token)
     self.current_user = nil
   end
   
@@ -16,7 +22,7 @@ module SessionsHelper
   
   # sets c_user to that value, but only if it is undefined (known as 'or equals'  )
   def current_user
-    @current_user ||= user_from_remember_token
+    @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
   end
   
   def current_user?(user)
