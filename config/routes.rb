@@ -1,7 +1,7 @@
 MadisonStudentApartmentFinder::Application.routes.draw do
-  resources :reviews, :only => [:create, :destroy]
+  
   resources :users do
-    resources :reviews, :only => [:create, :destroy]
+    resources :reviews, :only => [:destroy]
   end
   resources :sessions, :only => [:new, :create, :destroy]
 
