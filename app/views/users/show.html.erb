@@ -9,3 +9,19 @@
     <em>URL:</em>   <%= link_to user_path(@user), @user %>
     
 </section>
+
+<section id="Comments_Area">
+	<!-- reviews area -->
+	<% unless @user.reviews.empty? %>
+        <table class="reviews" summary="User reviews">
+          <%= render @reviews %>
+        </table>
+        <%= will_paginate @reviews %>
+    <% end %>
+      
+      <% if signed_in? && :controller == 'lists' %>
+        <h1 class="review">Review?</h1>
+        <%= render 'shared/review_form', :object => @user  %>
+      </td>
+      <% end %>
+</section>
