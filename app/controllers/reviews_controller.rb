@@ -58,8 +58,9 @@ class ReviewsController < ApplicationController
 		
 
   def destroy
+    @listing = List.find(Review.find(params[:id]).list_id)
     @review.destroy
-    redirect_back or home_page_path
+    redirect_back_or @listing
   end
   
   
@@ -67,7 +68,11 @@ class ReviewsController < ApplicationController
 
     def authorized_user
       @review = current_user.reviews.find_by_id(params[:id])
-      redirect_to home_page_path if @review.nil?
+      if admin?
+        @review = Review.find(params[:id])
+      end
+      
+      redirect_to home_page_path if @review.nil? 
     end
 
 end

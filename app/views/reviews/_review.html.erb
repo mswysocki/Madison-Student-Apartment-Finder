@@ -8,11 +8,13 @@
     <span class="name">
       By <%= get_user(review.user_id).Name %>.
     </span>
- 
+
+ 	<% if current_user.id == review.user_id  || current_user.admin? %>
  	<!-- Tried to add a delete link and it wasn't working...will add later-->
  	<%= link_to "delete", review, 		:method => :delete,
                                        	:confirm => "You sure?",
                                        	:title => review.review_body %>
+    <% end %>
   </td>
 </tr>
 
