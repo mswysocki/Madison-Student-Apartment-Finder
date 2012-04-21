@@ -1,186 +1,25 @@
-/* CSS for banner */
-
-#Constant_View
-{
-	background-color: #cc0000;
-	border: 2px solid transparent;
-	border-radius: 15px;
-	padding: 15px 20px 30px 20px;
-	box-shadow: 0px 0px 50px 0px #333;
+#Constant_View {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0px 0px 20px 0px #000000;
+	height: 200px;
 }
 
-#Constant_View h1
-{
+/* CSS for banner title (link) */
+#Banner_Home_Link {
 	font-family: 'Architects Daughter', cursive;
-	display: inline;
-	font-size: 30px;
 	font-style: italic;
-}
-
-#SignedIn a{
-	
-	cursor:pointer;
-	font-weight: bold;
-	border-radius: 15px;
-	color: #C20505;
-	font-family: 'Antic Slab', serif;
-	font-size:   16px;
-	text-align:center;
-	
-}
-
-/* CSS for a generic user who is not signed in */
-#NewUserLink
-{
-	float: right;
-	display: inline;
-	margin-top: 5px;
-	margin-right: 10px;
-}
-
-#NewUserLink a:link
-{
-	color: #ffbb00;
-}
-
-#NewUserLink a:visited
-{
-	color: #ffbb00;
-}
-
-#NewUserLink a:hover
-{
-	cursor: pointer;
-	color: #75070e;
-	background-color: #cc0000;
-}
-
-#NewUserLink a:active
-{
-	color: #03899C;
-}
-
-#SignInWrapper
-{
-	float: right;
+	font-size: 30px;
+	color: #eeeeee;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	display: inline;
 }
-
-#SignInSubmit
-{
-	float: right;
-	padding-top: 2px;
-	padding-left: 5px;
-}
-
-#SignInSubmit input{
-	cursor:pointer;
-	font-weight: bold;
-	border-radius: 15px;
-	color: #C20505;
-	font-family: 'Antic Slab', serif;
-	font-size:   16px;
-	text-align:center;
-}
-
-#SignInFields
-{
-	float: right;
-}
-
-#SignInFields .field
-{
-	display: inline;
-}
-
-#SignInFields .field input
-{
-	width: 125px;
-	padding: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
-	border: none;
-	border-radius: 25px;
-	background-color: #eeeeee;
-}
-
-#SignInFields .field input:focus
-{
-	outline: 0;
-	background-color:#FFEBCD;
-	box-shadow: 0px 0px 15px 0px grey;
-}
-/* End generic user CSS */
-
-/* CSS for a user who is signed in */
-#SignedIn
-{
-	float: right;
-}
-
-#SignedIn a
-{
-	margin: 5px;
-	display: inline;
-}
-
-#SignedIn a:link
-{
-	color: #ffbb00;
-}
-
-#SignedIn a:visited
-{
-	color: #ffbb00;
-}
-
-#SignedIn a:hover
-{
-	cursor: pointer;
-	color: #75070e;
-	background-color: #cc0000;
-}
-
-#SignedIn a:active
-{
-	color: #03899C;
-}
-/* End CSS for signed in user */
-
-/* CSS for signed in admin */
-#SignedInAdmin
-{
-	float: right;
-}
-
-#SignedInAdmin a
-{
-	margin: 5px;
-	display: inline;
-}
-
-#SignedInAdmin a:link
-{
-	color: #ffbb00;
-}
-
-#SignedInAdmin a:visited
-{
-	color: #ffbb00;
-}
-
-#SignedInAdmin a:hover
-{
-	cursor: pointer;
-	color: #75070e;
-	background-color: #cc0000;
-}
-
-#SignedIn a:active
-{
-	color: #03899C;
-}
-/* End CSS for signed in admin */
 
 #Banner_Home_Link, #Banner_Home_Link:visited,
 #Banner_Home_Link:hover
@@ -189,75 +28,18 @@
 	text-decoration: none;
 	color: #eeeeee;
 }
+/* END CSS for banner title (link) */
 
-#Constant_View_Bar
-{
+/* CSS for sign in information */
+#SignInWrapper {
+	display: inline;
+	float: right;
+}
+/* END CSS for sign in information */
+
+
+#banner_ruler {
 	border: 0;
 	background-color: #eeeeee;
 	height: 2px;
-}
-
-#Constant_View_Links
-{
-	font-size: 20px;
-	display: inline;
-	list-style-type: none;
-	margin: 0px;
-	padding: 0px;
-}
-
-#Constant_View_Links a
-{
-	cursor: pointer;
-	text-decoration: none;
-	color: #eeeeee;
-	transition-property:color;
-	transition-duration:2s;
-	transition-timing-function:linear;
-	transition-delay:0s;
-	-webkit-transition-property:color;
-	-webkit-transition-duration:2s;
-	-webkit-transition-timing-function:linear;
-	-webkit-transition-delay:0s;
-	-o-transition-property:color;
-	-o-transition-duration:2s;
-	-o-transition-timing-function:linear;
-	-o-transition-delay:0s;
-	-moz-transition:color;
-	-moz-transition-duration:2s;
-	-moz-transition-timing-function:linear;
-	-moz-transition-delay:0s;
-}
-
-#Constant_View_Links a:hover
-{
-	cursor:pointer;
-	text-decoration: none;
-	color: #ffbb00;
-	transition-property:color;
-	transition-duration:0.15s;
-	transition-timing-function:linear;
-	transition-delay:0s;
-	-webkit-transition-property:color;
-	-webkit-transition-duration:0.15s;
-	-webkit-transition-timing-function:linear;
-	-webkit-transition-delay:0s;
-	-o-transition-property:color;
-	-o-transition-duration:0.15s;
-	-o-transition-timing-function:linear;
-	-o-transition-delay:0s;
-	-moz-transition:color;
-	-moz-transition-duration:0.15s;
-	-moz-transition-timing-function:linear;
-	-moz-transition-delay:0s;
-}
-
-#Add_Listing
-{
-	float: left;
-}
-
-#About
-{
-	float: right;
 }
