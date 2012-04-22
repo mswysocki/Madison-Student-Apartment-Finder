@@ -1,24 +1,26 @@
 <section id="User_View" class="unselectable">
-	<h1 id="User_Title">Sign in</h1>
-	<hr id="User_View_Bar"/>
+	<h1 class="page_header">Sign in</h1>
+	<hr id="generic_header_ruler"/>
 	<%= form_for(:session, :url => sessions_path) do |f| %>
-	  <div class="field">
-	    <%= f.label :Email %><br />
-	    <%= f.text_field :Email %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :password %><br />
-	    <%= f.password_field :password %>
-	  </div>
-	  <div class="actions">
-	    <%= f.submit "Sign in" %>
-	  </div>
-	  <div class="field">
-	  			<% params[:remember_me] = true %>
-  				<%= check_box_tag :remember_me, 1, params[:remember_me] %>
- 				<%= label_tag :remember_me %>
-			</div>
+		<div class="field">
+	    	<%= f.label :Email %><br />
+	    	<%= f.text_field :Email %>
+	  	</div>
+	  	<div class="field">
+	    	<%= f.label :password %><br />
+	    	<%= f.password_field :password %>
+	  	</div>
+	  	<br />
+	  	<div class="field">
+	  		<% params[:remember_me] = false %>
+  			<%= check_box_tag :remember_me, 1, params[:remember_me] %>
+ 			<%= label_tag :remember_me %>
+		</div>
+		<br />
+	  	<div class="actions">
+	    	<%= f.submit "Sign in" %>
+	  	</div>
 	<% end %>
 	
-	<p>New user?  <a><%= link_to "Sign up now!", signup_path %></a></p>
+	<p>New user? <%= link_to 'Sign up now!', signup_path, :class => "generic_link" %></p>
 </section>

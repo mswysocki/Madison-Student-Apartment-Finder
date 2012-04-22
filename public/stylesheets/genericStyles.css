@@ -56,3 +56,14 @@ body {
 {
 	margin: 10px;
 }
+
+.field input {
+	border: none;
+	border-radius: 5px;
+}
+
+.field input:focus {
+	font-style: italic;
+	outline: none;
+	box-shadow: 0px 0px 10px 3px #79D3EE;
+}

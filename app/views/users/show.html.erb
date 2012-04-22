@@ -6,6 +6,6 @@
 	
     <em>Name:</em>  <%= @user.Name %><br />
     <em>Email:</em>  <%= @user.Email %><br />
-    <em>URL:</em>   <%= link_to user_path(@user), @user %>
+    <em>URL:</em>   <%= link_to user_path(@user), @user, :class => "generic_link" %>
     
 </section>

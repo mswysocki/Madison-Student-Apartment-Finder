@@ -1,51 +1,12 @@
 #User_View
 {
 	z-index:-2;
-	/*top:130px;
-	right: 510px;
-	font-size: 14px;*/
 	color: #eeeeee;
 	background-color: #cc0000;
-	width: 966px;  /*I don't know how to deal with these correctly..but it is aligned!! */
-	float: right;
+	width: 966px;
 	border: 2px solid transparent;
 	border-radius: 15px;
 	margin-top: 10px;
 	padding: 0px 20px 15px 10px;
 	box-shadow: 0px 0px 50px 0px #333;
-}
-
-#User_Title, #NewUser_Title, #UserName_Title
-{
-	font-size: 24px;
-	font-weight: bold;
-}
-
-#User_View_Bar
-{
-	border: 0;
-	background-color: #eeeeee;
-	height: 5px;
-}
-
-#User_View a:link
-{
-	color: #ffbb00;
-}
-
-#User_View a:visited
-{
-	color: #ffbb00;
-}
-
-#User_View a:hover
-{
-	cursor: pointer;
-	color: #75070e;
-	background-color: #cc0000;
-}
-
-#User_View a:active
-{
-	color: #03899C;
 }

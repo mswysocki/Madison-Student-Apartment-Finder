@@ -1,16 +1,3 @@
-#Admin_Title
-{
-	font-size: 24px;
-	font-weight: bold;
-}
-
-#Admin_View_Bar
-{
-	border: 0;
-	background-color: #eeeeee;
-	height: 5px;
-}
-
 .admin_lists {
 	float:right;
 	width: 500px;

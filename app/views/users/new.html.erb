@@ -1,26 +1,27 @@
 <section id="User_View" class="unselectable" >
-<h1 id="NewUser_Title">Sign up</h1>
-<hr id="User_View_Bar"/>
-<%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.label :Name %><br />
-    <%= f.text_field :Name %>
-  </div>
-  <div class="field">
-    <%= f.label :Email %><br />
-    <%= f.text_field :Email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, "Password Confirmation" %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+	<h1 class="page_header">Sign up</h1>
+	<hr class="generic_header_ruler"/>
+	<%= form_for(@user) do |f| %>
+  		<%= render 'shared/error_messages', :object => f.object %>
+  		<div class="field">
+    		<%= f.label :Name %><br />
+    		<%= f.text_field :Name %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :Email %><br />
+    		<%= f.text_field :Email %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :password %><br />
+    		<%= f.password_field :password %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :password_confirmation, "Password Confirmation" %><br />
+    		<%= f.password_field :password_confirmation %>
+  		</div>
+  		<br />
+  		<div class="actions">
+    		<%= f.submit "Sign up" %>
+  		</div>
+	<% end %>
 </section>
