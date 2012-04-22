@@ -133,6 +133,7 @@
 <section id="Comments_Area">
 	<!-- reviews area -->
 	<% unless @list.reviews.empty? %>
+		<h2>Reviews</h2>
         <table class="reviews" summary="User reviews">
           <%= render @reviews %>
         </table>
@@ -140,7 +141,7 @@
     <% end %>
       
       <% if signed_in? %>
-        <h1 class="review">Review?</h1>
+        <h2 class="review">Lived here? Have any thoughts?</h2>
         <%= render 'shared/review_form', :object => @list  %>
       </td>
       <% end %>

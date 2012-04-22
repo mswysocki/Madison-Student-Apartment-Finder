@@ -1,10 +1,12 @@
 <tr>
   <td class="review">
     <span class="content"><%= review.review_body %></span>
+    <br />
+    Rating (out of 5): <span class="rating"><%= review.rating.to_i %></span>
+    <br />
     <span class="timestamp">
       Posted <%= time_ago_in_words(review.created_at) %> ago.
     </span>
-    <br />
     <span class="name">
       By <%= get_user(review.user_id).Name %>.
     </span>
