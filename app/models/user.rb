@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :reviews
   
   attr_accessor :password, :password_confirmation
-  attr_accessible :Name, :Email, :password, :password_confirmation, :auth_token
+  attr_accessible :Name, :Email, :password, :password_confirmation, :auth_token, :password_reset_token
     
   #ensures that emails follow the pattern of an email.. ie. 'aeggum@wisc.edu'
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -43,6 +43,14 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
   
+  def send_password_reset
+    self.update_attribute(:password_reset_token, SecureRandom.urlsafe_base64)
+    self.update_attribute(:password_reset_sent_at,Time.zone.now)
+    #save!
+    UserMailer.password_reset(self).deliver
+    
+  end
+
   # Return true if the user's password matches the submitted password.
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)

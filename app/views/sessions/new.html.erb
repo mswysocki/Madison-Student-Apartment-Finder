@@ -17,7 +17,11 @@
 	  			<% params[:remember_me] = true %>
   				<%= check_box_tag :remember_me, 1, params[:remember_me] %>
  				<%= label_tag :remember_me %>
-			</div>
+		</div>
+		
+		<%= link_to "forgotten password?", new_password_reset_path %>
+		
+			
 	<% end %>
 	
 	<p>New user?  <a><%= link_to "Sign up now!", signup_path %></a></p>
