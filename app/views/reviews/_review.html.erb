@@ -10,6 +10,12 @@
     <span class="name">
       By <%= get_user(review.user_id).Name %>.
     </span>
+    <span class="helpfulness_button">
+    	Helpful button goes here.
+    </span>
+    <span class="flag_button">
+    	Flag button goes here.
+    </span>
 
  	<% if current_user.id == review.user_id  || current_user.admin? %>
 	
