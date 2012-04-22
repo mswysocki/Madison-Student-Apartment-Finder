@@ -1,16 +1,17 @@
 <link href='http://fonts.googleapis.com/css?family=Averia+Sans+Libre|Antic+Slab|Architects+Daughter' rel='stylesheet' type='text/css'>
 
-<header id="Constant_View" class="standard_area">
+<section id="Constant_View" class="standard_area">
 	<!-- Area above banner ruler -->
+	
 	<h1><%= link_to 'Madison Student Housing Finder', home_page_path, :id => "Banner_Home_Link" %></h1>
 	
-	<div id="SignInWrapper">
 	<div id="SignedIn">
 	<% if signed_in? %>
       	<%= link_to "Profile", current_user %>
       	<%= link_to "Settings", edit_user_path(current_user) %>
       	<%= link_to "Sign out", signout_path, :method => :delete %>
-    </div><!-- END "SignedIn" id -->	
+    </div><!-- END "SignedIn" id -->
+    <div id="SignInWrapper">
 	<% else %>
     	<%= form_for(:session, :url => sessions_path) do |f| %>
 	  		<div id="SignInSubmit" class="actions">
@@ -31,23 +32,45 @@
 	    				:onfocus => "if(this.getValue()=='Password'){this.clear();this.style.color = '#000';}",
 	    				:onblur => "if(this.getValue()==''){this.setValue('Password');this.style.color = '#666';}" %>
 	  			</div><!-- END password field -->
-	  			<div class="SignInField">
-	  				<% params[:remember_me] = false %>
-  					<%= check_box_tag :remember_me, 1, params[:remember_me] %>
- 					<%= label_tag :remember_me %>
-				</div><!-- END remember me field -->
 			</div><!-- END "SignInFields" -->
+			<br /><br />
+			<div id="SignInRemember">
+				<% params[:remember_me] = false %>
+  				<%= check_box_tag :remember_me, 1, params[:remember_me] %>
+ 				<%= label_tag :remember_me %>
+			</div><!-- END remember me field -->
+			<p id="banner_spacer"></p>
+			<div id="NewUserLink">
+				<%= link_to "Sign up!", signup_path, :class => "generic_link" %>
+			</div>
 		<% end %><!-- END form -->
-		<div id="NewUserLink">
-			<%= link_to "Sign up!", signup_path %>
-		</div>
     <% end %><!-- END if/else -->
     </div><!-- END "SignInWrapper" id -->
 	
 	<!-- END area above banner ruler -->
-	
+
 	<hr id="banner_ruler" />
 	
-	<p>LINKS</p>
+	<!-- Area below banner ruler -->	
 	
-</header>
+	<ul id="Constant_View_Links">
+		<li class="navButton">
+			<%= link_to 'Add a Listing', new_listing_path, :id => "AddListingLink", :class => "navLink" %>
+		</li>
+		<li class="navButton">
+			<%= link_to 'Landlord Info', about_path, :id => "LandlordLink", :class => "navLink" %>
+		</li>
+    	<% if signed_in? && current_user.admin? %>
+			<li class="navButton">
+				<%= link_to "Admin Page", admin_path, :id => "AdminLink", :class => "navLink" %>
+			</li>
+	  	<% else %>
+			<li class="navButton">
+				<%= link_to 'About Us', about_path, :id => "AboutLink", :class => "navLink" %>
+			</li>
+    	<% end %>
+    </ul>
+    
+    <div class="divider"></div>
+	
+</section>

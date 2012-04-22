@@ -1,9 +1,6 @@
-.standard_area {
-	background-color: #cc0000;
-	border: 0px solid transparent;
-	border-radius: 15px;
-}
-
-.content_area {
-	width: 900px;
+#Search_Home_View {
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 1px;
+	padding-bottom: 1px;
 }
