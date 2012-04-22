@@ -8,8 +8,21 @@
     <span class="name">
       By <%= get_user(review.user_id).Name %>.
     </span>
- 
- 	<!-- Tried to add a delete link and it wasn't working...will add later-->
+
+ 	<% if current_user.id == review.user_id  || current_user.admin? %>
+	
+	<% if :controller == 'lists' %>
+ 		<%= link_to "delete", list_review_path(review.list_id, review.id),
+ 							:method => :delete,
+                            :confirm => "Are you sure?",
+                            :title => "Delete '#{review.review_body}'" %>
+    <% else %>
+    	<%= link_to "delete", user_review_path(review.user_id, review.id),
+ 							:method => :delete,
+                            :confirm => "Are you sure?",
+                            :title => "Delete '#{review.review_body}'" %>
+    <% end %>
+    <% end %>
   </td>
 </tr>
 

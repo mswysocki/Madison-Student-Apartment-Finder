@@ -14,7 +14,8 @@
 
 class User < ActiveRecord::Base
   has_many :reviews,              :dependent => :destroy
-  has_many :lists
+  accepts_nested_attributes_for :reviews
+  
   attr_accessor :password, :password_confirmation
   attr_accessible :Name, :Email, :password, :password_confirmation, :auth_token, :password_reset_token
     

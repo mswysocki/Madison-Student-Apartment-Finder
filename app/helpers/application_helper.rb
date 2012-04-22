@@ -16,10 +16,7 @@ module ApplicationHelper
     link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
   end
   
-  def set_listing(listing)
-    @current_listing = listing 
-    return @current_listing
-  end
+  
   
   
   include Rack::Recaptcha::Helpers

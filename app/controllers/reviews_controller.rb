@@ -2,10 +2,16 @@ class ReviewsController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => :destroy
   
+  def new
+    @review = Review.new
+  end
   def index
-    
+    @reviews = Review.all
   end
   
+  def show
+    
+  end
  
   #TODO: Fix what the redirects are in these cases
   def create
@@ -29,36 +35,32 @@ class ReviewsController < ApplicationController
       #render 'lists/1/show'
     end
   end
-	#@review = Review.new(params[:list])
 	
-#	respond_to do |format|
-    #  if (@review.valid?)
-   #     @review.save
-  #      format.html { redirect_to(@list, :notice => 'Review was successfully created.') }
- #       format.xml  { render :xml => @list, :status => :created, :location => @review }
- #     else
-  #      puts;
-    #  end
- #   end
-
-  def update
-	@review = Review.find(params[:id])
-	
-	respond_to do |format|
-      if (@review.valid?)
-	      @review.update_attributes(params[:list])
-			  format.html { redirect_to(@list, :notice => 'Review was successfully updated.') }
-			  format.xml  { head :ok }
-		  else
-		    puts;
-		  end
-    end
-  end
-		
+  #Editing not implemented...mostly because I don't know how to do it
+  #def update
+  #	@review = Review.find(params[:id])
+  #	
+  #	respond_to do |format|
+  #	  if (@review.valid?)
+  #	    @review.update_attributes(params[:list])
+  #		  format.html { redirect_to(@list, :notice => 'Review was successfully updated.') }
+  #			format.xml  { head :ok }
+  #		else
+  #		  puts;
+  #		end
+  #  end
+  #end
+	def user_destroy
+	  @user = User.find(Review.find(params[:id]).user_id)
+    @review.destroy
+    redirect_back_or @user
+	end
 
   def destroy
+    puts params
+    @listing = List.find(Review.find(params[:id]).list_id)
     @review.destroy
-    redirect_back or home_page_path
+    redirect_back_or @listing
   end
   
   
@@ -66,7 +68,11 @@ class ReviewsController < ApplicationController
 
     def authorized_user
       @review = current_user.reviews.find_by_id(params[:id])
-      redirect_to home_page_path if @review.nil?
+      if admin?
+        @review = Review.find(params[:id])
+      end
+      
+      redirect_to home_page_path if @review.nil? 
     end
 
 end
