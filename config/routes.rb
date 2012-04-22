@@ -1,5 +1,6 @@
 MadisonStudentApartmentFinder::Application.routes.draw do
  
+
   resources :users do
     resources :reviews, :only => [:create, :destroy]
   end
@@ -23,6 +24,8 @@ MadisonStudentApartmentFinder::Application.routes.draw do
   match '/new_listing' 	=>	'lists#new',	:action => 'GET', :as => :new_listing
 
 
+  resources :password_resets
+  
   #Tried to get our own routes set up with what was done.  If you uncomment, then you can see the issues at /listings
   #match '/listings' =>           'lists#index',      :action => 'GET',     :as => :lists
   #match '/listings/:id' =>       'lists#show',       :action => 'GET',     :as => :listing_show
