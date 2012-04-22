@@ -37,6 +37,15 @@
 	padding: 10px;
 }
 
+.admin_comments {
+	float:left;
+	width: 400px;
+	border: 1px solid black;
+	border-radius: 15px;
+	background: #cc5533;
+	padding: 10px;
+}
+
 .admin_creation {
 	float:right;
 	width: 350px;
