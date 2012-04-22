@@ -22,8 +22,8 @@ class Review < ActiveRecord::Base
 	# Line below was throwing an error. Commented it out for now.
 	#profanity_filter! :review_body
 	
-	#validates :user,               :presence => true
 	validates :review_body,        :presence => true
+	validates :rating,             :presence => true
 	validates :list_id,            :presence => true
 	validates :user_id,            :presence => true
 	

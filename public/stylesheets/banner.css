@@ -34,7 +34,7 @@
 }
 
 #SignedIn, #SignInSubmit, #SignInFields, #NewUserLink, 
-#banner_spacer, #SignInRemember {
+.banner_spacer, #ForgotPassword, #SignInRemember {
 	float: right;
 }
 
@@ -43,13 +43,13 @@
 	padding-left: 5px;
 }
 
-#banner_spacer {
+.banner_spacer {
 	display: inline;
-	width: 60px;
+	width: 35px;
 }
 
 #SignInRemember {
-	padding-right: 95px;
+	padding-right: 10px;
 	color: #EEEEEE;
 }
 

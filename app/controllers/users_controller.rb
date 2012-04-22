@@ -18,13 +18,27 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @title = @user.Name
+    @reviews = @user.reviews.paginate(:page => params[:page])
   end
   
   def admin
     @title = "Admin"
     @users = User.admin_user_search(params[:admin_us]).paginate(:page => params[:users_page], :per_page => 20)
     @lists = List.admin_list_search(params[:admin_ls]).order(sort_column + " " + sort_direction).paginate(:page => params[:lists_page], :per_page => 5)
+    @reviews = Review.paginate(:page => params[:reviews_page], :per_page => 6)
     #@lists = List.admin_list_search(params[:admin_ls]).paginate(:page => params[:lists_page], :per_page => 5)
+    @admin_name = params[:admin_name]
+    @admin_email = params[:admin_email]
+    @admin_password = params[:admin_password]
+    @admin = User.new(:Name => @admin_name, 
+                      :Email => @admin_email,
+                      :password => @admin_password, 
+                      :password_confirmation => @admin_password)
+     
+    @admin.save
+    if (@admin.errors.size == 0)
+      @admin.toggle!(:admin)
+    end
   end
   
   def create
@@ -64,7 +78,6 @@ class UsersController < ApplicationController
     
     def correct_user
       @user = User.find(params[:id])
-      #puts; puts; puts; puts @user; puts; puts; puts;
       redirect_to(home_page_path) unless current_user?(@user)
     end
     

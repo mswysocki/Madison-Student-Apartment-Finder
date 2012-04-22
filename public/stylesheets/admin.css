@@ -15,6 +15,33 @@
 	/*background: #113388;*/
 }
 
+.admin_adminusers {
+	float:left;
+	width: 250px;
+	border: 1px solid black;
+	border-radius: 15px;
+	background: #cc5533;
+	padding: 10px;
+}
+
+.admin_comments {
+	float:left;
+	width: 400px;
+	border: 1px solid black;
+	border-radius: 15px;
+	background: #cc5533;
+	padding: 10px;
+}
+
+.admin_creation {
+	float:right;
+	width: 350px;
+	border: 1px solid black;
+	padding: 5px;
+	border-radius: 10px;
+	background: #cc5533;
+}
+
 .admin_lists table {
 	border-collapse:collapse;
 	margin: 10px;

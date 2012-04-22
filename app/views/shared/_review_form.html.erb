@@ -1,8 +1,24 @@
 <%= form_for([object, object.reviews.build]) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
+  	<%= f.label		:review_body, "Comments" %>
     <%= f.text_area :review_body %>
   </div>
+  <div class="field">
+  	<%= f.label  :rating, "Rating" %>
+	<%= f.radio_button :rating, 0 %>
+	<%= f.radio_button :rating, 1 %>
+	<%= f.radio_button :rating, 2 %>
+	<%= f.radio_button :rating, 3 %>
+	<%= f.radio_button :rating, 4 %>
+	<%= f.radio_button :rating, 5 %>
+  </div>
+  
+  <div class="field">
+  	
+  </div>
+  
+  
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>

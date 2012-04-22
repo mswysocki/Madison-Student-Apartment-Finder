@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420075423) do
+ActiveRecord::Schema.define(:version => 20120422021259) do
 
   create_table "lists", :force => true do |t|
     t.string   "address"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20120420075423) do
   end
 
   add_index "reviews", ["list_id"], :name => "index_reviews_on_list_id"
+  add_index "reviews", ["rating"], :name => "index_reviews_on_rating"
+  add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "Name"
@@ -63,10 +65,13 @@ ActiveRecord::Schema.define(:version => 20120420075423) do
     t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
-    t.boolean  "admin",              :default => false
+    t.boolean  "admin",                  :default => false
     t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["Email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["auth_token"], :name => "index_users_on_auth_token"
 
 end
