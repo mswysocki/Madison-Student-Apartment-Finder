@@ -3,30 +3,24 @@
 	border: 1px solid #EEEEEE;
 	border-radius: 5px;
 	background: #232323;
+	margin: 5px;
+	padding: 10px;
+}
+
+#admin_users, #admin_adminusers, #admin_creation {
+	width: 250px;
 	float: left;
 }
 
-#admin_lists {
-	width: 500px;
+#admin_lists, #admin_comments {
+	width: 425px;
+	float: right;
 }
 
-#admin_users {
-	width: 250px;
-}
-
-#admin_adminusers {
-	width: 250px;
-	padding: 10px;
-}
-
-#admin_comments {
-	width: 400px;
-	padding: 10px;
-}
-
-#admin_creation {
-	width: 350px;
-	padding: 5px;
+.admin_ruler {
+	border: 0;
+	background-color: #eeeeee;
+	height: 2px;
 }
 
 #admin_lists table {

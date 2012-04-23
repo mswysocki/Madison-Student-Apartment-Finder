@@ -1,6 +1,6 @@
 <% if signed_in? && current_user.admin? %>
 
-<section class="User_View">
+<section id="Admin_View" class="User_View">
 	<h1 class="page_header">Admin page</h1>
 	<hr class="generic_header_ruler"/>
 	
@@ -11,6 +11,7 @@
 		
 	<ul id="admin_users">
 		<h1>All users</h1>
+		<hr class="admin_ruler"/>
 	<!-- 
 		<%= form_tag admin_path, :method => 'get' do %>
 		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
@@ -27,10 +28,45 @@
     	<%= render @users %>
 	</ul>
 	
+	<div id="admin_adminusers">
+		<h1>List of admin users:</h1>
+		<hr class="admin_ruler"/>
+		<ul>
+		<% @all_users = User.all %>
+		<% @all_users.each do |a_user| %>
+			<% if a_user.admin? %>
+				<li><%= link_to a_user.Name, a_user %></li>
+    		<% end %>
+    	<% end %>
+    	</ul>
+	</div>
+	
+	<div id="admin_creation">
+	<h1>Create new admin users</h1>
+	<hr class="admin_ruler"/>
+	<%= form_tag admin_path, :method => 'get', :options => {:autocomplete => :off} do %>
+		<%= hidden_field_tag :direction, params[:direction] %>
+		<%= hidden_field_tag :sort, params[:sort] %>
+  		<div class="field">
+    		Name: <%= text_field_tag :admin_name %>
+  		</div>
+  		<div class="field">
+    		Email: <%= text_field_tag :admin_email %>
+  		</div>
+  		<div class="field">
+    		Password: <%= password_field_tag :admin_password, :dontautocomplete => :foo %>
+  		</div>
+  		
+  		<div class="actions">
+    		<%= submit_tag "Create", :confirm => "You are about to create an admin user with the given email.  Are you sure?"  %>
+  		</div>
+	<% end %>
+	</div>
+	
 	<!-- <hr /> <hr /> -->
 	<ul id="admin_lists">
 		<h1>All listings</h1>
-		
+		<hr class="admin_ruler"/>
 		<%= form_tag admin_path, :method => 'get' do %>
 		<!--<%= hidden_field_tag :admin_us, params[:admin_us] %> -->
 		<%= hidden_field_tag :direction, params[:direction] %>
@@ -57,44 +93,9 @@
 		</table>
 	</ul>
 	
-	<div id="admin_creation">
-	<h3>Create new admin users</h3>
-	<hr id="User_View_Bar"/>
-	<%= form_tag admin_path, :method => 'get', :options => {:autocomplete => :off} do %>
-		<%= hidden_field_tag :direction, params[:direction] %>
-		<%= hidden_field_tag :sort, params[:sort] %>
-  		<div class="field">
-    		Name: <%= text_field_tag :admin_name %>
-  		</div>
-  		<div class="field">
-    		Email: <%= text_field_tag :admin_email %>
-  		</div>
-  		<div class="field">
-    		Password: <%= password_field_tag :admin_password, :dontautocomplete => :foo %>
-  		</div>
-  		
-  		<div class="actions">
-    		<%= submit_tag "Create", :confirm => "You are about to create an admin user with the given email.  Are you sure?"  %>
-  		</div>
-	<% end %>
-	</div>
-	
-	<div id="admin_adminusers">
-		<h3>List of admin users:</h3>
-		<hr id="User_View_Bar"/>
-		<ul>
-		<% @all_users = User.all %>
-		<% @all_users.each do |a_user| %>
-			<% if a_user.admin? %>
-				<li><%= link_to a_user.Name, a_user %></li>
-    		<% end %>
-    	<% end %>
-    	</ul>
-	</div>
-	
 	<div id="admin_comments">
-		<h3>List of all comments</h3>
-		<hr id="User_View_Bar"/>
+		<h1>List of all comments</h1>
+		<hr class="admin_ruler"/>
 		<%= will_paginate @reviews, :param_name => :reviews_page %>
 		<table>
 			<tr>
