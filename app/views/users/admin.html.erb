@@ -8,9 +8,11 @@
 	<p>We could go a lot of ways with what we are looking to do with this page..</p>
 	<p>Everything on the page is now working as it should.  I took out searching for users for now,
 		will add it back in later, but I'll have to change the schema as well as tests and a few other things.</p>
-		
+	
+	<div id="admin_boxes_wrapper">
+	<div id="admin_top">
 	<ul id="admin_users">
-		<h1>All users</h1>
+		<h1>All users:</h1>
 		<hr class="admin_ruler"/>
 	<!-- 
 		<%= form_tag admin_path, :method => 'get' do %>
@@ -42,7 +44,7 @@
 	</div>
 	
 	<div id="admin_creation">
-	<h1>Create new admin users</h1>
+	<h1>Create new admin:</h1>
 	<hr class="admin_ruler"/>
 	<%= form_tag admin_path, :method => 'get', :options => {:autocomplete => :off} do %>
 		<%= hidden_field_tag :direction, params[:direction] %>
@@ -56,27 +58,30 @@
   		<div class="field">
     		Password: <%= password_field_tag :admin_password, :dontautocomplete => :foo %>
   		</div>
-  		
+  		<br />
   		<div class="actions">
     		<%= submit_tag "Create", :confirm => "You are about to create an admin user with the given email.  Are you sure?"  %>
   		</div>
 	<% end %>
 	</div>
+	</div><!-- END "admin_top" id -->
 	
-	<!-- <hr /> <hr /> -->
+	<div id="admin_bottom">
 	<ul id="admin_lists">
-		<h1>All listings</h1>
+		<h1>All listings:</h1>
 		<hr class="admin_ruler"/>
 		<%= form_tag admin_path, :method => 'get' do %>
 		<!--<%= hidden_field_tag :admin_us, params[:admin_us] %> -->
 		<%= hidden_field_tag :direction, params[:direction] %>
 		<%= hidden_field_tag :sort, params[:sort] %>
- 		<p>
+ 		<div class="field">
     		<%= text_field_tag :admin_ls, params[:admin_ls] %>
+    	</div>
+    	<div class="actions">
     		<%= submit_tag "Search", :Address => nil %>
-  		</p>
+    	</div>
 		<% end %>
-
+		<br />
 
 		<%= will_paginate @lists, :param_name => :lists_page %> 
 		<table>
@@ -92,9 +97,9 @@
 			</tr>
 		</table>
 	</ul>
-	
+		
 	<div id="admin_comments">
-		<h1>List of all comments</h1>
+		<h1>List of all comments:</h1>
 		<hr class="admin_ruler"/>
 		<%= will_paginate @reviews, :param_name => :reviews_page %>
 		<table>
@@ -103,6 +108,8 @@
 			</tr> 
 		</table>
 	</div>
+	</div><!-- END "admin_bottom" id -->
+	</div><!-- END "admin_boxes_wrapper" id -->
 </section>
 
 

@@ -1,3 +1,7 @@
+#Admin_View {
+	height: 700px;
+}
+
 #admin_lists, #admin_users, #admin_adminusers, 
 #admin_comments, #admin_creation {
 	border: 1px solid #EEEEEE;
@@ -7,14 +11,40 @@
 	padding: 10px;
 }
 
+#admin_boxes_wrapper {
+	margin: auto;
+	width: 90%;
+}
+
+#admin_top {
+	margin: auto;
+	width: 89%;
+}
+
+#admin_bottom {
+	clear: both;
+	margin: auto;
+	width: 100%;
+}
+
 #admin_users, #admin_adminusers, #admin_creation {
-	width: 250px;
+	width: 225px;
+	height: 200px;
 	float: left;
 }
 
 #admin_lists, #admin_comments {
-	width: 425px;
-	float: right;
+	width: 400px;
+	height: 250px;
+	float: left;
+}
+
+#admin_users li {
+	margin-left: 40px;
+}
+
+#admin_lists div {
+	display: inline;
 }
 
 .admin_ruler {
