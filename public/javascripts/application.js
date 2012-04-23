@@ -1,14 +1,23 @@
 // JavaScript Document
 
+var isSliding = false;
+
 function HandleSlide(Clicked, Sliding)
 {
-	if (document.getElementById(Sliding).style.display == 'none' )
+	if (isSliding != false)
+		return;
+
+	if (document.getElementById(Sliding).style.display == 'none' && !isSliding)
 	{
+		isSliding = true;
 		slideDown(Clicked, Sliding);
+		var t=setTimeout("setSlidingFalse()", 1000);
 	}
-	else
+	else if (!isSliding)
 	{
+		isSliding = true;
 		slideUp(Clicked, Sliding);
+		var t=setTimeout("setSlidingFalse()", 1000);
 	}
 }
 
@@ -25,6 +34,11 @@ function slideUp(Clicked, Sliding){
 function ResetBackgroundColor(Element, Color)
 {
 	document.getElementById(Element).style.backgroundColor = Color;
+}
+
+function setSlidingFalse()
+{
+	isSliding = false;
 }
 
 function setSelectedTableElement(id){

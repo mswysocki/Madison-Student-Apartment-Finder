@@ -1,7 +1,16 @@
-<%= form_tag password_resets_path, :method => :post do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="actions"><%= submit_tag "Reset Password" %></div>
-<% end %>
+<section class="User_View">
+<div class="divider"></div>
+	<h1 class="page_header">Forgotten Password</h1>
+	<hr class="generic_header_ruler"/>
+	<br />
+	<%= form_tag password_resets_path, :method => :post do %>
+  		<div class="field">
+    		<%= label_tag :email %>
+    		<%= text_field_tag :email, params[:email] %>
+  		</div>
+  		<br />
+  		<div class="actions">
+  			<%= submit_tag "Reset Password" %>
+  		</div>
+	<% end %>
+</section>

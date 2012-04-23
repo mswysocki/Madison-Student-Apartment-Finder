@@ -7,54 +7,55 @@
 <% unless @test.nil? %> <!-- This checks if the url is empty. Will then show the content (ie. home) page in that case-->
 <% unless @no_results %> <!-- This checks if there are no search results. Will render a new partial -->
 
-<section id="Results_View" >
-<h1 class="ResultsTitle">Search Results</h1>
-<hr id="Results_View_Bar">
-<p>The following results matching you search criteria were found:</p>
+<section id="Results_Home_View" class="content_area" >
+	<h1 class="page_header">Search Results</h1>
+	<hr class="generic_header_ruler">
+	<h1>The following results matching your search criteria were found:</h1>
 
-<table id="Search_Results_Table">   
+	<table id="Search_Results_Table">   
 
-<% i = 0 %>
-<% elementClass = "Table_Element" %>
+		<% i = 0 %>
+		<% elementClass = "Table_Element" %>
 
   		<%= will_paginate @lists, :param_name => :results_page %>
 
-<% @lists.each do |list| %>
+		<% @lists.each do |list| %>
 
-<% i = i + 1 %>
+		<% i = i + 1 %>
 
-<% if i % 2 == 0
-elementClass = "Table_Element_Alt"
-else
-elementClass = "Table_Element"
-end %>
+		<% if i % 2 == 0
+			elementClass = "Table_Element_Alt"
+		else
+			elementClass = "Table_Element"
+		end %>
 
-<% identifier = "Table_Element_" + list.id.to_s() %>
-  <tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
-    <td class=<%= elementClass%> >
-    		<p class="EntryAddress"><%= list.address %></p>
-    		<div>
-	    		<p>Zip Code: <%= list.zip %></p>
-    			<p>#Bedrooms: <%= list.bedrooms %>  |  #Bathrooms: <%= list.bathrooms %> </p>    			
-    		</div>
-    </td>
-  </tr>
-<% end %>
+		<% identifier = "Table_Element_" + list.id.to_s() %>
+		<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
+    		<td class=<%= elementClass%> >
+    			<p class="EntryAddress">
+    				<%= list.address %>
+    			</p>
+    			<div>
+	    			<p class="EntryZip">Zip Code: <%= list.zip %></p>
+    				<p class="EntryBedBath">#Bedrooms: <%= list.bedrooms %>  |  #Bathrooms: <%= list.bathrooms %> </p>    			
+    			</div>
+    		</td>
+  		</tr>
+		<% end %>
 
-</table>
-<% end %>
+	</table>
+	<% end %>
 <% end %>
 
 </section>
 
 
 <% if @test.nil? %>
-<%= render 'home/content' %>
-
+	<%= render 'home/content' %>
 <% end %>
 
 <% if @no_results %>
-<%= render 'home/no_results' %>
+	<%= render 'home/no_results' %>
 <% end %>
 
 </body>
