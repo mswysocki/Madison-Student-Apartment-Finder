@@ -17,7 +17,7 @@
     	Flag button goes here.
     </span>
 
- 	<% if current_user.id == review.user_id  || current_user.admin? %>
+ 	<% if signed_in? && (current_user.id == review.user_id  || current_user.admin?) %>
 	
 	<% if :controller == 'lists' %>
  		<%= link_to "delete", list_review_path(review.list_id, review.id),
