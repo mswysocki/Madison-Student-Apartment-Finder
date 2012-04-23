@@ -16,42 +16,35 @@
 <div id="ColumnOne">
 <h2 id="LocationLabel">Location:</h2>
 <div id="ShowLocation">
-	<em>Address:</em>  <%= @list.address %><br />
+	<b><em>Address:</em></b>  <%= @list.address %><br />
+	<b><em>City:</em></b>  <%= @list.city %><br />
+	<b><em>State:</em></b>  <%= @list.state %><br />
+	<b><em>Zip:</em></b>  <%= @list.zip %><br />
 
-	<em>City:</em>  <%= @list.city %><br />
-
-	<em>State:</em>  <%= @list.state %><br />
-
-	<em>Zip:</em>  <%= @list.zip %><br />
-
-	<em>Region:</em>  <%= @list.region %>
 </div>
 
 
 <h2 id="PriceLabel">Price:</h2>
 <div id="ShowPrice">
-	<em>Rent:  $</em><%= @list.rent %>
+	<em>Rent:  $</em> <b><%= @list.rent %></b> per month
 </div>
 
 
 <% unless @list.ltype.nil? %>
 	<h2 id="TypeLabel">Type of Residence:</h2>
   	<div id="ShowType">
-		<em>Type (House (true) or Apt (false)):</em>  <%= @list.ltype %>
+		<b><%= format_type(@list.ltype) %></b>
 	</div>
 <% end %>
 
 
 <h2 id="DetailsLabel">Residence Details:</h2>
 <div id="ShowResDetails">
-	<em>Bedrooms:</em>  <%= @list.bedrooms %><br />
-	
-	<% unless @list.bathrooms.nil? %>
-		<em>Bathrooms:</em>  <%= @list.bathrooms %><br />
-	<% end %>
+	<b><%= @list.bedrooms %></b> bedrooms.<br />
+	<b><%= @list.bathrooms %></b> bathrooms.<br />
 
 	<% unless @list.squarefeet.nil? %>
-		<em>Squarefeet:</em>  <%= @list.squarefeet %>
+		<b><%= @list.squarefeet %></b> square feet.
 	<% end %>
 </div>
 
@@ -59,7 +52,7 @@
 <% unless @list.length.nil? %>
 	<h2 id="LeaseLabel">Lease Length:</h2>
 	<div id="ShowLeaseDetails">
-		<em>Length (Months):</em>  <%= @list.length %>
+		<em>Length:</em>  <%= @list.length %> months.
 	</div>
 <% end %>
 </div>
@@ -68,49 +61,57 @@
 <div id="ColumnTwo">
 <h2 id="UtilsLabel">Utilities:</h2>
 <div id="ShowUtils">
-	<% unless @list.heat.nil? %>
-		<em>Heat:</em>  <%= @list.heat %><br />
-	<% end %>
 
-	<% unless @list.electric.nil? %>
-		<em>Electric:</em>  <%= @list.electric %><br />
-	<% end %>
+	<b>Heat:</b> 
+		<em><%= format_util(@list.heat) %> </em> 
+		<br />
+	<b>Electric:</b> 
+		<em><%= format_util(@list.electric) %> </em> 
+		<br />
+	<b>Gas:</b> 
+		<em><%= format_util(@list.gas) %> </em>
+		<br />
+	<b>Garbage Collection:</b>
+		<em><% if(@list.garbagecollection) %>
+				handled by the landlord.
+			<% else %>
+				not handled by the landlord.	
+			<% end %>
+		</em> 
 
-	<% unless @list.gas.nil? %>
-		<em>Gas:</em>  <%= @list.gas %><br />
-	<% end %>
-
-	<% unless is_nil(@list.garbagecollection) %>
-		<em>Garbage Collection:</em>  <%= @list.garbagecollection %>
-	<% end %>
 </div>
 
 
 <h2 id="AccomsLabel">Accommodations:</h2>
 <div id="ShowAccommodations">
-	<% unless @list.parking.nil? %>
+	
+	<% acc = { "Parking" => @list.parking } %>
+	<em><%= format_accomodations(acc) %></em> <br />
+	<% acc = { "Laundry" => @list.laundry } %>
+	<em><%= format_accomodations(acc) %></em> <br />
+	<% acc = { "Furnished" => @list.furnished } %>
+	<em><%= format_accomodations(acc) %></em> <br />
+	
+	
+	<!--<% unless @list.parking.nil? %>
 		<em>Parking:</em>  <%= @list.parking %><br />
 	<% end %>
-	
 	<% unless @list.laundry.nil? %>
 		<em>Laundry:</em>  <%= @list.laundry %><br />
 	<% end %>
 
 	<% unless @list.furnished.nil? %>
 		<em>Furnished:</em>  <%= @list.furnished %>
-	<% end %>
+	<% end %>-->
 </div>
 
 
 <h2 id="RestrictsLabel">Restrictions:</h2>
 <div id="ShowRestrictions">
-	<% unless @list.smoking.nil? %>
-		<em>Smoking:</em>  <%= @list.smoking %><br />
-	<% end %>
-
-	<% unless @list.pets.nil? %>
-		<em>Pets:</em>  <%= @list.pets %>
-	<% end %>
+	<% restriction = { "Smoking" => @list.smoking } %>
+	<em><%= format_restrictions(restriction) %></em> <br />
+	<% restrition = { "Pets" => @list.pets }%>
+	<em><%= format_restrictions(restriction) %></em>
 </div>
 
 

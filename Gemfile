@@ -28,6 +28,8 @@ gem 'will_paginate'   #may need to be used for easy pagination
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
 gem 'simplecov', :require => false, :group => :test
 
+#gem 'rakismet'  ...tried akismet..and failed.  May try again later
+
 #gem 'rd_searchlogic', :require => 'searchlogic', :git => 'git://github.com/railsdog/searchlogic.git'
 
 #gem 'attribute-defaults'
