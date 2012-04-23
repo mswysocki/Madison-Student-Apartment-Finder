@@ -1,5 +1,5 @@
 #Admin_View {
-	height: 700px;
+	height: 800px;
 }
 
 #admin_lists, #admin_users, #admin_adminusers, 
@@ -35,7 +35,7 @@
 
 #admin_lists, #admin_comments {
 	width: 400px;
-	height: 250px;
+	height: 350px;
 	float: left;
 }
 
