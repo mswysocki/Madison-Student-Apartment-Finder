@@ -71,7 +71,7 @@ describe ListsController do
     describe "type of residence section" do
       it "should have type listed if not null" do
         get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowType", :content => @listing.ltype.to_s)
+        response.should_not have_selector("div", :id => "ShowType", :content => "false")
       end
       
       it "should not have type listed if null" do
@@ -103,39 +103,39 @@ describe ListsController do
     describe "utilities section" do
       it "should show heat" do
         get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowUtils", :content => @listing.heat.to_s)
+        response.should have_selector("div", :id => "ShowUtils", :content => "Heat")
       end
       
       it "should show electric" do
         get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowUtils", :content => @listing.electric.to_s)
+        response.should have_selector("div", :id => "ShowUtils", :content => "Electric")
       end
       
       it "should show gas" do 
         get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowUtils", :content => @listing.gas.to_s)
+        response.should have_selector("div", :id => "ShowUtils", :content => "Gas")
       end
       
       it "should show gc" do
         get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowUtils", :content => @listing.garbagecollection.to_s)
+        response.should have_selector("div", :id => "ShowUtils", :content => "Garbage")
       end
     end
     
     describe "accomodations section" do
       it "should show parking" do
         get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowAccommodations", :content => @listing.parking.to_s)
+        response.should have_selector("div", :id => "ShowAccommodations", :content => "Parking")
       end
       
       it "should show laundry" do
         get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowAccommodations", :content => @listing.laundry.to_s)
+        response.should have_selector("div", :id => "ShowAccommodations", :content => "laundry")
       end
       
       it "should show furnishings" do
         get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowAccommodations", :content => @listing.furnished.to_s)
+        response.should have_selector("div", :id => "ShowAccommodations", :content => "furnish")
       end
     end
     
@@ -143,12 +143,12 @@ describe ListsController do
     describe "restrictions section" do
       it "should show smoking" do
         get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowRestrictions", :content => @listing.smoking.to_s)
+        response.should have_selector("div", :id => "ShowRestrictions", :content => "smoking")
       end
       
       it "should show pets" do
         get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowRestrictions", :content => @listing.pets.to_s)
+        response.should have_selector("div", :id => "ShowRestrictions", :content => "Pet")
       end
     end
     
