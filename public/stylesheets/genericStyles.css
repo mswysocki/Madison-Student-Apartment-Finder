@@ -38,11 +38,11 @@ body {
 	font-weight: bold;
 }
 
-.generic_link, .generic_link:visited  {
+a, a:visited  {
 	color: #EEAE22;
 }
 
-.generic_link:hover {
+a:hover, a:active {
 	color: #EEEEEE;
 }
 

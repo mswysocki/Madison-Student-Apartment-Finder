@@ -1,6 +1,8 @@
-<section id="User_View" class="unselectable" >
-	<h1>Edit user</h1>
-
+<section class="User_View">
+	<h1 class="page_header">Edit User</h1>
+	<hr class="generic_header_ruler" />
+	
+	<br />
 	<%= form_for(@user) do |f| %>
   	<%= render 'shared/error_messages', :object => f.object %>
   	<div class="field">
@@ -19,7 +21,7 @@
    	  	<%= f.label :password_confirmation, "Confirmation" %><br />
 		<%= f.password_field :password_confirmation %>
   	</div>
-  	
+  	<br />
   	<div class="actions">
     	<%= f.submit "Update" %>
   	</div>

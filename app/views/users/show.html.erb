@@ -1,13 +1,12 @@
-<section id="User_View" class="unselectable" >
-	<h1 id="UserName_Title"><%= @user.Name %></h1>
-	<hr id="User_View_Bar"/>
+<section class="User_View">
+	<h1 class="page_header"><%= @user.Name %></h1>
+	<hr class="generic_header_ruler"/>
 
 	<h3>User ID:  <%= @user.id %></h3>
 	
-    <em>Name:</em>  <%= @user.Name %><br />
-    <em>Email:</em>  <%= @user.Email %><br />
-    <em>URL:</em>   <%= link_to user_path(@user), @user, :class => "generic_link" %>
-    
+    <p><em>Name:</em>  <%= @user.Name %></p>
+    <p><em>Email:</em>  <%= @user.Email %></p>
+    <p><em>URL:</em>   <%= link_to user_path(@user), @user %></p>
 </section>
 
 <section id="Comments_Area">

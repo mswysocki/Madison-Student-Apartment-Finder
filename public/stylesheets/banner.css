@@ -33,12 +33,12 @@
 	display: inline;
 }
 
-#SignedIn, #SignInSubmit, #SignInFields, #NewUserLink, 
+#SignedIn a, #SignInSubmit, #SignInFields, #NewUserLink, 
 .banner_spacer, #ForgotPassword, #SignInRemember {
 	float: right;
 }
 
-#SignedIn, #SignInSubmit {
+#SignedIn a, #SignInSubmit {
 	padding-right: 10px;
 	padding-left: 5px;
 }

@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20120422021259) do
     t.datetime "password_reset_sent_at"
   end
 
-  add_index "users", ["Email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["Email"], :name => "index_users_on_Email", :unique => true
   add_index "users", ["auth_token"], :name => "index_users_on_auth_token"
 
 end

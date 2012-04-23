@@ -7,9 +7,11 @@
 	
 	<div id="SignedIn">
 	<% if signed_in? %>
-      	<%= link_to "Profile", current_user %>
+		<%= link_to "Sign out", signout_path, :method => :delete %>
+      	<p class="banner_spacer"></p>
       	<%= link_to "Settings", edit_user_path(current_user) %>
-      	<%= link_to "Sign out", signout_path, :method => :delete %>
+      	<p class="banner_spacer"></p>
+      	<%= link_to "Profile", current_user %>
     </div><!-- END "SignedIn" id -->
     <div id="SignInWrapper">
 	<% else %>
@@ -41,11 +43,11 @@
 			</div><!-- END remember me field -->
 			<p class="banner_spacer"></p>
 			<div id="ForgotPassword">
-				<%= link_to "Forgot password?", new_password_reset_path, :class => "generic_link" %>
+				<%= link_to "Forgot password?", new_password_reset_path %>
 			</div>
 			<p class="banner_spacer"></p>
 			<div id="NewUserLink">
-				<%= link_to "Sign up!", signup_path, :class => "generic_link" %>
+				<%= link_to "Sign up!", signup_path %>
 			</div>
 		<% end %><!-- END form -->
     <% end %><!-- END if/else -->
