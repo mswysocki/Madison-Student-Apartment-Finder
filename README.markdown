@@ -8,7 +8,9 @@ easily searchable, simple, and fast.
 
 Members: Adam Eggum, Cory Romdenne, Guilherme Baptista, Matt Wysocki, Justin Smith.
 
-We have turned in our first iteration but can continue working along the way. The latest version of the design document can be found at https://docs.google.com/document/d/1HykZySJCc8YwFjFkzLIKHdVowAAZi1m5WOV4j4tpK2E/edit
+The latest version of the design document can be found at https://docs.google.com/document/d/1HykZySJCc8YwFjFkzLIKHdVowAAZi1m5WOV4j4tpK2E/edit
+
+The most current deployment of the website can be found at www.msaf.heroku.com
 
 Here are some of the gems added to the project:
 ------------------------------------------------------------
@@ -28,10 +30,8 @@ Here are some of the gems added to the project:
 > 
 >  + https://github.com/colszowka/simplecov - This gem gives us the code coverage tools that we need for iteration 2. It is compatible with Rails 3 and Ruby 1.9.3.
 >
-> +  https://github.com/intridea/profanity_filter - This gem filters out profanity from user reviews
+>  + https://github.com/intridea/profanity_filter - This gem filters out profanity from user reviews
 
 
-Testing of the project has gotten started, and to run the test suite that we have use the command 'rspec spec/' or 'rspec spec/any_folder_you_want_to_test/' ... and so on
 
-Nearly all of the tests passed as of the last time I pushed any changes to github.  130/132.
 
