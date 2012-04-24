@@ -10,7 +10,7 @@ Members: Adam Eggum, Cory Romdenne, Guilherme Baptista, Matt Wysocki, Justin Smi
 
 The latest version of the design document can be found at https://docs.google.com/document/d/1HykZySJCc8YwFjFkzLIKHdVowAAZi1m5WOV4j4tpK2E/edit
 
-The most current deployment of the website can be found at www.msaf.heroku.com
+The most current deployment of the website can be found at msaf.heroku.com
 
 Here are some of the gems added to the project:
 ------------------------------------------------------------
