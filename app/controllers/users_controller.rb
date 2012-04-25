@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @title = @user.Name
+    @title = @user.name
     @reviews = @user.reviews.paginate(:page => params[:page])
   end
   
@@ -30,8 +30,8 @@ class UsersController < ApplicationController
     @admin_name = params[:admin_name]
     @admin_email = params[:admin_email]
     @admin_password = params[:admin_password]
-    @admin = User.new(:Name => @admin_name, 
-                      :Email => @admin_email,
+    @admin = User.new(:name => @admin_name, 
+                      :email => @admin_email,
                       :password => @admin_password, 
                       :password_confirmation => @admin_password)
      

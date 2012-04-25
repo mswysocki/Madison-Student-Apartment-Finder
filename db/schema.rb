@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423055305) do
+ActiveRecord::Schema.define(:version => 20120425024824) do
 
   create_table "landlords", :force => true do |t|
     t.string  "name"
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(:version => 20120423055305) do
   add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "Name"
-    t.string   "Email"
+    t.string   "name"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "encrypted_password"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20120423055305) do
     t.datetime "password_reset_sent_at"
   end
 
-  add_index "users", ["Email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["auth_token"], :name => "index_users_on_auth_token"
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

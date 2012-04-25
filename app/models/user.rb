@@ -3,8 +3,8 @@
 # Table name: users
 #
 #  id                     :integer         not null, primary key
-#  Name                   :string(255)
-#  Email                  :string(255)
+#  name                   :string(255)
+#  email                  :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
 #  encrypted_password     :string(255)
@@ -20,14 +20,14 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :reviews
   
   attr_accessor :password, :password_confirmation
-  attr_accessible :Name, :Email, :password, :password_confirmation, :auth_token, :password_reset_token
+  attr_accessible :name, :email, :password, :password_confirmation, :auth_token, :password_reset_token
     
   #ensures that emails follow the pattern of an email.. ie. 'aeggum@wisc.edu'
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
-  validates :Name, :presence => true,
+  validates :name, :presence => true,
                    :length => { :maximum => 50 }
-  validates :Email, :presence => true,
+  validates :email, :presence => true,
                     :format => { :with => email_regex },
                     :uniqueness => { :case_sensitive => false }
                     
@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   
   def self.authenticate(email, submitted_password)
     #puts email; puts submitted_password;
-    user = find_by_Email(email)
+    user = find_by_email(email)
     return nil  if user.nil?
     return user if user.has_password?(submitted_password)
   end
@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
   
   def self.admin_user_search(search)
     if search
-      where('Name LIKE ?', "%#{search}%")
+      where('name LIKE ?', "%#{search}%")
     else
       scoped
     end

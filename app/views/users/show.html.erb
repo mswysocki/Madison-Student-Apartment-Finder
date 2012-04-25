@@ -1,11 +1,11 @@
 <section class="User_View">
-	<h1 class="page_header"><%= @user.Name %></h1>
+	<h1 class="page_header"><%= @user.name %></h1>
 	<hr class="generic_header_ruler"/>
 
 	<h3>User ID:  <%= @user.id %></h3>
 	
-    <p><em>Name:</em>  <%= @user.Name %></p>
-    <p><em>Email:</em>  <%= @user.Email %></p>
+    <p><em>Name:</em>  <%= @user.name %></p>
+    <p><em>Email:</em>  <%= @user.email %></p>
     <p><em>URL:</em>   <%= link_to user_path(@user), @user %></p>
 </section>
 

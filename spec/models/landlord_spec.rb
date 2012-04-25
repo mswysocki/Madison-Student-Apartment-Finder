@@ -13,3 +13,8 @@
 #  zip     :integer
 #
 
+require 'spec_helper'
+
+describe Landlord do
+  
+end

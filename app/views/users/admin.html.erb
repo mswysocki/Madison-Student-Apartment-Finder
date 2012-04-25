@@ -21,7 +21,7 @@
 		<%= hidden_field_tag :sort, params[:sort] %>
 		<p>
     		<%= text_field_tag :admin_us, params[:admin_us] %>
-    		<%= submit_tag "Search", :Name => nil %>
+    		<%= submit_tag "Search", :name => nil %>
   		</p>
 		<% end %>
 	-->
@@ -37,7 +37,7 @@
 		<% @all_users = User.all %>
 		<% @all_users.each do |a_user| %>
 			<% if a_user.admin? %>
-				<li><%= link_to a_user.Name, a_user %></li>
+				<li><%= link_to a_user.name, a_user %></li>
     		<% end %>
     	<% end %>
     	</ul>
