@@ -17,11 +17,12 @@
 	 
 		<%= form_tag admin_path, :method => 'get' do %>
 		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
+		<%= hidden_field_tag :admin_rs, params[:admin_rs] %>
 		<%= hidden_field_tag :direction, params[:direction] %>
 		<%= hidden_field_tag :sort, params[:sort] %>
 		<p>
     		<%= text_field_tag :admin_us, params[:admin_us] %>
-    		<%= submit_tag "Search", :name => nil %>
+    		<%= submit_tag "Search Users", :name => nil %>
   		</p>
 		<% end %>
 	
@@ -49,6 +50,9 @@
 	<%= form_tag admin_path, :method => 'get', :options => {:autocomplete => :off} do %>
 		<%= hidden_field_tag :direction, params[:direction] %>
 		<%= hidden_field_tag :sort, params[:sort] %>
+		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
+		<%= hidden_field_tag :admin_us, params[:admin_us] %>
+		<%= hidden_field_tag :admin_rs, params[:admin_rs] %>
   		<div class="field">
     		Name: <%= text_field_tag :admin_name %>
   		</div>
@@ -60,7 +64,7 @@
   		</div>
   		<br />
   		<div class="actions">
-    		<%= submit_tag "Create", :confirm => "You are about to create an admin user with the given email.  Are you sure?"  %>
+    		<%= submit_tag "Create Admin", :confirm => "You are about to create an admin user with the given email.  Are you sure?"  %>
   		</div>
 	<% end %>
 	</div>
@@ -71,14 +75,16 @@
 		<h1>All listings:</h1>
 		<hr class="admin_ruler"/>
 		<%= form_tag admin_path, :method => 'get' do %>
-		<!--<%= hidden_field_tag :admin_us, params[:admin_us] %> -->
+		
+		<%= hidden_field_tag :admin_us, params[:admin_us] %>
+		<%= hidden_field_tag :admin_rs, params[:admin_rs] %>
 		<%= hidden_field_tag :direction, params[:direction] %>
 		<%= hidden_field_tag :sort, params[:sort] %>
  		<div class="field">
     		<%= text_field_tag :admin_ls, params[:admin_ls] %>
     	</div>
     	<div class="actions">
-    		<%= submit_tag "Search", :Address => nil %>
+    		<%= submit_tag "Search Listings", :Address => nil %>
     	</div>
 		<% end %>
 		<br />
@@ -101,11 +107,33 @@
 	<div id="admin_comments">
 		<h1>List of all comments:</h1>
 		<hr class="admin_ruler"/>
+		
+		<%= form_tag admin_path, :method => 'get' do %>
+		<%= hidden_field_tag :admin_us, params[:admin_us] %>
+		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
+		<%= hidden_field_tag :direction, params[:direction] %>
+		<%= hidden_field_tag :sort, params[:sort] %>
+ 		<div class="field">
+    		<%= text_field_tag :admin_rs, params[:admin_rs] %>
+    	</div>
+    	<div class="actions">
+    		<%= submit_tag "Search Reviews", :review_body => nil %>
+    	</div>
+		<% end %>
+		
 		<%= will_paginate @reviews, :param_name => :reviews_page %>
 		<table>
 			<tr>
-				<%= render @reviews %>
-			</tr> 
+				<th>ID</th>
+				<th>Body</th>
+				<th>Rating</th>
+				<th>Help</th>
+				<th>Flags</th>
+				<th></th>
+			</tr>
+			
+			<%= render :partial => "reviews/admin", :object => @reviews %>
+			
 		</table>
 	</div>
 	</div><!-- END "admin_bottom" id -->

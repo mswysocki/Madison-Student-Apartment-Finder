@@ -15,9 +15,9 @@
 
 class Review < ActiveRecord::Base
   attr_accessible :review_body, :flag, :helpfulness, :rating
-  
 	belongs_to :list
 	belongs_to :user
+	after_initialize :default_values
 	
 	# Line below was throwing an error. Commented it out for now.
 	#profanity_filter! :review_body
@@ -27,12 +27,6 @@ class Review < ActiveRecord::Base
 	validates :list_id,            :presence => true
 	validates :user_id,            :presence => true
 	
-	# Cannot have a validates :presence => false.  True is only boolean type allowed
-	#validates :flag,               :presence => false
-	#validates :helpfulness,        :presence => false
-	#validates :rating,             :presence => false
-	
-	after_initialize :default_values
 	def default_values
 		self.flag ||= 0
 		self.helpfulness ||= 0
@@ -40,4 +34,14 @@ class Review < ActiveRecord::Base
 	end
 	
 	default_scope :order => 'reviews.created_at DESC'
+	
+	def self.admin_review_search(search)
+    if search
+      where('review_body LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+  
+  
 end

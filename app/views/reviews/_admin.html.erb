@@ -1,0 +1,10 @@
+<% admin.each do |review| %>
+	<tr onclick="location.href='lists/<%=review.list_id %>'" onmouseover="this.style.cursor='pointer';">
+		<td><%= review.id %></td>
+		<td><%= review.review_body %></td>
+		<td><%= review.rating %></td>
+		<td><%= review.helpfulness %></td>
+		<td><%= review.flag %></td>
+		<td><%= link_to "Delete", user_review_path(review.user_id, review.id), :method => :delete, :confirm => "You sure?" %></td>
+	</tr>
+<% end %>
