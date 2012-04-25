@@ -14,7 +14,7 @@
 	<ul id="admin_users">
 		<h1>All users:</h1>
 		<hr class="admin_ruler"/>
-	<!-- 
+	 
 		<%= form_tag admin_path, :method => 'get' do %>
 		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
 		<%= hidden_field_tag :direction, params[:direction] %>
@@ -24,7 +24,7 @@
     		<%= submit_tag "Search", :name => nil %>
   		</p>
 		<% end %>
-	-->
+	
 		
 		<%= will_paginate @users, :param_name => :users_page %>
     	<%= render @users %>
