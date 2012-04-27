@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    correct_user unless admin?
+    correct_user unless signed_in? && admin?
     @user = User.find(params[:id])
     @title = @user.name
     @reviews = @user.reviews.paginate(:page => params[:page])
