@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_many :reviews,              :dependent => :destroy
   accepts_nested_attributes_for :reviews
   
-  attr_accessor :password, :password_confirmation, :accessible
+  attr_accessor :password, :password_confirmation
   attr_accessible :name, :email, :password, :password_confirmation, :auth_token, :password_reset_token
     
   #ensures that emails follow the pattern of an email.. ie. 'aeggum@wisc.edu'
@@ -99,13 +99,6 @@ class User < ActiveRecord::Base
       Digest::SHA2.hexdigest(string)
     end
     
-    def mass_assignment_authorizer
-      if accessible == :all
-        self.class.protected_attributes
-      else
-        super + (accessible || [])
-      end
-    end
   
   
 end
