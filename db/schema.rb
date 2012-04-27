@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425024824) do
+ActiveRecord::Schema.define(:version => 20120427064458) do
 
   create_table "landlords", :force => true do |t|
     t.string  "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120425024824) do
     t.boolean  "pets"
     t.boolean  "ltype"
     t.integer  "user_id"
+    t.integer  "aptnum"
   end
 
   add_index "lists", ["address"], :name => "index_lists_on_Address"

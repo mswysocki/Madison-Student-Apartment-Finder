@@ -69,11 +69,6 @@ class ListsController < ApplicationController
 
   # POST /lists
   # POST /lists.xml
-  # Works as the create() method from the spec.  Creates a new Listing object 
-  # given the input from the form (on listing/new.html) 
-  # Auto-checks a variety of things, including making sure zip code, address,
-  # rent, and number of rooms are all valid.
-  # Default values for City => "Madison" and State => "Wisconsin"
   def create
     params[:list]["address"] = List.format_address! params[:list]
     @list = List.new(params[:list])
@@ -109,8 +104,6 @@ class ListsController < ApplicationController
       params[:list]["address"] = List.format_address! params[:list]      
     end
     
-    #below is what we want for adminUpdate - free access
-    #restrictions will be mostly on the view side with erb
     
     @list = List.find(params[:id])
     respond_to do |format|
@@ -123,14 +116,14 @@ class ListsController < ApplicationController
         List.transaction do
           @title = "Update Listing"
           if (!@list.valid? && recaptcha_valid?)
-            format.html { render :action => "edit" }
-            format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }   
+            #do nothing, just changed
           else 
             @list.errors.merge!(captcha_error) 
-            format.html { render :action => "edit" }
-            format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
           end
         end
+        
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }   
         
       end
     end
