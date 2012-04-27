@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    correct_user unless admin?
     @user = User.find(params[:id])
     @title = @user.name
     @reviews = @user.reviews.paginate(:page => params[:page])
@@ -27,18 +28,21 @@ class UsersController < ApplicationController
     @lists = List.admin_list_search(params[:admin_ls]).order(sort_column + " " + sort_direction).paginate(:page => params[:lists_page], :per_page => 10)
     @reviews = Review.admin_review_search(params[:admin_rs]).paginate(:page => params[:reviews_page], :per_page => 5)
     #@lists = List.admin_list_search(params[:admin_ls]).paginate(:page => params[:lists_page], :per_page => 5)
-    @admin_name = params[:admin_name]
-    @admin_email = params[:admin_email]
-    @admin_password = params[:admin_password]
-    @admin = User.new(:name => @admin_name, 
-                      :email => @admin_email,
-                      :password => @admin_password, 
-                      :password_confirmation => @admin_password)
+       
+    @admin = User.new
+    @admin.accessible = :all if admin? 
+    @admin.update_attributes(
+                      :name => params[:admin_name],
+                      :email => params[:admin_email],
+                      :password => params[:admin_password], 
+                      :password_confirmation => params[:admin_password],
+                      :admin => true)
+           
      
-    @admin.save
-    if (@admin.errors.size == 0)
-      @admin.toggle!(:admin)
-    end
+    #@admin.save
+    #if (@admin.errors.size == 0)
+    #  @admin.toggle!(:admin)
+    #end
   end
   
   def create
