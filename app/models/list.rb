@@ -78,6 +78,7 @@ class List < ActiveRecord::Base
     self.parking ||= false
     self.heat ||= false
     self.flags ||= 0
+    self.ltype ||= true
   end
   
  

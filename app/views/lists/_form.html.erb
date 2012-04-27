@@ -14,11 +14,20 @@
     	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :address %>  
     	<% else %> <%= f.text_field :address, :disabled => true %> 
     	<% end %>
+    	
+    	<%= f.label :aptnum %><br />
+    	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :aptnum %>  
+    	<% else %> <%= f.text_field :aptnum, :disabled => true %> 
+    	<% end %>
+    	
   </div>
   	<% elsif ((action.eql? "create") || (action.eql? "new")) %>
   <div id="NewAddress" class="field">
   		<%= f.label :address %><br />
   		<%= f.text_field :address %>
+  		
+  		<%= f.label :aptnum, "Apt#" %> <br />
+  		<%= f.text_field :aptnum %>
   </div>
   	<% end %>
   	
@@ -45,6 +54,9 @@
   </div>
 	<% end %>  
   
+  
+  <!-- I don't think we want to show the region on any web stuff. 
+  		Was originally thought of as a helper if we got around to doing maps and stuff -->
   <div id="NewRegion" class="field">
     <%= f.label :region %><br />
     <%= f.text_field :region %>
