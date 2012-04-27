@@ -113,7 +113,6 @@ class ListsController < ApplicationController
     #restrictions will be mostly on the view side with erb
     
     @list = List.find(params[:id])
-
     respond_to do |format|
       if (recaptcha_valid? && @list.valid?)
         @list.update_attributes(params[:list])

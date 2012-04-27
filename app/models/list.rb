@@ -32,41 +32,38 @@
 class List < ActiveRecord::Base
   has_many :reviews,          :dependent => :destroy
   accepts_nested_attributes_for :reviews
-  #attr_accessible :Address, :City, :State, :Zip, :Region, :Bedrooms, 
- #   :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
- #   :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,
- #   :Laundry
- 
+  after_initialize :default_values
+  
   attr_accessible :address, :city, :state, :zip, :region, :bedrooms, :bathrooms, 
     :rent, :squarefeet, :parking, :smoking, :pets, :heat, :electric, :flags, :gas, 
     :garbagecollection, :ltype, :length, :furnished, :laundry
   
- # attr_searchable :Address, :City, :State, :Zip, :Region, :Bedrooms,
- #   :Bathrooms, :Rent, :SquareFeet, :Parking, :Smoking, :Pets, :Heat, 
- #   :Electric, :Flags, :Gas, :GarbageCollection, :Type, :Length, :Furnished,
- #   :Laundry
- 
   attr_searchable :address, :city, :state, :zip, :region, :bedrooms, :bathrooms, 
     :rent, :squarefeet, :parking, :smoking, :pets, :heat, :electric, :flags, :gas, 
     :garbagecollection, :ltype, :length, :furnished, :laundry
   
   #requires that these three are filled in + add some validations
-  validates :address,   :presence => true,
-                        :length   => { :maximum => 50 }, 
-                        :uniqueness => { :case_sensitive => false}
-  validates :bedrooms,  :presence => true,
-                        :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }, 
-                        :numericality => {:gt => 0, :lte => 25}
-  validates :rent,      :presence => true,
-                        :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }, 
-                        :numericality => {:gt => 1, :lt => 25000}
-  validates :zip,       :presence => true,
-						            :numericality => {:gt => 53700, :lt => 53800} #judging by: http://www.zip-codes.com/city/WI-MADISON.asp
+  validates :address,     :presence => true,
+                          :length   => { :maximum => 50 }, 
+                          :uniqueness => { :case_sensitive => false}
+  validates :bedrooms,    :presence => true,
+                          :format => { :with => /^\d+??(?:\.\d{0,2})?$/ },  
+                          :numericality => {:gt => 0, :lte => 25}
+  validates :rent,        :presence => true,
+                          :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }
+  validates :zip,         :presence => true,
+                          :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }
+  
+  validates_inclusion_of  :rent, 
+                          :in => 1..25000, 
+                          :message => "is not valid"
+  validates_inclusion_of  :zip, 
+                          :in => 53700..53800, #judging by: http://www.zip-codes.com/city/WI-MADISON.asp
+                          :message => "must be a Madison zip code" 
   validates :bathrooms, :numericality => {:gt => 0, :lte => 6}
   
   
   #sets default values for the db entry when the listing is initialized
-  after_initialize :default_values
   def default_values
     self.city ||= "Madison"
     self.state ||= "Wisconsin"
