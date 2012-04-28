@@ -5,9 +5,9 @@ class AddUserRelationToReview < ActiveRecord::Migration
 	add_index :reviews, :list_id
   end
 
-  def self.down
+  def self.down	
+  remove_index :reviews, :list_id
 	remove_column :reviews, :user_id
 	remove_column :lists, :user_id, :integer
-	remove_index :reviews, :list_id
-  end
+	end 
 end

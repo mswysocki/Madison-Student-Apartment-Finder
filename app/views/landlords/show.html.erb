@@ -1,0 +1,50 @@
+<section class="User_View">
+	<h1 class="page_header"><%= @landlord.name %></h1>
+	<hr class="generic_header_ruler"/>
+
+	<h3>User ID:  <%= @landlord.id %></h3>
+	
+    <p><em>Name:</em>  <%= @landlord.name %></p>
+    <p><em>Email:</em>  <%= @landlord.email %></p>
+    <p><em>Website: <%= link_to "#{@landlord.website}", @landlord.website %></em></p>
+    
+    <section id="Landlord_Home_View" class="landlord_listing_area" >
+	<h1 class="page_header">Landlord Listings</h1>
+	<hr class="generic_header_ruler">
+	<h1>Below are all of the listings we have from this landlord:</h1>
+	<b>If you can't find yours, please add it, <%= link_to "here", new_listing_path %>.</b>
+
+	<table id="Landlord Listings_Table">   
+
+		
+		<% elementClass = "Table_Element" %>
+
+  		<%= will_paginate @listings %>
+
+		<% @listings.each do |list| %>
+
+	
+
+		<% identifier = "Table_Element_" + list.id.to_s() %>
+		<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
+    		<td class=<%= elementClass%> >
+    			<p class="EntryAddress">
+    				<% if list.ltype %>
+    					<%= list.address %>
+    				<% else %>
+    					<%= list.aptnum %>
+    					<%= list.building_name %>
+    				<% end %>
+    			</p>
+    			<div>
+	    			<p class="EntryZip">Zip Code: <%= list.zip %></p>
+    				<p class="EntryBedBath">Bedrooms: <%= list.bedrooms %>  |  Bathrooms: <%= list.bathrooms %> </p>    			
+    			</div>
+    		</td>
+  		</tr>
+		<% end %>
+
+	</table>
+
+</section>
+</section>

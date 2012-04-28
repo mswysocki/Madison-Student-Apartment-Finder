@@ -8,6 +8,7 @@ MadisonStudentApartmentFinder::Application.routes.draw do
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/admin',   :to => 'users#admin',       :as => :admin
+  match '/landlords', :to => 'landlords#index', :as => :landlord
 
   resources :landlords
   resources :lists do
