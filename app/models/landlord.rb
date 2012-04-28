@@ -36,4 +36,6 @@ class Landlord < ActiveRecord::Base
                           :in => 53700..53800, #judging by: http://www.zip-codes.com/city/WI-MADISON.asp
                           :message => "must be in the Madison-area"
   
+  
+  #TODO: Before saving/creating, I want to format the website so that http:// is at the front, if it's not already
 end
