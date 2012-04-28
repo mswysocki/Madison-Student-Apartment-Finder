@@ -1,6 +1,10 @@
 <tr onclick="location.href='lists/<%= list.id %>'" onmouseover="this.style.cursor='pointer';">
 	<td class="id"><%= list.id %></td>
-	<td><%= list.address %></td>
+	<% if list.ltype %>
+		<td><%= list.address %></td>
+	<% else %>
+	 	<td><%= list.aptnum %> <%= list.building_name %></td>
+	<% end %>
 	<td class="flags"><%= list.flags %></td>
 	<td><%= link_to "Edit", edit_list_path(list) %></td>
 	<td><%= link_to "Delete", list, :method => :delete, :confirm => "You sure?" %></td>
