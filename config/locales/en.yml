@@ -3,3 +3,12 @@
 
 en:
   hello: "Hello world"
+  
+  activerecord:
+    attributes:
+      list:
+        ltype: "The house/apartment button"
+        zip: "The zip code"
+        aptnum: "The apartment number"
+
+

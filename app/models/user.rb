@@ -16,7 +16,7 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :reviews,              :dependent => :destroy
+  has_many :reviews,              :dependent => :delete_all
   accepts_nested_attributes_for :reviews
   
   attr_accessor :password, :password_confirmation

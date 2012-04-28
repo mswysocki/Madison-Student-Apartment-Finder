@@ -5,29 +5,57 @@
 	<% action = params[:action] %>
 	
   <div id="ColumnOne">
+  	<h2>Type of Residence:</h2>
+  	
+  	<div id="NewType">
+  	<div id="NewResidenceType" class="field">
+    <%= f.label :ltype, "Residence Type"%><br />
+    <% if (signed_in? && current_user.admin?) %>
+   	<%= f.radio_button :ltype, true %>House <br /><br />
+    <%= f.radio_button :ltype, false %>Apartment <br />
+    <% else %>
+    <%= f.radio_button :ltype, true, :disabled => true %>House <br /><br />
+    <%= f.radio_button :ltype, false, :disabled => true %>Apartment <br />
+    <% end %>
+  	</div>
+ 	</div>
+  	
+  	
   <h2>Location:</h2>
   <div id="NewLocation">
 	
 	<% if ((action.eql? "edit") || (action.eql? "update")) %>
   <div id="NoEdit_NewAddress" class="field">
-    	<%= f.label :address %><br />
-    	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :address %>  
-    	<% else %> <%= f.text_field :address, :disabled => true %> 
+    	<% if (signed_in? && current_user.admin?) %> 
+    		<%= f.label :address %><br />
+    		<%= f.text_field :address %>
+    		<%= f.label :aptnum %> <br />
+    		<%= f.text_field :aptnum %>
+    		<%= f.label :building_name %> <br />
+    		<%= f.text_field :building_name %>  
+    	
+    	<% else %> 
+    		<%= f.label :address %> <br />
+    		<%= f.text_field :address, :disabled => true %> 
+    		<%= f.label :aptnum %> <br />
+    		<%= f.text_field :aptnum, :disabled => true %>
+    		<%= f.label :building_name %> <br />
+    		<%= f.text_field :building_name, :disabled => true %>
     	<% end %>
     	
-    	<%= f.label :aptnum %><br />
-    	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :aptnum %>  
-    	<% else %> <%= f.text_field :aptnum, :disabled => true %> 
-    	<% end %>
+
     	
   </div>
   	<% elsif ((action.eql? "create") || (action.eql? "new")) %>
   <div id="NewAddress" class="field">
-  		<%= f.label :address %><br />
+  		<%= f.label :address %><br /> 
   		<%= f.text_field :address %>
   		
-  		<%= f.label :aptnum, "Apt#" %> <br />
+  		<%= f.label :aptnum, "Apt. Number" %> <br />
   		<%= f.text_field :aptnum %>
+  		
+  		<%= f.label :building_name, "Building" %> <br />
+  		<%= f.text_field :building_name %>
   </div>
   	<% end %>
   	
@@ -42,14 +70,14 @@
   
   	<% if ((action.eql? "edit") || (action.eql? "update" )) %>
   <div id="NoEdit_NewZip" class="field">
-   	 	<%= f.label :zip %><br />
+   	 	<%= f.label :zip, "Zip Code" %><br />
    	 	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :zip %>
     	<% else %> <%= f.text_field :zip, :disabled => true %>
     	<% end %>
   </div>
   	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
   <div id="NewZip" class="field">
-  		<%= f.label :zip %> <br />
+  		<%= f.label :zip, "Zip Code" %> <br />
   		<%= f.text_field :zip %>
   </div>
 	<% end %>  
@@ -70,17 +98,6 @@
   <div id="NewRent" class="field">
     <%= f.label :rent %><br />
     <%= f.text_field :rent %>
-  </div>
-  </div>
-  
-  
-  <h2>Type of Residence:</h2>
-  <div id="NewType">
-  
-  <div id="NewResidenceType" class="field">
-    <%= f.label :ltype, "Residence Type"%><br />
-   	<%= f.radio_button :ltype, true %>House <br /><br />
-    <%= f.radio_button :ltype, false %>Apartment <br />
   </div>
   </div>
   

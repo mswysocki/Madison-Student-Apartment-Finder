@@ -30,17 +30,17 @@
 #
 
 class List < ActiveRecord::Base
-  has_many :reviews,          :dependent => :destroy
+  has_many :reviews,          :dependent => :delete_all
   accepts_nested_attributes_for :reviews
   after_initialize :default_values
   
   attr_accessible :address, :city, :state, :zip, :region, :bedrooms, :bathrooms, 
     :rent, :squarefeet, :parking, :smoking, :pets, :heat, :electric, :flags, :gas, 
-    :garbagecollection, :ltype, :length, :furnished, :laundry
+    :garbagecollection, :ltype, :length, :furnished, :laundry, :aptnum, :building_name
   
   attr_searchable :address, :city, :state, :zip, :region, :bedrooms, :bathrooms, 
     :rent, :squarefeet, :parking, :smoking, :pets, :heat, :electric, :flags, :gas, 
-    :garbagecollection, :ltype, :length, :furnished, :laundry
+    :garbagecollection, :ltype, :length, :furnished, :laundry, :aptnum, :building_name
   
   #requires that these three are filled in + add some validations
   validates :address,     :presence => true,
@@ -59,8 +59,22 @@ class List < ActiveRecord::Base
                           :message => "is not valid"
   validates_inclusion_of  :zip, 
                           :in => 53700..53800, #judging by: http://www.zip-codes.com/city/WI-MADISON.asp
-                          :message => "must be a Madison zip code" 
-  validates :bathrooms, :numericality => {:gt => 0, :lte => 6}
+                          :message => "must be in the Madison-area" 
+  validates :bathrooms,   :numericality => {:gt => 0, :lte => 6}
+  
+  
+  validates_inclusion_of  :ltype,
+                          :in => [true, false], 
+                          :message => "must be checked"
+                          
+  with_options :if => :apartment? do |apartment|
+    apartment.validates :aptnum,  :presence => true, 
+                                  :numericality => {:gt => 0},
+                                  :format => {:with => /^\d+??(?:\.\d{0,2})?$/ }
+    
+    apartment.validates :building_name, 
+                                  :presence => true
+  end
   
   
   #sets default values for the db entry when the listing is initialized
@@ -78,7 +92,6 @@ class List < ActiveRecord::Base
     self.parking ||= false
     self.heat ||= false
     self.flags ||= 0
-    self.ltype ||= true
   end
   
  
@@ -186,6 +199,9 @@ class List < ActiveRecord::Base
   end
 
 
+  def apartment?
+    ltype == false
+  end
   
 
 end

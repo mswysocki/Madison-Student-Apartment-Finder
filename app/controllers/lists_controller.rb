@@ -15,7 +15,6 @@ class ListsController < ApplicationController
     @search = List.search(params[:search]).paginate(:page => params[:results_page], :per_page => 5)
 
     @lists = @search.all
-    puts @lists
     @no_results = List.no_results(@lists)    
    
     #reset the search parameter
