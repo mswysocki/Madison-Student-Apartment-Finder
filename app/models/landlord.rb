@@ -14,6 +14,7 @@
 #
 
 class Landlord < ActiveRecord::Base
+  has_many :lists
   attr_accessible :name, :email, :website, :phone,
                   :address, :city, :state, :zip
   

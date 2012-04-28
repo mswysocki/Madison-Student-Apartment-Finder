@@ -31,16 +31,27 @@
 
 class List < ActiveRecord::Base
   has_many :reviews,          :dependent => :delete_all
+  belongs_to :landlord
   accepts_nested_attributes_for :reviews
   after_initialize :default_values
   
-  attr_accessible :address, :city, :state, :zip, :region, :bedrooms, :bathrooms, 
-    :rent, :squarefeet, :parking, :smoking, :pets, :heat, :electric, :flags, :gas, 
-    :garbagecollection, :ltype, :length, :furnished, :laundry, :aptnum, :building_name
+  attr_accessible :address,     :city,              :state, 
+                  :zip,         :region,            :bedrooms, 
+                  :bathrooms,   :rent,              :squarefeet, 
+                  :parking,     :smoking,           :pets, 
+                  :heat,        :electric,          :flags, 
+                  :gas,         :garbagecollection, :ltype, 
+                  :length,      :furnished,         :laundry, 
+                  :aptnum,      :building_name,     :landlord_id
   
-  attr_searchable :address, :city, :state, :zip, :region, :bedrooms, :bathrooms, 
-    :rent, :squarefeet, :parking, :smoking, :pets, :heat, :electric, :flags, :gas, 
-    :garbagecollection, :ltype, :length, :furnished, :laundry, :aptnum, :building_name
+  attr_searchable :address,     :city,              :state, 
+                  :zip,         :region,            :bedrooms, 
+                  :bathrooms,   :rent,              :squarefeet,   
+                  :parking,     :smoking,           :pets, 
+                  :heat,        :electric,          :flags, 
+                  :gas,         :garbagecollection, :ltype,
+                  :length,      :furnished,         :laundry, 
+                  :aptnum,      :building_name
   
   #requires that these three are filled in + add some validations
   validates :address,     :presence => true,
