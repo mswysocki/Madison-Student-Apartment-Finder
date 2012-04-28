@@ -36,7 +36,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id]) 
     #current_listing = set_listing(@list)
     @reviews = @list.reviews.paginate(:page => params[:page])
-    @title = @list.address
+    @title = title_helper(@list)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -145,5 +145,12 @@ class ListsController < ApplicationController
  
   private
   
+  def title_helper(list)
+    if list.ltype
+      return list.address
+    else 
+      return "#{@list.aptnum} #{@list.building_name}"
+    end
+  end
  
 end

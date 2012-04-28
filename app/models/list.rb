@@ -45,7 +45,7 @@ class List < ActiveRecord::Base
   #requires that these three are filled in + add some validations
   validates :address,     :presence => true,
                           :length   => { :maximum => 50 }, 
-                          :uniqueness => { :case_sensitive => false}
+                          :uniqueness => { :case_sensitive => false}, :unless => :apartment?
   validates :bedrooms,    :presence => true,
                           :format => { :with => /^\d+??(?:\.\d{0,2})?$/ },  
                           :numericality => {:gt => 0, :lte => 25}
