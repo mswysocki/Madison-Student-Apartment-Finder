@@ -1,0 +1,14 @@
+<tr>
+	<td><%= landlord.name %></td>
+	<td><%= landlord.email %></td>
+	<td><%= link_to "#{landlord.website}", landlord.website %></td>
+	<td><%= landlord.phone %></td>
+	<td><%= landlord.address %></td>
+	<td><%= landlord.city %></td>
+	<td><%= landlord.zip %></td>
+	<td><%= link_to "Landlord Page", landlord, :method => :show %></td>
+	<td><% if admin? %>
+			<%= link_to "delete", landlord, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{landlord.name}" %>
+		<% end %>
+	</td>
+</tr>

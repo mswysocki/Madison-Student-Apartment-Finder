@@ -1,0 +1,24 @@
+<section id="Landlord_View">
+<h1>All Landlords</h1>
+
+<%= will_paginate %>
+
+<ul class="landlords">
+	<table> 
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Website</th>
+			<th>Phone Number</th>
+			<th>Address</th>
+			<th>City</th>
+			<th>Zip</th>	
+			<th></th>
+			<th></th>
+		</tr>
+		<%= render @landlords %>
+    </table>
+</ul>
+
+<%= will_paginate %>
+</section>
