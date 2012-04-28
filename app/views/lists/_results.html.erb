@@ -33,11 +33,16 @@
 		<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
     		<td class=<%= elementClass%> >
     			<p class="EntryAddress">
-    				<%= list.address %>
+    				<% if list.ltype %>
+    					<%= list.address %>
+    				<% else %>
+    					<%= list.aptnum %>
+    					<%= list.building_name %>
+    				<% end %>
     			</p>
     			<div>
 	    			<p class="EntryZip">Zip Code: <%= list.zip %></p>
-    				<p class="EntryBedBath">#Bedrooms: <%= list.bedrooms %>  |  #Bathrooms: <%= list.bathrooms %> </p>    			
+    				<p class="EntryBedBath">Bedrooms: <%= list.bedrooms %>  |  Bathrooms: <%= list.bathrooms %> </p>    			
     			</div>
     		</td>
   		</tr>
