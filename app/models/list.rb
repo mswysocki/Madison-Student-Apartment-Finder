@@ -203,5 +203,6 @@ class List < ActiveRecord::Base
     ltype == false
   end
   
+  
 
 end

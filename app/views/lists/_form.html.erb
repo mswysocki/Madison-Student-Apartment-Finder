@@ -29,17 +29,17 @@
     	<% if (signed_in? && current_user.admin?) %> 
     		<%= f.label :address %><br />
     		<%= f.text_field :address %>
-    		<%= f.label :aptnum %> <br />
+    		<%= f.label :aptnum, "Apt. Number" %> <br />
     		<%= f.text_field :aptnum %>
-    		<%= f.label :building_name %> <br />
+    		<%= f.label :building_name, "Building" %> <br />
     		<%= f.text_field :building_name %>  
     	
     	<% else %> 
     		<%= f.label :address %> <br />
     		<%= f.text_field :address, :disabled => true %> 
-    		<%= f.label :aptnum %> <br />
+    		<%= f.label :aptnum, "Apt. Number" %> <br />
     		<%= f.text_field :aptnum, :disabled => true %>
-    		<%= f.label :building_name %> <br />
+    		<%= f.label :building_name, "Building" %> <br />
     		<%= f.text_field :building_name, :disabled => true %>
     	<% end %>
     	
