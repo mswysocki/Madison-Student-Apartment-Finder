@@ -37,6 +37,13 @@
 				<%= f.label :address_contains, "Address" %><br />
 				<%= f.text_field :address_contains, :class => "ADDRESSSearchBarInputField" %>
 				</div>
+				
+				<!-- NOTE: I hacked the building name search to be right here. 
+						Feel free to move it anywhere. -->
+				<div class="CustomTextFieldWidth">
+				<%= f.label :building_name_contains, "Building" %><br />
+				<%= f.text_field :building_name_contains, :class => "ADDRESSSearchBarInputField" %>
+				</div>
 			</div>
 		</div><!-- End Location -->
 
