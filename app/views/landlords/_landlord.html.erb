@@ -6,7 +6,7 @@
 	<td><%= landlord.address %></td>
 	<td><%= landlord.city %></td>
 	<td><%= landlord.zip %></td>
-	<td><%= link_to landlord.name, landlord %></td>
+	<td><%= link_to landlord.name, "#{landlord_path}/#{landlord.id}" %></td>
 	<td><% if admin? %>
 			<%= link_to "delete", landlord, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{landlord.name}" %>
 		<% end %>
