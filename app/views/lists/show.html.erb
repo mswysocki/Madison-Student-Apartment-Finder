@@ -7,7 +7,11 @@
 <div class="divider"></div>
 <section id="Listing_View">
 
+<% if @list.ltype %>
 <h1><%= @list.address %></h1>
+<% else %>
+<h1><%= @list.building_name %></h1>
+<% end %>
 
 <hr id="Listing_View_Bar"/>
 
@@ -20,6 +24,9 @@
 	<b><em>City:</em></b>  <%= @list.city %><br />
 	<b><em>State:</em></b>  <%= @list.state %><br />
 	<b><em>Zip:</em></b>  <%= @list.zip %><br />
+	<% if !@list.ltype %> 
+	<b><em>Apartment Number:</em></b> <%= @list.aptnum %><br />
+	<% end %>
 
 </div>
 
