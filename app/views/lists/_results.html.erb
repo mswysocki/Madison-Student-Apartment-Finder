@@ -47,7 +47,7 @@
     					<% landlord = get_landlord(list.landlord_id) %>
     					<%= landlord.name %> |
     					<%= landlord.email %> |
-    					<%= landlord.phone %>
+    					<%= ActionController::Base.helpers.number_to_phone(landlord.phone) %>
     					<% else %>
     					Not available yet.
     					<% end %>
