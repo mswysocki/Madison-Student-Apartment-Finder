@@ -21,7 +21,7 @@ class LandlordsController < ApplicationController
     @landlord = Landlord.new(params[:landlord])
     if @landlord.save
       flash[:success] = "Landlord created."
-      redirect_to landlord_path
+      redirect_to all_landlords_path
     else
       @title = "New Landlord"
       render 'new'
