@@ -19,6 +19,7 @@ class Landlord < ActiveRecord::Base
                   :address, :city, :state, :zip
   before_create     :format_website
   before_validation :format_phone
+  after_initialize  :default_values
   
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -40,6 +41,10 @@ class Landlord < ActiveRecord::Base
   
   
   private 
+    def default_values
+      self.state = "Wisconsin"
+    end
+    
     def format_website
       if self.website.start_with?("http://") 
         self.website
@@ -47,6 +52,8 @@ class Landlord < ActiveRecord::Base
         self.website = self.website.insert(0, "http://")
       end
     end
+    
+    
     
     def format_phone
       self.phone = self.phone.gsub(/\D/, '')
