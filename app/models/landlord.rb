@@ -38,6 +38,8 @@ class Landlord < ActiveRecord::Base
   validates_inclusion_of  :zip, 
                           :in => 53700..53800, #judging by: http://www.zip-codes.com/city/WI-MADISON.asp
                           :message => "must be in the Madison-area"
+  validates_length_of :phone,       
+                          :in => 7..10
   
   
   private 
