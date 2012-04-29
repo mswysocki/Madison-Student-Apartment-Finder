@@ -94,6 +94,12 @@
 				<%= f.text_field :squarefeet_gte, :class => "ATLEASTSearchBarInputField" %><br />
 				<%= f.label      :squarefeet_gte, "square feet"%>
 				</div>
+				
+				<div class="Landlord_search">
+				<%= f.label :landlord_name, "Landlord" %><br />
+
+				<%= f.collection_select :landlord_id_eq, Landlord.all, :id, :name, :include_blank => true %>
+				</div>
 				</div>
 			</div>
 		</div><!-- End ResDetails -->
