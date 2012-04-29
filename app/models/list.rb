@@ -27,6 +27,9 @@
 #  pets              :boolean
 #  ltype             :boolean
 #  user_id           :integer
+#  aptnum            :integer
+#  building_name     :string(255)
+#  landlord_id       :integer
 #
 
 class List < ActiveRecord::Base
