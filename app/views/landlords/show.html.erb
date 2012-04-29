@@ -34,15 +34,6 @@
     					<%= list.building_name %>
     				<% end %>
     			</p>
-    			<div class="landlord_results_box">
-    				<p>
-    					<b>Landlord Info</b>: 
-    					<%= @landlord.name %> |
-    					<%= @landlord.email %> |
-    					<%= ActionController::Base.helpers.number_to_phone(@landlord.phone) %>
-    				</p>
-    		
-    			</div>
     			<div>
 	    			<p class="EntryZip">Zip Code: <%= list.zip %></p>
     				<p class="EntryBedBath">Bedrooms: <%= list.bedrooms %>  |  Bathrooms: <%= list.bathrooms %> </p>    			
