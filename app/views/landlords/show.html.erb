@@ -1,8 +1,6 @@
 <section class="User_View">
 	<h1 class="page_header"><%= @landlord.name %></h1>
 	<hr class="generic_header_ruler"/>
-
-	<h3>User ID:  <%= @landlord.id %></h3>
 	
     <p><em>Name:</em>  <%= @landlord.name %></p>
     <p><em>Email:</em>  <%= @landlord.email %></p>
@@ -36,15 +34,6 @@
     					<%= list.building_name %>
     				<% end %>
     			</p>
-    			<div class="landlord_results_box">
-    				<p>
-    					<b>Landlord Info</b>: 
-    					<%= @landlord.name %> |
-    					<%= @landlord.email %> |
-    					<%= @landlord.phone %>
-    				</p>
-    		
-    			</div>
     			<div>
 	    			<p class="EntryZip">Zip Code: <%= list.zip %></p>
     				<p class="EntryBedBath">Bedrooms: <%= list.bedrooms %>  |  Bathrooms: <%= list.bathrooms %> </p>    			

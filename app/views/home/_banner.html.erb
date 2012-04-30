@@ -64,7 +64,7 @@
 			<%= link_to 'Add a Listing', new_listing_path, :id => "AddListingLink", :class => "navLink" %>
 		</li>
 		<li class="navButton">
-			<%= link_to 'Landlord Info', landlord_path, :id => "LandlordLink", :class => "navLink" %>
+			<%= link_to 'Landlord Info', all_landlords_path, :id => "LandlordLink", :class => "navLink" %>
 		</li>
     	<% if signed_in? && current_user.admin? %>
 			<li class="navButton">

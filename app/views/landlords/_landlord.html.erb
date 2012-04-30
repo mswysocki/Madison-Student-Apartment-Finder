@@ -2,11 +2,11 @@
 	<td><%= landlord.name %></td>
 	<td><%= landlord.email %></td>
 	<td><%= link_to "#{landlord.website}", "#{landlord.website}" %></td> <!-- NOTE: Right now, requiring that website has http:// in the front of it.-->
-	<td><%= landlord.phone %></td>
+	<td><%= ActionController::Base.helpers.number_to_phone(landlord.phone) %></td>
 	<td><%= landlord.address %></td>
 	<td><%= landlord.city %></td>
 	<td><%= landlord.zip %></td>
-	<td><%= link_to landlord.name, "#{landlord_path}/#{landlord.id}" %></td>
+	<td><%= link_to landlord.name, landlord_path(landlord.id) %></td>
 	<td><% if admin? %>
 			<%= link_to "delete", landlord, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{landlord.name}" %>
 		<% end %>

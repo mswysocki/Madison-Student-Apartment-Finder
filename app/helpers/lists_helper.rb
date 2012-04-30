@@ -11,6 +11,11 @@ module ListsHelper
   end
   
   
+  def get_landlord(landlord_id) 
+    return Landlord.find(landlord_id)
+  end
+  
+  
   #increments the count of the 'flag' counter of a given list.
   #BUG: Currently, it updates after a page load, which can be kind of annoying..this means that it needs to stay away from the regular users
   def increment_flag list

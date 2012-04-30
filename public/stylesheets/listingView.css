@@ -127,3 +127,12 @@
 	margin: 10px;
 	padding: 20px 20px 40px 20px;
 }
+
+#Landlord_info 
+{
+	background-color: #50300f;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	margin: 10px;
+	padding: 5px 5px 10px 5px;
+}

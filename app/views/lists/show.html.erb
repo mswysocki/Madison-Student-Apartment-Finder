@@ -1,8 +1,4 @@
-<html>
 
-	<%= stylesheet_link_tag 'listingForm' %>
-
-<body>
 <div id="notice"><%= notice %></div>
 <div class="divider"></div>
 <section id="Listing_View">
@@ -67,6 +63,17 @@
 
 
 <div id="ColumnTwo">
+<div id="Landlord_info">
+<h2>Landlord Information:</h2>
+	<% unless @list.landlord_id.nil? %> 
+    <% landlord = get_landlord(@list.landlord_id) %>
+    <%= landlord.name %><br />
+   	<%= landlord.email %><br />
+    <%= ActionController::Base.helpers.number_to_phone(landlord.phone) %><br />
+    <% else %>
+    Not available yet.
+    <% end %>
+</div>
 <h2 id="UtilsLabel">Utilities:</h2>
 <div id="ShowUtils">
 
@@ -156,6 +163,3 @@
       <% end %>
 </section>
 </section>
-
-</body>
-</html>

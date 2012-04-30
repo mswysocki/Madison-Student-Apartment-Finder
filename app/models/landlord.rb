@@ -17,6 +17,9 @@ class Landlord < ActiveRecord::Base
   has_many :lists
   attr_accessible :name, :email, :website, :phone,
                   :address, :city, :state, :zip
+  before_create     :format_website
+  before_validation :format_phone
+  after_initialize  :default_values
   
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -35,7 +38,27 @@ class Landlord < ActiveRecord::Base
   validates_inclusion_of  :zip, 
                           :in => 53700..53800, #judging by: http://www.zip-codes.com/city/WI-MADISON.asp
                           :message => "must be in the Madison-area"
+  validates_length_of :phone,       
+                          :in => 7..10
   
   
-  #TODO: Before saving/creating, I want to format the website so that http:// is at the front, if it's not already
+  private 
+    def default_values
+      self.state = "Wisconsin"
+    end
+    
+    def format_website
+      if self.website.start_with?("http://") 
+        self.website
+      else
+        self.website = self.website.insert(0, "http://")
+      end
+    end
+    
+    
+    
+    def format_phone
+      self.phone = self.phone.gsub(/\D/, '')
+    end
+    
 end
