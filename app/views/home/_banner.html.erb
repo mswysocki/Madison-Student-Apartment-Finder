@@ -50,7 +50,7 @@
             	</ul>
           	</div>
           <% else %>
-            <div class="form-inline pull-right">
+            <div class="form-inline pull-right" style="margin-top: 10px">
           	  <%= form_for(:session, :url => sessions_path) do |f| %>
 				<!-- these labels are "checkbox" just to get them centered vertically -->
 				<label class="checkbox"><%= link_to "Sign up!", signup_path, :style => "padding-right: 5px" %></label>
@@ -61,7 +61,7 @@
   				<label class="checkbox" style="color: #eee">
   				<%= check_box_tag :remember_me, 1, params[:remember_me] %> Remember me
   				</label>
- 				<%= f.submit "Sign In", :type => "submit", :class => "btn" %>
+ 				<%= f.submit "Sign In", :type => "submit", :class => "btn", :style => "margin: 0px" %>
 			  <% end %><!--./form -->
 			</div><!--./form-inline -->
           <% end %><!--./else -->
