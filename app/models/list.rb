@@ -34,6 +34,7 @@ class List < ActiveRecord::Base
   belongs_to :landlord
   accepts_nested_attributes_for :reviews
   after_initialize :default_values
+  has_attached_file :photo, styles => { :small => "150x150>"}
   
   attr_accessible :address,     :city,              :state, 
                   :zip,         :region,            :bedrooms, 
@@ -42,7 +43,8 @@ class List < ActiveRecord::Base
                   :heat,        :electric,          :flags, 
                   :gas,         :garbagecollection, :ltype, 
                   :length,      :furnished,         :laundry, 
-                  :aptnum,      :building_name,     :landlord_id
+                  :aptnum,      :building_name,     :landlord_id,
+				  :photo
   
   attr_searchable :address,     :city,              :state, 
                   :zip,         :region,            :bedrooms, 
@@ -77,6 +79,10 @@ class List < ActiveRecord::Base
   validates_inclusion_of  :ltype,
                           :in => [true, false], 
                           :message => "must be checked"
+						  
+  #validates_attachment_presence :photo
+  #validates_attachment_size :photo, :less_than => 1.megabytes
+  #validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
                           
   with_options :if => :apartment? do |apartment|
     apartment.validates :aptnum,  :presence => true, 

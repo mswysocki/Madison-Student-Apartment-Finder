@@ -27,6 +27,8 @@ gem "meta_search"     #, :git => "git://github.com/ernie/meta_search.git" # Trac
 gem 'will_paginate'   #may need to be used for easy pagination 
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
 gem 'simplecov', :require => false, :group => :test
+gem 'paperclip', "~> 2.0"
+# gem 'rmagick', "~> 2.12.0"
 
 #gem 'rakismet'  ...tried akismet..and failed.  May try again later
 
