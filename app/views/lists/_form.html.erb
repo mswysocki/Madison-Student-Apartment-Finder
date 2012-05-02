@@ -9,14 +9,19 @@
   	
   	<div id="NewType">
   	<div id="NewResidenceType" class="field">
-    <%= f.label :ltype, "Residence Type"%><br />
-    <% if (signed_in? && current_user.admin?) %>
-   	<%= f.radio_button :ltype, true %>House <br /><br />
-    <%= f.radio_button :ltype, false %>Apartment <br />
-    <% else %>
-    <%= f.radio_button :ltype, true, :disabled => true %>House <br /><br />
-    <%= f.radio_button :ltype, false, :disabled => true %>Apartment <br />
-    <% end %>
+  	<%= f.label :ltype, "Residence Type"%><br />
+  	<% if ((action.eql? "edit") || (action.eql? "update")) %>
+	    <% if (signed_in? && current_user.admin?) %>
+	   	<%= f.radio_button :ltype, true %>House <br /><br />
+	    <%= f.radio_button :ltype, false %>Apartment <br />
+	    <% else %>
+	    <%= f.radio_button :ltype, true, :disabled => true %>House <br /><br />
+	    <%= f.radio_button :ltype, false, :disabled => true %>Apartment <br />
+	    <% end %>
+	<% elsif ((action.eql? "new") || (action.eql? "create")) %>
+		<%= f.radio_button :ltype, true %>House <br /><br />
+	    <%= f.radio_button :ltype, false %>Apartment <br />
+	<% end %>
   	</div>
  	</div>
   	
