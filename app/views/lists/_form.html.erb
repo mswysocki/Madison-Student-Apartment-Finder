@@ -1,6 +1,6 @@
 <div id="NewListingForm">
 
-<%= form_for(@list) do |f| %>
+<%= form_for(@list, :html => {:multipart => true}) do |f| %>
  	<%= render 'shared/error_messages', :object => f.object %>
 	<% action = params[:action] %>
 	
@@ -197,7 +197,14 @@
   </div>
   </div>
   
+  <div id="images_uploading" class="field">
+  	<%= f.file_field :image %>
   
+  <p>
+  	<%= f.label :remote_image_url, "or image URL" %><br />
+  	<%= f.text_field :remote_image_url %>
+  </p>
+  </div>
   <% if signed_in? && current_user.admin? %>
   	<div id="Admin_Flags" class="field">
    		<%= f.label :flags %><br />
