@@ -12,8 +12,15 @@
 
 <hr id="Listing_View_Bar"/>
 
-<section id="ListingInfo">
+<% unless @list.image_url.nil? %>
+<section id="ImageArea">
+	<div class="image">
+	<%= image_tag @list.image_url(:show_page).to_s, :class => "show_image" %>
+	</div>
+</section>
+<% end %>
 
+<section id="ListingInfo">
 <div id="ColumnOne">
 <h2 id="LocationLabel">Location:</h2>
 <div id="ShowLocation">
