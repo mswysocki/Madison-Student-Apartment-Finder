@@ -37,7 +37,8 @@ class List < ActiveRecord::Base
   belongs_to :landlord
   accepts_nested_attributes_for :reviews
   after_initialize :default_values
-  has_attached_file :photo, styles => { :small => "150x150>"}
+  mount_uploader :image, ImageUploader
+  #has_attached_file :photo, styles => { :small => "150x150>"}
   
   attr_accessible :address,     :city,              :state, 
                   :zip,         :region,            :bedrooms, 
@@ -47,7 +48,7 @@ class List < ActiveRecord::Base
                   :gas,         :garbagecollection, :ltype, 
                   :length,      :furnished,         :laundry, 
                   :aptnum,      :building_name,     :landlord_id,
-				  :photo
+				          :image,       :remote_image_url
                   
   attr_accessor   :landlord_name
   
