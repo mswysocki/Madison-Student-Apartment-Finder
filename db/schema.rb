@@ -51,10 +51,7 @@ ActiveRecord::Schema.define(:version => 20120430022032) do
     t.integer  "aptnum"
     t.string   "building_name"
     t.integer  "landlord_id"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
+    t.string   "image"
   end
 
   add_index "lists", ["address"], :name => "index_lists_on_Address"
@@ -91,6 +88,6 @@ ActiveRecord::Schema.define(:version => 20120430022032) do
   end
 
   add_index "users", ["auth_token"], :name => "index_users_on_auth_token"
-  add_index "users", ["email"], :name => "index_users_on_Email", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
