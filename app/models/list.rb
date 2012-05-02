@@ -81,6 +81,17 @@ class List < ActiveRecord::Base
                           :message => "must be in the Madison-area" 
   validates :bathrooms,   :numericality => {:gt => 0, :lte => 6}
   
+  with_options :if => :sqft_valid? do |sqft|
+    sqft.validates_inclusion_of     :squarefeet,
+                                    :in => 0..25000,
+                                    :message => "is out of range"
+  end  
+  
+  with_options :if => :region_valid? do |region|
+    region.validates_inclusion_of   :region,
+                                    :in => 0..5, 
+                                    :message => "is out of range"
+  end
   
   validates_inclusion_of  :ltype,
                           :in => [true, false], 
@@ -224,6 +235,15 @@ class List < ActiveRecord::Base
     ltype == false
   end
   
+  def sqft_valid?
+    puts squarefeet.presence == nil
+    squarefeet.presence
+  end
+  
+  def region_valid?
+    puts region.presence == nil
+    region.presence
+  end
   
 
 end
