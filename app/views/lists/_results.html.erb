@@ -32,6 +32,13 @@
 		<% identifier = "Table_Element_" + list.id.to_s() %>
 		<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
     		<td class=<%= elementClass%> >
+    			<div class="image_results">
+    				<% unless list.image_url.nil? %>
+						<%= image_tag list.image_url(:thumb).to_s, :class => "show_image" %>
+					<% else %>
+						<%= image_tag "no_image_placeholder.jpg", :class => "placeholder_thumb" %>
+					<% end %>
+				</div>
     			<p class="EntryAddress">
     				<% if list.ltype %>
     					<%= list.address %>
