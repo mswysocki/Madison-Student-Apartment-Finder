@@ -40,7 +40,7 @@ class List < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   
   validates :image, 
-    :presence => true, 
+    #:presence => true, 
     :file_size => { 
       :maximum => 0.25.megabytes.to_i 
     } 
