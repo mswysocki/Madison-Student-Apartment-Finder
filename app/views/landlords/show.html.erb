@@ -12,20 +12,25 @@
 	<h1>Below are all of the listings we have from this landlord:</h1>
 	<b>If you can't find yours, please add it, <%= link_to "here", new_listing_path %>.</b>
 
-	<table id="Landlord Listings_Table">   
+	
+	
+	<table id="Search_Results_Table">   
 
-		
 		<% elementClass = "Table_Element" %>
 
-  		<%= will_paginate @listings %>
 
-		<% @listings.each do |list| %>
-
-	
+		<% @lists.each do |list| %>
 
 		<% identifier = "Table_Element_" + list.id.to_s() %>
 		<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
     		<td class=<%= elementClass%> >
+    			<div class="image_results">
+    				<% unless list.image_url.nil? %>
+						<%= image_tag list.image_url(:thumb).to_s, :class => "show_image" %>
+					<% else %>
+						<%= image_tag "no_image_placeholder.jpg", :class => "placeholder_thumb" %>
+					<% end %>
+				</div>
     			<p class="EntryAddress">
     				<% if list.ltype %>
     					<%= list.address %>
@@ -34,6 +39,7 @@
     					<%= list.building_name %>
     				<% end %>
     			</p>
+    			
     			<div>
 	    			<p class="EntryZip">Zip Code: <%= list.zip %></p>
     				<p class="EntryBedBath">Bedrooms: <%= list.bedrooms %>  |  Bathrooms: <%= list.bathrooms %> </p>    			
@@ -43,6 +49,7 @@
 		<% end %>
 
 	</table>
+
 
 </section>
 </section>
