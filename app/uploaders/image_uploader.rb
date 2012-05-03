@@ -16,11 +16,18 @@ class ImageUploader < CarrierWave::Uploader::Base
     storage :fog
   end
 
+  
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+  
+  #unless Rails.env.production?
+  #  def store_dir
+  #    "public/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  #  end
+  #end
   
   if Rails.env.production?
     #Needed to work on Heroku
@@ -40,7 +47,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #Above is too large, ... may look into later.
 
   #uploaded images will be scaled to be no larger than this
-  process :resize_to_limit => [1000, 1000]  
+  #process :resize_to_limit => [1000, 1000]  
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
