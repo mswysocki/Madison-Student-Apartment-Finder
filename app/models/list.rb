@@ -31,14 +31,19 @@
 #  building_name     :string(255)
 #  landlord_id       :integer
 #
-
+require 'file_size_validator' 
 class List < ActiveRecord::Base
   has_many :reviews,          :dependent => :delete_all
   belongs_to :landlord
   accepts_nested_attributes_for :reviews
   after_initialize :default_values
   mount_uploader :image, ImageUploader
-  #has_attached_file :photo, styles => { :small => "150x150>"}
+  
+  validates :image, 
+    :presence => true, 
+    :file_size => { 
+      :maximum => 0.25.megabytes.to_i 
+    } 
   
   attr_accessible :address,     :city,              :state, 
                   :zip,         :region,            :bedrooms, 
@@ -61,7 +66,6 @@ class List < ActiveRecord::Base
                   :length,      :furnished,         :laundry, 
                   :aptnum,      :building_name
   
-  #requires that these three are filled in + add some validations
   validates :address,     :presence => true,
                           :length   => { :maximum => 50 }, 
                           :uniqueness => { :case_sensitive => false}, :unless => :apartment?
@@ -110,6 +114,8 @@ class List < ActiveRecord::Base
                                   :presence => true
   end
   
+  
+
  
   def default_values
     self.city ||= "Madison"
