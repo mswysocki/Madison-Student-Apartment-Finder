@@ -37,6 +37,12 @@ describe ReviewsController do
           post :create, :review => @attr, :list_id => @listing.id
         end.should_not change(Review, :count)
       end
+      
+      it "should not create a review without a rating" do
+        lambda do
+          post :create, :review => @attr, :list_id => @listing.id
+        end.should_not change(Review, :count)
+      end
 
       it "should render the home page" do
         post :create, :review => @attr, :list_id => @listing.id
@@ -47,7 +53,10 @@ describe ReviewsController do
     describe "success" do
 
       before(:each) do
-        @attr = { :review_body => "Lorem ipsum" }
+        @attr = { 
+          :review_body => "Lorem ipsum",
+          :rating => 4.0 
+        }
       end
 
       it "should create a review" do
