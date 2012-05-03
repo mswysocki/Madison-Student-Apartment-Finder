@@ -52,7 +52,7 @@ Factory.define :landlord do |landlord|
   landlord.city                 "Madison"
   landlord.state                "Wisconsin"
   landlord.address              "18 Lathrop St."
-  landlord.zip                  "53726"
+  landlord.zip                  53726
 end 
 
 Factory.define :list1 do |list| 
