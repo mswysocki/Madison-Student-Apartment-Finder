@@ -39,6 +39,9 @@ Factory.define :list do |list|
   list.bedrooms                   5
   list.pets                       nil
   list.ltype                      true
+  list.aptnum                     nil
+  list.building_name              nil
+  list.landlord_id                nil
 end
 
 Factory.define :landlord do |landlord| 
