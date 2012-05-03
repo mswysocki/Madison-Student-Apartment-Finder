@@ -41,6 +41,17 @@ Factory.define :list do |list|
   list.ltype                      true
 end
 
+Factory.define :landlord do |landlord| 
+  landlord.name                 "Sample Landlord"
+  landlord.email                "landlord@email.com"
+  landlord.website              "www.google.com"
+  landlord.phone                "6087903333"
+  landlord.city                 "Madison"
+  landlord.state                "Wisconsin"
+  landlord.address              "18 Lathrop St."
+  landlord.zip                  "53726"
+end 
+
 Factory.define :list1 do |list| 
   list.address                    "Sample Default Address"
   list.city                       "Madison"
