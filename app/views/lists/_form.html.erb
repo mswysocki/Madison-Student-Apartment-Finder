@@ -13,8 +13,7 @@
   	<% if ((action.eql? "edit") || (action.eql? "update")) %>
 	    <% if (signed_in? && current_user.admin?) %>
 	   	<%= f.radio_button :ltype, true %>House <br /><br />
-	    <%= f.radio_button :ltype, false %>Apartment <br />
-	    <% else %>
+	    <%= f.radio_button :ltype, false %>Apartment <br />	    <% else %>
 	    <%= f.radio_button :ltype, true, :disabled => true %>House <br /><br />
 	    <%= f.radio_button :ltype, false, :disabled => true %>Apartment <br />
 	    <% end %>
@@ -104,9 +103,9 @@
     <%= f.label :rent %><br />
     <%= f.text_field :rent %>
   </div>
-  </div>
-  
-  
+   
+  </div> 
+ 
   <h2>Residence Details:</h2>
   <div id="NewResDetails">
   
@@ -201,6 +200,13 @@
     <%= f.check_box :pets %>Pets Allowed <br />
   </div>
   </div>
+  
+  <h2>Landlord:</h2>
+  <div id="NewLandlordInfo">
+  <div id="NewLandlord" class="field">
+  	<%= f.collection_select :landlord_id, Landlord.all, :id, :name, :include_blank => true %>
+  </div>
+  </div>	
   
   <div id="images_uploading" class="field">
   	<%= image_tag(@list.image_url(:thumb)) if @list.image? %>
