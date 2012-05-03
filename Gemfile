@@ -23,12 +23,13 @@ group :test do
 end
 
 
-gem "meta_search"     #, :git => "git://github.com/ernie/meta_search.git" # Track git repo
-gem 'will_paginate'   #may need to be used for easy pagination 
+gem "meta_search"     
+gem 'will_paginate'  
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
 gem 'simplecov', :require => false, :group => :test
-gem 'carrierwave'
-gem 'rmagick'
+gem 'carrierwave'                         
+gem 'rmagick'                             
+gem 'fog'                                 
 #gem 'paperclip', "~> 2.0"
 
 # gem 'rmagick', "~> 2.12.0"
