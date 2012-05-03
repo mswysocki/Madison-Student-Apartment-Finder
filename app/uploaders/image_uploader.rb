@@ -22,6 +22,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
   
+  if Rails.env.production?
+    #Needed to work on Heroku
+    def cache_dir
+      "#{Rails.root}/tmp/uploads"
+    end
+  end
   #white list - only images are allowed
   def extension_white_list
     %w(jpg jpeg gif png) #gif ...
