@@ -30,7 +30,6 @@ class ReviewsController < ApplicationController
       redirect_to @listing
     else 
       flash[:error] = "The review could not be created because there were some errors.........."
-      puts @review.errors
       redirect_to @listing
       #render 'lists/1/show'
     end

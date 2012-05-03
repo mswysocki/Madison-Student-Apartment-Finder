@@ -38,7 +38,7 @@ Factory.define :list do |list|
   list.parking                    nil
   list.bedrooms                   5
   list.pets                       nil
-  list.ltype                      nil
+  list.ltype                      true
 end
 
 Factory.define :list1 do |list| 
