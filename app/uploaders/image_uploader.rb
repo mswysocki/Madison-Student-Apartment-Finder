@@ -1,13 +1,16 @@
 # encoding: utf-8
+require 'carrierwave/processing/mime_types'
+
 
 class ImageUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MimeTypes
+
+  process :set_content_type
 
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.development? 
+  if Rails.env.development? || Rails.env.test?
     storage :file
   else
     storage :fog
@@ -18,11 +21,20 @@ class ImageUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+  
+  #white list - only images are allowed
+  def extension_white_list
+    %w(jpg jpeg gif png) #gif ...
+  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+      #def default_url
+      #  "no_image_placeholder.jpg"
+      #end
+  #Above is too large, ... may look into later.
+
+  #uploaded images will be scaled to be no larger than this
+  process :resize_to_limit => [1000, 1000]  
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -33,16 +45,19 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_limit => [75, 75]
+    process :resize_to_limit => [100, 100]
   end
   
   version :show_page do
     process :resize_to_limit => [250, 250]
   end
   
-  def cache_dir
-    "#{Rails.root}/tmp/uploads"
+  #here we create a version from another version (saves time, processing)
+  version :small_thumb, :from_version => :thumb do
+    process :resize_to_limit => [20, 20]
   end
+  
+  
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

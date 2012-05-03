@@ -203,12 +203,15 @@
   </div>
   
   <div id="images_uploading" class="field">
+  	<%= image_tag(@list.image_url(:thumb)) if @list.image? %>
   	<%= f.file_field :image %>
+  	<%= f.hidden_field :image_cache %>
   
   <p>
   	<%= f.label :remote_image_url, "or image URL" %><br />
   	<%= f.text_field :remote_image_url %>
   </p>
+  
   </div>
   <% if signed_in? && current_user.admin? %>
   	<div id="Admin_Flags" class="field">
