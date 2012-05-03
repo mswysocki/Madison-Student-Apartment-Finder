@@ -236,12 +236,10 @@ class List < ActiveRecord::Base
   end
   
   def sqft_valid?
-    puts squarefeet.presence == nil
     squarefeet.presence
   end
   
   def region_valid?
-    puts region.presence == nil
     region.presence
   end
   
