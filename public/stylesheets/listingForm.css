@@ -80,7 +80,7 @@
 }
 
 #NewLocation, #NewPrice, #NewType, #NewResDetails, #NewLeaseDetails,
-#NewUtils, #NewAccommodations, #NewRestrictions
+#NewUtils, #NewAccommodations, #NewRestrictions, #NewLandlordInfo
 {
 	display: block;
 	border: 1px solid;

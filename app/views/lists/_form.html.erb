@@ -5,6 +5,22 @@
 	<% action = params[:action] %>
 	
   <div id="ColumnOne">
+  	
+  	
+  <h2>Landlord:</h2>
+  <div id="NewLandlordInfo">
+  <div id="NewLandlord" class="field">
+  	<%= f.label :ltype, "Landlord Name"%><br />
+  	<%= f.collection_select :landlord_id, Landlord.all, :id, :name, :include_blank => true %>
+  </div>
+  
+  <div>
+  	<%= link_to 'If you dont see your Landlord Listed, Click here', new_landlord_path%>
+  </div>
+  
+  </div>
+  
+  	
   	<h2>Type of Residence:</h2>
   	
   	<div id="NewType">
@@ -143,7 +159,10 @@
   </div>
   </div>
   
+  </div>
   
+  <div id="ColumnTwo">
+  	
   <h2>Lease Length:</h2>
   <div id="NewLeaseDetails">
   
@@ -153,10 +172,8 @@
     <%= f.radio_button :length, 9 %>9 Months<br /><br />
     <%= f.radio_button :length, 12 %>12 Months
   </div>
-  </div>
-  </div>
-  
-  <div id="ColumnTwo">
+  </div>	
+  	
   <h2>Utilities:</h2>
   <div id="NewUtils">
   
@@ -201,12 +218,6 @@
   </div>
   </div>
   
-  <h2>Landlord:</h2>
-  <div id="NewLandlordInfo">
-  <div id="NewLandlord" class="field">
-  	<%= f.collection_select :landlord_id, Landlord.all, :id, :name, :include_blank => true %>
-  </div>
-  </div>	
   
   <div id="images_uploading" class="field">
   	<%= image_tag(@list.image_url(:thumb)) if @list.image? %>
