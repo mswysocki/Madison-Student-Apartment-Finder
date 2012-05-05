@@ -13,9 +13,6 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
     </style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -24,13 +21,12 @@
     <![endif]-->
   </head>
 
-<<<<<<< HEAD
   <body>
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target="#banner-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -50,34 +46,35 @@
               		<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
             	</ul>
           	</div>
-          <% else %>
-            <div class="form-inline pull-right" style="margin-top: 10px">
-          	  <%= form_for(:session, :url => sessions_path) do |f| %>
-				<!-- these labels are "checkbox" just to get them centered vertically -->
-				<label class="checkbox"><%= link_to "Sign up!", signup_path, :style => "padding-right: 5px" %></label>
-	    		<label class="checkbox"><%= link_to "Forgot password?", new_password_reset_path, :style => "padding-right: 5px" %></label>
-	    		<%= f.text_field :email, :type => "text", :class => "input-medium", :placeholder => "Email" %>
-	    		<%= f.password_field :password, :type => "password", :class => "input-small", :placeholder => "Password" %>
-				<% params[:remember_me] = false %>
-  				<label class="checkbox" style="color: #eee">
-  				<%= check_box_tag :remember_me, 1, params[:remember_me] %> Remember me
-  				</label>
- 				<%= f.submit "Sign In", :type => "submit", :class => "btn", :style => "margin: 0px" %>
-			  <% end %><!--./form -->
-			</div><!--./form-inline -->
-          <% end %><!--./else -->
-          <div class="nav-collapse">
+          <% end %>
+          <div id="banner-collapse" class="nav-collapse">
             <ul class="nav">
               <li class="active"><%= link_to 'Home', home_page_path %></li>
               <li><%= link_to 'Add a Listing', new_listing_path %></li>
-              <li><%= link_to 'Landlord Info', landlord_path %></li>
+              <li><%= link_to 'Landlord Info', all_landlords_path %></li>
               <li><%= link_to 'About Us', about_path %></li>
               <% if signed_in? && current_user.admin? %>
               	<li><%= link_to "Admin Page", admin_path %></li>
               <% end %>
             </ul>
+            <% if !signed_in? %>
+            <div class="form-inline navbar-form pull-right">
+          	  <%= form_for(:session, :url => sessions_path) do |f| %>
+				<!-- these labels are "checkbox" just to get them centered vertically -->
+				<label class="checkbox"><%= link_to "Sign up!", signup_path, :style => "padding-right: 3px" %></label>
+	    		<label class="checkbox"><%= link_to "Forgot password?", new_password_reset_path, :style => "padding-right: 3px" %></label>
+	    		<%= f.text_field :email, :type => "text", :class => "input-small", :placeholder => "Email" %>
+	    		<%= f.password_field :password, :type => "password", :class => "input-small", :placeholder => "Password" %>
+				<% params[:remember_me] = false %>
+  				<label class="checkbox" style="color: #eee">
+  				<%= check_box_tag :remember_me, 1, params[:remember_me] %> Remember me
+  				</label>
+ 				<%= f.submit "Sign In", :type => "submit", :class => "btn-small" %>
+			  <% end %><!--./form -->
+			</div><!--./form-inline -->
+          <% end %><!--./if -->
           </div><!--./nav-collapse -->
-        </div><!--./container-flud -->
+        </div><!--./container -->
       </div><!--./navbar-inner -->
     </div><!--./navbar -->
     
