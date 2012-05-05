@@ -38,8 +38,22 @@ Factory.define :list do |list|
   list.parking                    nil
   list.bedrooms                   5
   list.pets                       nil
-  list.ltype                      nil
+  list.ltype                      true
+  list.aptnum                     nil
+  list.building_name              nil
+  list.landlord_id                nil
 end
+
+Factory.define :landlord do |landlord| 
+  landlord.name                 "Sample Landlord"
+  landlord.email                "landlord@email.com"
+  landlord.website              "www.google.com"
+  landlord.phone                "6087903333"
+  landlord.city                 "Madison"
+  landlord.state                "Wisconsin"
+  landlord.address              "18 Lathrop St."
+  landlord.zip                  53726
+end 
 
 Factory.define :list1 do |list| 
   list.address                    "Sample Default Address"

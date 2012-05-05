@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120428223622) do
+ActiveRecord::Schema.define(:version => 20120430022032) do
 
   create_table "landlords", :force => true do |t|
     t.string  "name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20120428223622) do
     t.integer  "aptnum"
     t.string   "building_name"
     t.integer  "landlord_id"
+    t.string   "image"
   end
 
   add_index "lists", ["address"], :name => "index_lists_on_Address"

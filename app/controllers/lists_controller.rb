@@ -4,7 +4,6 @@ class ListsController < ApplicationController
   # GET /lists.xml
   def index
     @title = "Search Results"
-    #@lists = List.all
     
     @test = params[:search]   #used for hiding of results, if there are none.
     unless (@test.nil?)
@@ -13,7 +12,7 @@ class ListsController < ApplicationController
     end
     
     @search = List.search(params[:search]).paginate(:page => params[:results_page], :per_page => 5)
-
+    
     @lists = @search.all
     @no_results = List.no_results(@lists)    
    
@@ -48,8 +47,6 @@ class ListsController < ApplicationController
 
   # GET /lists/new
   # GET /lists/new.xml
-  # This works along with the create() method below.  This method launches a 
-  # page (new.html) that works as a form for the creation of a Listing.
   def new
     @title = "New Listing"
     @list = List.new
@@ -151,6 +148,10 @@ class ListsController < ApplicationController
     else 
       return "#{@list.aptnum} #{@list.building_name}"
     end
+  end
+  
+  def get_landlord_name(landlord_id)
+    return Landlord.find(landlord_id).name
   end
  
 end

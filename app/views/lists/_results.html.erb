@@ -1,6 +1,3 @@
-<html>
-	<%= stylesheet_link_tag 'pagination' %>
-<body>
 
 <% first = 1 %>
 
@@ -32,6 +29,13 @@
 		<% identifier = "Table_Element_" + list.id.to_s() %>
 		<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
     		<td class=<%= elementClass%> >
+    			<div class="image_results">
+    				<% unless list.image_url.nil? %>
+						<%= image_tag list.image_url(:thumb).to_s, :class => "show_image" %>
+					<% else %>
+						<%= image_tag "no_image_placeholder.jpg", :class => "placeholder_thumb" %>
+					<% end %>
+				</div>
     			<p class="EntryAddress">
     				<% if list.ltype %>
     					<%= list.address %>
@@ -40,6 +44,20 @@
     					<%= list.building_name %>
     				<% end %>
     			</p>
+    			<div class="landlord_results_box">
+    				<p>
+    					<b>Landlord Info</b>:
+    					<% if !list.landlord_id.nil? %> 
+    					<% landlord = get_landlord(list.landlord_id) %>
+    					<%= landlord.name %> |
+    					<%= landlord.email %> |
+    					<%= ActionController::Base.helpers.number_to_phone(landlord.phone) %>
+    					<% else %>
+    					Not available yet.
+    					<% end %>
+    				</p>
+    		
+    			</div>
     			<div>
 	    			<p class="EntryZip">Zip Code: <%= list.zip %></p>
     				<p class="EntryBedBath">Bedrooms: <%= list.bedrooms %>  |  Bathrooms: <%= list.bathrooms %> </p>    			
@@ -62,7 +80,3 @@
 <% if @no_results %>
 	<%= render 'home/no_results' %>
 <% end %>
-
-</body>
-
-</html>

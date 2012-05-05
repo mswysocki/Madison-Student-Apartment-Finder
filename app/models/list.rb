@@ -27,13 +27,23 @@
 #  pets              :boolean
 #  ltype             :boolean
 #  user_id           :integer
+#  aptnum            :integer
+#  building_name     :string(255)
+#  landlord_id       :integer
 #
-
+require 'file_size_validator' 
 class List < ActiveRecord::Base
   has_many :reviews,          :dependent => :delete_all
   belongs_to :landlord
   accepts_nested_attributes_for :reviews
   after_initialize :default_values
+  mount_uploader :image, ImageUploader
+  
+  validates :image, 
+    #:presence => true, 
+    :file_size => { 
+      :maximum => 0.25.megabytes.to_i 
+    } 
   
   attr_accessible :address,     :city,              :state, 
                   :zip,         :region,            :bedrooms, 
@@ -42,7 +52,10 @@ class List < ActiveRecord::Base
                   :heat,        :electric,          :flags, 
                   :gas,         :garbagecollection, :ltype, 
                   :length,      :furnished,         :laundry, 
-                  :aptnum,      :building_name,     :landlord_id
+                  :aptnum,      :building_name,     :landlord_id,
+				          :image,       :remote_image_url
+                  
+  attr_accessor   :landlord_name
   
   attr_searchable :address,     :city,              :state, 
                   :zip,         :region,            :bedrooms, 
@@ -53,7 +66,6 @@ class List < ActiveRecord::Base
                   :length,      :furnished,         :laundry, 
                   :aptnum,      :building_name
   
-  #requires that these three are filled in + add some validations
   validates :address,     :presence => true,
                           :length   => { :maximum => 50 }, 
                           :uniqueness => { :case_sensitive => false}, :unless => :apartment?
@@ -73,10 +85,25 @@ class List < ActiveRecord::Base
                           :message => "must be in the Madison-area" 
   validates :bathrooms,   :numericality => {:gt => 0, :lte => 6}
   
+  with_options :if => :sqft_valid? do |sqft|
+    sqft.validates_inclusion_of     :squarefeet,
+                                    :in => 0..25000,
+                                    :message => "is out of range"
+  end  
+  
+  with_options :if => :region_valid? do |region|
+    region.validates_inclusion_of   :region,
+                                    :in => 0..5, 
+                                    :message => "is out of range"
+  end
   
   validates_inclusion_of  :ltype,
                           :in => [true, false], 
                           :message => "must be checked"
+						  
+  #validates_attachment_presence :photo
+  #validates_attachment_size :photo, :less_than => 1.megabytes
+  #validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
                           
   with_options :if => :apartment? do |apartment|
     apartment.validates :aptnum,  :presence => true, 
@@ -88,7 +115,8 @@ class List < ActiveRecord::Base
   end
   
   
-  #sets default values for the db entry when the listing is initialized
+
+ 
   def default_values
     self.city ||= "Madison"
     self.state ||= "Wisconsin"
@@ -108,7 +136,6 @@ class List < ActiveRecord::Base
  
   ROOMS = (1..25).to_a
   ROOMS.insert(0, nil);
-  #BATHS = (1..10).to_a
   BATHS = [nil, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0]
   STREETS = {
       "street" => ["st",            "street"],   
@@ -214,6 +241,13 @@ class List < ActiveRecord::Base
     ltype == false
   end
   
+  def sqft_valid?
+    squarefeet.presence
+  end
+  
+  def region_valid?
+    region.presence
+  end
   
 
 end

@@ -6,9 +6,38 @@
 	border: 2px solid transparent;
 	border-radius: 15px;
 	padding: 0px 20px 40px 20px;
-	height: 500px;
+	height: 1200px;
 	box-shadow: 0px 0px 50px 0px #333;
 }
+
+.image 
+{
+	border: solid 1px #CCC;
+	padding: 10px 10px;
+	/*float:left;*/
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.placeholder_thumb 
+{
+	max-height: 75px;
+	max-width: 75px;
+}
+
+.image_results 
+{
+	border: solid 1px #CCC;
+	padding: 10px 10px;
+	float:left;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+/*.image img 
+{
+	max-height: 300px;
+}*/
 
 #Listing_View h1
 {
@@ -34,6 +63,8 @@
 	border: 6px none #CC5700;
 	border-style: none solid none solid;
 }
+
+
 
 #ColumnOne h2, #ColumnTwo h2
 {
@@ -126,4 +157,13 @@
 	border-radius: 15px;
 	margin: 10px;
 	padding: 20px 20px 40px 20px;
+}
+
+#Landlord_info 
+{
+	background-color: #50300f;
+	border: 2px solid transparent;
+	border-radius: 15px;
+	margin: 10px;
+	padding: 5px 5px 10px 5px;
 }
