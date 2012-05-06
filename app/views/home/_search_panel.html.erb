@@ -1,226 +1,109 @@
-<!--======================  END NEW  ========================================-->
-
-<div class="divider"></div>
-<section id="Search_Sidebar_View">
-	<%= form_for @search do |f| %>
-	<div id="Search">
-		<p><%= f.submit "Submit Search Criteria", :class => "Search_Button" %></p>
-	</div>
-	<div id="Search_Sidebar_Criteria">
-
-		<div id="Price" class="CriterionWrapper">
-			<a onclick="HandleSlide('Price', 'PriceSlider')">
-			<div class="CriterionClickable">
-				<p>Price</p>
-			</div>
-			</a>
-
-			<div id="PriceSlider" class="CriterionOptions" style="display: none">
-				<div class="CustomTextFieldWidth">
-				<%= f.label :rent_gte, "from" %>
-				<%= f.text_field :rent_gte , :class => "FROMSearchBarInputField"%><br />
-				<%= f.label :rent_lte, "to" %>
-				<%= f.text_field :rent_lte, :class => "TOSearchBarInputField" %>
-				</div>
-			</div>
-		</div><!-- End Price -->
-
-		<hr />
-
-		<div id="Location" class="CriterionWrapper">
-			<a onclick="HandleSlide('Location', 'LocationSlider')">
-			<div class="CriterionClickable">
-				<p>Location</p>
-			</div>
-			</a>
-
-			<div id="LocationSlider" class="CriterionOptions" style="display: none">
-				<div class="CustomTextFieldWidth">
-				<%= f.label :address_contains, "Address" %><br />
-				<%= f.text_field :address_contains, :class => "ADDRESSSearchBarInputField" %>
-				</div>
-				
-				<!-- NOTE: I hacked the building name search to be right here. 
-						Feel free to move it anywhere. -->
-				<div class="CustomTextFieldWidth">
-				<%= f.label :building_name_contains, "Building" %><br />
-				<%= f.text_field :building_name_contains, :class => "ADDRESSSearchBarInputField" %>
-				</div>
-			</div>
-		</div><!-- End Location -->
-
-		<hr />
-
-		<div id="TypeOfRes" class="CriterionWrapper">
-			<a onclick="HandleSlide('TypeOfRes', 'TypeOfResSlider')">
-			<div class="CriterionClickable">
-				<p>Type of Residence</p>
-			</div>
-			</a>
-
-			<div id="TypeOfResSlider" class="CriterionOptions" style="display: none">
-				<div>
-				<%= f.radio_button :ltype_eq, true, :class => "SearchBarCheckOrRadioButtons" %>House<br />
-				<%= f.radio_button :ltype_eq, false, :class => "SearchBarCheckOrRadioButtons" %>Apartment
-				</div>
-			</div>
-		</div><!-- End TypeOfResidence -->
-
-		<hr />
-
-		<div id="ResDetails" class="CriterionWrapper">
-			<a onclick="HandleSlide('ResDetails', 'ResDetailsSlider')">
-			<div class="CriterionClickable">
-				<p>Residence Details</p>
-			</div>
-			</a>
-
-			<div id="ResDetailsSlider" class="CriterionOptions" style="display: none">
-				<div>
-				<h3><%= f.label "Bedrooms" %></h3>
-				<%= f.label  :bedrooms_gte, "From" %>
-				<%= f.select :bedrooms_gte, List::ROOMS %>
-				<%= f.label  :bedrooms_lte, "to" %>
-				<%= f.select :bedrooms_lte, List::ROOMS %> 
-				<hr />
-
-				<h3><%= f.label "Bathrooms" %></h3>
-				<%= f.label  :bathrooms_gte, "From" %>
-				<%= f.select :bathrooms_gte, List::BATHS %>
-				<%= f.label  :bathrooms_lte, "to" %>
-				<%= f.select :bathrooms_lte, List::BATHS %>
-				<hr />
-
-				<div class="CustomTextFieldWidth">
-				<%= f.label 	 :squarefeet_gte, "At least" %><br />
-				<%= f.text_field :squarefeet_gte, :class => "ATLEASTSearchBarInputField" %><br />
-				<%= f.label      :squarefeet_gte, "square feet"%>
-				</div>
-				
-				<div class="Landlord_search">
-				<%= f.label :landlord_name, "Landlord" %><br />
-
-				<%= f.collection_select :landlord_id_eq, Landlord.all, :id, :name, :include_blank => true %>
-				</div>
-				</div>
-			</div>
-		</div><!-- End ResDetails -->
-
-		<hr />
-
-		<div id="LeaseDetails" class="CriterionWrapper">
-			<a onclick="HandleSlide('LeaseDetails', 'LeaseDetailsSlider')">
-			<div class="CriterionClickable">
-				<p>Lease Details</p>
-			</div>
-			</a>
-
-			<div id="LeaseDetailsSlider" class="CriterionOptions" style="display: none">
-				<div>
-				<b><%= f.label 	   :length_eq, "Length:" %></b><br />
-				<%= f.radio_button :length_eq, 6, :class => "SearchBarCheckOrRadioButtons" %> 6 Months <br />
-				<%= f.radio_button :length_eq, 9, :class => "SearchBarCheckOrRadioButtons" %> 9 Months <br />
-				<%= f.radio_button :length_eq, 12, :class => "SearchBarCheckOrRadioButtons" %> 12 Months <br />
-				</div>
-			</div>
-		</div><!-- End LeaseDetails -->
-
-		<hr />
-
-		<div id="Utilities" class="CriterionWrapper">
-			<a onclick="HandleSlide('Utilities', 'UtilitiesSlider')">
-			<div class="CriterionClickable">
-				<p>Utilities</p>
-			</div>
-			</a>
-
-			<div id="UtilitiesSlider" class="CriterionOptions" style="display: none">
-				<div>
-				<%= f.check_box :heat_is_true,:class => "SearchBarCheckOrRadioButtons" %>
-				<%= f.label 	:heat_is_true, "Heat" %> <br />
-				<%= f.check_box :electric_is_true, :class => "SearchBarCheckOrRadioButtons" %> 
-				<%= f.label 	:electric_is_true, "Electric" %> <br />
-				<%= f.check_box :gas_is_true, :class => "SearchBarCheckOrRadioButtons" %> 
-				<%= f.label 	:gas_is_true, "Gas" %> <br />
-				<%= f.check_box :garbagecollection_is_true, :class => "SearchBarCheckOrRadioButtons" %>
-				<%= f.label 	:garbagecollection_is_true, "Garbage Collection" %>
-				</div>
-			</div>
-		</div><!-- End Utilities -->
-
-		<hr />
-
-		<div id="Accommodations" class="CriterionWrapper">
-			<a onclick="HandleSlide('Accommodations', 'AccommodationsSlider')">
-			<div class="CriterionClickable">
-				<p>Accommodations</p>
-			</div>
-			</a>
-
-			<div id="AccommodationsSlider" class="CriterionOptions" style="display: none">
-				<div>
-				<%= f.check_box :parking_is_true, :class => "SearchBarCheckOrRadioButtons" %>
-				<%= f.label 	:parking_is_true, "Parking" %> <br />
-				<%= f.check_box :laundry_is_true, :class => "SearchBarCheckOrRadioButtons" %>
-				<%= f.label 	:laundry_is_true, "Laundry" %> <br />
-				<%= f.check_box :furnished_is_true, :class => "SearchBarCheckOrRadioButtons" %>
-				<%= f.label 	:furnished_is_true, "Furnished" %>
-				</div>
-			</div>
-		</div><!-- End Accommodations -->
-
-		<hr />
-
-		<div id="Restrictions" class="CriterionWrapper">
-			<a onclick="HandleSlide('Restrictions', 'RestrictionsSlider')">
-			<div class="CriterionClickable">
-				<p>Restrictions</p>
-			</div>
-			</a>
-
-			<div id="RestrictionsSlider" class="CriterionOptions" style="display: none">
-				<div>
-				<%= f.check_box :smoking_is_true, :class => "SearchBarCheckOrRadioButtons" %>
-				<%= f.label 	:smoking_is_true, "Smoking" %> <br />
-				<%= f.check_box :pets_is_true, :class => "SearchBarCheckOrRadioButtons" %>
-				<%= f.label 	:pets_is_true, "Pets" %> <br />
-				</div>
-			</div>
-		</div><!-- End Restrictions -->
-
-		<hr />
-
-	</div><!-- End Search_Sidebar_Criteria -->
-	<% end %>
-
-	<div id="Clear_Search_Criteria" onclick="clearAllFields()">
-		<p class="menuOption">Clear Search Criteria</p>
-    </div>
-</section>
-
-<script type="text/javascript">
-	if ( isUsed(document.getElementById('PriceSlider').getElementsByTagName("*")) ){
-		slideDown('Price', 'PriceSlider');
-	}
-	if ( isUsed(document.getElementById("LocationSlider").getElementsByTagName("*")) ){
-		slideDown('Location', 'LocationSlider');
-	}
-	if ( isUsed(document.getElementById("TypeOfResSlider").getElementsByTagName("*")) ){
-		slideDown('TypeOfRes', 'TypeOfResSlider');
-	}
-	if ( isUsed(document.getElementById("ResDetailsSlider").getElementsByTagName("*")) ){
-		slideDown('ResDetails', 'ResDetailsSlider');
-	}
-	if ( isUsed(document.getElementById("LeaseDetailsSlider").getElementsByTagName("*")) ){
-		slideDown('LeaseDetails', 'LeaseDetailsSlider');
-	}
-	if ( isUsed(document.getElementById("UtilitiesSlider").getElementsByTagName("*")) ){
-		slideDown('Utilities', 'UtilitiesSlider');
-	}
-	if ( isUsed(document.getElementById("AccommodationsSlider").getElementsByTagName("*")) ){
-		slideDown('Accommodations', 'AccommodationsSlider');
-	}
-	if ( isUsed(document.getElementById("RestrictionsSlider").getElementsByTagName("*")) ){
-		slideDown('Restrictions', 'RestrictionsSlider');
-	}
-</script>
+	<div class="container">
+      <div class="row">
+        <div class="span3">
+          <div class="well">
+          	<ul class="nav nav-tabs nav-stacked">
+          	  <%= form_for @search do |f| %>
+              <div class="nav-header">Search Criteria</div>
+              <li><a href="#price-tab" data-toggle="collapse"><i class="icon-tag"></i> Price</a></li>
+                <div class="collapse in" id="price-tab">
+            		<div class="input-prepend input-append well">
+  						<span class="add-on">$</span><%= f.text_field :rent_gte, :class => "input-mini", :placeholder => "From" %><span class="add-on">.00</span>
+  						<br />
+  						<span class="add-on">$</span><%= f.text_field :rent_lte, :class => "input-mini", :placeholder => "To" %><span class="add-on">.00</span>
+					</div>
+              	</div>
+              <li><a href="#type-tab" data-toggle="collapse"><i class="icon-home"></i> Type of Residence</a></li>
+              	<div class="collapse in" id="type-tab">
+            		<div class="well">
+            			<%= f.radio_button :ltype_eq, true, :class => "radio" %>House<br />
+						<%= f.radio_button :ltype_eq, false, :class => "radio" %>Apartment
+              		</div>
+            	</div>
+              <li><a href="#location-tab" data-toggle="collapse"><i class="icon-map-marker"></i> Location</a></li>
+              	<div class="collapse in" id="location-tab">
+            		<div class="well">
+  						<%= f.text_field :address_contains, :class => "input-medium", :placeholder => "Address" %>
+  							<br /><%= f.text_field :building_name_contains, :class => "input-medium", :placeholder => "Building Name" %>
+            		</div>
+            	</div>
+              <li><a href="#resDetails-tab" data-toggle="collapse"><i class="icon-pencil"></i> Residence Details</a></li>
+              	<div class="collapse in" id="resDetails-tab">
+              		<div class="well">
+            			<p><b>Bedrooms</b></p>
+						<%= f.label  :bedrooms_gte, "Min" %>
+						<%= f.select :bedrooms_gte, List::ROOMS %>
+						<%= f.label  :bedrooms_lte, "Max" %>
+						<%= f.select :bedrooms_lte, List::ROOMS %> 
+						<hr style="border: 1px solid lightGrey" />
+              			<p><b>Bathrooms</b></p>
+						<%= f.label  :bathrooms_gte, "Min" %>
+						<%= f.select :bathrooms_gte, List::BATHS %>
+						<%= f.label  :bathrooms_lte, "Max" %>
+						<%= f.select :bathrooms_lte, List::BATHS %>
+						<hr style="border: 1px solid lightGrey" />
+              			<label class="text">
+              				<b>Square-Footage</b>
+                			<%= f.text_field :squarefeet_gte, :class => "input-medium", :placeholder => "Minimum" %>
+              			</label>
+              			<hr style="border: 1px solid lightGrey" />
+              			<p><b>Landlord</b></p>
+						<%= f.collection_select :landlord_id_eq, Landlord.all, :id, :name, :include_blank => true, :class => "span1" %>
+              		</div>
+            	</div>
+              <li><a href="#leaseDetails-tab" data-toggle="collapse"><i class="icon-briefcase"></i> Lease Details</a></li>
+              	<div class="collapse in" id="leaseDetails-tab">
+              		<div class="well">
+            			<p><b>Length</b></p>
+            		 	<%= f.radio_button :length_eq, 6, :class => "SearchBarCheckOrRadioButtons" %> 6 Months <br />
+						<%= f.radio_button :length_eq, 9, :class => "SearchBarCheckOrRadioButtons" %> 9 Months <br />
+						<%= f.radio_button :length_eq, 12, :class => "SearchBarCheckOrRadioButtons" %> 12 Months 
+              		</div>
+            	</div>
+              <li><a href="#utils-tab" data-toggle="collapse"><i class="icon-wrench"></i> Utilities</a></li>
+              	<div class="collapse in" id="utils-tab">
+              		<div class="well">
+            			<label class="checkbox">
+    						<%= f.check_box :heat_is_true, :class => "checkbox" %> Heat
+  						</label>
+  						<label class="checkbox">
+    						<%= f.check_box :electric_is_true, :class => "checkbox" %>  Electric
+  						</label>
+  						<label class="checkbox">
+    						<%= f.check_box :gas_is_true, :class => "checkbox" %>  Gas
+  						</label>
+  						<label class="checkbox">
+    						<%= f.check_box :garbagecollection_is_true, :class => "checkbox" %> Garbage Collection
+  						</label>
+  					</div>
+            	</div>
+              <li><a href="#accommodations-tab" data-toggle="collapse"><i class="icon-thumbs-up"></i> Accommodations</a></li>
+              	<div class="collapse in" id="accommodations-tab">
+              		<div class="well">
+            			<label class="checkbox">
+    						<%= f.check_box :parking_is_true, :class => "checkbox" %> Parking
+  						</label>
+  						<label class="checkbox">
+    						<%= f.check_box :laundry_is_true, :class => "checkbox" %> Laundry
+  						</label>
+  						<label class="checkbox">
+    						<%= f.check_box :furnished_is_true, :class => "checkbox" %> Furnished
+  						</label>
+  					</div>
+            	</div>
+              <li><a href="#restrictions-tab" data-toggle="collapse"><i class="icon-ban-circle"></i> Restrictions</a></li>
+              	<div class="collapse in" id="restrictions-tab">
+              		<div class="well">
+            			<label class="checkbox">
+    						<%= f.check_box :smoking_is_true, :class => "checkbox" %> Smoking
+  						</label>
+  						<label class="checkbox">
+							<%= f.check_box :pets_is_true, :class => "checkbox" %> Pets
+  						</label>
+  					</div>
+            	</div>
+            </ul>
+            <div class="nav-header"><%= f.submit "Submit Search", :class => "btn btn-inverse" %></div>
+            <% end %>
+          </div><!--/.well -->
+        </div><!--/.span3 -->

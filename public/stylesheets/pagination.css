@@ -1,11 +1,11 @@
 /* TAKEN FROM THE WILL_PAGINATE SOURCE PAGE..
  * So it is ok to use but we will want to modify it anyways.
  */
-
+/*
 .digg_pagination {
 	background: white;
 	cursor: default;
-	/* self-clearing method: */
+	/* self-clearing method: 
 }
 
 .digg_pagination a, .digg_pagination span, .digg_pagination em {
@@ -161,3 +161,4 @@
 .flickr_pagination .next_page {
     margin-left: 1em;
 }
+*/
