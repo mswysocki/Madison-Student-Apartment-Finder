@@ -30,7 +30,6 @@ class Review < ActiveRecord::Base
 	def default_values
 		self.flag ||= 0
 		self.helpfulness ||= 0
-		self.rating ||= 0
 	end
 	
 	default_scope :order => 'reviews.created_at DESC'

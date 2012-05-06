@@ -38,7 +38,6 @@ class UsersController < ApplicationController
                       :password_confirmation => params[:admin_password],
                       :admin => true)
            
-     
     #@admin.save
     #if (@admin.errors.size == 0)
     #  @admin.toggle!(:admin)
