@@ -57,10 +57,11 @@ class ReviewsController < ApplicationController
 	#end
 
   def destroy
-    puts params
+    session[:return_to] = request.referer
     @listing = List.find(Review.find(params[:id]).list_id)
     @review.destroy
-    redirect_back_or @listing
+    #redirect_back_or @listing
+    redirect_to session[:return_to]
   end
   
   
