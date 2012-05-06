@@ -72,9 +72,11 @@ class UsersController < ApplicationController
   end
   
   def destroy 
+    session[:return_to] = request.referer
     User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
-    redirect_to users_path
+    #flash[:success] = "User destroyed."
+    #redirect_to users_path
+    redirect_to session[:return_to]
   end
   
   private

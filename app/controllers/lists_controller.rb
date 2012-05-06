@@ -128,11 +128,12 @@ class ListsController < ApplicationController
   # DELETE /lists/1
   # DELETE /lists/1.xml
   def destroy
+    session[:return_to] = request.referer
     @list = List.find(params[:id])
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to(lists_url) }
+      format.html { redirect_to session[:return_to] }
       format.xml  { head :ok }
     end
   end
