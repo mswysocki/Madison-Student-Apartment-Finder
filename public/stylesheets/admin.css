@@ -1,5 +1,5 @@
 #Admin_View {
-	height: 800px;
+	height: 1500px
 }
 
 #admin_lists, #admin_users, #admin_adminusers, 
@@ -37,6 +37,11 @@
 	width: 400px;
 	height: 350px;
 	float: left;
+}
+
+#admin_landlords {
+	width: 800px;
+	height: 400px;
 }
 
 #admin_users li {

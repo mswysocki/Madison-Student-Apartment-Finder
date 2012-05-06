@@ -136,6 +136,31 @@
 			
 		</table>
 	</div>
+	
+	<!-- <div id="admin_landlords">   -->
+	<div id="admin_landlords">
+		<h1>All landlords</h1>
+		<hr class="admin_ruler"/>
+		<%= hidden_field_tag :admin_us, params[:admin_us] %>
+		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
+		<%= hidden_field_tag :direction, params[:direction] %>
+		<%= hidden_field_tag :sort, params[:sort] %>
+				
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Website</th>
+				<th>Phone</th>
+				<th>Address</th>
+				<th></th>
+			</tr>
+			
+			<%= render :partial => "landlords/admin", :object => @landlords %>
+			
+		</table>
+	</div>
+	
 	</div><!-- END "admin_bottom" id -->
 	</div><!-- END "admin_boxes_wrapper" id -->
 </section>
