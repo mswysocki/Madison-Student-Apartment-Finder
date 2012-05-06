@@ -165,6 +165,7 @@
       
       <% if signed_in? %>
         <h2 class="review">Lived here? Have any thoughts?</h2>
+        <i>All fields are required.</i>
         <%= render 'shared/review_form', :object => @list  %>
       </td>
       <% end %>

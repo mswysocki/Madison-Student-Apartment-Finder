@@ -15,7 +15,6 @@ class ReviewsController < ApplicationController
  
   #TODO: Fix what the redirects are in these cases
   def create
-    #listing = get_listing()
     @listing = List.find(params[:list_id])
     #@user = current_user
     @review = current_user.reviews.build(params[:review])
@@ -23,15 +22,19 @@ class ReviewsController < ApplicationController
     #@review = @listing.reviews.build(params[:review])
     #@review.update_attributes(:user_id => @user)
     
-    if (@review.save)
-      flash[:success] = "Review created!"
-      #format.html { redirect_to(@listing, :notice => 'Review was successfully created.') }
-      #format.xml  { render :xml => @listing, :status => :created, :location => @listing }
-      redirect_to @listing
-    else 
-      flash[:error] = "The review could not be created because there were some errors.........."
-      redirect_to @listing
-      #render 'lists/1/show'
+    respond_to do |format|
+      if (@review.save)
+        format.html { redirect_to(@listing) } #, :notice => 'Your review was successfully added.') }
+        format.xml  { render :xml => @listing, :status => :created, :location => @listing }
+        #format.html { redirect_to(@listing, :notice => 'Review was successfully created.') }
+        #format.xml  { render :xml => @listing, :status => :created, :location => @listing }
+        #redirect_to @listing
+      else 
+        format.html { redirect_to(@listing) } #, :notice => 'Your review was not added.') }
+        format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
+        #flash[:error] = "The review could not be created because there were some errors.........."
+        #redirect_to @listing
+      end
     end
   end
 	
@@ -49,12 +52,6 @@ class ReviewsController < ApplicationController
   #		end
   #  end
   #end
-	
-	#def user_destroy
-	#  @user = User.find(Review.find(params[:id]).user_id)
-  #  @review.destroy
-  #  redirect_back_or @user
-	#end
 
   def destroy
     session[:return_to] = request.referer
