@@ -48,10 +48,14 @@ class Landlord < ActiveRecord::Base
     end
     
     def format_website
-      if self.website.start_with?("http://") 
-        self.website
+      unless self.website.empty? 
+        if self.website.start_with?("http://") 
+          self.website
+        else
+          self.website = self.website.insert(0, "http://")
+        end
       else
-        self.website = self.website.insert(0, "http://")
+        return nil
       end
     end
     

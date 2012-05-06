@@ -62,6 +62,7 @@ describe UsersController do
     end
     
     it "should be successful" do
+      puts @user
       get :show, :id => @user
       response.should be_success
     end

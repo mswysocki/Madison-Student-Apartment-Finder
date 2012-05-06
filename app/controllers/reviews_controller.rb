@@ -49,11 +49,12 @@ class ReviewsController < ApplicationController
   #		end
   #  end
   #end
-	def user_destroy
-	  @user = User.find(Review.find(params[:id]).user_id)
-    @review.destroy
-    redirect_back_or @user
-	end
+	
+	#def user_destroy
+	#  @user = User.find(Review.find(params[:id]).user_id)
+  #  @review.destroy
+  #  redirect_back_or @user
+	#end
 
   def destroy
     puts params
