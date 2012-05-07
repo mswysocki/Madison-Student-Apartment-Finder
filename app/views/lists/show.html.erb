@@ -1,173 +1,228 @@
 
 <div id="notice"><%= notice %></div>
-<div class="divider"></div>
-<section id="Listing_View">
 
-<% if @list.ltype %>
-<h1><%= @list.address %></h1>
-<% else %>
-<h1><%= @list.aptnum %>
-	<%= @list.building_name %></h1>
-<% end %>
+<div class="container">
+	<div class="hero-unit">
 
-<hr id="Listing_View_Bar"/>
-
-<% unless @list.image_url.nil? %>
-<section id="ImageArea">
-	<div class="image">
-	<%= image_tag @list.image_url(:show_page).to_s, :class => "show_image" %>
-	</div>
-</section>
-<% end %>
-
-<section id="ListingInfo">
-<div id="ColumnOne">
-<h2 id="LocationLabel">Location:</h2>
-<div id="ShowLocation">
-	<b><em>Address:</em></b>  <%= @list.address %><br />
-	<b><em>City:</em></b>  <%= @list.city %><br />
-	<b><em>State:</em></b>  <%= @list.state %><br />
-	<b><em>Zip:</em></b>  <%= @list.zip %><br />
-	<% if !@list.ltype %> 
-	<b><em>Apartment Number:</em></b> <%= @list.aptnum %><br />
+	<% if @list.ltype %>
+		<h1 class="pull-left"><%= @list.address %></h1>
+	<% else %>
+		<h1 class="pull-left"><%= @list.aptnum %>
+		<%= @list.building_name %></h1>
 	<% end %>
 
-</div>
+	<h2><%= link_to 'Update Listing', edit_list_path(@list), :class => "pull-right" %></h2>
+	<br /><br /><br />
+	<hr style="border: 1px solid black;"/>
 
-
-<h2 id="PriceLabel">Price:</h2>
-<div id="ShowPrice">
-	<em>Rent:  $</em> <b><%= @list.rent %></b> per month
-</div>
-
-
-<% unless @list.ltype.nil? %>
-	<h2 id="TypeLabel">Type of Residence:</h2>
-  	<div id="ShowType">
-		<b><%= format_type(@list.ltype) %></b>
-	</div>
-<% end %>
-
-
-<h2 id="DetailsLabel">Residence Details:</h2>
-<div id="ShowResDetails">
-	<b><%= @list.bedrooms %></b> bedrooms.<br />
-	<b><%= @list.bathrooms %></b> bathrooms.<br />
-
-	<% unless @list.squarefeet.nil? %>
-		<b><%= @list.squarefeet %></b> square feet.
-	<% end %>
-</div>
-
-
-<% unless @list.length.nil? %>
-	<h2 id="LeaseLabel">Lease Length:</h2>
-	<div id="ShowLeaseDetails">
-		<em>Length:</em>  <%= @list.length %> months.
-	</div>
-<% end %>
-</div>
-
-
-<div id="ColumnTwo">
-<div id="Landlord_info">
-<h2>Landlord Information:</h2>
-	<% unless @list.landlord_id.nil? %> 
-    <% landlord = get_landlord(@list.landlord_id) %>
-    <%= landlord.name %><br />
-   	<%= landlord.email %><br />
-    <%= ActionController::Base.helpers.number_to_phone(landlord.phone) %><br />
-    <% else %>
-    Not available yet.
-    <% end %>
-</div>
-<h2 id="UtilsLabel">Utilities:</h2>
-<div id="ShowUtils">
-
-	<b>Heat:</b> 
-		<em><%= format_util(@list.heat) %> </em> 
-		<br />
-	<b>Electric:</b> 
-		<em><%= format_util(@list.electric) %> </em> 
-		<br />
-	<b>Gas:</b> 
-		<em><%= format_util(@list.gas) %> </em>
-		<br />
-	<b>Garbage Collection:</b>
-		<em><% if(@list.garbagecollection) %>
-				handled by the landlord.
-			<% else %>
-				not handled by the landlord.	
+	<div class="row">
+		<div class="span2">
+			<% unless @list.image_url.nil? %>
+				<%= image_tag @list.image_url(:show_page).to_s, :class => "show_image" %>
 			<% end %>
-		</em> 
-
-</div>
-
-
-<h2 id="AccomsLabel">Accommodations:</h2>
-<div id="ShowAccommodations">
-	
-	<% acc = { "Parking" => @list.parking } %>
-	<em><%= format_accomodations(acc) %></em> <br />
-	<% acc = { "Laundry" => @list.laundry } %>
-	<em><%= format_accomodations(acc) %></em> <br />
-	<% acc = { "Furnished" => @list.furnished } %>
-	<em><%= format_accomodations(acc) %></em> <br />
-	
-	
-	<!--<% unless @list.parking.nil? %>
-		<em>Parking:</em>  <%= @list.parking %><br />
-	<% end %>
-	<% unless @list.laundry.nil? %>
-		<em>Laundry:</em>  <%= @list.laundry %><br />
-	<% end %>
-
-	<% unless @list.furnished.nil? %>
-		<em>Furnished:</em>  <%= @list.furnished %>
-	<% end %>-->
-</div>
-
-
-<h2 id="RestrictsLabel">Restrictions:</h2>
-<div id="ShowRestrictions">
-	<% restriction = { "Smoking" => @list.smoking } %>
-	<em><%= format_restrictions(restriction) %></em> <br />
-	<% restriction = { "Pets" => @list.pets }%>
-	<em><%= format_restrictions(restriction) %></em>
-</div>
-
-
-<% if signed_in? && current_user.admin? %>
-	<% unless @list.flags.nil? %>
-	<p>Flags:  <%= @list.flags %></p>
-	<% end %>
-<% end %>
-
-<div id="UpdateListingButton">Any information missing? Go ahead and <a><%= link_to 'Update', edit_list_path(@list) %></a> this Listing!</div>
-<br />
-<section class="flag_listing">
-	<h3>Is the information for this listing inaccurate or abusive? If so, use the button below to flag the listing. If several people flag it we'll take a look. Thank you!</h3>
-	<%= form_tag increment_flag(@list), :method => "post", :id => "FlagButton" do %>
-		<%= submit_tag("Flag")%>
-	<% end %>
-</section>
-</div>
-</section>
-<section id="Comments_Area">
-	<!-- reviews area -->
-	<% unless @list.reviews.empty? %>
-		<h2>Reviews</h2>
-        <table class="reviews" summary="User reviews">
-          <%= render @reviews %>
-        </table>
-        <%= will_paginate @reviews %>
-    <% end %>
+			<% if @list.image_url.nil? %>
+				<%= image_tag "no_image_placeholder.jpg", :class => "placeholder_thumb", :height => "175px"  %>
+			<% end %>
+			<br /><br />
+			<h1>MAP SPACE</h1>
+		</div><!--./span3 -->
+		
+		<div class="span8">
+			<div class="form-horizontal">
+				<fieldset>
+					<legend><h2>Residence Properties</h2></legend>
+					<div class="row">
+					<div class=span4>
+						<div class="control-group">
+							<label class="control-label"><h3>Landlord:</h3></label>
+								<div class="controls">
+									<br />
+									<% unless @list.landlord_id.nil? %> 
+										<% landlord = get_landlord(@list.landlord_id) %>
+										<label>
+											<b><em>Name:</em></b> <%= landlord.name %>
+										</label>
+										<label>
+											<b><em>Email:</em></b> <%= landlord.email %>
+										</label>
+										<label>
+											<b><em>Phone:</em></b> <%= ActionController::Base.helpers.number_to_phone(landlord.phone) %>
+										</label>
+									<% else %>
+										<label>
+			    							Not available yet.
+										</label>
+		    						<% end %>
+								</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"><h3>Location:</h3></label>
+								<div class="controls">
+									<br />
+									<label>
+										<b><em>Address:</em></b> <%= @list.address %>
+									</label>
+									<label>
+										<b><em>City:</em></b> <%= @list.city %><br />
+									</label>
+									<label>
+										<b><em>State:</em></b> <%= @list.state %><br />
+									</label>
+									<label>
+										<b><em>Zip:</em></b> <%= @list.zip %><br />
+									</label>
+									<% if !@list.ltype %> 
+										<label>
+											<b><em>Apartment Number:</em></b> <%= @list.aptnum %><br />
+										</label>
+									<% end %>
+								</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"><h3>Price:</h3></label>
+								<div class="controls">
+									<br />
+									<label>
+										<b><em>Monthly Rent:</em></b> $<%= @list.rent %>
+									</label>
+								</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"><h3>Type of Residence:</h3></label>
+								<div class="controls">
+									<br />
+									<label>
+										<% if @list.ltype.nil? %>
+											<b>Unknown...</b>
+										<% else %>
+											<b><%= format_type(@list.ltype) %></b>
+										<% end %>
+									</label>
+								</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"><h3>Size:</h3></label>
+								<div class="controls">
+									<br />
+									<label>
+										<b><em>Bedrooms:</em></b> <%= @list.bedrooms %>
+									</label>
+									<label>
+										<b><em>Bathrooms:</em></b> <%= @list.bathrooms %>
+									</label>
+									<label>
+										<b><em>Square feet:</em></b> 
+										<% if @list.squarefeet.nil? %>
+											Unknown...
+										<% else %>
+											<%= @list.squarefeet %>
+										<% end %>
+									</label>
+								</div>
+						</div>
+					</div><!--./span4 -->
+					<div class="span4">
+						<div class="control-group">
+							<label class="control-label"><h3>Lease:</h3></label>
+								<div class="controls">
+									<br />
+									<label>
+										<% if @list.length.nil? %>
+											<b><em>Length:</em></b> Unknown...
+										<% else %>
+											<b><em>Length:</em></b> <%= @list.length %> months
+										<% end %>
+									</label>
+								</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"><h3>Utilities:</h3></label>
+								<div class="controls">
+									<br />
+									<label>
+										<b><em>Heat:</em></b> <%= format_util(@list.heat) %>
+									</label>
+									<label>
+										<b><em>Electric:</em></b> <%= format_util(@list.electric) %>
+									</label>
+									<label>
+										<b><em>Gas:</em></b> <%= format_util(@list.gas) %>
+									</label>
+									<label>
+										<b><em>Garbage Collection:</em></b> <%= format_util(@list.garbagecollection) %>
+										<% if(@list.garbagecollection) %>
+											handled by the landlord.
+										<% else %>
+											not handled by the landlord.	
+										<% end %>
+									</label>
+								</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"><h3>Accommodations:</h3></label>
+							<div class="controls">
+								<br />
+								<label>
+									<% acc = { "Parking" => @list.parking } %>
+									<em><%= format_accomodations(acc) %></em>
+								</label>
+								<label>
+									<% acc = { "Laundry" => @list.laundry } %>
+									<em><%= format_accomodations(acc) %></em>
+								</label>
+								<label>
+									<% acc = { "Furnished" => @list.furnished } %>
+									<em><%= format_accomodations(acc) %></em>
+								</label>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"><h3>Restrictions:</h3></label>
+							<div class="controls">
+								<br />
+								<label>
+									<% restriction = { "Smoking" => @list.smoking } %>
+									<em><%= format_restrictions(restriction) %></em>
+								</label>
+								<label>
+									<% restriction = { "Pets" => @list.pets }%>
+									<em><%= format_restrictions(restriction) %></em>
+								</label>
+							</div>
+						</div>
+					</div><!--./span4 -->
+					</div><!--./row -->
+				</fieldset>
+			</div><!--./form-horizontal -->
+		</div><!--./span3 -->
+	</div><!--./row -->
+	<br />
+	<div class="row">
+		<div class="span7">
+			<!-- reviews area -->
+			<% unless @list.reviews.empty? %>
+				<h2>Reviews</h2>
+        		<table class="reviews" summary="User reviews">
+          			<%= render @reviews %>
+	        	</table>
+    	    	<%= will_paginate @reviews %>
+    		<% end %>
       
-      <% if signed_in? %>
-        <h2 class="review">Lived here? Have any thoughts?</h2>
-        <i>All fields are required.</i>
-        <%= render 'shared/review_form', :object => @list  %>
-      </td>
-      <% end %>
-</section>
-</section>
+	      	<% if signed_in? %>
+    	    	<h2 class="review">Lived here? Have any thoughts?</h2>
+        		<i>Please enter a comment and a rating for this listing.</i>
+        		<%= render 'shared/review_form', :object => @list %>
+	      		</td>
+    	  	<% end %>
+      	</div><!--./span7 -->
+      	<div class="span3">
+      		<section class="flag_listing">
+				<p>Is the information for this listing inaccurate or abusive? If so, use the button below to flag the listing. If several people flag it we'll take a look. Thank you!</p>
+				<%= form_tag increment_flag(@list), :method => "post", :id => "FlagButton" do %>
+					<%= submit_tag("Flag", :class => "btn-large btn-danger")%>
+				<% end %>
+			</section>
+		</div><!--./span3 -->
+	</div><!--./row -->
+	</div><!--./hero-unit -->
+
