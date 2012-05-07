@@ -23,7 +23,7 @@
 			<% i = 0 %>
 			<% elementClass = "Table_Element" %>
 
-	  		<%= will_paginate @lists, :param_name => :results_page %>
+	  		<%= paginate @lists, :param_name => :results_page %>
 
 			<% @lists.each do |list| %>
 	
@@ -70,7 +70,7 @@
 			<% end %>
 
 		</table>
-		<%= will_paginate @lists, :param_name => :results_page %>
+		<%= paginate @lists, :param_name => :results_page %>
 
 	</div><!--./hero-unit -->
 	<% end %>

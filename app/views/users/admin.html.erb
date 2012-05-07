@@ -1,19 +1,16 @@
 <% if signed_in? && current_user.admin? %>
 
-<section id="Admin_View" class="User_View">
-	<h1 class="page_header">Admin page</h1>
+<div class="container">
+	<div class="hero-unit">
+	<h2 class="page_header">Admin page</h2>
 	<hr class="generic_header_ruler"/>
 	
-	<p>This is the basic administrator page. It is really in progress, has a lot of work to be done.</p>
-	<p>We could go a lot of ways with what we are looking to do with this page..</p>
-	<p>Everything on the page is now working as it should.  I took out searching for users for now,
-		will add it back in later, but I'll have to change the schema as well as tests and a few other things.</p>
+	<p>I think I'm going to be leaving the admin page as it is right now.  In the future, I think the coolest/best thing 
+		would be to have 'tabs' so that we can choose a tab to switch between the different bits of information on this page.
+	</p>
 	
-	<div id="admin_boxes_wrapper">
-	<div id="admin_top">
-	<ul id="admin_users">
-		<h1>All users:</h1>
-		<hr class="admin_ruler"/>
+	<div class="dark-hero-unit">
+		<h3>All users:</h3>
 	 
 		<%= form_tag admin_path, :method => 'get' do %>
 		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
@@ -26,14 +23,13 @@
   		</p>
 		<% end %>
 	
-		
-		<%= will_paginate @users, :param_name => :users_page %>
+		<%= paginate @users, :param_name => :users_page %>
     	<%= render @users %>
 	</ul>
+	</div>
 	
-	<div id="admin_adminusers">
-		<h1>List of admin users:</h1>
-		<hr class="admin_ruler"/>
+	<div class="dark-hero-unit">
+		<h3>List of admin users:</h3>
 		<ul>
 		<% @all_users = User.all %>
 		<% @all_users.each do |a_user| %>
@@ -42,11 +38,10 @@
     		<% end %>
     	<% end %>
     	</ul>
-	</div>
+    </div>
 	
-	<div id="admin_creation">
-	<h1>Create new admin:</h1>
-	<hr class="admin_ruler"/>
+	<div class="dark-hero-unit">
+	<h3>Create new admin:</h3>
 	<%= form_tag admin_path, :method => 'get', :options => {:autocomplete => :off} do %>
 		<%= hidden_field_tag :direction, params[:direction] %>
 		<%= hidden_field_tag :sort, params[:sort] %>
@@ -68,12 +63,10 @@
   		</div>
 	<% end %>
 	</div>
-	</div><!-- END "admin_top" id -->
 	
-	<div id="admin_bottom">
-	<ul id="admin_lists">
-		<h1>All listings:</h1>
-		<hr class="admin_ruler"/>
+	<div class="dark-hero-unit">
+	<ul>
+		<h3>All listings:</h3>
 		<%= form_tag admin_path, :method => 'get' do %>
 		
 		<%= hidden_field_tag :admin_us, params[:admin_us] %>
@@ -89,7 +82,7 @@
 		<% end %>
 		<br />
 
-		<%= will_paginate @lists, :param_name => :lists_page %> 
+		<%= paginate @lists, :param_name => :lists_page %> 
 		<table>
   			<tr>
   				<th><%= sortable "id" %></th>
@@ -103,10 +96,10 @@
 			</tr>
 		</table>
 	</ul>
-		
-	<div id="admin_comments">
-		<h1>List of all reviews:</h1>
-		<hr class="admin_ruler"/>
+	</div>
+	
+	<div class="dark-hero-unit">
+		<h3>List of all reviews:</h3>
 		
 		<%= form_tag admin_path, :method => 'get' do %>
 		<%= hidden_field_tag :admin_us, params[:admin_us] %>
@@ -121,7 +114,7 @@
     	</div>
 		<% end %>
 		
-		<%= will_paginate @reviews, :param_name => :reviews_page %>
+		<%= paginate @reviews, :param_name => :reviews_page %>
 		<table>
 			<tr>
 				<th>ID</th>
@@ -137,10 +130,8 @@
 		</table>
 	</div>
 	
-	<!-- <div id="admin_landlords">   -->
-	<div id="admin_landlords">
-		<h1>All landlords</h1>
-		<hr class="admin_ruler"/>
+	<div class="dark-hero-unit">
+		<h3>All landlords</h3>
 		<%= hidden_field_tag :admin_us, params[:admin_us] %>
 		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
 		<%= hidden_field_tag :direction, params[:direction] %>
@@ -161,10 +152,8 @@
 		</table>
 	</div>
 	
-	</div><!-- END "admin_bottom" id -->
-	</div><!-- END "admin_boxes_wrapper" id -->
-</section>
-
+	</div>
+</div>
 
 <% else 
   @controller.send("admin_user") %>

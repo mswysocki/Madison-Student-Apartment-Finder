@@ -13,7 +13,7 @@
         	<table class="reviews" summary="User reviews">
           		<%= render @reviews %>
         	</table>
-        	<%= will_paginate @reviews %>
+        	<%= paginate @reviews %>
     	<% end %>
       
       	<% if signed_in? && :controller == 'lists' %>
