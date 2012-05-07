@@ -5,6 +5,6 @@
 		<td><%= review.rating %></td>
 		<td><%= review.helpfulness %></td>
 		<td><%= review.flag %></td>
-		<td><%= link_to "Delete", user_review_path(review.user_id, review.id), :method => :delete, :confirm => "You sure?" %></td>
+		<td><%= button_to "Delete", user_review_path(review.user_id, review.id), :method => :delete, :confirm => "You sure?" %></td>
 	</tr>
 <% end %>

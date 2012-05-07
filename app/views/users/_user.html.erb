@@ -1,10 +1,9 @@
-<li>  
-	<% unless user.id == current_user.id %>
-		<%= link_to user.name, user %>
-		<% if current_user.admin? %>
-			| <%= link_to "delete", user, :method => :delete, :confirm => "You sure?", :title => "Delete #{user.name}" %>
+<tr>  
+	<td><%= user.name %> </td>
+	<td><%= link_to "Show", user, :class => 'btn btn-mini' %></td>
+	<td style="vertical-align: center"><% if current_user.admin? %> 
+			<%= button_to "Delete", user_path(user), :method => :delete, :confirm => "You sure?",  :class => 'btn btn-mini btn-danger' %>
 		<% end %>
-	<% else %>
-		<%= link_to user.name, user %>
-    <% end %>
-</li>
+	</td>
+	
+</tr>

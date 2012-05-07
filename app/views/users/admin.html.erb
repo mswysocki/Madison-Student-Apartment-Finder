@@ -24,7 +24,17 @@
 		<% end %>
 	
 		<%= paginate @users, :param_name => :users_page %>
-    	<%= render @users %>
+		<table>
+  			<tr>
+  				<th><%= sortable "Name" %></th>
+  				<th></th>
+  				<th></th>
+ 			 </tr>	
+ 			 <tr>
+				<%= render @users %>
+			</tr>
+		</table>
+    	
 	</ul>
 	</div>
 	
