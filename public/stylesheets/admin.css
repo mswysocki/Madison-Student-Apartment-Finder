@@ -1,9 +1,9 @@
 #Admin_View {
-	height: 1500px
+	height: 2000px;
 }
 
 #admin_lists, #admin_users, #admin_adminusers, 
-#admin_comments, #admin_creation {
+#admin_comments, #admin_creation, #admin_landlords {
 	border: 1px solid #EEEEEE;
 	border-radius: 5px;
 	background: #232323;
@@ -28,20 +28,29 @@
 }
 
 #admin_users, #admin_adminusers, #admin_creation {
-	width: 225px;
-	height: 400px;
-	float: left;
+	
+	
+}
+#admin_creation {
+	float:right;
+}
+#admin_creation input {
+	width: 50%;
 }
 
 #admin_lists, #admin_comments {
-	width: 400px;
-	height: 350px;
-	float: left;
+	
+}
+
+#admin_adminusers {
+	float:left;
+}
+
+#admin_comments {
+	float:left;
 }
 
 #admin_landlords {
-	width: 800px;
-	height: 400px;
 }
 
 #admin_users li {

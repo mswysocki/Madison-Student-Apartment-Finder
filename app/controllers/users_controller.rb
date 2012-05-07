@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   
   def admin
     @title = "Admin"
-    @users = User.admin_user_search(params[:admin_us]).paginate(:page => params[:users_page], :per_page => 14)
+    @users = User.admin_user_search(params[:admin_us]).paginate(:page => params[:users_page], :per_page => 13)
     @lists = List.admin_list_search(params[:admin_ls]).order(sort_column + " " + sort_direction).paginate(:page => params[:lists_page], :per_page => 10)
     @reviews = Review.admin_review_search(params[:admin_rs]).paginate(:page => params[:reviews_page], :per_page => 5)
     @landlords = Landlord.all

@@ -7,7 +7,7 @@
 	<p>This is the administrator page.  Only admins can view this page.</p>
 	
 	<div id="admin_boxes_wrapper">
-	<div id="admin_top">
+	<div id="adm3in_top">
 	<ul id="admin_users">
 		<h1>All users:</h1>
 		<hr class="admin_ruler"/>
@@ -27,6 +27,63 @@
 		<%= will_paginate @users, :param_name => :users_page %>
     	<%= render @users %>
 	</ul>
+	
+	<ul id="admin_lists">
+		<h1>All listings:</h1>
+		<hr class="admin_ruler"/>
+		<%= form_tag admin_path, :method => 'get' do %>
+		
+		<%= hidden_field_tag :admin_us, params[:admin_us] %>
+		<%= hidden_field_tag :admin_rs, params[:admin_rs] %>
+		<%= hidden_field_tag :direction, params[:direction] %>
+		<%= hidden_field_tag :sort, params[:sort] %>
+ 		<div class="field">
+    		<%= text_field_tag :admin_ls, params[:admin_ls] %>
+    	</div>
+    	<div class="actions">
+    		<%= submit_tag "Search Listings", :Address => nil %>
+    	</div>
+		<% end %>
+		<br />
+
+		<%= will_paginate @lists, :param_name => :lists_page %> 
+		<table>
+  			<tr>
+  				<th><%= sortable "id" %></th>
+  				<th><%= sortable "Address" %></th>
+  				<th><%= sortable "Flags" %></th>
+  				<th></th>
+  				<th></th>
+ 			 </tr>	
+ 			 <tr>
+				<%= render @lists %>
+			</tr>
+		</table>
+	</ul>
+	
+	<!-- <div id="admin_landlords">   -->
+	<div id="admin_landlords">
+		<h1>All landlords</h1>
+		<hr class="admin_ruler"/>
+		<%= hidden_field_tag :admin_us, params[:admin_us] %>
+		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
+		<%= hidden_field_tag :direction, params[:direction] %>
+		<%= hidden_field_tag :sort, params[:sort] %>
+				
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Website</th>
+				<th>Phone</th>
+				<th>Address</th>
+				<th></th>
+			</tr>
+			
+			<%= render :partial => "landlords/admin", :object => @landlords %>
+			
+		</table>
+	</div>
 	
 	<div id="admin_adminusers">
 		<h1>List of admin users:</h1>
@@ -67,39 +124,9 @@
 	</div>
 	</div><!-- END "admin_top" id -->
 	
-	<div id="admin_bottom">
-	<ul id="admin_lists">
-		<h1>All listings:</h1>
-		<hr class="admin_ruler"/>
-		<%= form_tag admin_path, :method => 'get' do %>
-		
-		<%= hidden_field_tag :admin_us, params[:admin_us] %>
-		<%= hidden_field_tag :admin_rs, params[:admin_rs] %>
-		<%= hidden_field_tag :direction, params[:direction] %>
-		<%= hidden_field_tag :sort, params[:sort] %>
- 		<div class="field">
-    		<%= text_field_tag :admin_ls, params[:admin_ls] %>
-    	</div>
-    	<div class="actions">
-    		<%= submit_tag "Search Listings", :Address => nil %>
-    	</div>
-		<% end %>
-		<br />
-
-		<%= will_paginate @lists, :param_name => :lists_page %> 
-		<table>
-  			<tr>
-  				<th><%= sortable "id" %></th>
-  				<th><%= sortable "Address" %></th>
-  				<th><%= sortable "Flags" %></th>
-  				<th></th>
-  				<th></th>
- 			 </tr>	
- 			 <tr>
-				<%= render @lists %>
-			</tr>
-		</table>
-	</ul>
+	<div id="clear"></div>
+	<div id="admin3_bottom">
+	
 		
 	<div id="admin_comments">
 		<h1>List of all reviews:</h1>
@@ -124,8 +151,8 @@
 				<th>ID</th>
 				<th>Body</th>
 				<th>Rating</th>
-				<th>Help</th>
-				<th>Flags</th>
+				<!-- <th>Help</th>
+				<th>Flags</th> -->
 				<th></th>
 			</tr>
 			
@@ -134,29 +161,7 @@
 		</table>
 	</div>
 	
-	<!-- <div id="admin_landlords">   -->
-	<div id="admin_landlords">
-		<h1>All landlords</h1>
-		<hr class="admin_ruler"/>
-		<%= hidden_field_tag :admin_us, params[:admin_us] %>
-		<%= hidden_field_tag :admin_ls, params[:admin_ls] %>
-		<%= hidden_field_tag :direction, params[:direction] %>
-		<%= hidden_field_tag :sort, params[:sort] %>
-				
-		<table>
-			<tr>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Website</th>
-				<th>Phone</th>
-				<th>Address</th>
-				<th></th>
-			</tr>
-			
-			<%= render :partial => "landlords/admin", :object => @landlords %>
-			
-		</table>
-	</div>
+	
 	
 	</div><!-- END "admin_bottom" id -->
 	</div><!-- END "admin_boxes_wrapper" id -->
