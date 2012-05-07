@@ -217,7 +217,7 @@
           	</div><!--./row -->
 		</div><!--./tab-pane -->
 		<div class="tab-pane" id="image-tab">
-			<p>Uploading an image is optional. Use the button to upload an image of the building associated with this listing.</p>
+			<p>Uploading an image is optional. Use the button to upload an image of the floor plan associated with this listing.</p>
 			<%= image_tag(@list.image_url(:thumb)) if @list.image? %>
   			<%= f.file_field :image %>
   			<%= f.hidden_field :image_cache %>

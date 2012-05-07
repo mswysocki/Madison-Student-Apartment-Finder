@@ -1,55 +1,46 @@
-<section class="User_View">
-	<h1 class="page_header"><%= @landlord.name %></h1>
-	<hr class="generic_header_ruler"/>
-	
-    <p><em>Name:</em>  <%= @landlord.name %></p>
-    <p><em>Email:</em>  <%= @landlord.email %></p>
-    <p><em>Website: <%= link_to "#{@landlord.website}", @landlord.website %></em></p>
+<div class="container">
+	<div class="hero-unit">
+        <h1><%= @landlord.name %></h1>
+        <hr style="border: 1px solid black;"/>
+        
+        <p><em>Name:</em>  <%= @landlord.name %></p>
+    	<p><em>Email:</em>  <%= @landlord.email %></p>
+    	<p><em>Website:</em> <%= link_to "#{@landlord.website}", @landlord.website %></p>
     
-    <section id="Landlord_Home_View" class="landlord_listing_area" >
-	<h1 class="page_header">Landlord Listings</h1>
-	<hr class="generic_header_ruler">
-	<h1>Below are all of the listings we have from this landlord:</h1>
-	<b>If you can't find yours, please add it, <%= link_to "here", new_listing_path %>.</b>
+    	<br />
+		<h2 class="pull-left">Landlord Listings</h2>
+		<p class="pull-right" style="font-size: 14px"><b>If you can't find your listing, please add it <%= link_to "here", new_listing_path %>.</b></p>
+		<br />
+		<hr style="border: 1px solid lightGrey;"/>
 
+		<table id="Search_Results_Table">
+			<% elementClass = "Table_Element" %>
+
+			<% @lists.each do |list| %>
 	
-	
-	<table id="Search_Results_Table">   
-
-		<% elementClass = "Table_Element" %>
-
-
-		<% @lists.each do |list| %>
-
-		<% identifier = "Table_Element_" + list.id.to_s() %>
-		<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
-    		<td class=<%= elementClass%> >
-    			<div class="image_results">
-    				<% unless list.image_url.nil? %>
-						<%= image_tag list.image_url(:thumb).to_s, :class => "show_image" %>
-					<% else %>
-						<%= image_tag "no_image_placeholder.jpg", :class => "placeholder_thumb" %>
-					<% end %>
-				</div>
-    			<p class="EntryAddress">
-    				<% if list.ltype %>
-    					<%= list.address %>
-    				<% else %>
-    					<%= list.aptnum %>
-    					<%= list.building_name %>
-    				<% end %>
-    			</p>
+			<% identifier = "Table_Element_" + list.id.to_s() %>
+			<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
+    			<td class=<%= elementClass%>
+    					<% unless list.image_url.nil? %>
+							<%= image_tag list.image_url(:thumb).to_s, :class => "show_image" %>
+						<% else %>
+							<%= image_tag "no_image_placeholder.jpg", :class => "placeholder_thumb" %>
+						<% end %>
+    				<p class="EntryAddress">
+    					<% if list.ltype %>
+    						<%= list.address %>
+    					<% else %>
+    						<%= list.aptnum %>
+    						<%= list.building_name %>
+    					<% end %>
+    				</p>
     			
-    			<div>
-	    			<p class="EntryZip">Zip Code: <%= list.zip %></p>
-    				<p class="EntryBedBath">Bedrooms: <%= list.bedrooms %>  |  Bathrooms: <%= list.bathrooms %> </p>    			
-    			</div>
-    		</td>
-  		</tr>
-		<% end %>
-
-	</table>
-
-
-</section>
-</section>
+	    			<p>Zip Code: <%= list.zip %></p>
+    				<p>Bedrooms: <%= list.bedrooms %>  |  Bathrooms: <%= list.bathrooms %> </p>
+    				<hr>    			
+    			</td>
+  			</tr>
+			<% end %>
+		</table>
+		
+	</div><!--./hero-unit -->

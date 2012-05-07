@@ -1,82 +1,77 @@
-
 <% first = 1 %>
 
 <% unless @test.nil? %> <!-- This checks if the url is empty. Will then show the content (ie. home) page in that case-->
 <% unless @no_results %> <!-- This checks if there are no search results. Will render a new partial -->
 
-<section id="Results_Home_View" class="content_area" >
-	<h1 class="page_header">Search Results</h1>
-	<hr class="generic_header_ruler">
-	<h1>The following results matching your search criteria were found:</h1>
+	<% if @test.nil? %>
+		<%= render 'home/content' %>
+	<% end %>
 
-	<table id="Search_Results_Table">   
+	<% if @no_results %>
+		<%= render 'home/no_results' %>
+	<% end %>
 
-		<% i = 0 %>
-		<% elementClass = "Table_Element" %>
+	<div class="span9">
+		<div class="hero-unit">
+        	<h1>Search Results</h1>
+	        <hr style="border: 1px solid black;"/>
+    	    <h3>Click on a result to take you to the listing page. The following results matching your search criteria were found:</h3>
+        	<br />
+        
+	        <table id="Search_Results_Table">   
+	
+			<% i = 0 %>
+			<% elementClass = "Table_Element" %>
 
-  		<%= will_paginate @lists, :param_name => :results_page %>
+	  		<%= will_paginate @lists, :param_name => :results_page %>
 
-		<% @lists.each do |list| %>
+			<% @lists.each do |list| %>
+	
+			<% i = i + 1 %>
 
-		<% i = i + 1 %>
-
-		<% if i % 2 == 0
-			elementClass = "Table_Element_Alt"
-		else
-			elementClass = "Table_Element"
-		end %>
-
-		<% identifier = "Table_Element_" + list.id.to_s() %>
-		<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
-    		<td class=<%= elementClass%> >
-    			<div class="image_results">
-    				<% unless list.image_url.nil? %>
-						<%= image_tag list.image_url(:thumb).to_s, :class => "show_image" %>
-					<% else %>
-						<%= image_tag "no_image_placeholder.jpg", :class => "placeholder_thumb" %>
-					<% end %>
-				</div>
-    			<p class="EntryAddress">
-    				<% if list.ltype %>
-    					<%= list.address %>
-    				<% else %>
-    					<%= list.aptnum %>
-    					<%= list.building_name %>
-    				<% end %>
-    			</p>
-    			<div class="landlord_results_box">
+			<% identifier = "Table_Element_" + list.id.to_s() %>
+			<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
+    			<td class="span8">
+    				<br />
+    				<div class="pull-left" style="margin-right: 10px">
+    					<% unless list.image_url.nil? %>
+							<%= image_tag list.image_url(:thumb).to_s %>
+						<% else %>
+							<%= image_tag "no_image_placeholder.jpg", :class => "placeholder_thumb", :height => "150px"  %>
+						<% end %>
+					</div>
+    				<div>
+    					<p>
+    						<b>Landlord Info</b>:
+	    					<% if !list.landlord_id.nil? %> 
+    							<% landlord = get_landlord(list.landlord_id) %>
+    							<%= landlord.name %>
+    						<% else %>
+    							Not available yet.
+    						<% end %>
+    					</p>
+    				</div>
     				<p>
-    					<b>Landlord Info</b>:
-    					<% if !list.landlord_id.nil? %> 
-    					<% landlord = get_landlord(list.landlord_id) %>
-    					<%= landlord.name %> |
-    					<%= landlord.email %> |
-    					<%= ActionController::Base.helpers.number_to_phone(landlord.phone) %>
-    					<% else %>
-    					Not available yet.
+    					<% if list.ltype %>
+    						<%= list.address %>
+	    				<% else %>
+    						<%= list.aptnum %>
+    						<%= list.building_name %>
     					<% end %>
     				</p>
-    		
-    			</div>
-    			<div>
-	    			<p class="EntryZip">Zip Code: <%= list.zip %></p>
-    				<p class="EntryBedBath">Bedrooms: <%= list.bedrooms %>  |  Bathrooms: <%= list.bathrooms %> </p>    			
-    			</div>
-    		</td>
-  		</tr>
-		<% end %>
+    				<div>
+	    				<p class="EntryZip">Zip Code: <%= list.zip %></p>
+    					<p class="EntryBedBath">Bedrooms: <%= list.bedrooms %>  |  Bathrooms: <%= list.bathrooms %> </p>    			
+    				</div>
+    				<br />
+    				<hr>
+    			</td>
+  			</tr>
+			<% end %>
 
-	</table>
+		</table>
+		<%= will_paginate @lists, :param_name => :results_page %>
+
+	</div><!--./hero-unit -->
 	<% end %>
-<% end %>
-
-</section>
-
-
-<% if @test.nil? %>
-	<%= render 'home/content' %>
-<% end %>
-
-<% if @no_results %>
-	<%= render 'home/no_results' %>
 <% end %>
