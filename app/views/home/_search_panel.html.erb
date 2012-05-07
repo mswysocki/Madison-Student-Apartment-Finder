@@ -95,11 +95,7 @@
 				<%= f.label      :squarefeet_gte, "square feet"%>
 				</div>
 				
-				<div class="Landlord_search">
-				<%= f.label :landlord_name, "Landlord" %><br />
-
-				<%= f.collection_select :landlord_id_eq, Landlord.all, :id, :name, :include_blank => true %>
-				</div>
+				
 				</div>
 			</div>
 		</div><!-- End ResDetails -->
@@ -114,6 +110,11 @@
 			</a>
 
 			<div id="LeaseDetailsSlider" class="CriterionOptions" style="display: none">
+				<b><%= f.label :landlord_name, "Landlord" %></b><br />
+				<%= f.collection_select :landlord_id_eq, Landlord.all, :id, :name, :include_blank => true, :class => "landlord_search" %>
+			
+				<br />
+				<br />
 				<div>
 				<b><%= f.label 	   :length_eq, "Length:" %></b><br />
 				<%= f.radio_button :length_eq, 6, :class => "SearchBarCheckOrRadioButtons" %> 6 Months <br />
