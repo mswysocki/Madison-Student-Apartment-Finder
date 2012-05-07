@@ -25,9 +25,13 @@ class Landlord < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name,        :presence => true,
                           :uniqueness => { :case_sensitive => false }
-  validates :email,       :presence => true,
-                          :format => { :with => email_regex },
-                          :uniqueness => { :case_sensitive => false }
+  
+  
+  with_options :if => :email_valid? do |email|
+    email.validates :email,     :presence => true,
+                                :format => { :with => email_regex },
+                                :uniqueness => { :case_sensitive => false }
+  end
   
   #TODO: Will have to decide how to deal with the phone numbers.  They are stored as strings, so we have plenty of flexibility
   validates :phone,       :presence => true,
@@ -65,4 +69,7 @@ class Landlord < ActiveRecord::Base
       self.phone = self.phone.gsub(/\D/, '')
     end
     
+    def email_valid?
+      email.presence
+    end
 end
