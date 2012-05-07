@@ -5,10 +5,10 @@
     <p><em>Name:</em>  <%= @landlord.name %></p>
     <p><em>Email:</em>  <%= @landlord.email %></p>
     <p><em>Website: <%= link_to "#{@landlord.website}", @landlord.website %></em></p>
-    
+    <br />
     <section id="Landlord_Home_View" class="landlord_listing_area" >
-	<h1 class="page_header">Landlord Listings</h1>
-	<hr class="generic_header_ruler">
+	<h2>Landlord Listings</h2>
+	<hr style="border: 1px solid white"/>
 	<h1>Below are all of the listings we have from this landlord:</h1>
 	<b>If you can't find yours, please add it, <%= link_to "here", new_listing_path %>.</b>
 
@@ -22,8 +22,8 @@
 		<% @lists.each do |list| %>
 
 		<% identifier = "Table_Element_" + list.id.to_s() %>
-		<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral">
-    		<td class=<%= elementClass%> >
+		<tr onclick="setSelectedTableElement(<%= list.id %>)" id=<%= identifier%> class="TableElementGeneral" >
+    		<td style="width: 950px" class=<%= elementClass%> >
     			<div class="image_results">
     				<% unless list.image_url.nil? %>
 						<%= image_tag list.image_url(:thumb).to_s, :class => "show_image" %>

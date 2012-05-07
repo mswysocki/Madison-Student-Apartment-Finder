@@ -21,18 +21,10 @@
 	  		</div><!-- END "SignInSubmit" id -->
 	  		<div id="SignInFields">
 	  			<div class="SignInField">
-	    			<%= f.text_field :email, 
-	    				:value => 'Email Address',
-	    				:style => 'color: #666; font-style: italic;',
-	    				:onfocus => "if(this.getValue()=='Email Address'){this.clear();this.style.color = '#000';}",
-	    				:onblur => "if(this.getValue()==''){this.setValue('Email Address');this.style.color = '#666';}" %>
+	    			<%= f.text_field :email, :placeholder => "Email Address" %>
 	  			</div><!-- END email field -->
 	  			<div class="SignInField">
-	    			<%= f.password_field :password, 
-	    				:value => 'Password',
-	    				:style => 'color: #666; font-style: italic;',
-	    				:onfocus => "if(this.getValue()=='Password'){this.clear();this.style.color = '#000';}",
-	    				:onblur => "if(this.getValue()==''){this.setValue('Password');this.style.color = '#666';}" %>
+	    			<%= f.password_field :password, :type => "password", :placeholder => "Password" %>
 	  			</div><!-- END password field -->
 			</div><!-- END "SignInFields" -->
 			<br /><br />
@@ -61,17 +53,20 @@
 	
 	<ul id="Constant_View_Links">
 		<li class="navButton">
+			<%= link_to 'Home', home_page_path, :id => "HomeLink", :class => "navLink" %>
+		</li>
+		<li class="navButton">
 			<%= link_to 'Add a Listing', new_listing_path, :id => "AddListingLink", :class => "navLink" %>
 		</li>
 		<li class="navButton">
 			<%= link_to 'Landlord Info', all_landlords_path, :id => "LandlordLink", :class => "navLink" %>
 		</li>
     	<% if signed_in? && current_user.admin? %>
-			<li class="navButton">
+			<li id="AdminBtn" class="navButton">
 				<%= link_to "Admin Page", admin_path, :id => "AdminLink", :class => "navLink" %>
 			</li>
 	  	<% else %>
-			<li class="navButton">
+			<li id="AboutBtn" class="navButton">
 				<%= link_to 'About Us', about_path, :id => "AboutLink", :class => "navLink" %>
 			</li>
     	<% end %>

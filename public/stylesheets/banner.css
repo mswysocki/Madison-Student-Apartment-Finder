@@ -95,7 +95,7 @@
 
 .navLink, .navLink:visited {
 	display: block;
-	width: 225px;
+	width: 229px;
 	color: #EEEEEE;
 	text-align: center;
 	text-decoration: none;
@@ -139,7 +139,16 @@
 	-moz-transition-delay:0s;
 }
 
-#AddListingLink {
+#HomeLink {
 	border-bottom-left-radius: 15px;
+}
+
+#AdminLink, #AboutLink {
+	width: 230px;
+	border-bottom-right-radius: 15px;
+}
+
+#AdminBtn, #AboutBtn {
+	border-right: none;
 }
 /* END CSS for navigation links */

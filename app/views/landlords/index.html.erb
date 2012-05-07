@@ -1,24 +1,23 @@
 <section id="Landlord_View">
-<h1>All Landlords</h1>
+<h1 class="page_header">All Landlords</h1>
+<hr class="generic_header_ruler" />
 
 <%= will_paginate %>
 
-<ul class="landlords">
-	<table> 
+	<table id="landlord-table"> 
 		<tr>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Website</th>
-			<th>Phone Number</th>
-			<th>Address</th>
-			<th>City</th>
-			<th>Zip</th>	
-			<th></th>
-			<th></th>
+			<th id="landlords-table-name">Name</th>
+			<th id="landlords-table-email">Email</th>
+			<th id="landlords-table-web">Website</th>
+			<th id="landlords-table-phone">Phone Number</th>
+			<th id="landlords-table-address">Address</th>
+			<th id="landlords-table-city">City</th>
+			<th id="landlords-table-zip">Zip</th>	
 		</tr>
+		<tr>
 		<%= render @landlords %>
+		</tr>
     </table>
-</ul>
 
 <%= will_paginate %>
 </section>
