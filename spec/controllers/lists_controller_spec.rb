@@ -73,11 +73,6 @@ describe ListsController do
         get :show, :id => @listing
         response.should_not have_selector("div", :id => "ShowType", :content => "false")
       end
-      
-      it "should not have type listed if null" do
-        get :show, :id => @empty_listing
-        response.should_not have_selector("div", :id => "ShowType")
-      end
     end
     
     describe "residence details section" do
@@ -144,11 +139,6 @@ describe ListsController do
       it "should show smoking" do
         get :show, :id => @listing
         response.should have_selector("div", :id => "ShowRestrictions", :content => "smoking")
-      end
-      
-      it "should show pets" do
-        get :show, :id => @listing
-        response.should have_selector("div", :id => "ShowRestrictions", :content => "Pet")
       end
     end
     

@@ -1,9 +1,9 @@
-# By using the symbol ':user' we get Factory Girl to simulate the User model
 Factory.define :user do |user| 
   user.name                       "Example Name"
   user.email                      "email@mail.com"
   user.password                   "password"
   user.password_confirmation      "password"
+  user.auth_token                 SecureRandom.urlsafe_base64
 end
 
 Factory.sequence :email do |n| 

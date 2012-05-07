@@ -1,28 +1,21 @@
-<section class="User_View" >
-	<h1 class="page_header">Sign up</h1>
-	<hr class="generic_header_ruler"/>
-	<br />
-	<%= form_for(@user) do |f| %>
-  		<%= render 'shared/error_messages', :object => f.object %>
-  		<div class="field">
-    		<%= f.label :name %><br />
-    		<%= f.text_field :name %>
-  		</div>
-  		<div class="field">
-    		<%= f.label :email %><br />
-    		<%= f.text_field :email %>
-  		</div>
-  		<div class="field">
-    		<%= f.label :password %><br />
-    		<%= f.password_field :password %>
-  		</div>
-  		<div class="field">
-    		<%= f.label :password_confirmation, "Password Confirmation" %><br />
-    		<%= f.password_field :password_confirmation %>
-  		</div>
-  		<br />
-  		<div class="actions">
-    		<%= f.submit "Sign up" %>
-  		</div>
-	<% end %>
-</section>
+<div class="container">
+	<div class="hero-unit">
+        <h1>Sign Up</h1>
+        <hr style="border: 1px solid black;"/>
+        <p>Why sign up for an account? Good question! Having an account will allow you to comment on residences, and you'll also be able to compare residences side-by-side as soon as we implement that feature. We may also have a "favorite listings" feature in the works... So sign up now!</p>
+        <br />
+        <%= form_for(@user) do |f| %>
+  			<%= render 'shared/error_messages', :object => f.object %>
+        	<div class="input-prepend input-append">
+        		<span class="add-on"><i class="icon-user"></i></span><%= f.text_field :name, :placeholder => "Username" %>
+  				<br />
+    			<span class="add-on"><i class="icon-envelope"></i></span><%= f.text_field :email, :placeholder => "Email Address" %>
+    			<br />
+    			<span class="add-on"><i class="icon-lock"></i></span><%= f.password_field :password, :placeholder => "Password" %>
+    			<br />
+    			<span class="add-on"><i class="icon-ok"></i></span><%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
+    		</div>
+    		<br /><br />
+    		<%= f.submit "Sign up", :class => "btn-large btn-inverse" %>
+        <% end %>
+	</div><!--./hero-unit -->

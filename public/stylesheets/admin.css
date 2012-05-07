@@ -1,0 +1,91 @@
+#Admin_View {
+	height: 1500px
+}
+
+#admin_lists, #admin_users, #admin_adminusers, 
+#admin_comments, #admin_creation {
+	border: 1px solid #EEEEEE;
+	border-radius: 5px;
+	background: #232323;
+	margin: 5px;
+	padding: 10px;
+}
+
+#admin_boxes_wrapper {
+	margin: auto;
+	width: 90%;
+}
+
+#admin_top {
+	margin: auto;
+	width: 89%;
+}
+
+#admin_bottom {
+	clear: both;
+	margin: auto;
+	width: 100%;
+}
+
+#admin_users, #admin_adminusers, #admin_creation {
+	width: 225px;
+	height: 400px;
+	float: left;
+}
+
+#admin_lists, #admin_comments {
+	width: 400px;
+	height: 350px;
+	float: left;
+}
+
+#admin_landlords {
+	width: 800px;
+	height: 400px;
+}
+
+#admin_users li {
+	margin-left: 40px;
+}
+
+#admin_lists div {
+	display: inline;
+}
+
+.admin_ruler {
+	border: 0;
+	background-color: #eeeeee;
+	height: 2px;
+}
+
+#admin_lists table {
+	border-collapse:collapse;
+	margin: 10px;
+}
+
+#admin_lists th, td {
+	border: 1px solid #EEEEEE;
+	padding: 0 10px 0 10px;
+	margin: 0px;
+}
+
+#admin_lists td.flags, td.id {
+	text-align:center;
+}
+
+#admin_lists th .current {
+	padding-right: 12px;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+#admin_lists th .asc {
+	background-image: url(/images/up_arrow.gif);
+}
+
+#admin_lists th .desc {
+	background-image: url(/images/down_arrow.gif);
+}
+
+
+

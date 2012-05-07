@@ -1,26 +1,30 @@
-<section class="User_View">
-	<h1 class="page_header"><%= @user.name %></h1>
-	<hr class="generic_header_ruler"/>
-
-	<h3>User ID:  <%= @user.id %></h3>
-	
-    <p><em>Name:</em>  <%= @user.name %></p>
-    <p><em>Email:</em>  <%= @user.email %></p>
-    <p><em>URL:</em>   <%= link_to user_path(@user), @user %></p>
-</section>
-
-<section id="Comments_Area">
-	<!-- reviews area -->
-	<% unless @user.reviews.empty? %>
-        <table class="reviews" summary="User reviews">
-          <%= render @reviews %>
-        </table>
-        <%= will_paginate @reviews %>
-    <% end %>
+<div class="container">
+	<div class="hero-unit">
+        <h1><%= @user.name %></h1>
+        <hr style="border: 1px solid black;"/>
+        <h3>User ID:  <%= @user.id %></h3>
+        <br />
+        <p><em>Name:</em>  <%= @user.name %></p>
+   		<p><em>Email:</em>  <%= @user.email %></p>
+    	<p><em>URL:</em>   <%= link_to user_path(@user), @user %></p>
+    	
+    	<!-- reviews area -->
+		<% unless @user.reviews.empty? %>
+        	<table class="reviews" summary="User reviews">
+          		<%= render @reviews %>
+        	</table>
+        	<%= will_paginate @reviews %>
+    	<% end %>
       
-      <% if signed_in? && :controller == 'lists' %>
-        <h1 class="review">Review?</h1>
-        <%= render 'shared/review_form', :object => @user  %>
-      </td>
-      <% end %>
-</section>
+      	<% if signed_in? && :controller == 'lists' %>
+        	<h2>Review?</h2>
+        	<%= render 'shared/review_form', :object => @user  %>
+      		</td>
+      	<% end %>
+      	
+      	<% if @user.reviews.empty? %>
+      		<br />
+      		<h2>Reviews<h2>
+      		<p>This is where your history of reviews (comments on residences) is kept, but it looks like you haven't submitted any...</p>
+      	<% end %>
+	</div><!--./hero-unit -->

@@ -23,7 +23,7 @@ describe Landlord do
       :website => "www.google.com", 
       :phone => "6087903394",
       :address => "18 Lathrop St.",
-      :city => "Madison"
+      :city => "Madison",
       :state => "Wisconsin",
       :zip => 53726
     }
@@ -76,7 +76,7 @@ describe Landlord do
   
   it "should reject duplicate email addresses" do
     Landlord.create!(@attr)
-    landlord_dup = Landlord.new(@attr,merge(:name => "foobar landlord"))
+    landlord_dup = Landlord.new(@attr.merge(:name => "foobar landlord"))
     landlord_dup.should_not be_valid
   end
   

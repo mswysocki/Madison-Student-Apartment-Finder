@@ -1,184 +1,245 @@
 	
-		<%= form_for(@list, :html => {:multipart => true}) do |f| %>
- 		<%= render 'shared/error_messages', :object => f.object %>
-		<% action = params[:action] %>
+<%= form_for(@list, :html => {:multipart => true}) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+<% action = params[:action] %>
 		<ul class="nav nav-tabs">
   			<li class="active">
   				<a href="#essential-tab" data-toggle="tab">Essential Details</a>
   			</li>
 			<li><a href="#additional-tab" data-toggle="tab">Additional Information</a></li>
+			<li><a href="#image-tab" data-toggle="tab">Upload Image</a></li>
 		</ul>
 		<div class="tab-content">
 		<div class="tab-pane active" id="essential-tab">
 			<div class="row">
 				<div class="span5">
-      				<form class="form-horizontal">
+      				<div class="form-horizontal">
         				<fieldset>
         					<legend>Location of Residence</legend>
           					<div class="control-group">
             					<label class="control-label">Residence Type:</label>
             					<div class="controls">
-              						<label class="radio">
-                						<input type="radio" name="optionsRadios" id="house-radio" value="house" checked>House
-              						</label>
-              						<label class="radio">
-                						<input type="radio" name="optionsRadios" id="apt-radio" value="apt">Apartment
-              						</label>
+            						<% if ((action.eql? "edit") || (action.eql? "update")) %>
+            							<% if (signed_in? && current_user.admin?) %>
+              								<label class="radio">
+              									<%= f.radio_button :ltype, true %>House
+              								</label>
+              								<label class="radio">
+                								<%= f.radio_button :ltype, false %>Apartment
+              								</label>
+              							<% else %>
+              								<label class="radio">
+              									<%= f.radio_button :ltype, true, :disabled => true %>House
+              								</label>
+              								<label class="radio">
+                								<%= f.radio_button :ltype, false, :disabled => true %>Apartment
+              								</label>
+              							<% end %>
+              						<% elsif ((action.eql? "new") || (action.eql? "create")) %>
+              							<label class="radio">
+              								<%= f.radio_button :ltype, true %>House
+              							</label>
+              							<label class="radio">
+                							<%= f.radio_button :ltype, false %>Apartment
+              							</label>
+              						<% end %>
               					</div>
             				</div>
          					<div class="control-group">
             					<label class="control-label">Location:</label>
             					<div class="controls docs-input-sizes">
-            						<p><input class="input-medium" type="text" placeholder="Address"></p>
-            						<!-- if apartment
-            						<p><input class="input-medium" type="text" placeholder="Building Name"></p>
-            						<p><input class="input-small" type="text" placeholder="Apartment #"></p>
-            						-->
-              						<p><input class="input-small disabled" type="text" placeholder="Madison" disabled></p>
-              						<p><input class="input-mini disabled" type="text" placeholder="WI" disabled></p>
-              						<p><input class="input-mini" type="text" placeholder="Zip"></p>
+            						<% if ((action.eql? "edit") || (action.eql? "update")) %>
+            							<% if (signed_in? && current_user.admin?) %>
+            								<p><%= f.text_field :address, :class => "input-medium", :placeholder => "Address" %></p>
+        	    							<p><%= f.text_field :building_name, :class => "input-medium", :placeholder => "Building Name" %></p>
+            								<p><%= f.text_field :aptnum, :class => "input-small", :placeholder => "Apartment #" %></p>
+              								<p><%= f.text_field :city, :class => "input-small disabled", :placeholder => "Madison", :disabled => true %></p>
+              								<p><%= f.text_field :state, :class => "input-small disabled", :placeholder => "WI", :disabled => true %></p>
+              								<p><%= f.text_field :zip, :class => "input-mini", :placeholder => "Zip Code" %></p>
+              							<% else %>
+              								<p><%= f.text_field :address, :class => "input-medium", :placeholder => "Address", :disabled => true %></p>
+        	    							<p><%= f.text_field :building_name, :class => "input-medium", :placeholder => "Building Name", :disabled => true %></p>
+            								<p><%= f.text_field :aptnum, :class => "input-small", :placeholder => "Apartment #", :disabled => true %></p>
+              								<p><%= f.text_field :city, :class => "input-small disabled", :placeholder => "Madison", :disabled => true %></p>
+              								<p><%= f.text_field :state, :class => "input-small disabled", :placeholder => "WI", :disabled => true %></p>
+              								<p><%= f.text_field :zip, :class => "input-mini", :placeholder => "Zip Code", :disabled => true %></p>
+            							<% end %>
+            						<% elsif ((action.eql? "create") || (action.eql? "new")) %>
+	            						<p><%= f.text_field :address, :class => "input-medium", :placeholder => "Address" %></p>
+        	    						<p><%= f.text_field :building_name, :class => "input-medium", :placeholder => "Building Name" %></p>
+            							<p><%= f.text_field :aptnum, :class => "input-small", :placeholder => "Apartment #" %></p>
+              							<p><%= f.text_field :city, :class => "input-small disabled", :placeholder => "Madison", :disabled => true %></p>
+              							<p><%= f.text_field :state, :class => "input-small disabled", :placeholder => "WI", :disabled => true %></p
+              							<p><%= f.text_field :zip, :class => "input-mini", :placeholder => "Zip Code" %></p>
+              						<% end %>
             					</div>
           					</div>
           				</fieldset>
-          			</form>
+          			</div>
           		</div><!--./span5 -->
           		<div class="span5">
-          			<form class="form-horizontal">
+          			<div class="form-horizontal">
           				<fieldset>
           					<legend>Residence Attributes</legend>
           					<div class="control-group">
+          						<label class="control-label">Landlord:</label>
+          							<div class="controls">
+          								<label class="select">
+          									Landlord name:<br />
+          									<%= f.collection_select :landlord_id, Landlord.all, :id, :name, :include_blank => true %>
+          									<p class="help-block" style="font-size: 14px"><%= link_to 'If you dont see your Landlord Listed, Click here', new_landlord_path%></p>
+          								</label>
+          							</div>
+          					</div>
+          					<div class="control-group">
           						<label class="control-label">Bedrooms:</label>
-          						<div class="controls">
-          							 <select class="input-mini">
-          							 	<option>--</option>
-                						<option>1</option>
-                						<option>2</option>
-                						<option>3</option>
-                						<option>4</option>
-                						<option>5</option>
-                						<option>6</option>
-                						<option>7</option>
-                						<option>8</option>
-                						<option>9</option>
-                						<option>10</option>
-                						<option>11</option>
-                						<option>12</option>
-                						<option>13</option>
-                						<option>14</option>
-                						<option>15</option>
-              						</select>
-              					</div>
+          						<% if ((action.eql? "edit") || (action.eql? "update" )) %>
+          							<% if (signed_in? && current_user.admin?) %>
+          								<div class="controls">
+          									<%= f.select :bedrooms, List::ROOMS %>
+              							</div>
+              						<% else %>
+              							<div class="controls">
+              								<%= f.text_field :bedrooms, :disabled => true %>
+              							</div>
+              						<% end %>
+              					<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
+              						<div class="controls">
+          								<%= f.select :bedrooms, List::ROOMS %>
+              						</div>
+              					<% end %>
               				</div>
               				<div class="control-group">
           						<label class="control-label">Bathrooms:</label>
-          						<div class="controls">
-          							 <select class="input-mini">
-          							 	<option>--</option>
-                						<option>1</option>
-                						<option>1.5</option>
-                						<option>2</option>
-                						<option>2.5</option>
-                						<option>3</option>
-                						<option>3.5</option>
-                						<option>4</option>
-                						<option>4.5</option>
-                						<option>5</option>
-                						<option>5.5</option>
-                						<option>6</option>
-                						<option>6.5</option>
-              						</select>
-              					</div>
+          						<% if ((action.eql? "edit") || (action.eql? "update" )) %>
+          							<% if (signed_in? && current_user.admin?) %>
+          								<div class="controls">
+          									<%= f.select :bathrooms, List::BATHS %>
+              							</div>
+              						<% else %>
+              							<div class="controls">
+          									<%= f.text_field :bathrooms, :disabled => true %>
+              							</div>
+              						<% end %>
+              					<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
+              						<div class="controls">
+          								<%= f.select :bathrooms, List::BATHS %>
+              						</div>
+              					<% end %>
               				</div>
               			</fieldset>
-              		</form>
+              		</div>
               	</div><!--./span5 -->
           	</div><!--./row -->
 		</div><!--./tab-pane -->
 		<div class="tab-pane" id="additional-tab">
 			<div class="row">
 				<div class="span5">
-      				<form class="form-horizontal">
+      				<div class="form-horizontal">
         				<fieldset>
         					<legend>Leasing Details</legend>
           					<div class="control-group">
             					<label class="control-label">Price:</label>
             					<div class="controls docs-input-sizes">
             						<div class="input-prepend">
-  										<p><span class="add-on">$</span><input class="input-small" type="text"  placeholder="Monthly Rent"></p>
+  										<p><span class="add-on">$</span><%= f.text_field :rent, :class => "input-small", :placeholder => "Monthly Rent" %></p>
 									</div>
             					</div>
           					</div>
           					<div class="control-group">
           						<label class="control-label">Size:</label>
             					<div class="controls docs-input-sizes">
-  									<p><input class="input-small" type="text"  placeholder="Square feet"></p>
+  									<p><%= f.text_field :squarefeet, :class => "input-small", :placeholder => "Square feet" %></p>
             					</div>
           					</div>
           					<div class="control-group">
             					<label class="control-label">Lease Length:</label>
             					<div class="controls">
               						<label class="radio">
-                						<input type="radio" name="optionsRadios" id="twelveMo-radio" value="twelveMo" checked>12 Months
+                						<%= f.radio_button :length, 12 %>12 Months
               						</label>
               						<label class="radio">
-                						<input type="radio" name="optionsRadios" id="nineMo-radio" value="nineMo">9 Months
+                						<%= f.radio_button :length, 9 %>9 Months
               						</label>
               						<label class="radio">
-                						<input type="radio" name="optionsRadios" id="sixMo-radio" value="sixMo">6 Months
+                						<%= f.radio_button :length, 6 %>6 Months
               						</label>
               					</div>
             				</div>
           				</fieldset>
-          			</form>
+          			</div>
           		</div><!--./span5 -->
           		<div class="span5">
-          			<form class="form-horizontal">
+          			<div class="form-horizontal">
           				<fieldset>
           					<legend>Miscellaneous Details</legend>
           					<div class="control-group">
           						<label class="control-label">Utilities:</label>
           						<div class="controls">
           							<label class="checkbox">
-    									<input type="checkbox"> Heat included
+    									<%= f.check_box :heat %> Heat included
   									</label>
   									<label class="checkbox">
-    									<input type="checkbox"> Electric included
+    									<%= f.check_box :electric %> Electric included
   									</label>
   									<label class="checkbox">
-    									<input type="checkbox"> Gas included
+    									<%= f.check_box :gas %> Gas included
   									</label>
   									<label class="checkbox">
-    									<input type="checkbox"> Garbage collection
+    									<%= f.check_box :garbagecollection %> Garbage collection
   									</label>
   								</div>
   								<label class="control-label">Accommodations:</label>
   								<div class="controls">
   									<label class="checkbox">
-  										<input type="checkbox"> Parking available
+  										<%= f.check_box :parking %> Parking available
   									</label>
   									<label class="checkbox">
-  										<input type="checkbox"> Furnished
+  										<%= f.check_box :furnished %> Furnished
   									</label>
   									<label class="checkbox">
-  										<input type="checkbox"> Laundry on site
+  										<%= f.check_box :laundry %> Laundry on site
   									</label>
   								</div>
   								<label class="control-label">Restrictions:</label>
   								<div class="controls">
   									<label class="checkbox">
-  										<input type="checkbox"> Pets allowed
+  										<%= f.check_box :pets %> Pets allowed
   									</label>
   									<label class="checkbox">
-  										<input type="checkbox"> Smoking allowed
+  										<%= f.check_box :smoking %> Smoking allowed
   									</label>
   								</div>
   							</div>
   						</fieldset>
-  					</form>
+  					</div>
           		</div><!--./span5 -->
           	</div><!--./row -->
 		</div><!--./tab-pane -->
+		<div class="tab-pane" id="image-tab">
+			<p>Uploading an image is optional. Use the button to upload an image of the building associated with this listing.</p>
+			<%= image_tag(@list.image_url(:thumb)) if @list.image? %>
+  			<%= f.file_field :image %>
+  			<%= f.hidden_field :image_cache %>
+  
+ 			<!--  <p>
+  			<%= f.label :remote_image_url, "or image URL" %><br />
+  			<%= f.text_field :remote_image_url %>
+  			</p> -->
+  			<br /><br />
+		</div><!--./tab-pane -->
 		</div><!--./tab-content -->
 		<br />
-		<input class="btn btn-inverse btn-large" type="submit" value="Add Listing">
-		<% end %>
+		<%= raw recaptcha_tag(:challenge) %>
+		<br />
+		<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
+    		<div class="btn-group">
+    			<%= f.submit("Update Listing", :class => "btn-large btn-inverse")%>
+    			<%= form_tag increment_flag(@list), :action => "edit", :method => "post" do %>
+					<%= submit_tag("Flag", :class => "btn-large btn-danger") %>
+				<% end %>
+			</div>
+    	<% elsif ((params[:action].eql? "new") || (params[:action].eql? "create" )) %>
+    		<%= f.submit("Create Listing", :class => "btn-large btn-inverse") %>
+    	<% end %>
+<% end %>

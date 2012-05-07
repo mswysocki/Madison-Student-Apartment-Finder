@@ -1,10 +1,12 @@
-<div class="divider"></div>
-<div class="Residence_Listing_Form">
-	<h1 id="Add_Listing_Title">Update Listing</h1>
-	<li id="UpdateLinks"><a>
-		<%= link_to 'Apartment Page', @list %> |
-		<%= link_to 'Cancel', lists_path %>
-	</a></li>
-	<hr id="ListingForm_View_Bar"/>
-	<%= render 'form' %>
-</div>
+<div class="container">
+	<div class="hero-unit">
+        <h1 class="pull-left">Update Listing</h1>
+        <h2 class="pull-right"><%= link_to 'Apartment Page', @list %> | 
+        <%= link_to 'Cancel', lists_path %></h2>
+        <br /><br /><br />
+        <hr style="border: 1px solid black;"/>
+        <p>What, this listing is incorrect?!  We apologize.  You can update any of the details under the "Additional Information" tab.  If you think something under the "Essential Details" tab is incorrect, please use the flag button to flag the listing, and we'll personally take a look at it.</p>
+		<p>Thanks for your contribution, we appreciate your effort to keep our information accurate and consistent!</p>
+		<br />
+		<%= render 'form' %>
+</div><!--./hero-unit -->

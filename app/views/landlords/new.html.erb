@@ -1,50 +1,34 @@
-<section class="New_Landlord" >
-	<h1 class="page_header">New Landlord</h1>
-	<hr class="generic_header_ruler"/>
-	<br />
-	<%= form_for(@landlord) do |f| %>
-  		<%= render 'shared/error_messages', :object => f.object %>
-  		<div class="field">
-    		<%= f.label :name %><br />
-    		<%= f.text_field :name %>
-  		</div>
-  		<div class="field">
-  			<%= f.label :address %><br />
-  			<%= f.text_field :address %>
-  		</div>
-  		<div class="field">
-    		<%= f.label :email %><br />
-    		<%= f.text_field :email %>
-  		</div>
-  		<div class="field">
-    		<%= f.label :website %><br />
-    		<%= f.text_field :website %>
-  		</div>
-  		<div class="field">
-    		<%= f.label :phone %><br />
-    		<%= f.text_field :phone %>
-  		</div>
-  		<div class="field">
-  			<%= f.label :city %><br />
-  			<%= f.text_field :city %>	
-  		</div>
-  		<div class="field">
-    		<%= f.label :state %><br />
-    		<%= f.text_field :state, :disabled => :true %>
-  		</div>
-  		<div class="field">
-  			<%= f.label :zip %><br />
-  			<%= f.text_field :zip %>	
-  		</div>
-  		<br />
-  		
-  		<div class="actions">
-    		<%= f.submit %>
-  		</div>
-	<% end %>
-	<br />
-	Ideally, here we have a group of check box that allows them to choose
+<div class="container">
+	<div class="hero-unit">
+        <h1>New Landlord</h1>
+        <hr style="border: 1px solid black;"/>
+        <p>We must not have any listings from your landlord yet! Fill out the fields below to add your landlord to our database. Thanks!</p>
+        <br />
+        <%= form_for(@landlord) do |f| %>
+  			<%= render 'shared/error_messages', :object => f.object %>
+
+    		<%= f.text_field :name, :placeholder => "Landlord Name" %>
+    		<br />
+  			<%= f.text_field :address, :placeholder => "Address" %>
+  			<br />
+    		<%= f.text_field :email, :placeholder => "Email" %>
+    		<br />
+    		<%= f.text_field :website, :placeholder => "Website" %>
+    		<br />
+    		<%= f.text_field :phone, :placeholder => "Phone number" %>
+    		<br />
+  			<%= f.text_field :city, :placeholder => "City" %>
+  			<br />
+    		<%= f.text_field :state, :placeholder => "Wisconsin", :disabled => :true %>
+    		<br />
+  			<%= f.text_field :zip, :placeholder => "Zip Code" %>	
+  			<br /><br />
+    		<%= f.submit "Add Landlord", :class => "btn-large btn-inverse" %>
+		<% end %>
+	
+		<p>Ideally, here we have a group of check box that allows them to choose
   		listings that are associated with this landlord...but I'm not sure 
   		how that would work/don't have the time yet,
-  		so it may have to wait for another day.
-</section>
+  		so it may have to wait for another day.</p>
+  		
+	</div><!--./hero-unit -->
