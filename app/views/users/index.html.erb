@@ -1,11 +1,13 @@
-<section id="User_View" class="unselectable" >
-<h1>All users</h1>
-
-<%= paginate %>
-
-<ul class="users">
-    <%= render @users %>
-</ul>
-
-<%= paginate %>
-</section>
+<div class="container">
+	<div class="hero-unit">
+		<h2>All users</h2>
+		
+		<%= paginate %>
+		
+		<ul class="users">
+		    <%= render @users %>
+		</ul>
+		
+		<%= paginate %>
+	</div>
+</div>
