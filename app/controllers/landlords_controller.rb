@@ -10,7 +10,7 @@ class LandlordsController < ApplicationController
   # GET /landlords
   def index
     @title = "All landlords"
-    @landlords = Landlord.paginate(:page => params[:page])
+    @landlords = Landlord.paginate(:page => params[:page], :per_page => 10)
   end
   
   
