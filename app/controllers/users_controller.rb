@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Madison Student Housing Finder!"
+      #flash[:success] = "Welcome to the Madison Student Housing Finder!"
       redirect_to @user
     else
       @title = "Sign up"
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated."
+      #flash[:success] = "Profile updated."
       redirect_to @user
     else 
       @title = "Edit user"

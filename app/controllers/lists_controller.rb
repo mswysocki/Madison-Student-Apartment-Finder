@@ -72,7 +72,7 @@ class ListsController < ApplicationController
     respond_to do |format|
       if (recaptcha_valid? && @list.valid?)
         @list.save
-        format.html { redirect_to(@list, :notice => 'List was successfully created.') }
+        format.html { redirect_to(@list) } #, :notice => 'List was successfully created.') }
         format.xml  { render :xml => @list, :status => :created, :location => @list }
       else
         captcha_error = { :Incorrect=>["captcha input"] }
@@ -105,7 +105,7 @@ class ListsController < ApplicationController
     respond_to do |format|
       if (recaptcha_valid? && @list.valid?)
         @list.update_attributes(params[:list])
-        format.html { redirect_to(@list, :notice => 'List was successfully updated.') }
+        format.html { redirect_to(@list) } #, :notice => 'List was successfully updated.') }
         format.xml  { head :ok }
       else
         captcha_error = { :Incorrect => ["captcha input"] }
