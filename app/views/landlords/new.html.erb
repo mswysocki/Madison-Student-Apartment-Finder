@@ -4,37 +4,29 @@
 	<br />
 	<%= form_for(@landlord) do |f| %>
   		<%= render 'shared/error_messages', :object => f.object %>
-  		<div class="field">
-    		<%= f.label :name %><br />
-    		<%= f.text_field :name %>
+  		<div class="text-field">
+    		<%= f.text_field :name, :placeholder => "Name" %>
   		</div>
-  		<div class="field">
-  			<%= f.label :address %><br />
-  			<%= f.text_field :address %>
+  		<div class="text-field">
+  			<%= f.text_field :address, :placeholder => "Address" %>
   		</div>
-  		<div class="field">
-    		<%= f.label :email %><br />
-    		<%= f.text_field :email %>
+  		<div class="text-field">
+    		<%= f.text_field :email, :placeholder => "Email" %>
   		</div>
-  		<div class="field">
-    		<%= f.label :website %><br />
-    		<%= f.text_field :website %>
+  		<div class="text-field">
+    		<%= f.text_field :website, :placeholder => "Website" %>
   		</div>
-  		<div class="field">
-    		<%= f.label :phone %><br />
-    		<%= f.text_field :phone %>
+  		<div class="text-field">
+    		<%= f.text_field :phone, :placeholder => "Phone #" %>
   		</div>
-  		<div class="field">
-  			<%= f.label :city %><br />
-  			<%= f.text_field :city %>	
+  		<div class="text-field">
+  			<%= f.text_field :city, :placeholder => "City" %>	
   		</div>
-  		<div class="field">
-    		<%= f.label :state %><br />
-    		<%= f.text_field :state, :disabled => :true %>
+  		<div class="text-field">
+    		<%= f.text_field :state, :placeholder => "WI", :disabled => :true %>
   		</div>
-  		<div class="field">
-  			<%= f.label :zip %><br />
-  			<%= f.text_field :zip %>	
+  		<div class="text-field">
+  			<%= f.text_field :zip, :placeholder => "Zip Code" %>	
   		</div>
   		<br />
   		

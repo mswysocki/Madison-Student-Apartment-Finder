@@ -3,13 +3,11 @@
 	<hr class="generic_header_ruler"/>
 	<br />
 	<%= form_for(:session, :url => sessions_path) do |f| %>
-		<div class="field">
-	    	<%= f.label :email %><br />
-	    	<%= f.text_field :email %>
+		<div class="text-field">
+	    	<%= f.text_field :email, :placeholder => "Email" %>
 	  	</div>
-	  	<div class="field">
-	    	<%= f.label :password %><br />
-	    	<%= f.password_field :password %>
+	  	<div class="text-field">
+	    	<%= f.password_field :password, :placeholder => "Password" %>
 	  	</div>
 	  	<p><%= link_to "Forgot password?", new_password_reset_path %></p>
 	  	<div class="field">

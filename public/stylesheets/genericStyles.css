@@ -57,6 +57,19 @@ a:hover, a:active {
 	margin: 10px;
 }
 
+.text-field input {
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.text-field input:focus {
+	outline: none;
+	background-color:#FFEBCD;
+	box-shadow: 0px 0px 10px 3px #79D3EE;
+}
+
 .field input {
 	border: none;
 	border-radius: 5px;
