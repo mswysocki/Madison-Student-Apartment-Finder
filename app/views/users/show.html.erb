@@ -7,20 +7,26 @@
     <p><em>Name:</em>  <%= @user.name %></p>
     <p><em>Email:</em>  <%= @user.email %></p>
     <p><em>URL:</em>   <%= link_to user_path(@user), @user %></p>
-</section>
 
-<section id="Comments_Area">
-	<!-- reviews area -->
-	<% unless @user.reviews.empty? %>
-        <table class="reviews" summary="User reviews">
-          <%= render @reviews %>
-        </table>
-        <%= will_paginate @reviews %>
-    <% end %>
+	<br />
+	<h2>Reviews</h2>
+	<hr style="border: 1px solid white">
+	<section id="Comments_Area">
+		<!-- reviews area -->
+		<% unless @user.reviews.empty? %>
+        	<table class="reviews" summary="User reviews">
+          	<%= render @reviews %>
+        	</table>
+        	<%= will_paginate @reviews %>
+        <% else %>
+        	<h3>This is where your reviews (comments on residences) are stored. It looks like you haven't reviewed any residences yet...</h3>
+    	<% end %>
       
-      <% if signed_in? && :controller == 'lists' %>
-        <h1 class="review">Review?</h1>
-        <%= render 'shared/review_form', :object => @user  %>
-      </td>
-      <% end %>
+      	<% if signed_in? && :controller == 'lists' %>
+        	<h1 class="review">Review?</h1>
+        	<%= render 'shared/review_form', :object => @user  %>
+      	</td>
+      	<% end %>
+	</section>
+
 </section>

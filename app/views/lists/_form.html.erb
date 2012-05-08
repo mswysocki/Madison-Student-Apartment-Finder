@@ -1,263 +1,197 @@
 <div id="NewListingForm">
 
-<%= form_for(@list, :html => {:multipart => true}) do |f| %>
- 	<%= render 'shared/error_messages', :object => f.object %>
-	<% action = params[:action] %>
+	<%= form_for(@list, :html => {:multipart => true}) do |f| %>
+ 		<%= render 'shared/error_messages', :object => f.object %>
+		<% action = params[:action] %>
 	
-  <div id="ColumnOne">
-  	
-  	
-  <h2>Landlord:</h2>
-  <div id="NewLandlordInfo">
-  <div id="NewLandlord" class="field">
-  	<%= f.label :ltype, "Landlord Name"%><br />
-  	<%= f.collection_select :landlord_id, Landlord.all, :id, :name, :include_blank => true %>
-  </div>
+  	<div id="ColumnOne">
+  		<h2>Landlord:</h2>
+  		<div id="NewLandlordInfo" class="list-info">
+  			<%= f.label :ltype, "Landlord Name"%>
+  			<br />
+  			<%= f.collection_select :landlord_id, Landlord.all, :id, :name, :include_blank => true %>
+  			<br />
+  			<%= link_to 'If you dont see your Landlord Listed, Click here', new_landlord_path%>
+  		</div><!-- END NewLandlordInfo -->
   
-  <div>
-  	<%= link_to 'If you dont see your Landlord Listed, Click here', new_landlord_path%>
-  </div>
-  
-  </div>
-  
-  	
-  	<h2>Type of Residence:</h2>
-  	
-  	<div id="NewType">
-  	<div id="NewResidenceType" class="field">
-  	<%= f.label :ltype, "Residence Type"%><br />
-  	<% if ((action.eql? "edit") || (action.eql? "update")) %>
-	    <% if (signed_in? && current_user.admin?) %>
-	   	<%= f.radio_button :ltype, true %>House <br /><br />
-	    <%= f.radio_button :ltype, false %>Apartment <br />	    <% else %>
-	    <%= f.radio_button :ltype, true, :disabled => true %>House <br /><br />
-	    <%= f.radio_button :ltype, false, :disabled => true %>Apartment <br />
-	    <% end %>
-	<% elsif ((action.eql? "new") || (action.eql? "create")) %>
-		<%= f.radio_button :ltype, true %>House <br /><br />
-	    <%= f.radio_button :ltype, false %>Apartment <br />
-	<% end %>
-  	</div>
- 	</div>
-  	
-  	
-  <h2>Location:</h2>
-  <div id="NewLocation">
-	
-	<% if ((action.eql? "edit") || (action.eql? "update")) %>
-  <div id="NoEdit_NewAddress" class="field">
-    	<% if (signed_in? && current_user.admin?) %> 
-    		<%= f.label :address %><br />
-    		<%= f.text_field :address %>
-    		<%= f.label :aptnum, "Apt. Number" %> <br />
-    		<%= f.text_field :aptnum %>
-    		<%= f.label :building_name, "Building" %> <br />
-    		<%= f.text_field :building_name %>  
-    	
-    	<% else %> 
-    		<%= f.label :address %> <br />
-    		<%= f.text_field :address, :disabled => true %> 
-    		<%= f.label :aptnum, "Apt. Number" %> <br />
-    		<%= f.text_field :aptnum, :disabled => true %>
-    		<%= f.label :building_name, "Building" %> <br />
-    		<%= f.text_field :building_name, :disabled => true %>
-    	<% end %>
-    	
-
-    	
-  </div>
-  	<% elsif ((action.eql? "create") || (action.eql? "new")) %>
-  <div id="NewAddress" class="field">
-  		<%= f.label :address %><br /> 
-  		<%= f.text_field :address %>
-  		
-  		<%= f.label :aptnum, "Apt. Number" %> <br />
-  		<%= f.text_field :aptnum %>
-  		
-  		<%= f.label :building_name, "Building" %> <br />
-  		<%= f.text_field :building_name %>
-  </div>
-  	<% end %>
-  	
-  <div id="NewCity" class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city, :disabled => true %>
-  </div>
-  <div id="NewState" class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state, :disabled => true %>
-  </div>
-  
-  	<% if ((action.eql? "edit") || (action.eql? "update" )) %>
-  <div id="NoEdit_NewZip" class="field">
-   	 	<%= f.label :zip, "Zip Code" %><br />
-   	 	<% if (signed_in? && current_user.admin?) %> <%= f.text_field :zip %>
-    	<% else %> <%= f.text_field :zip, :disabled => true %>
-    	<% end %>
-  </div>
-  	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
-  <div id="NewZip" class="field">
-  		<%= f.label :zip, "Zip Code" %> <br />
-  		<%= f.text_field :zip %>
-  </div>
-	<% end %>  
-  
-  
-  <!-- I don't think we want to show the region on any web stuff. 
-  		Was originally thought of as a helper if we got around to doing maps and stuff -->
-  <div id="NewRegion" class="field">
-    <%= f.label :region %><br />
-    <%= f.text_field :region %>
-  </div>
-  </div>
-  
-  
-  <h2>Price:</h2>
-  <div id="NewPrice">
-  
-  <div id="NewRent" class="field">
-    <%= f.label :rent %><br />
-    <%= f.text_field :rent %>
-  </div>
-   
-  </div> 
- 
-  <h2>Residence Details:</h2>
-  <div id="NewResDetails">
-  
-  	<% if ((action.eql? "edit") || (action.eql? "update" )) %>
-  <div id="NoEdit_NewBedrooms" class="field">
-   	 	<%= f.label :bedrooms %><br />
-   	 	<% if (signed_in? && current_user.admin?) %> <%= f.select :bedrooms, List::ROOMS %>
-    	<% else %> <%= f.text_field :bedrooms, :disabled => true %>
-    	<% end %>
-  </div>
-  	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
-  <div id="NewBedrooms" class="field">
-  		<%= f.label :bedrooms %> <br />
-  		<%= f.select :bedrooms, List::ROOMS %>
-  </div>
-	<% end %>  
-  
-  <% if ((action.eql? "edit") || (action.eql? "update" )) %>
-  <div id="NoEdit_NewBathrooms" class="field">
-   	 	<%= f.label :bathrooms %><br />
-   	 	<% if (signed_in? && current_user.admin?) %> <%= f.select :bathrooms, List::BATHS %>
-    	<% else %> <%= f.text_field :bathrooms, :disabled => true %>
-    	<% end %>
-  </div>
-  	<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
-  <div id="NewBathrooms" class="field">
-  		<%= f.label :bathrooms %> <br />
-  		<%= f.select :bathrooms, List::BATHS %>
-  </div>
-	<% end %>  
-  
-  <div id="NewSquareFeet" class="field">
-    <%= f.label :squarefeet, "Square Feet" %><br />
-    <%= f.text_field :squarefeet %>
-  </div>
-  </div>
-  
-  </div>
-  
-  <div id="ColumnTwo">
-  	
-  <h2>Lease Length:</h2>
-  <div id="NewLeaseDetails">
-  
-   <div id="NewLength" class="field">
-    <%= f.label :length, "Length (Months)" %><br />
-   	<%= f.radio_button :length, 6 %>6 Months<br /><br />
-    <%= f.radio_button :length, 9 %>9 Months<br /><br />
-    <%= f.radio_button :length, 12 %>12 Months
-  </div>
-  </div>	
-  	
-  <h2>Utilities:</h2>
-  <div id="NewUtils">
-  
-  <div id="NewHeat" class="field">
-    <%= f.check_box :heat %>Heat Included <br />
-  </div>
-  <div id="NewElectric" class="field">
-    <%= f.check_box :electric %>Electric Included<br />
-  </div>
-  <div id="NewGas" class="field">
-    <%= f.check_box :gas %>Gas Included<br />
-  </div>
-  <div id="NewGarbage" class="field">
-    <%= f.check_box :garbagecollection %>Garbage collection<br />
-  </div>
-  </div>
-  
-  
-  <h2>Accommodations:</h2>
-  <div id="NewAccommodations">
-  
-  <div id="NewParking" class="field">
-    <%= f.check_box :parking %>Parking Available <br />
-  </div>
-  <div id="NewLaundry" class="field">
-    <%= f.check_box :laundry %>Laundry on site <br />
-  </div>
-  <div id="NewFurnished" class="field">
-    <%= f.check_box :furnished %>Furnished <br />
-  </div>
-  </div>
-  
- 
-  <h2>Restrictions:</h2>
-  <div id="NewRestrictions">
-  
-  <div id="NewSmoking" class="field">
-    <%= f.check_box :smoking %>Smoking Allowed<br />
-  </div>
-  <div id="NewPets" class="field">
-    <%= f.check_box :pets %>Pets Allowed <br />
-  </div>
-  </div>
-  
-  
-  <div id="images_uploading" class="field">
-  	<%= image_tag(@list.image_url(:thumb)) if @list.image? %>
-  	<%= f.file_field :image %>
-  	<%= f.hidden_field :image_cache %>
-  
- <!--  <p>
-  	<%= f.label :remote_image_url, "or image URL" %><br />
-  	<%= f.text_field :remote_image_url %>
- </p> -->
-  
-  </div>
-  <% if signed_in? && current_user.admin? %>
-  	<div id="Admin_Flags" class="field">
-   		<%= f.label :flags %><br />
-    	<%= f.text_field :flags %>
-  	</div>
-  <% end %>
-  <div id="Recaptcha" class="actions">
-  	<%= raw recaptcha_tag(:challenge) %>
-    <div id="RecaptchaButton">
-    	<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
-    		<%= f.submit("Update Listing")%>
-    	<% elsif ((params[:action].eql? "new") || (params[:action].eql? "create" )) %>
-    		<%= f.submit("Create Listing") %>
-    	<% end %>
-    </div>
-  </div>
-<% end %>
-
-
-<!--<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
-	<section class="flag_listing">
-		<h3>Is the information for this listing inaccurate? If so, use the button below to flag the listing. If several people flag it we'll take a look. Thank you!</h3>
-		<div id="FlagButton">
-			<%= form_tag increment_flag(@list), :action => "edit", :method => "post" do %>
-				<%= submit_tag("Flag") %>
+  		<h2>Type of Residence:</h2>
+  		<div id="NewType" class="list-info">
+  			<%= f.label :ltype, "Residence Type"%><br />
+  			<% if ((action.eql? "edit") || (action.eql? "update")) %>
+				<% if (signed_in? && current_user.admin?) %>
+   					<%= f.radio_button :ltype, true %>House
+   					<br />
+					<%= f.radio_button :ltype, false %>Apartment
+				<% else %>
+				    <%= f.radio_button :ltype, true, :disabled => true %>House
+				    <br />
+				    <%= f.radio_button :ltype, false, :disabled => true %>Apartment
+				<% end %>
+			<% elsif ((action.eql? "new") || (action.eql? "create")) %>
+				<%= f.radio_button :ltype, true %>House
+				<br />
+			    <%= f.radio_button :ltype, false %>Apartment
 			<% end %>
-		</div>
-	</section>
-<% end %>-->
-</div>
-</div>
+ 		</div><!-- END NewType -->
+  	
+  	
+  		<h2>Location:</h2>
+		<div id="NewLocation" class="list-info">
+			<% if ((action.eql? "edit") || (action.eql? "update")) %>
+			    <% if (signed_in? && current_user.admin?) %> 
+		    		<%= f.text_field :address, :placeholder => "Address" %>
+		    		<br />
+		    		<%= f.text_field :aptnum, :placeholder => "Apartment #" %>
+		    		<br />
+			    	<%= f.text_field :building_name, :placeholder => "Building #" %>
+			    	<br /> 
+    			<% else %> 
+    				<%= f.text_field :address, :placeholder => "Address", :disabled => true %>
+    				<br />
+    				<%= f.text_field :aptnum, :placeholder => "Apartment #", :disabled => true %>
+    				<br />
+    				<%= f.text_field :building_name, :placeholder => "Building #", :disabled => true %>
+    				<br />
+		    	<% end %>
+	  		<% elsif ((action.eql? "create") || (action.eql? "new")) %>
+  				<%= f.text_field :address, :placeholder => "Address" %>
+  				<br />
+		    	<%= f.text_field :aptnum, :placeholder => "Apartment #" %>
+		    	<br />
+				<%= f.text_field :building_name, :placeholder => "Building #" %> 
+				<br /> 
+  			<% end %>
+  		</div><!-- END NewLocation -->
+  	
+  		<div id="NewCity" class="list-info">
+    		<%= f.text_field :city, :placeholder => "Madison", :disabled => true %>
+    		<br />
+  		</div><!-- END NewCity -->
+  		
+  		<div id="NewState" class="list-info">
+    		<%= f.text_field :state, :placeholder => "WI", :disabled => true %>
+    		<br />
+  		</div><!-- NewState -->
+		
+		<div id="NewZip" class="list-info">
+  			<% if ((action.eql? "edit") || (action.eql? "update" )) %>
+		   	 	<% if (signed_in? && current_user.admin?) %>
+		   	 		<%= f.text_field :zip, :placeholder => "Zip Code" %>
+    			<% else %>
+    				<%= f.text_field :zip, :placeholder => "Zip Code", :disabled => true %>
+    			<% end %>
+	  		<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
+  				<%= f.text_field :zip, :placeholder => "Zip Code" %>
+			<% end %>
+		</div><!-- END NewZip -->
+  
+		<h2>Price:</h2>
+	  	<div id="NewPrice" class="list-info">
+   			<%= f.text_field :rent, :placeholder => "Monthly Rent" %>
+  		</div><!-- NewPrice -->
+  		
+  		<h2>Residence Details:</h2>
+  		<div id="NewResDetails" class="list-info">
+  			<% if ((action.eql? "edit") || (action.eql? "update" )) %>
+   	 			<% if (signed_in? && current_user.admin?) %>
+   	 				<%= f.select :bedrooms, List::ROOMS %><%= f.label :bedrooms %><br />
+    			<% else %> 
+    				<%= f.text_field :bedrooms, :disabled => true %><%= f.label :bedrooms %> <br />
+    			<% end %>
+  			<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
+  				<%= f.select :bedrooms, List::ROOMS %><%= f.label :bedrooms %><br />
+			<% end %>  
+  
+  			<% if ((action.eql? "edit") || (action.eql? "update" )) %>
+   	 			<% if (signed_in? && current_user.admin?) %>
+   	 				<%= f.select :bathrooms, List::BATHS %><%= f.label :bathrooms %><br />
+    			<% else %>
+    				<%= f.text_field :bathrooms, :disabled => true %><%= f.label :bathrooms %> <br />
+    			<% end %>
+  			<% elsif ((action.eql? "create") || (action.eql? "new" )) %>
+  				<%= f.select :bathrooms, List::BATHS %><%= f.label :bathrooms %> <br />
+			<% end %>
+
+    		<%= f.text_field :squarefeet %><%= f.label :squarefeet, "Square Feet" %>
+  		</div><!-- END NewResDetails -->
+  	</div><!-- END ColumnOne -->
+    
+  	<div id="ColumnTwo">
+  		<h2>Lease Length:</h2>
+  		<div id="NewLeaseDetails" class="list-info">
+    		<%= f.label :length, "Length (Months)" %><br />
+		   	<%= f.radio_button :length, 6 %>6 Months<br />
+		    <%= f.radio_button :length, 9 %>9 Months<br />
+		    <%= f.radio_button :length, 12 %>12 Months
+  		</div><!-- END NewLeaseDetails -->
+  	
+  		<h2>Utilities:</h2>
+  		<div id="NewUtils" class="list-info">
+    		<%= f.check_box :heat %>Heat Included <br />
+    		<%= f.check_box :electric %>Electric Included<br />
+    		<%= f.check_box :gas %>Gas Included<br />
+			<%= f.check_box :garbagecollection %>Garbage collection<br />
+  		</div><!-- END NewUtils -->
+  
+  		<h2>Accommodations:</h2>
+  		<div id="NewAccommodations" class="list-info">
+    		<%= f.check_box :parking %>Parking Available <br />
+    		<%= f.check_box :laundry %>Laundry on site <br />
+    		<%= f.check_box :furnished %>Furnished <br />
+  		</div><!-- END NewAccommodations -->
+  
+  		<h2>Restrictions:</h2>
+  		<div id="NewRestrictions" class="list-info">
+			<%= f.check_box :smoking %>Smoking Allowed<br />
+    		<%= f.check_box :pets %>Pets Allowed <br />
+  		</div><!-- END NewRestrictions -->
+  		
+  		<h2>Image:</h2>
+  		<div id="images_uploading" class="list-info">
+  			<p>Optionally upload an image of the floorplan for this residence.</p>
+  			<%= image_tag(@list.image_url(:thumb)) if @list.image? %>
+  			<%= f.file_field :image %>
+  			<%= f.hidden_field :image_cache %>
+  
+ 			<!--  <p>
+  				<%= f.label :remote_image_url, "or image URL" %><br />
+  				<%= f.text_field :remote_image_url %>
+ 			</p> -->
+ 		</div><!-- END images_uploading -->
+	</div><!-- END ColumnTwo -->
+  	
+ 	<hr style="border: 1px solid white; clear: both" />
+  	
+  	<div id="show-listing-bottom-info">
+  		<% if signed_in? && current_user.admin? %>
+  			<div id="Admin_Flags" class="field">
+ 				<%= f.label :flags %><br />
+	    		<%= f.text_field :flags %>
+  			</div>
+  		<% end %>
+  		
+	  	<div id="Recaptcha" class="actions">
+  			<%= raw recaptcha_tag(:challenge) %>
+  			<div id="show-listing-commit">
+	    		<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
+    				<%= f.submit("Update Listing")%>
+				<% elsif ((params[:action].eql? "new") || (params[:action].eql? "create" )) %>
+					<%= f.submit("Create Listing") %>
+				<% end %>
+			</div>
+	  	</div><!-- END Recaptcha -->
+
+		<!--<% if ((params[:action].eql? "edit") || (params[:action].eql? "update" ))%>
+			<section class="flag_listing">
+				<h3>Is the information for this listing inaccurate? If so, use the button below to flag the listing. If several people flag it we'll take a look. Thank you!</h3>
+				<div id="FlagButton">
+					<%= form_tag increment_flag(@list), :action => "edit", :method => "post" do %>
+						<%= submit_tag("Flag") %>
+					<% end %>
+				</div>
+			</section>
+		<% end %>-->
+	</div><!-- END show-listing-bottom-info -->
+	
+	<% end %>
+</div><!-- END NewListingForm -->
