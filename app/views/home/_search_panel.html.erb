@@ -15,8 +15,8 @@
 
 			<div id="PriceSlider" class="CriterionOptions" style="display: none">
 				<div>
-				<%= f.text_field :rent_gte , :placeholder => "From"%><br />
-				<%= f.text_field :rent_lte, :placeholder => "To" %>
+				<%= f.text_field :rent_gte , :class => "text-criteria", :placeholder => "From"%><br />
+				<%= f.text_field :rent_lte, :class => "text-criteria", :placeholder => "To" %>
 				</div>
 			</div>
 		</div><!-- End Price -->
@@ -32,8 +32,8 @@
 
 			<div id="LocationSlider" class="CriterionOptions" style="display: none">
 				<div>
-				<%= f.text_field :address_contains, :placeholder => "Address" %>
-				<%= f.text_field :building_name_contains, :placeholder => "Building" %>
+				<%= f.text_field :address_contains, :class => "text-criteria", :placeholder => "Address" %>
+				<%= f.text_field :building_name_contains, :class => "text-criteria", :placeholder => "Building" %>
 				</div>
 			</div>
 		</div><!-- End Location -->
@@ -81,7 +81,7 @@
 				<hr />
 
 				<div class="CustomTextFieldWidth">
-				<%= f.text_field :squarefeet_gte, :placeholder => "Minimum square feet" %><br />
+				<%= f.text_field :squarefeet_gte, :class => "text-criteria", :placeholder => "Minimum square feet" %><br />
 				</div>
 				
 				

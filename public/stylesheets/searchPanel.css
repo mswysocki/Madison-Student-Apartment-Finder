@@ -97,6 +97,11 @@
 	padding: 5px;
 }
 
+.text-criteria {
+	margin-top: 10px;
+	width: 125px;
+}
+
 #ResDetailsSlider hr
 {
 	margin-right: 10px;
