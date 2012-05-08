@@ -23,7 +23,7 @@
 			<% else %>
 			<%= image_tag "no_image_placeholder.jpg", :class => "show-listing-image" %>
 		<% end %>
-		<p>MAP SPACE</p>
+		<a id="list-map-link" target="_blank" href="http://maps.google.com/maps?q=<%= @list.address %>,<%= @list.city %>,WI"><img id="list-map" src="http://maps.googleapis.com/maps/api/staticmap?&markers=color:red%7C<%= @list.address %>,<%= @list.city %>,WI&size=225x225&sensor=false&zoom=15"></img></a>
 		<div class="flag_listing" style="width: 215px">
 			<p>Is the information for this listing inaccurate or abusive? If so, use the button below to flag the listing.</p>
 			<%= form_tag increment_flag(@list), :method => "post" do %>

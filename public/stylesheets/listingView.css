@@ -64,6 +64,10 @@
 	padding-left: 50px;
 }
 
+#list-map {
+	border-radius: 5px;
+}
+
 #UpdateListingButton a:link
 {
 	color: #ffbb00;
