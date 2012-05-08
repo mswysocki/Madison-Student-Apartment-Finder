@@ -1,8 +1,9 @@
 <%= form_for([object, object.reviews.build]) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
-  	<%= f.label		:review_body, "Comments" %>
-    <%= f.text_area :review_body %>
+    <%= f.text_area :review_body, :placeholder => "Comments", 
+    				:style => "width: 950px; height: 100px; 
+    							border: none; border-radius: 5px;" %>
   </div>
   <div class="field">
   	<%= f.label  :rating, "Rating" %>
@@ -18,7 +19,7 @@
   	
   </div>
   
-  
+  <br />
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>

@@ -139,17 +139,5 @@
 	padding: 5px;
 	border: 1px solid transparent;
 	border-radius: 15px;
-	text-align:right;
-}
-
-#FlagButton input, #RecaptchaButton input, #UpdateLinks a{
-	cursor: pointer;
-	font-weight: bold;
-	border-radius: 15px;
-	color: #C20505;
-	font-family: 'Antic Slab', serif;
-	font-size:   16px;
-	padding-left: 20px;
-	padding-right: 20px;
-	text-align:center;
+	text-align: center;
 }
