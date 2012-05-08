@@ -12,6 +12,7 @@ end
 
 Factory.define :review do |review|
   review.review_body "body of the review (comment)"
+  review.rating       4
   review.helpfulness  0
   review.association :list
   review.association :user

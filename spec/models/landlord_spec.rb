@@ -38,9 +38,9 @@ describe Landlord do
     no_name_landlord.should_not be_valid
   end
   
-  it "should require an email" do
+  it "should not require an email" do
     no_email_landlord = Landlord.new(@attr.merge(:email => ""))
-    no_email_landlord.should_not be_valid
+    no_email_landlord.should be_valid
   end
   
   it "should require a phone number" do

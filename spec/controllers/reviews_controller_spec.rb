@@ -69,10 +69,6 @@ describe ReviewsController do
         response.should redirect_to(@listing)
       end
 
-      it "should have a flash message" do
-        post :create, :review => @attr, :list_id => @listing.id
-        flash[:success].should =~ /Review created/i
-      end
     end
   end
 end
