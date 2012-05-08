@@ -14,11 +14,9 @@
 			</a>
 
 			<div id="PriceSlider" class="CriterionOptions" style="display: none">
-				<div class="CustomTextFieldWidth">
-				<%= f.label :rent_gte, "from" %>
-				<%= f.text_field :rent_gte , :class => "FROMSearchBarInputField"%><br />
-				<%= f.label :rent_lte, "to" %>
-				<%= f.text_field :rent_lte, :class => "TOSearchBarInputField" %>
+				<div>
+				<%= f.text_field :rent_gte , :placeholder => "From"%><br />
+				<%= f.text_field :rent_lte, :placeholder => "To" %>
 				</div>
 			</div>
 		</div><!-- End Price -->
@@ -33,16 +31,9 @@
 			</a>
 
 			<div id="LocationSlider" class="CriterionOptions" style="display: none">
-				<div class="CustomTextFieldWidth">
-				<%= f.label :address_contains, "Address" %><br />
-				<%= f.text_field :address_contains, :class => "ADDRESSSearchBarInputField" %>
-				</div>
-				
-				<!-- NOTE: I hacked the building name search to be right here. 
-						Feel free to move it anywhere. -->
-				<div class="CustomTextFieldWidth">
-				<%= f.label :building_name_contains, "Building" %><br />
-				<%= f.text_field :building_name_contains, :class => "ADDRESSSearchBarInputField" %>
+				<div>
+				<%= f.text_field :address_contains, :placeholder => "Address" %>
+				<%= f.text_field :building_name_contains, :placeholder => "Building" %>
 				</div>
 			</div>
 		</div><!-- End Location -->
@@ -58,8 +49,8 @@
 
 			<div id="TypeOfResSlider" class="CriterionOptions" style="display: none">
 				<div>
-				<%= f.radio_button :ltype_eq, true, :class => "SearchBarCheckOrRadioButtons" %>House<br />
-				<%= f.radio_button :ltype_eq, false, :class => "SearchBarCheckOrRadioButtons" %>Apartment
+				<%= f.radio_button :ltype_eq, true %>House<br />
+				<%= f.radio_button :ltype_eq, false %>Apartment
 				</div>
 			</div>
 		</div><!-- End TypeOfResidence -->
@@ -90,9 +81,7 @@
 				<hr />
 
 				<div class="CustomTextFieldWidth">
-				<%= f.label 	 :squarefeet_gte, "At least" %><br />
-				<%= f.text_field :squarefeet_gte, :class => "ATLEASTSearchBarInputField" %><br />
-				<%= f.label      :squarefeet_gte, "square feet"%>
+				<%= f.text_field :squarefeet_gte, :placeholder => "Minimum square feet" %><br />
 				</div>
 				
 				
@@ -110,16 +99,14 @@
 			</a>
 
 			<div id="LeaseDetailsSlider" class="CriterionOptions" style="display: none">
-				<b><%= f.label :landlord_name, "Landlord" %></b><br />
-				<%= f.collection_select :landlord_id_eq, Landlord.all, :id, :name, :include_blank => true, :class => "landlord_search" %>
-			
-				<br />
-				<br />
 				<div>
-				<b><%= f.label 	   :length_eq, "Length:" %></b><br />
-				<%= f.radio_button :length_eq, 6, :class => "SearchBarCheckOrRadioButtons" %> 6 Months <br />
-				<%= f.radio_button :length_eq, 9, :class => "SearchBarCheckOrRadioButtons" %> 9 Months <br />
-				<%= f.radio_button :length_eq, 12, :class => "SearchBarCheckOrRadioButtons" %> 12 Months <br />
+				<h3><%= f.label :landlord_name, "Landlord:" %></h3>
+				<%= f.collection_select :landlord_id_eq, Landlord.all, :id, :name, :include_blank => true %>
+							
+				<h3><%= f.label :length_eq, "Length:" %></h3>
+				<%= f.radio_button :length_eq, 6 %> 6 Months <br />
+				<%= f.radio_button :length_eq, 9 %> 9 Months <br />
+				<%= f.radio_button :length_eq, 12 %> 12 Months <br />
 				</div>
 			</div>
 		</div><!-- End LeaseDetails -->
@@ -135,13 +122,13 @@
 
 			<div id="UtilitiesSlider" class="CriterionOptions" style="display: none">
 				<div>
-				<%= f.check_box :heat_is_true,:class => "SearchBarCheckOrRadioButtons" %>
+				<%= f.check_box :heat_is_true %>
 				<%= f.label 	:heat_is_true, "Heat" %> <br />
-				<%= f.check_box :electric_is_true, :class => "SearchBarCheckOrRadioButtons" %> 
+				<%= f.check_box :electric_is_true %> 
 				<%= f.label 	:electric_is_true, "Electric" %> <br />
-				<%= f.check_box :gas_is_true, :class => "SearchBarCheckOrRadioButtons" %> 
+				<%= f.check_box :gas_is_true %> 
 				<%= f.label 	:gas_is_true, "Gas" %> <br />
-				<%= f.check_box :garbagecollection_is_true, :class => "SearchBarCheckOrRadioButtons" %>
+				<%= f.check_box :garbagecollection_is_true %>
 				<%= f.label 	:garbagecollection_is_true, "Garbage Collection" %>
 				</div>
 			</div>
@@ -158,11 +145,11 @@
 
 			<div id="AccommodationsSlider" class="CriterionOptions" style="display: none">
 				<div>
-				<%= f.check_box :parking_is_true, :class => "SearchBarCheckOrRadioButtons" %>
+				<%= f.check_box :parking_is_true %>
 				<%= f.label 	:parking_is_true, "Parking" %> <br />
-				<%= f.check_box :laundry_is_true, :class => "SearchBarCheckOrRadioButtons" %>
+				<%= f.check_box :laundry_is_true %>
 				<%= f.label 	:laundry_is_true, "Laundry" %> <br />
-				<%= f.check_box :furnished_is_true, :class => "SearchBarCheckOrRadioButtons" %>
+				<%= f.check_box :furnished_is_true %>
 				<%= f.label 	:furnished_is_true, "Furnished" %>
 				</div>
 			</div>
@@ -179,9 +166,9 @@
 
 			<div id="RestrictionsSlider" class="CriterionOptions" style="display: none">
 				<div>
-				<%= f.check_box :smoking_is_true, :class => "SearchBarCheckOrRadioButtons" %>
+				<%= f.check_box :smoking_is_true %>
 				<%= f.label 	:smoking_is_true, "Smoking" %> <br />
-				<%= f.check_box :pets_is_true, :class => "SearchBarCheckOrRadioButtons" %>
+				<%= f.check_box :pets_is_true %>
 				<%= f.label 	:pets_is_true, "Pets" %> <br />
 				</div>
 			</div>

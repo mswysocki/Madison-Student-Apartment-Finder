@@ -94,11 +94,7 @@
 {
 	border: none;
 	border-radius: 5px;
-}
-
-.CustomTextFieldWidth input
-{
-	width: 125px;
+	padding: 5px;
 }
 
 #ResDetailsSlider hr
@@ -186,44 +182,4 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 60%;
-}
-
-.FROMSearchBarInputField{
-
-	border: 1px solid rgba(255,255,255,0);
-	border-radius: 15px;
-	padding-right: 15px;
-	opacity: 0.5;
-	font-weight:bold;
-}
-
-.TOSearchBarInputField{
-
-	border: 1px solid rgba(255,255,255,0);
-	border-radius: 15px;
-	padding-right: 33px;
-	opacity: 0.5;
-	font-weight:bold;
-}
-
-.ADDRESSSearchBarInputField, .ATLEASTSearchBarInputField{
-
-	border: 1px solid rgba(255,255,255,0);
-	border-radius: 15px;
-	padding-right: 49px;
-	opacity: 0.5;
-	font-weight:bold;
-}
-
-#Search_Sidebar_View select{
-
-	border: 1px solid rgba(255,255,255,0);
-	border-radius:15px;
-	opacity: 0.5;
-	font-weight:bold;
-	
-}
-
-.SearchBarCheckOrRadioButtons{
-	opacity: 0.5;
 }
